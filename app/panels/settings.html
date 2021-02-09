@@ -1,0 +1,115 @@
+<html>
+    <body>
+        <div class="left">
+            <div class="settings left-color">
+                <div class="settings-panel">
+                    <button class="settings-button button" onclick="tab(event, 'settings-account')">Comptes</button>
+                    <button class="settings-button button" onclick="tab(event, 'settings-ram')">ram</button>
+                    <button class="settings-button button" onclick="tab(event, 'settings-java')">java</button>
+                    <button class="save-button settings-button">Sauvegarder</button>
+                </div>
+            </div>
+        </div>
+        <div class="right ad">
+            <div id="settings-account" class="settings-tab">
+                <h1 id="title">Mon compte</h1>
+                <div class="user-info-container">
+                    <div class="user-profile-container">
+                        <div class="user-profile" id="settings-user-compte-profile" style="background-image: url('https://crafatar.com/renders/head/f07f8dd6-5265-4757-81ed-92a58f11df26');"></div>
+                    </div>
+                    <div class="user-container">
+                        <div class="group">
+                            <p class="group-name">Nom d'utilisateur</p>
+                            <p class="group-value" id="profile-user"></p>
+                        </div>
+                        <div class="group">
+                            <p class="group-name">Email</p>
+                            <p class="group-value" id="email-user"></p>
+                        </div>
+                    </div>
+                    <button class="button-logout" id="settings-user-logout-button">Déconnexion</button>
+                </div>
+            </div>
+            <div id="settings-ram" class="settings-tab">
+                <h1 id="title">Mémoire Ram</h1>
+                <div class="info-container">
+                    <p class="title">Information</p>
+                    <p class="desc">Cette page permet de configurer la quantité de mémoire RAM que votre système d'exploitation va allouer à Paladium.
+                        <br><br>Plus cette quantité est importante, plus votre jeu sera stable et aura de bonnes performances.
+                        <br>Toutefois, même si vous en avez beaucoup de disponible sur votre ordinateur, il est inutile d'allouer une très grande quantité de RAM à Paladium.
+                        <br><br><b>- RAM Maximum:</b> Indique la quantité totale de RAM à allouer à Paladium. Il est recommander de ne pas dépasser 50% de la quantité totale de RAM présente sur votre PC. Si votre ordinateur a plus de 8Go de RAM, nous recommandons d'allouer 3Go. Si votre ordinateur a 4Go ou moins, n'allouez pas plus de 2Go.
+                        <br><br><b>- RAM Minimum:</b> Indique la quantité minimale de RAM allouée au démarrage de Paladium. Il n'est pas recommandé de mettre plus de 3Go pour cette valeur. La valeur typique est de 1Go.
+                    </p>
+                </div>
+                <div class="settings-flex-double-container">
+                    <div class="left-container">
+                        <p class="group-name">RAM Maximum</p>
+                        <div class="settings-memory-range-container">
+                            <div class="range-slider" id="settings-max-ram-range" min="0.5" max="4" value="1" step="0.5">
+                                <div class="range-slider-bar"></div>
+                                <div class="range-slider-track"></div>
+                            </div>
+                            <p class="group-value" id="settings-max-ram-label">0G</p>
+                        </div>
+                        <p class="group-name">RAM Minimum</p>
+                        <div class="settings-memory-range-container">
+                            <div class="range-slider" id="settings-min-ram-range" min="0.5" max="4" value="1" step="0.5">
+                                <div class="range-slider-bar"></div>
+                                <div class="range-slider-track"></div>
+                            </div>
+                            <p class="group-value" id="settings-min-ram-label">0G</p>
+                        </div>
+                    </div>
+                    <div class="right-container">
+                        <div class="settings-memory-info">
+                            <div class="settings-memory-info-container">
+                                <p class="group-name" style="margin-top: 1px;">RAM Total sur votre ordinateur :</p>
+                                <p class="group-value" id="settings-memory-total-label" style="margin-left: 5px;">0G</p>
+                            </div>
+                            <div class="settings-memory-info-container">
+                                <p class="group-name" style="margin-top: 1px;">RAM disponible :</p>
+                                <p class="group-value" id="settings-memory-avail-label" style="margin-left: 5px;">0G</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="settings-java" class="settings-tab">
+                <h1 id="title">Java exécutable</h1>
+                <div class="info-container">
+                    <p class="title">Information</p>
+                    <p class="desc">Cette page permet d'indiquer à hariona l'emplacement de l'exécutable Java.
+                        <br><br>Le launcher utilise une version embarquée de Java <i>(Java 8 update 51)</i>, si celui-ci n'est pas déjà installé sur votre ordinateur.
+                        <% if(process.platform === 'win32') { %>
+                            Cette version est disponible dans le répertoire %appdata%/.hariona/runtime.
+                            <br><br>Toutefois, vous pouvez spécifier votre propre exécutable.
+                            <br>Celui-ci se trouve très souvent à cet emplacement:
+                            <br>C:\Program Files\Java\jre1.8.0_XXX\bin <i>(avec XXX le numéro du build de la version)</i>
+                            <br><br>Deux versions de l’exécutable sont disponible dans ce répertoire:
+                            <br>- java.exe
+                            <br>- javaw.exe
+                            <br><br>Par défaut, utilisez javaw.exe.
+                            <% } %>
+                        </p>
+                    </div>
+                    <div class="settings-flex-container">
+                        <input class="textfield" type="text" id="settings-java-executable-textfield" disabled/>
+                        <input class="button-select" id="settings-java-executable-select" type="file" <%= process.platform === 'win32' ? 'accept=.exe' : '' %>>
+                        <label class="button button-settings" for="settings-java-executable-select" style="margin-top: 10px;">Changer</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+    function tab(e, info) {
+        var i, content, links;
+        content = document.getElementsByClassName("settings-tab");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+        document.getElementById(info).style.display = "block";
+        e.currentTarget.className += " active";
+    }
+    </script>
+</html>

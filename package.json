@@ -1,0 +1,79 @@
+{
+  "name": "hariona-launcher",
+  "version": "1.0.1",
+  "productName": "Hariona Launcher",
+  "description": "Hariona Launcher",
+  "main": "app/index.html",
+  "author": "Hariona",
+  "window": {
+    "title": "Hariona Launcher",
+    "width": 400,
+    "height": 500,
+    "frame": false,
+    "resizable": false,
+    "position": "center",
+    "icon": "app/assets/images/icon/icon.png"
+  },
+  "chromium-args":"--enable-logging --v=1",
+  "manifestUrl": "https://luuxis.legtux.org/home/luuxis/launcher/package.json",
+  "webkit": {
+    "plugin": true
+  },
+  "scripts": {
+    "start": "nw .",
+    "build:win": "build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:mac": "build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:linux": "build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "Hariona",
+    "nwVersion": "0.48.4",
+    "packed": true,
+    "targets": [
+      "zip",
+      "nsis7z"
+    ],
+    "strippedProperties": [
+      "build"
+    ],
+    "excludes": [
+      ".gitignore",
+      "package-lock.json",
+      "README.md"
+    ],
+    "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
+    "win": {
+      "productName": "Hariona-Launcher",
+      "companyName": "Hariona-Launcher",
+      "copyright": "copyright",
+      "icon": "./app/assets/images/icon/icon.ico"
+    },
+    "mac": {
+      "displayName": "Hariona-Launcher",
+      "copyright": "copyright",
+      "icon": "./app/assets/images/icon/icon.icns",
+      "plistStrings": {
+        "CFBundleIdentifier": "Hariona-Launcher",
+        "CFBundleDocumentTypes": []
+      }
+    },
+    "nsis": {
+      "installDirectory": "$LOCALAPPDATA\\Programs\\${_COMPANYNAME}",
+      "diffUpdaters": true
+    }
+  },
+  "devDependencies": {
+    "nwjs-builder-phoenix": "^1.9.3",
+    "nw": "^0.48.4"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.1",
+    "node-fetch": "^2.6.1",
+    "nw-autoupdater-luuxis": "^1.0.1",
+    "request": "^2.88.2",
+    "minecraft-hariona": "",
+    "xml-js": "^1.6.11"
+  }
+}

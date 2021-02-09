@@ -1,0 +1,10 @@
+# Configuration
+/.vs/
+/.vscode/
+/test/
+# Generated
+/node_modules/
+/dist/
+/package-lock.json
+
+

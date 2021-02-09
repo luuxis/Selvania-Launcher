@@ -1,0 +1,145 @@
+/* import font */
+
+@import "font";
+*{
+  margin: 0%;
+   
+}
+body{
+  overflow-y: hidden;
+  display: flex;
+}
+
+.dragbar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 26px;
+  -webkit-app-region: drag;
+  z-index: 9;
+
+  &.hide {
+    display: none;
+  }
+}
+.frame {
+  position: absolute;
+  background-color: #03030383;
+  display: table;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+  -webkit-app-region: no-drag;
+
+  &.hide {
+    display: none;
+  }
+
+  .button-frame {
+    position: relative;
+    display: table-cell;
+    width: 30px;
+    height: 26px;
+    transition: color .2s, background-color .2s;
+    color: #1E1E1E;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #000000a2;
+    }
+
+    &.icon-close:hover {
+      background-color:rgba(235, 0, 0, 0.7);
+    }
+
+    &.icon-restore-down:before {
+      top: 5px;
+      left: 7px;
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+    }
+  }
+
+  [class*="icon-"]:before {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+  }
+}
+
+.left{
+  width: 300px;
+  height: 100%;
+  background-color: rgba(102, 97, 97, 0.5);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.joueur{
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px;
+  height: 50px;
+  margin-top: 50px;
+  background-color: blue;
+  border-radius: 15px;
+}
+/*.photos-joueur{
+  width: 25px;
+  height: 25px;
+  background: url("https://crafatar.com/renders/head/f07f8dd6-5265-4757-81ed-92a58f11df26");
+}*/
+
+.server-status{ 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 400px;
+  width: 260px;
+}
+
+.server-img{
+  height: 50px;
+}
+
+.left-color{
+  background-color: rgba(201, 193, 193, 0.5);
+  border-radius: 5px;
+}
+
+.panel-button{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px;
+  height: 50px;
+  margin-top: 15px;
+}
+.button{
+  margin-top: 13px;
+  border-radius: 20px;
+  background-color: rgba(74, 125, 219, 0.986);
+  padding: 2px 15px;
+  border: none;
+}
+
+.ad{
+  margin-left: 100px;
+  margin-top: 200px;
+  width: 700px;
+  height: 400px;
+  background-color: rgb(29, 148, 218);
+  border-radius: 25px;
+}
+.ad-text{
+  font-size: 40px;
+  text-align: center;
+}
+
+/* import panels */
+
+@import "panels/login";
+@import "panels/settings";
