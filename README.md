@@ -14,8 +14,8 @@
 **Cloner et installer les dépendances**
 
 ```console
-> git clone https://github.com/hariona-dev/hariona-launcher-V2.git
-> cd hariona-launcher-V2
+> git clone https://github.com/luuxis/launcher.git
+> cd launcher
 > npm install
 ```
 
@@ -45,4 +45,4 @@ Build pour sa plateforme :
 ---
 
 
-[releases]: https://github.com/hariona-dev/hariona-launcher-V2/releases 'releases'
+[releases]: https://github.com/luuxis/launcher/releases 'releases'
