@@ -41,7 +41,7 @@ Build pour sa plateforme :
 ---
 
 
-[<p align="center"><img src="https://discordapp.com/api/guilds/729008899692429382/embed.png?style=banner4" alt="travis">](https://discord.craftdium.ml) 
+[<p align="center"><img src="https://discordapp.com/api/guilds/729008899692429382/embed.png?style=banner4" alt="discord">](https://discord.craftdium.ml) 
 ---
 
 
