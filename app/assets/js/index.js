@@ -44,7 +44,7 @@ class Splash {
     }
     let splash = splashes[Math.floor(Math.random() * splashes.length)];
     this.splashMessage.textContent = splash.message;
-    this.splashAuthor.children[0].textContent = "@"+splash.author;
+    this.splashAuthor.children[0].textContent = splash.author;
     await sleep(100);
     document.querySelector("#splash").style.display = "block";
     await sleep(500);
