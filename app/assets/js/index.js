@@ -35,8 +35,8 @@ class Splash {
 
   async startAnimation(){
     let splashes = [
-      { "message": "Je veux dormir", "author": "luuxis"},
-      { "message": "Je....Je.... vie...", "author": "Luuxis"}
+      { "message": "Je veux dormir", "author": "luuxis", "author2": "Autoupdate inspiré de paladium."},
+      { "message": "Je....Je.... vie...", "author": "Luuxis", "author2": "Autoupdate inspiré de paladium."}
     ];
     if(localStorage.getItem("theme") == "white"){
       splashes.push(
@@ -45,6 +45,7 @@ class Splash {
     let splash = splashes[Math.floor(Math.random() * splashes.length)];
     this.splashMessage.textContent = splash.message;
     this.splashAuthor.children[0].textContent = "@"+splash.author;
+    this.splashAuthor.children[0].textContent = "@"+splash.author2;
     await sleep(100);
     document.querySelector("#splash").style.display = "block";
     await sleep(500);

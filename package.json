@@ -14,7 +14,7 @@
     "position": "center",
     "icon": "app/assets/images/icon/icon.png"
   },
-  "chromium-args":"--enable-logging --v=1",
+  "chromium-args": "--enable-logging --v=1",
   "manifestUrl": "https://luuxis.legtux.org/home/luuxis/launcher/package.json",
   "webkit": {
     "plugin": true
