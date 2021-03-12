@@ -73,7 +73,6 @@
     "node-fetch": "^2.6.1",
     "nw-autoupdater-luuxis": "^1.0.1",
     "request": "^2.88.2",
-    "minecraft-hariona": "",
     "xml-js": "^1.6.11"
   }
 }
