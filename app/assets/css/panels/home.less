@@ -320,3 +320,108 @@
       }
     }
   }
+  .server {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: var(--header);
+    border-radius: 10px;
+    -webkit-user-select: none;
+  
+    .server-img {
+      position: absolute;
+      width: 42px;
+      height: 45px;
+      top: 15px;
+      left: 15px;
+    }
+  
+    .server-text {
+      .name {
+        position: absolute;
+        font: normal normal bold 17px/25px Poppins;
+        color: var(--text);
+        top: 17px;
+        left: 70px;
+        transition: color .2s;
+      }
+  
+      .desc {
+        position: absolute;
+        font: normal normal normal 11px/17px Poppins;
+        color: var(--text);
+        transition: all .2s;
+        top: 40px;
+        left: 70px;
+        transition: color .2s;
+  
+        .green {
+          color: var(--green);
+        }
+  
+        .red {
+          color: var(--red);
+        }
+      }
+    }
+  
+    .etat-text {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      width: 49px;
+      height: 33px;
+      background-color: var(--box-button);
+      border-radius: 4px;
+      transition: background-color .2s;
+  
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font: normal normal bold 13px/15px Poppins;
+        letter-spacing: 0px;
+        color: var(--text);
+        transition: color .2s;
+      }
+  
+      .online {
+        position: absolute;
+        top: -6px;
+        left: 41px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        border: 2px solid var(--box);
+        transition: all .2s;
+        background-color: var(--green);
+  
+        &.off {
+          background-color: var(--red);
+        }
+      }
+    }
+  
+    .status {
+      position: absolute;
+      top: 68px;
+      left: 15px;
+      font: normal normal normal 13px/20px Poppins;
+      letter-spacing: 0px;
+      color: var(--orange);
+      cursor: pointer;
+      transition: color .2s;
+  
+      &:after {
+        position: absolute;
+        top: 50%;
+        transform: translate(6px, -50%);
+        text-decoration: none;
+      }
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }

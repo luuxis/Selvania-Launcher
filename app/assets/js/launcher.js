@@ -1,4 +1,4 @@
-
+'use strict';
 // Panels
 import Login from './panels/login.js';
 import Settings from './panels/settings.js';
@@ -18,9 +18,9 @@ window.isDev = (window.navigator.plugins.namedItem('Native Client') !== null);
 class Launcher {
   constructor(){
     this.initWindow();
-    this.createPanels(Login, Settings, Home);
     this.backgroundcustome();
     if(process.platform == "win32") this.initFrame();
+    this.createPanels(Home, Login, Settings);
   }
 
 
@@ -182,7 +182,7 @@ class Launcher {
       }
       div.innerHTML = fs.readFileSync(`app/panels/${panel.id}.html`, "utf8");
       panelsElem.appendChild(div);
-      //new panel().init(popup);
+      new panel().init(popup);
     }
   }
 
