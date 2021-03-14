@@ -4,10 +4,8 @@
 //window.isDev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
 class Settings {
-  constructor(){
-    
-  }
+  static id = "settings";
   
 }
 
-new Settings();
+export default Settings;

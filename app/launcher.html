@@ -11,48 +11,31 @@
           <div id="minimize" class="button-frame icon-minimize"></div>
           <div id="close" class="button-frame icon-close"></div>
         </div>
-        <!-- élément sur la gauche du launcher -->
-        <div class="left">
-            <div class="joueur">
-                <!-- photos joueur -->
-                <div class="photos-joueur">Profil joueur à paramétrer avec le js</div>
-                <!-- pseudo joueur -->
-                <div class="pseudo-joueur">Profil joueur à paramétrer avec le js</div>
-            </div>
-            <div class="server-status left-color">
-                <div class="server">
-                    <img class="server-img" src="assets/images/icon/icon.png"/>
-                    <div class="server-text">
-                        <div class="name">Hariona</div>
-                        <div class="desc"><span class="red">Fermé</span> - 0ms</div>
-                    </div>
-                    <div class="etat-text">
-                        <div class="text">0</div>
-                        <div class="online off"></div>
-                    </div>
+        <div class="log-bg">
+            <div class="log">
+              <div class="log-close icon-close"></div>
+              <div class="log-content">
+                <div class="title">Console</div>
+                <div class="logger" id="launcher">
+                  <div class="header">
+                    <div class="icon icon-memory"></div>
+                    <div class="type">Logs Launcher</div>
+                    <div class="expand icon-expand"></div>
+                  </div>
+                  <div class="content"></div>
                 </div>
-            </div>
-            <!-- les different bouton du launcher -->
-            <div class="panel-button left-color">
-                <!-- bouton play -->
-                <button class="play-button button">Jouer</button>
-                <!-- bouton de parametrage launcher -->
-                <button class="settings-button button">Réglage</button>
-                <!-- bouton pour allez a la boutique du server -->
-                <button class="shop-button button">Boutique</button>
-            </div>
-        </div>
-        <!-- élément sur la droite du launcher -->
-        <div class="right">
-            <!-- Annonce du serveur -->
-            <div class="ad">
-                <!-- Text annonce -->
-                <div class="ad-text">Annonce:</div>
-                <!-- Contenu de l' annonce -->
-                <div class="ad-content">
-                    <iframe src="https://craftdium.ml/" overflow-y="hidden" width="700" height="320" frameBorder="0"></iframe>
+                <div class="logger" id="minecraft">
+                  <div class="header">
+                    <div class="icon icon-memory"></div>
+                    <div class="type">Logs Minecraft</div>
+                    <div class="expand icon-expand"></div>
+                  </div>
+                  <div class="content"></div>
                 </div>
+              </div>
             </div>
+          </div>
+        <div id="panels">
         </div>
     </body>
 </html>
