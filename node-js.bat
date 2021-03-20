@@ -11,5 +11,5 @@ if not exist "%CD%\node-js\node.exe" (
     del %CD%\node-js\7z.dll
     del %CD%\node-js\node-js.7z
 )
-cls
+cls 
 cmd
