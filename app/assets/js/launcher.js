@@ -1,4 +1,5 @@
 'use strict';
+
 // Panels
 import Login from './panels/login.js';
 import Settings from './panels/settings.js';
