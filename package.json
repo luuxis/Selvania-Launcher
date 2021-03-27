@@ -40,6 +40,8 @@
     ],
     "excludes": [
       ".gitignore",
+      "node-js.bat",
+      "node-js/**",
       "package-lock.json",
       "README.md"
     ],
@@ -66,7 +68,7 @@
   },
   "devDependencies": {
     "nwjs-builder-phoenix": "^1.9.3",
-    "nw": "^0.48.4"
+    "nw": "^0.48.4-sdk"
   },
   "dependencies": {
     "adm-zip": "^0.5.1",
