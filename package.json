@@ -7,9 +7,9 @@
   "author": "Hariona",
   "window": {
     "title": "Hariona Launcher",
-    "width": 400,
+    "width": 700,
     "height": 500,
-    "frame": false,
+    "frame": true,
     "resizable": false,
     "position": "center",
     "icon": "app/assets/images/icon/icon.png"
