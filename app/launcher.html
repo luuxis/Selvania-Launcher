@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<head>
+<html>
+  <head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy" content="script-src 'self' 'wasm-eval'; object-src 'self'">
     <link rel="stylesheet/less" type="text/css" href="assets/css/launcher.less" />
-    <link rel="import" href="panels/login-offline.html">
     <script src="assets/js/lib/less.js"></script>
-</head>
-<body class="hide">
+  </head>
+  <body class="hide">
     <div class="dragbar hide"></div>
     <div class="frame hide">
-        <div id="minimize" class="button-frame icon-minimize"></div>
-        <div id="close" class="button-frame icon-close"></div>
+      <div id="minimize" class="button icon-minimize"></div>
+      <div id="close" class="button icon-close"></div>
     </div>
-</body>
-<script src="assets/js/launcher.js"></script>
+    <div id="panels">
+    </div>
+    <script src="assets/js/launcher.js" type="module"></script>
+  </body>
 </html>

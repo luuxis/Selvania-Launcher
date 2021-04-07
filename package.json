@@ -30,7 +30,7 @@
   "license": "MIT",
   "build": {
     "appId": "Evoldia-Network Launcher",
-    "nwVersion": "0.52.1",
+    "nwVersion": "0.48.4",
     "packed": true,
     "targets": [
       "zip",
@@ -67,8 +67,8 @@
       "diffUpdaters": true
     }
   },
-  "devDependencies": {    
-    "nw": "^0.52.1-sdk",
+  "devDependencies": {
+    "nw": "^0.48.4-sdk",
     "nwjs-builder-phoenix": "^1.9.3"
   },
   "dependencies": {
