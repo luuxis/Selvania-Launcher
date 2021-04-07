@@ -1,0 +1,51 @@
+@import "font";
+@import "panels/login.less";
+
+.frame {
+    position: absolute;
+    background-color: #03030383;
+    display: table;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    -webkit-app-region: no-drag;
+  
+    &.hide {
+      display: none;
+    }
+  
+    .button-frame {
+      position: relative;
+      display: table-cell;
+      width: 30px;
+      height: 26px;
+      transition: color .2s, background-color .2s;
+      color: #1E1E1E;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #000000a2;
+      }
+  
+      &.icon-close:hover {
+        background-color:rgba(235, 0, 0, 0.7);
+      }
+  
+      &.icon-restore-down:before {
+        top: 5px;
+        left: 7px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+      }
+    }
+  
+    [class*="icon-"]:before {
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+    }
+}

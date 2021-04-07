@@ -1,12 +1,12 @@
 {
-  "name": "hariona-launcher",
-  "version": "1.0.1",
-  "productName": "Hariona Launcher",
-  "description": "Hariona Launcher",
+  "name": "Evoldia-Network-Launcher",
+  "version": "1.0.2",
+  "productName": "Evoldia-Network Launcher",
+  "description": "Evoldia-Network Launcher",
   "main": "app/index.html",
-  "author": "Hariona",
+  "author": "Luuxis",
   "window": {
-    "title": "Hariona Launcher",
+    "title": "Evoldia update",
     "width": 400,
     "height": 500,
     "frame": false,
@@ -14,8 +14,9 @@
     "position": "center",
     "icon": "app/assets/images/icon/icon.png"
   },
-  "chromium-args": "--enable-logging --v=1",
-  "manifestUrl": "https://luuxis.legtux.org/home/luuxis/launcher/package.json",
+  "chromium-args": "--enable-logging --v=1 ",
+  "config": "http://launcher.webincloudy.fr/users/luuxis/launcher/config-launcher/config.json",
+  "manifestUrl": "http://launcher.webincloudy.fr/users/luuxis/launcher/package.json",
   "webkit": {
     "plugin": true
   },
@@ -28,8 +29,8 @@
   },
   "license": "MIT",
   "build": {
-    "appId": "Hariona",
-    "nwVersion": "0.48.4",
+    "appId": "Evoldia-Network-Launcher",
+    "nwVersion": "0.52.1",
     "packed": true,
     "targets": [
       "zip",
@@ -47,17 +48,17 @@
     ],
     "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
     "win": {
-      "productName": "Hariona-Launcher",
-      "companyName": "Hariona-Launcher",
+      "productName": "Evoldia-Network-Launcher",
+      "companyName": "Evoldia-Network-Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.ico"
     },
     "mac": {
-      "displayName": "Hariona-Launcher",
+      "displayName": "Evoldia-Network-Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.icns",
       "plistStrings": {
-        "CFBundleIdentifier": "Hariona-Launcher",
+        "CFBundleIdentifier": "Evoldia-Network-Launcher",
         "CFBundleDocumentTypes": []
       }
     },
@@ -67,14 +68,18 @@
     }
   },
   "devDependencies": {
-    "nwjs-builder-phoenix": "^1.9.3",
-    "nw": "^0.48.4-sdk"
+    "nw": "^0.52.1-sdk",
+    "nwjs-builder-phoenix": "^1.9.3"
   },
   "dependencies": {
-    "adm-zip": "^0.5.1",
+    "emc-core-luuxis": "^1.0.0",
     "node-fetch": "^2.6.1",
-    "nw-autoupdater-luuxis": "^1.0.1",
+    "nw-autoupdater": "^1.1.11",
     "request": "^2.88.2",
     "xml-js": "^1.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luuxis/launcher.git"
   }
 }
