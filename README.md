@@ -1,10 +1,10 @@
-**<p align="center"><img src=".\app\assets\images\hariona-large.png" width="400px" height="225px" alt="hariona"></p>**
+<p align="center"><img src=".\app\assets\images\hariona-large.png" width="400px" height="225px" alt="Evoldia-Network"></p>
 
 <h1 align="center">Evoldia-Network Launcher</h1>
 
 <p align="center">
     <img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="build">
-    <img src="https://img.shields.io/badge/version-v1.0.1-orange.svg?style=for-the-badge" alt="version">  
+    <img src="https://img.shields.io/badge/version-v1.0.2-orange.svg?style=for-the-badge" alt="version">  
     <img src="https://img.shields.io/badge/plateforme-win, mac, linux-blue.svg?style=for-the-badge" alt="distribution">
 </p>
 

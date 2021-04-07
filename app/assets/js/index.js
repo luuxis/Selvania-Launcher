@@ -69,7 +69,7 @@ class index {
   async maintenanceCheck(){
     this.setStatus(`Démarrage du launcher`);
     config.fetch().then(res => {
-      if ((res.maintenance) == "on"){
+      if ((res.maintenance) == "off"){
         return this.shutdown("Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.");
       }
       this.startLauncher();
