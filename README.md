@@ -1,6 +1,6 @@
-<p align="center"><img src=".\app\assets\images\hariona-large.png" width="400px" height="225px" alt="hariona"></p>
+**<p align="center"><img src=".\app\assets\images\hariona-large.png" width="400px" height="225px" alt="hariona"></p>**
 
-<h1 align="center">Hariona Launcher</h1>
+<h1 align="center">Evoldia-Network Launcher</h1>
 
 <p align="center">
     <img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="build">
@@ -14,8 +14,8 @@
 **Cloner et installer les dépendances**
 
 ```console
-> git clone https://github.com/luuxis/launcher.git
-> cd launcher
+> git clone https://github.com/luuxis/Evoldia-Network-Launcher.git
+> cd Evoldia-Network-Launcher
 > npm install
 ```
 
@@ -37,6 +37,7 @@ Build pour sa plateforme :
 | Windows  | `npm run build:win`   |
 | macOS    | `npm run build:mac`   |
 | Linux    | `npm run build:linux` |
+| All    | `npm run build:all` |
 
 ---
 

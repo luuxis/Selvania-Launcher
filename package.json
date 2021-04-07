@@ -1,6 +1,6 @@
 {
   "name": "Evoldia-Network-Launcher",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "productName": "Evoldia-Network Launcher",
   "description": "Evoldia-Network Launcher",
   "main": "app/index.html",
@@ -29,7 +29,7 @@
   },
   "license": "MIT",
   "build": {
-    "appId": "Evoldia-Network-Launcher",
+    "appId": "Evoldia-Network Launcher",
     "nwVersion": "0.52.1",
     "packed": true,
     "targets": [
@@ -48,17 +48,17 @@
     ],
     "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
     "win": {
-      "productName": "Evoldia-Network-Launcher",
-      "companyName": "Evoldia-Network-Launcher",
+      "productName": "Evoldia-Network Launcher",
+      "companyName": "Evoldia-Network Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.ico"
     },
     "mac": {
-      "displayName": "Evoldia-Network-Launcher",
+      "displayName": "Evoldia-Network Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.icns",
       "plistStrings": {
-        "CFBundleIdentifier": "Evoldia-Network-Launcher",
+        "CFBundleIdentifier": "Evoldia-Network Launcher",
         "CFBundleDocumentTypes": []
       }
     },
@@ -80,6 +80,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luuxis/launcher.git"
+    "url": "git+https://github.com/luuxis/Evoldia-Network-Launcher.git"
   }
 }
