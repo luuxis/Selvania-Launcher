@@ -43,6 +43,7 @@
       ".gitignore",
       "node-js.bat",
       "node-js/**",
+      "test/**",
       "package-lock.json",
       "README.md"
     ],
@@ -72,10 +73,10 @@
     "nwjs-builder-phoenix": "^1.9.3"
   },
   "dependencies": {
+    "adm-zip": "^0.4.16",
     "emc-core-luuxis": "^1.0.0",
     "node-fetch": "^2.6.1",
     "nw-autoupdater": "^1.1.11",
-    "request": "^2.88.2",
     "xml-js": "^1.6.11"
   },
   "repository": {
