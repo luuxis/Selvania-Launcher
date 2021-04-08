@@ -1,4 +1,4 @@
-<p align="center"><img src=".\app\assets\images\hariona-large.png" width="400px" height="225px" alt="Evoldia-Network"></p>
+<p align="center"><img src="./app/assets/images/icon/icon.png" width="400px" height="225px" alt="Evoldia-Network"></p>
 
 <h1 align="center">Evoldia-Network Launcher</h1>
 
