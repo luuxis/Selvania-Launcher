@@ -6,13 +6,13 @@ class Login {
   static id = "login";
 
   async init(){
-   this.changePanel("home");
+   
     if (auth.isLogged()){
-      this.changePanel("home");
+     // this.changePanel("home");
     }
   }
 
-  function login(online) {
+  /*function login(online) {
     if (online){
       if (document.querySelector(".pseudo").value == ""){
         document.querySelector(".error").style.display = "block";
@@ -29,7 +29,7 @@ class Login {
       document.querySelector(".password").disabled = false;
       document.querySelector(".error").style.display = "block";
     })
-  }
+  }*/
 
 
 }
