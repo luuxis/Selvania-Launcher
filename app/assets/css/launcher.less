@@ -3,6 +3,31 @@
 @import "font";
 @import "panels/login.less";
 
+
+#panels {
+
+  & > div {
+    transition: all .2s;
+    opacity: 0;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+      z-index: 1;
+    }
+  }
+
+  #login, #home, #settings {
+    position: absolute;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .dragbar {
   position: absolute;
   top: 0px;

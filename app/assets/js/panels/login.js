@@ -1,10 +1,21 @@
 'use strict';
+const { auth } = require("./assets/js/lib/utils.js");
 
 class Login {
   static id = "login";
 
-  async init(popup){
-    this.popup = popup;
+  async init(){
+    this.Login();
+    if (auth.isLogged()){
+      this.changePanel("home");
+
+    }
+  }
+
+
+  Login(){
+
+
   }
 
 

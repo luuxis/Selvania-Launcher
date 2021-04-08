@@ -3,6 +3,7 @@
 import Login from './panels/login.js';
 import Login_Offline from './panels/login-offline.js';
 import Login_Online from './panels/login-online.js';
+import Home from './panels/home.js';
 
 
 // Libs
@@ -24,7 +25,7 @@ class Launcher {
     console.log("Initializing Launcher...");
     this.backgroundcustome();
     if(process.platform == "win32") this.initFrame();
-    this.createPanels(Login, Login_Online, Login_Offline);
+    this.createPanels(Login, Login_Online, Login_Offline, Home);
     this.logincheck();
   }
 
