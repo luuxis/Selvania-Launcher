@@ -2,6 +2,7 @@
 
 import Login from './panels/login.js';
 import Login_Offline from './panels/login-offline.js';
+import Login_Online from './panels/login-online.js';
 
 
 // Libs
@@ -23,7 +24,7 @@ class Launcher {
     console.log("Initializing Launcher...");
     this.backgroundcustome();
     if(process.platform == "win32") this.initFrame();
-    this.createPanels(Login, Login_Offline);
+    this.createPanels(Login, Login_Online, Login_Offline);
     this.logincheck();
   }
 
@@ -32,7 +33,6 @@ class Launcher {
   createPanels(...panels){
     let panelsElem = document.querySelector("#panels");
     for(let panel of panels){
-      console.log(`Initializing ${panel.name} Panel...`);
       let div = document.createElement("div");
       div.id = panel.id;
       if(div.id == "login"){
@@ -68,7 +68,7 @@ class Launcher {
     config.isonline().then(online => {
       if(online){
         console.log("Loading online login \(officiel login\)");
-        this.changePanel("login-offline");
+        this.changePanel("login-online");
       } else {
         console.log("Loading offline login \(crack login\)");
         this.changePanel("login-offline");
