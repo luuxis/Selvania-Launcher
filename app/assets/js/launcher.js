@@ -10,8 +10,8 @@ import Home from './panels/home.js';
 import Popup from './lib/Popup.js';
 
 const fs = require("fs");
-const convert = require("xml-js");
 const popup = new Popup();
+
 const { config } = require("./assets/js/lib/utils.js");
 
 let win = nw.Window.get();
@@ -73,7 +73,6 @@ class Launcher {
       } else {
         console.log("Loading offline login \(crack login\)");
        this.changePanel("login-offline");
-       //this.changePanel("home");
       }
     })
   }
