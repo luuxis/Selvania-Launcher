@@ -1,0 +1,89 @@
+   
+  .server-img{
+    height: 50px;
+  }
+
+  .server {
+    width: 280px;
+    background-color: rgba(201, 193, 193, 0.787);
+    position: relative;
+    height: 75px;
+    border-radius: 10px;
+    -webkit-user-select: none;
+  
+    .server-img {
+      position: absolute;
+      width: 42px;
+      height: 45px;
+      top: 15px;
+      left: 15px;
+    }
+  
+    .server-text {
+      .name {
+        position: absolute;
+        font: normal normal bold 17px/25px Poppins;
+        top: 17px;
+        left: 70px;
+        transition: color .2s;
+      }
+  
+      .desc {
+        position: absolute;
+        font: normal normal normal 11px/17px Poppins;
+        transition: all .2s;
+        top: 40px;
+        left: 70px;
+        transition: color .2s;
+      }
+    }
+  
+    .etat-text {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      width: 49px;
+      height: 33px;
+      border-radius: 4px;
+  
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font: normal normal bold 13px/15px Poppins;
+        letter-spacing: 0px;
+        transition: color .2s;
+      }
+  
+      .online {
+        transition: all .2s;
+        color: green;
+  
+        &.off {
+          color: red;
+        }
+      }
+    }
+  
+    .status {
+      position: absolute;
+      top: 68px;
+      left: 15px;
+      font: normal normal normal 13px/20px Poppins;
+      letter-spacing: 0px;
+      cursor: pointer;
+      transition: color .2s;
+  
+      &:after {
+        position: absolute;
+        top: 50%;
+        transform: translate(6px, -50%);
+        text-decoration: none;
+      }
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
