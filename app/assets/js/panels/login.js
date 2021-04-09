@@ -1,18 +1,37 @@
 'use strict';
 
 const { auth } = require("./assets/js/lib/utils.js");
+const fs = require("fs");
+const convert = require("xml-js");
+const net = require('net');
 
 class Login {
   static id = "login";
 
-  async init(){
-   
+  async init(popup , changePanel){
+    this.popup = popup;
+    this.changePanel = changePanel;
+    this.changePanel("home");
     if (auth.isLogged()){
-     // this.changePanel("home");
+      console.log("ok")
     }
+    this.login();
   }
 
-  /*function login(online) {
+
+  login(){
+  let status = document.querySelector(".login-btn");
+  status.addEventListener("click", () => {
+    nw.Shell.openExternal("https://craftdium.ml");
+  });
+}
+  
+
+
+
+  /*
+login(){
+  document.getElementById('login-btn').addEventListener('click', e => {
     if (online){
       if (document.querySelector(".pseudo").value == ""){
         document.querySelector(".error").style.display = "block";
@@ -23,13 +42,17 @@ class Login {
     document.querySelector(".password").disabled = true;
     document.querySelector(".error").style.display = "none";
     auth.Login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
-      this.changePanel("home");
+      //this.changePanel("home");
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;
       document.querySelector(".error").style.display = "block";
     })
-  }*/
+  })
+
+}*/
+
+    
 
 
 }

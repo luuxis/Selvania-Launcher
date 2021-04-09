@@ -72,7 +72,8 @@ class Launcher {
         this.changePanel("login-online");
       } else {
         console.log("Loading offline login \(crack login\)");
-        this.changePanel("login-offline");
+       this.changePanel("login-offline");
+       //this.changePanel("home");
       }
     })
   }

@@ -70,13 +70,13 @@ class index {
     this.setStatus(`Démarrage du launcher`);
     config.fetch().then(res => {
       if ((res.maintenance) == "off"){
-        return this.shutdown("Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.");
+        return this.shutdown(res.maintenance-message);
       }
       this.startLauncher();
     }).catch( err => {
       console.log("impossible de charger le package.json");
       console.log(err);
-      return this.shutdown("Aucune connexion internet détectée<br>veuillez réessayer plus tard.");
+      return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
     })
   }
 
