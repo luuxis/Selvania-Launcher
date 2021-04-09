@@ -25,6 +25,7 @@ class Login {
   
   login(){
     let status = document.querySelector(".login-btn");
+    status.addEventListener("click", () => {
       document.getElementById('login-btn').addEventListener('click', e => {
         if (online){
           if (document.querySelector(".pseudo").value == ""){
@@ -45,7 +46,7 @@ class Login {
       })
     })
   }
-
+}
 
 
 export default Login;
