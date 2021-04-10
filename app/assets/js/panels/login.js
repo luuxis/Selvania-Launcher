@@ -6,7 +6,6 @@ class Login {
   static id = "login";
 
   async init(){
-   
 
   }
 

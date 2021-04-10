@@ -1,8 +1,5 @@
 'use strict';
 
-import Login from './panels/login.js';
-import Login_Offline from './panels/login-offline.js';
-import Login_Online from './panels/login-online.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
 
@@ -27,7 +24,7 @@ class Launcher {
     console.log("Initializing Launcher...");
     this.backgroundcustome();
     if(process.platform == "win32") this.initFrame();
-    this.createPanels(Login, Login_Online, Login_Offline, Home, Settings);
+    this.createPanels(Home, Settings);
     this.logincheck();
   }
 
@@ -71,11 +68,16 @@ class Launcher {
     config.isonline().then(online => {
       if(online){
         console.log("Loading online login \(officiel login\)");
-        this.changePanel("login-online");
+        if (auth.isLogged()){
+          this.changePanel("home");
+        }
         this.login();
       } else {
         console.log("Loading offline login \(crack login\)");
-        this.changePanel("login-offline");
+        if (auth.isLogged()){
+          console.log("ok")
+          this.changePanel("home");
+        }
         this.login();
       }
     })
@@ -83,27 +85,24 @@ class Launcher {
 
 
   login(){
-    if (auth.isLogged()){
-      Launcher.changePanel("home");
-    }
-
-    let status = document.querySelector(".login-btn");
-    status.addEventListener("click", () => {
-      if (online){
-        if (document.querySelector(".pseudo").value == ""){
-          document.querySelector(".error").style.display = "block";
-          return;
+    config.isonline().then(online => {
+      document.querySelector(".login-btn").addEventListener("click", () => {
+        if (online){
+          if (document.querySelector(".pseudo").value == ""){
+            document.querySelector(".error").style.display = "block";
+            return;
+          }
         }
-      }
-      document.querySelector(".pseudo").disabled = true;
-      document.querySelector(".password").disabled = true;
-      document.querySelector(".error").style.display = "none";
-      auth.Login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
-        this.Launcher.changePanel("home");
-      }).catch (err => {
-        document.querySelector(".pseudo").disabled = false;
-        document.querySelector(".password").disabled = false;
-        document.querySelector(".error").style.display = "block";
+        document.querySelector(".pseudo").disabled = true;
+        //document.querySelector(".password").disabled = true;
+        document.querySelector(".error").style.display = "none";
+        auth.login(document.querySelector(".pseudo").value).then(user => {
+          this.changePanel("home");
+        }).catch (err => {
+          document.querySelector(".pseudo").disabled = false;
+          //document.querySelector(".password").disabled = false;
+          document.querySelector(".error").style.display = "block";
+        })
       })
     })
   }
