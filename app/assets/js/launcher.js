@@ -25,7 +25,7 @@ class Launcher {
     this.backgroundcustome();
     if(process.platform == "win32") this.initFrame();
     this.createPanels(Home, Settings);
-    this.logincheck();
+    this.login();
   }
 
 
@@ -64,43 +64,30 @@ class Launcher {
     })
   }
   
-  logincheck(){
-    config.isonline().then(online => {
-      if(online){
-        console.log("Loading online login \(officiel login\)");
-        if (auth.isLogged()){
-          this.changePanel("home");
-        }
-        this.login();
-      } else {
-        console.log("Loading offline login \(crack login\)");
-        if (auth.isLogged()){
-          console.log("ok")
-          this.changePanel("home");
-        }
-        this.login();
-      }
-    })
-  }
-
-
   login(){
     config.isonline().then(online => {
+      if (auth.isLogged()){
+        this.changePanel("home");
+      }
+      if (online){
+        console.log("Loading online login \(officiel login\)");
+        document.querySelector(".OnLine").style.display = "block";
+      } else {
+        console.log("Loading offline login \(crack login\)");
+        document.querySelector(".OffLine").style.display = "block";
+      }
       document.querySelector(".login-btn").addEventListener("click", () => {
         if (online){
+          
           if (document.querySelector(".pseudo").value == ""){
             document.querySelector(".error").style.display = "block";
             return;
-          }
+          } 
         }
-        document.querySelector(".pseudo").disabled = true;
-        //document.querySelector(".password").disabled = true;
         document.querySelector(".error").style.display = "none";
         auth.login(document.querySelector(".pseudo").value).then(user => {
           this.changePanel("home");
         }).catch (err => {
-          document.querySelector(".pseudo").disabled = false;
-          //document.querySelector(".password").disabled = false;
           document.querySelector(".error").style.display = "block";
         })
       })

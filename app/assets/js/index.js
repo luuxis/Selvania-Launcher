@@ -69,8 +69,8 @@ class index {
   async maintenanceCheck(){
     this.setStatus(`Démarrage du launcher`);
     config.fetch().then(res => {
-      if ((res.maintenance) == "off"){
-        return this.shutdown(res.maintenance-message);
+      if ((res.maintenance) == "on"){
+        return this.shutdown(res.maintenance_message);
       }
       this.startLauncher();
     }).catch( err => {

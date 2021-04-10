@@ -2,11 +2,9 @@
 
 <h1 align="center">Evoldia-Network Launcher</h1>
 
-<p align="center">
-    <img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="build">
-    <img src="https://img.shields.io/badge/version-v1.0.2-orange.svg?style=for-the-badge" alt="version">  
-    <img src="https://img.shields.io/badge/plateforme-win, mac, linux-blue.svg?style=for-the-badge" alt="distribution">
-</p>
+
+[<p align="center">
+<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/launcher/releases) [<img src="https://img.shields.io/badge/version-v1.0.0-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/launcher/releases) [<img src="https://img.shields.io/badge/plateforme-win, mac, linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/launcher/releases) </p>
 
 
 ---
@@ -47,3 +45,6 @@ Build pour sa plateforme :
 
 
 [releases]: https://github.com/luuxis/launcher/releases 'releases'
+[build]: https://github.com/luuxis/launcher/releases 'build'
+
+

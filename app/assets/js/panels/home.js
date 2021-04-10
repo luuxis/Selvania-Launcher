@@ -1,8 +1,6 @@
 'use strict';
-const fs = require("fs");
-const convert = require("xml-js");
 const net = require('net');
-const pkg = require("../package.json");
+const { config } = require("./assets/js/lib/utils.js");
 class Home {
   static id = "home";
 
@@ -13,19 +11,19 @@ class Home {
 
   }
   
-  
   async setStatus(){
-    let player = document.querySelector(".etat-text .text");
-    let desc = document.querySelector(".server-text .desc");
-    let online = document.querySelector(".etat-text .online");
+    config.fetch().then(res => {
+      let player = document.querySelector(".etat-text .text");
+      let desc = document.querySelector(".server-text .desc");
+      let online = document.querySelector(".etat-text .online");
 
 
-    let server = await testServer("minecraft.hariona.fr");
+    let server = await testServer(res.ip_server);
 
     if(server.error){
-      server = await testServer("minecraft.hariona.fr");
+      server = await testServer(res.ip_server);
       if(server.error){
-        server = await testServer("minecraft.hariona.fr");
+        server = await testServer(res.ip_server);
         if(server.error){
           desc.innerHTML = `<span class="red">Fermé</span> - 0ms`;
           if(!online.classList.contains("off")) online.classList.toggle("off");
@@ -66,7 +64,13 @@ class Home {
         });
       });
     }
+    }).catch( err => {
+      console.log("impossible de charger le package.json");
+      console.log(err);
+    })
+
   }
 }
+  
 
 export default Home;
