@@ -79,6 +79,19 @@ class Launcher {
 
 
       document.querySelector(".login_on-btn").addEventListener("click", () => {
+        if (document.querySelector(".passeword").value == ""){
+          document.querySelector(".error").style.display = "block";
+          return;
+        } 
+        document.querySelector(".error").style.display = "none";
+        auth.login(document.querySelector(".pseudo").value).then(user => {
+          this.changePanel("home");
+        }).catch (err => {
+          document.querySelector(".error").style.display = "block";
+        })
+      })
+
+      document.querySelector(".login_off-btn").addEventListener("click", () => {
         if (document.querySelector(".pseudo").value == ""){
           document.querySelector(".error").style.display = "block";
           return;
@@ -90,6 +103,7 @@ class Launcher {
           document.querySelector(".error").style.display = "block";
         })
       })
+
     })
   }
 
