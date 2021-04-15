@@ -84,7 +84,7 @@ class Launcher {
           return;
         } 
         document.querySelector(".error").style.display = "none";
-        auth.login(document.querySelector(".pseudo").value).then(user => {
+        auth.Login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
           this.changePanel("home");
         }).catch (err => {
           document.querySelector(".error").style.display = "block";
