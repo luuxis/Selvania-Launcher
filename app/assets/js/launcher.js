@@ -71,15 +71,16 @@ class Launcher {
       }
       if (online){
         console.log("Loading online login \(officiel login\)");
-        document.querySelector(".OnLine").style.display = "block";
+        document.querySelector(".login_on").style.display = "flex";
       } else {
         console.log("Loading offline login \(crack login\)");
-        document.querySelector(".OffLine").style.display = "block";
+        document.querySelector(".login_off").style.display = "flex";
       }
       document.querySelector(".login-btn").addEventListener("click", () => {
         if (online){
           
           if (document.querySelector(".pseudo").value == ""){
+            window.close()
             document.querySelector(".error").style.display = "block";
             return;
           } 
@@ -93,8 +94,6 @@ class Launcher {
       })
     })
   }
-
-
 
 
 

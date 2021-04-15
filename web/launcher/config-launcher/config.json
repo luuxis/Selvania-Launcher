@@ -1,8 +1,8 @@
 {
   "ip_server": "127.0.0.1",
   "maintenance": "off",
-  "offline": "off",
   "maintenance_message": "Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.",
+  "offline": "off",
   "game_url": "https://launcher.webincloudy.fr/users/luuxis/files/",
   "game_version": "1.12.2",
   "dataDirectory": ".evoldianetwork"
