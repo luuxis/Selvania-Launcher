@@ -76,15 +76,13 @@ class Launcher {
         console.log("Loading offline login \(crack login\)");
         document.querySelector(".login_off").style.display = "flex";
       }
-      document.querySelector(".login-btn").addEventListener("click", () => {
-        if (online){
-          
-          if (document.querySelector(".pseudo").value == ""){
-            window.close()
-            document.querySelector(".error").style.display = "block";
-            return;
-          } 
-        }
+
+
+      document.querySelector(".login_on-btn").addEventListener("click", () => {
+        if (document.querySelector(".pseudo").value == ""){
+          document.querySelector(".error").style.display = "block";
+          return;
+        } 
         document.querySelector(".error").style.display = "none";
         auth.login(document.querySelector(".pseudo").value).then(user => {
           this.changePanel("home");
