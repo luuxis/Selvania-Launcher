@@ -5,5 +5,6 @@
   "offline": "off",
   "game_url": "https://launcher.webincloudy.fr/users/luuxis/files/",
   "game_version": "1.12.2",
+  "forge_version": "14.23.5.2854",
   "dataDirectory": ".evoldianetwork"
 }
