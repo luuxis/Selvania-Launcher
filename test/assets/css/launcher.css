@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Icons';
+    src: url('../fonts/Icons.woff2') format('woff2');
+}
+
 .frame {
     position: absolute;
     background-color: #03030383;
@@ -7,23 +12,22 @@
     z-index: 10;
     -webkit-app-region: no-drag;
 }
-.button-frame {
-    position: relative;
-    display: table-cell;
-    width: 30px;
-    height: 26px;
-    transition: color .2s, background-color .2s;
-    color: #1E1E1E;
-    cursor: pointer;
-}
+  .button-frame {
+      position: relative;
+      display: table-cell;
+      width: 30px;
+      height: 26px;
+      transition: color .2s, background-color .2s;
+      color: #1E1E1E;
+      cursor: pointer;
+      height: 16px;
+      font-size: 16px;
+      }
+
+      
   
-  
-    [class*="icon-"]:before {
-      position: absolute;
-      top: 6px;
-      left: 8px;
-      width: 14px;
-      height: 14px;
-      font-size: 14px;
-    }
-  
+
+
+
+.icon-close:before { font-family: "Icons"; content: "\e90e"; }
+.icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
