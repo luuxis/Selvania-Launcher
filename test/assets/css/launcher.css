@@ -1,0 +1,29 @@
+.frame {
+    position: absolute;
+    background-color: #03030383;
+    display: table;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    -webkit-app-region: no-drag;
+}
+.button-frame {
+    position: relative;
+    display: table-cell;
+    width: 30px;
+    height: 26px;
+    transition: color .2s, background-color .2s;
+    color: #1E1E1E;
+    cursor: pointer;
+}
+  
+  
+    [class*="icon-"]:before {
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+    }
+  
