@@ -5,7 +5,7 @@ import Unzipper from "./lib/Unzipper.js";
 
 const AutoUpdater = require("nw-autoupdater");
 const pkg = require("../package.json");
-const { config } = require("./assets/js/lib/utils.js");
+const { config } = require('./assets/js/utils.js');
 const os = require("os");
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 const fs = require("fs");
