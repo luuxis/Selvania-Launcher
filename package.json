@@ -1,86 +1,32 @@
 {
-  "name": "Evoldia-Network-Launcher",
+  "name": "starter",
   "version": "1.0.0",
-  "productName": "Evoldia-Network Launcher",
-  "description": "Evoldia-Network Launcher",
-  "main": "app/index.html",
-  "author": "Luuxis",
-  "window": {
-    "title": "Evoldia update",
-    "width": 400,
-    "height": 500,
-    "frame": false,
-    "resizable": false,
-    "position": "center",
-    "icon": "app/assets/images/icon/icon.png"
-  },
-  "chromium-args": "--enable-logging --v=1 ",
-  "config": "http://launcher.webincloudy.fr/users/luuxis/launcher/config-launcher/config.json",
-  "manifestUrl": "http://launcher.webincloudy.fr/users/luuxis/launcher/package.json",
-  "webkit": {
-    "plugin": true
-  },
-  "scripts": {
-    "start": "nw .",
-    "build:win": "build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:mac": "build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:linux": "build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
-  },
-  "license": "MIT",
-  "build": {
-    "appId": "Evoldia-Network Launcher",
-    "nwVersion": "0.48.4",
-    "packed": true,
-    "targets": [
-      "zip",
-      "nsis7z"
-    ],
-    "strippedProperties": [
-      "build"
-    ],
-    "excludes": [
-      ".gitignore",
-      "node-js.bat",
-      "node-js/**",
-      "test/**",
-      "package-lock.json",
-      "README.md"
-    ],
-    "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
-    "win": {
-      "productName": "Evoldia-Network Launcher",
-      "companyName": "Evoldia-Network Launcher",
-      "copyright": "copyright",
-      "icon": "./app/assets/images/icon/icon.ico"
-    },
-    "mac": {
-      "displayName": "Evoldia-Network Launcher",
-      "copyright": "copyright",
-      "icon": "./app/assets/images/icon/icon.icns",
-      "plistStrings": {
-        "CFBundleIdentifier": "Evoldia-Network Launcher",
-        "CFBundleDocumentTypes": []
-      }
-    },
-    "nsis": {
-      "installDirectory": "$LOCALAPPDATA\\Programs\\${_COMPANYNAME}",
-      "diffUpdaters": true
-    }
-  },
-  "devDependencies": {
-    "nw": "^0.48.4-sdk",
-    "nwjs-builder-phoenix": "^1.9.3"
-  },
-  "dependencies": {
-    "adm-zip": "^0.4.16",
-    "emc-core-luuxis": "^1.0.0",
-    "node-fetch": "^2.6.1",
-    "nw-autoupdater": "^1.1.11",
-    "xml-js": "^1.6.11"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luuxis/Evoldia-Network-Launcher.git"
+  },
+  "scripts": {
+    "start": "cd src && nw .",
+    "postinstall": "(cd src && npm install)",
+    "build:win": "gulp pack:win32",
+    "build:mac": "gulp pack:osx64",
+    "build:linux": "gulp pack:linux{32|64}:deb",
+    "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3",
+    "gulp": "^3.8.11",
+    "gulp-github-release": "^1.0.3",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-node-webkit-builder": "^1.1.1",
+    "gulp-uglify": "^1.2.0",
+    "merge-stream": "^0.1.7",
+    "run-sequence": "^1.1.0",
+    "shelljs": "^0.5.0",
+    "graceful-fs": "^4.2.2",
+    "nw": "^0.48.4-sdk"
+  },
+  "optionalDependencies": {
+    "gulp-appdmg": "^1.0.2"
   }
 }

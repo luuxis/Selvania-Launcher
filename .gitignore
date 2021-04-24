@@ -1,9 +1,5 @@
-# Configuration
-/.vs/
-/.vscode/
-# Generated
-/node_modules/
+/build/
 /dist/
-/node-js/
-
-
+/cache/
+node_modules/
+src/node_modules/

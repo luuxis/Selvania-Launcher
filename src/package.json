@@ -1,0 +1,34 @@
+{
+  "name": "Evoldia-Network-Launcher",
+  "version": "1.0.0",
+  "productName": "Evoldia-Network Launcher",
+  "description": "Evoldia-Network Launcher",
+  "main": "app/index.html",
+  "author": "Luuxis",
+  "window": {
+    "title": "Evoldia update",
+    "width": 400,
+    "height": 500,
+    "frame": false,
+    "resizable": false,
+    "position": "center",
+    "icon": "app/assets/images/icon/icon.png"
+  },
+  "chromium-args": "--enable-logging --v=1 ",
+  "config": "http://launcher.webincloudy.fr/users/luuxis/launcher/config-launcher/config.json",
+  "manifestUrl": "http://launcher.webincloudy.fr/users/luuxis/launcher/package.json",
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.16",
+    "emc-core-luuxis": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "nw-autoupdater": "^1.1.11",
+    "xml-js": "^1.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luuxis/Evoldia-Network-Launcher.git"
+  }
+}
