@@ -2,20 +2,19 @@ const { config, auth } = require('./assets/js/utils.js');
 
 
 
-/*if(process.platform == "win32"){
-    document.querySelector(".frame").style.display = "block";
-    document.querySelector("#minimize").addEventListener("click", () => {
-      win.minimize();
-   });
-    document.querySelector("#close").addEventListener("click", () => {
-     win.close();
-    })
-}  */
+if(process.platform == "win32"){
+    function minimize(){
+        window.close()
+    }
+    function close(){
+        window.close()
+    }
+} 
 
 
 
 
-config.isonline().then(online => {
+/*config.isonline().then(online => {
     if (auth.isLogged()) {
         window.location.href = "./panels/home.html"
     }
@@ -27,4 +26,4 @@ config.isonline().then(online => {
         console.log("Loading offline login \(crack login\)");
         window.location.pathname = "./panels/login-offline.html"
     }
-})
+})*/
