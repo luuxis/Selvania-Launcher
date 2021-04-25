@@ -1,6 +1,7 @@
 /build/
 /dist/
 /cache/
+/node-js/
 /node_modules/
 /src/node_modules/
 /src/package-lock.json
