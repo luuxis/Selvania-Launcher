@@ -13,6 +13,7 @@
 
 ```console
 > git clone https://github.com/luuxis/Evoldia-Network-Launcher.git
+> npm install -g gulp@3.8.11
 > cd Evoldia-Network-Launcher
 > npm install
 ```
