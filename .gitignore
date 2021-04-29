@@ -2,7 +2,8 @@
 /dist/
 /cache/
 /node-js/
+/date-node-js/
 /node_modules/
 /src/node_modules/
 /src/package-lock.json
-npm-shrinkwrap.json
+/package-lock.json
