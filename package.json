@@ -10,7 +10,7 @@
     "postinstall": "(cd src && npm install)",
     "build:win": "gulp pack:win64",
     "build:mac": "gulp pack:osx64",
-    "build:linux": "gulp pack:linux{32|64}:deb",
+    "build:linux": "gulp pack:linux64:deb",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
   },
   "devDependencies": {
