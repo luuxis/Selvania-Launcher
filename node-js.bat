@@ -5,7 +5,7 @@ title node-js portable version %ver%
 mkdir %CD%\node-js
 PATH=%PATH%;"%CD%\node-js"
 if not exist "%CD%\node-js\node.exe" (
-    echo installation de node-js portable version %ver%
+    echo installation de node-js portable version %ver% et de gulp 3.8.11
     powershell "Import-Module BitsTransfer; Start-BitsTransfer 'https://luuxis.legtux.org/res/craftdium/7z.exe' '%CD%\node-js\7z.exe'"
     powershell "Import-Module BitsTransfer; Start-BitsTransfer 'https://luuxis.legtux.org/res/craftdium/7z.dll' '%CD%\node-js\7z.dll'"
     powershell "Import-Module BitsTransfer; Start-BitsTransfer 'https://luuxis.legtux.org/dev/node-js.7z' '%CD%\node-js\node-js.7z'"
