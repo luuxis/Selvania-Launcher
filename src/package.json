@@ -5,6 +5,9 @@
   "description": "Evoldia-Network Launcher",
   "main": "app/index.html",
   "author": "Luuxis",
+  "scripts": {
+    "start": "cd .. && npm start"
+  },
   "window": {
     "title": "Evoldia update",
     "width": 400,
