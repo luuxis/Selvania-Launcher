@@ -8,7 +8,7 @@
   "scripts": {
     "start": "cd src && nw .",
     "postinstall": "(cd src && npm install)",
-    "build:win": "gulp pack:win32",
+    "build:win": "gulp pack:win64",
     "build:mac": "gulp pack:osx64",
     "build:linux": "gulp pack:linux{32|64}:deb",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win"

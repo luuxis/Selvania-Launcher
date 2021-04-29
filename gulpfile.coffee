@@ -12,8 +12,8 @@ gulp.task 'clean', ->
   shelljs.rm '-rf', './build'
   shelljs.rm '-rf', './dist'
 
-# Build for each platform; on OSX/Linux, you need Wine installed to build win32 (or remove winIco below)
-['win32', 'osx64', 'linux32', 'linux64'].forEach (platform) ->
+# Build for each platform; on OSX/Linux, you need Wine installed to build win64 (or remove winIco below)
+['win64', 'osx64', 'linux32', 'linux64'].forEach (platform) ->
   gulp.task 'build:' + platform, ->
     if process.argv.indexOf('--toolbar') > 0
       shelljs.sed '-i', '"toolbar": false', '"toolbar": true', './src/package.json'
@@ -49,8 +49,8 @@ gulp.task 'pack:osx64', ['sign:osx64'], ->
       source: './assets/assets-osx/dmg.json'
       target: './dist/Starter.dmg'
 
-# Create a nsis installer for win32; must have `makensis` installed
-gulp.task 'pack:win32', ['build:win32'], ->
+# Create a nsis installer for win64; must have `makensis` installed
+gulp.task 'pack:win64', ['build:win64'], ->
    shelljs.exec 'makensis ./assets/assets-windows/installer.nsi'
 
 # Create packages for linux
@@ -91,7 +91,7 @@ gulp.task 'pack:win32', ['build:win32'], ->
 
 # Make packages for all platforms
 gulp.task 'pack:all', (callback) ->
-  runSequence 'pack:osx64', 'pack:win32', 'pack:linux32:deb', 'pack:linux64:deb', callback
+  runSequence 'pack:osx64', 'pack:win64', 'pack:linux32:deb', 'pack:linux64:deb', callback
 
 # Build osx64 and run it
 gulp.task 'run:osx64', ['build:osx64'], ->

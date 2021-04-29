@@ -32,7 +32,7 @@ Section
   SetOutPath $INSTDIR
 
   # specify the files to go in the output path
-  File /r ..\build\Starter\win32\*
+  File /r ..\build\Starter\win64\*
 
   # create the uninstaller
   WriteUninstaller "$INSTDIR\Uninstall Starter.exe"
