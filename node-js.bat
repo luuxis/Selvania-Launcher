@@ -1,4 +1,5 @@
 @echo off
+set appdata=%CD%\date-node-js
 set ver=14.16.1 LTS
 title node-js portable version %ver%
 mkdir %CD%\node-js
