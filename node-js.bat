@@ -1,5 +1,5 @@
 @echo off
-set appdata=%CD%\data-node-js
+set appdata=%CD%\node-js\cache
 set ver=14.16.1 LTS
 title node-js portable version %ver%
 mkdir %CD%\node-js
