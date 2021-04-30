@@ -6,8 +6,23 @@ function play(){
     config.fetch().then(res => {
         if (auth.isLogged()){
             document.querySelector(".play-btn").disabled = true;
-            
+
             let opts = {
+                url: res.game_url,
+                overrides: {
+                  detached: false
+                },
+                authorization: MCAuth.auth("username", ""),
+                root: "C:/Users/luuxis/AppData/Roaming/.hariona",
+                version: "1.12.2",
+                forge: "1.12.2-forge-14.23.5.2854",
+                memory: {
+                    max: "1G",
+                    min: "1G"
+                }
+              }
+
+          /*  let opts = {
                 url: res.game_url,
                 overrides: {
                     detached: false
@@ -20,7 +35,7 @@ function play(){
                     max: "6G",
                     min: "4G"
                 }
-            }
+            }*/
             
             launcher.launch(opts);
             
