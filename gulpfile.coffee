@@ -5,6 +5,7 @@ runSequence = require 'run-sequence'
 manifest = require './package.json'
 os = require('os');
 os.tmpDir = os.tmpdir;
+
 $ = require('gulp-load-plugins')()
 
 # Remove directories used by the tasks
