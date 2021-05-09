@@ -18,7 +18,7 @@ function play(){
                     authorization: MCAuth.auth("username", ""),
                     root: dataDirectory + "/" + res.dataDirectory,
                     version: res.game_version,
-                    forge: res.game_version + "-forge-" + res.forge_version,
+                    forge: res.forge_version,
                     memory: {
                         max: "1G",
                         min: "1G"
