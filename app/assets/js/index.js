@@ -85,10 +85,10 @@ class index {
     this.setStatus(`Démarrage du launcher`);
     nw.Window.open("app/launcher.html", {
       "title": "Evoldia-Network Launcher",
-      "width": 1280,
-      "height": 720,
-      "min_width": 1280,
-      "min_height": 720,
+      "width": 980,
+      "height": 552,
+      "min_width": 980,
+      "min_height": 552,
       "frame": (process.platform == "win32") ? false : true,
       "position": "center",
       "icon": "app/assets/images/icons/icon.png"
