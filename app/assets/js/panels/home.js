@@ -1,5 +1,5 @@
 const { config, auth } = require('./assets/js/utils.js');
-const { MCAuth, MCLaunch } = require('emc-core-luuxis');
+const MCLaunch = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
 
@@ -15,7 +15,7 @@ function play(){
                     overrides: {
                         detached: false
                     },
-                    authorization: MCAuth.auth("username", ""),
+                    authorization: auth.authenticator,
                     root: dataDirectory + "/" + res.dataDirectory,
                     version: res.game_version,
                     forge: res.forge_version,
@@ -24,9 +24,9 @@ function play(){
                         min: "1G"
                     }
                 }
-                
-                
                 launcher.launch(opts);
+
+
                 launcher.on('debug', (e) => console.log("[DEBUG]" + e));
                 launcher.on('data', (e) => console.log("[DATA]" + e));
             launcher.on('error', (e) => {
