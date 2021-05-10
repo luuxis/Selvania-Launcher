@@ -1,5 +1,5 @@
 const { config, auth } = require('./assets/js/utils.js');
-const MCLaunch = require('emc-core-luuxis');
+const { MCAuth, MCLaunch } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
 

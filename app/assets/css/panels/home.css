@@ -13,13 +13,11 @@
 .top{
     height: 10%;
     background: rgb(68, 67, 67);
-    margin: 1px;
 }
 
 .centre-top{
     height: 10%;
-    background: red;
-    margin: 1px;
+    background: rgb(192, 136, 136);
 }
 
 .play-btn {
@@ -33,12 +31,11 @@
 
 .centre-bottom{
     height: 10%;
-    background: red;
-    margin: 1px;
+    background: rgb(131, 58, 58);
 }
 
 .bottom{
+    color: rgb(255, 255, 255);
     height: 5%;
-    background: red;
-    margin: 1px;
+    background: rgb(0, 0, 0);
 }
