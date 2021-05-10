@@ -1,1 +1,4 @@
 @import "./panels/frame.css";
+body{
+    background: url("../images/background/black-1.png");
+}

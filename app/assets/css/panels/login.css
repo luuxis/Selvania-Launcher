@@ -1,4 +1,7 @@
 @import "./frame.css";
+body{
+    background: url("../../images/background/black-1.png");
+}
 .login{
     position: absolute;
     display: flex;
