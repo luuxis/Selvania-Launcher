@@ -34,6 +34,7 @@
 }
 
 .bottom{
+    font-size: 80%;
     position: absolute;
     color: rgb(255, 255, 255);
     height: 5%;
