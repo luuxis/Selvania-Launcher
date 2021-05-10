@@ -10,16 +10,6 @@ function close() {
     win.close();
 }
 
-function maximize() {
-    let maximized = false;
-    if(maximized) {
-        win.unmaximize();
-    } else {
-        win.maximize();
-        maximized = !maximized;
-    }
-}
-
 function minimize() {
     win.minimize();
 }
