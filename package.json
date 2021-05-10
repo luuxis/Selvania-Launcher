@@ -74,7 +74,7 @@
   },
   "dependencies": {
     "adm-zip": "^0.4.16",
-    "emc-core-luuxis": "^1.0.0",
+    "emc-core-luuxis": "^1.0.1",
     "node-fetch": "^2.6.1",
     "nw-autoupdater": "^1.1.11",
     "xml-js": "^1.6.11"

@@ -12,6 +12,10 @@ function login(online) {
         return;
       }
     }
+    if (document.querySelector(".pseudo").value == ""){
+      document.querySelector(".error").style.display = "block";
+      return;
+    }
     document.querySelector(".pseudo").disabled = true;
     document.querySelector(".password").disabled = true;
     document.querySelector(".error").style.display = "none";
@@ -23,3 +27,4 @@ function login(online) {
       document.querySelector(".error").style.display = "block";
     })
   }
+  

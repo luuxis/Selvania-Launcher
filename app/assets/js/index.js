@@ -74,7 +74,7 @@ class index {
       }
       this.startLauncher();
     }).catch( err => {
-      console.log("impossible de charger le package.json");
+      console.log("impossible de charger le config.json");
       console.log(err);
       return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
     })

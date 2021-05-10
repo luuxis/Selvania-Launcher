@@ -1,26 +1,25 @@
 <html>
-
-<head>
-    <script src="../assets/js/panels/frame.js"></script>
-    <script src="../assets/js/panels/login.js"></script>
-    <link rel="stylesheet" href="../assets/css/panels/login.css">
-</head>
-
-<body class="hide">
+    <head>
+        <script src="../assets/js/panels/frame.js"></script>
+        <script src="../assets/js/panels/login.js"></script>
+        <link rel="stylesheet" href="../assets/css/panels/login.css">
+    </head>
+    
+    <body class="hide">
         <div class="dragbar hide"></div>
         <div class="frame hide">
-          <div id="minimize" class="button-frame icon-minimize" onclick="window.minimize()"></div>
-          <div id="close" class="button-frame icon-close" onclick="window.close()"></div>
+            <div id="minimize" class="button-frame icon-minimize" onclick="window.minimize()"></div>
+            <div id="close" class="button-frame icon-close" onclick="window.close()"></div>
         </div>
-    <div class="login">
-        <h1>Se connecter</h1>
-        <h2>Inscrivez vos identifiants Minecraft</h2>
-        <h3 class="error" style="display: none; color: red;">Une erreur est survenue</h3>
-        <hr>
-        <input name="pseudo" class="text pseudo" placeholder="Adresse E-mail">
-        <input name="password" type="password" class="text password" placeholder="Mot de passe">
-        <div class="login-btn" onclick="login()">Se connecter</div>
-    </div>
-</body>
 
+        <div class="login">
+            <h1>Se connecter</h1>
+            <h2>Inscrivez vos identifiants Minecraft</h2>
+            <h3 class="error" style="display: none; color: red;">Une erreur est survenue</h3>
+            <hr>
+            <input name="pseudo" class="text pseudo" placeholder="Adresse E-mail">
+            <input name="password" type="password" class="text password" placeholder="Mot de passe">
+            <div class="login-btn" onclick="login()">Se connecter</div>
+        </div>
+    </body>
 </html>
