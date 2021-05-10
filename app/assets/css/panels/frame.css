@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Icons';
+    src: url('../../fonts/Icons.woff2') format('woff2');
+}
+
+.dragbar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 26px;
+    -webkit-app-region: drag;
+    z-index: 9;
+}
+
+.frame {
+    background: #03030383;
+    position: absolute;
+    display: table;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    -webkit-app-region: no-drag;
+}
+
+
+.button-frame {
+    position: relative;
+    display: table-cell;
+    width: 30px;
+    height: 26px;
+    transition: color .2s, background-color .2s;
+    color: black;
+    cursor: pointer;
+}
+
+.icon-restore-down:before {
+    top: 5px;
+    left: 7px;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.icon-close:hover {
+    background: red;
+}
+
+.icon-minimize:hover {
+    background-color: #03030383;
+}
+
+.icon-maximize:hover {
+    background-color: #03030383;
+}
+
+
+.icon-close:before, .icon-minimize:before, .icon-maximize:before {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+}
+
+
+.icon-close:before { font-family: "Icons"; content: "\e90e"; }
+.icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
+.icon-maximize:before { font-family: "Icons"; content: "\e90c"; }
+  

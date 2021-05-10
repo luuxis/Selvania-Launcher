@@ -2,10 +2,17 @@
 
 <head>
     <script src="../assets/js/panels/login.js"></script>
+    <script src="../assets/js/panels/home.js"></script>
     <link rel="stylesheet" href="../assets/css/panels/login.css">
 </head>
 
-<body>
+<body class="hide">
+        <div class="dragbar hide"></div>
+        <div class="frame hide">
+          <div id="minimize" class="button-frame icon-minimize" onclick="window.minimize()"></div>
+          <div id="maximize" class="button-frame icon-maximize" onclick="window.maximize()"></div>
+          <div id="close" class="button-frame icon-close" onclick="window.close()"></div>
+        </div>
     <div class="login">
         <h1>Se connecter</h1>
         <h2>Inscrivez vos identifiants Minecraft</h2>

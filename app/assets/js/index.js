@@ -91,7 +91,6 @@ class index {
       "min_height": 720,
       "frame": (process.platform == "win32") ? false : true,
       "position": "center",
-      "resizable": false,
       "icon": "app/assets/images/icons/icon.png"
     });
     win.close();

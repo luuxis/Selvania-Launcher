@@ -1,4 +1,6 @@
+@import "./frame.css";
 .home{
+    position: absolute;
     text-align: center;
     top: 0px;
     left: 0px;

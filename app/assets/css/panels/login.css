@@ -1,3 +1,4 @@
+@import "./frame.css";
 .login{
     position: absolute;
     display: flex;
@@ -43,3 +44,4 @@ input.text{
     height: 20px;
     border-radius: 20px;
 }
+
