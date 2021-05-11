@@ -42,6 +42,7 @@
     "excludes": [
       ".gitignore",
       "node-js.bat",
+      "web/**",
       "node-js/**",
       "test/**",
       "package-lock.json",
