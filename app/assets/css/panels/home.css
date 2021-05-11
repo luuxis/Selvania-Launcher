@@ -15,6 +15,7 @@
 }
 
 .centre-top{
+    align-items: center;
     height: 35%;
     background: rgb(192, 136, 136);
 }

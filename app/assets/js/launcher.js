@@ -1,5 +1,6 @@
 const { config, auth } = require('./assets/js/utils.js');
 
+
 config.isonline().then(online => {
     if (auth.isLogged()) {
         window.location.href = "./panels/home.html"
