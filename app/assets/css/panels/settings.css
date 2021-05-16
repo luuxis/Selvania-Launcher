@@ -1,0 +1,18 @@
+@import "./frame.css";
+
+*{
+    text-align: center;
+}
+
+
+.dev{
+    font-size: 200%;
+}
+
+.return{
+    background: rgb(45, 45, 45);
+    height: 20px;
+    width: 80px;
+    color: white;
+    border-radius: 15px;
+}
