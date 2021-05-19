@@ -1,4 +1,5 @@
 'use strict';
+const test = require("../package.json");
 
 import Downloader from "./lib/Downloader.js";
 import Unzipper from "./lib/Unzipper.js";
@@ -39,7 +40,8 @@ class index {
     this.splashAuthor.classList.add("opacity");
     this.message.classList.add("opacity");
     await sleep(1000);
-    this.checkUpdate();
+    console.log(test.config)
+    //this.checkUpdate();
   }
 
   async checkUpdate(){
