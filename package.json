@@ -46,7 +46,7 @@
       ".gitignore",
       "node-js.bat",
       "web/**",
-      "node-js/**",
+      "node-v*/**",
       "test/**",
       "package-lock.json",
       "README.md"

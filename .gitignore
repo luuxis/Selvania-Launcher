@@ -4,6 +4,6 @@
 # Generated
 /node_modules/
 /dist/
-/node-js/
 unknown.png
 /data/
+node-v*
