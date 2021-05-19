@@ -1,5 +1,6 @@
 {
   "name": "Evoldia-Network-Launcher",
+  "user": "luuxis",
   "version": "1.0.1-alpha04",
   "productName": "Evoldia-Network Launcher",
   "description": "Evoldia-Network Launcher",
@@ -15,8 +16,9 @@
     "icon": "app/assets/images/icon/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 ",
-  "config": "http://launcher.webincloudy.fr/users/luuxis/launcher/config-launcher/config.json",
-  "manifestUrl": "http://launcher.webincloudy.fr/users/luuxis/launcher/package.json",
+  "config": "http://launcher.webincloudy.fr/users/${USER}/launcher/config-launcher/config.json",
+  "info": "http://launcher.webincloudy.fr/users/${USER}/launcher/config-launcher/info.json",
+  "manifestUrl": "http://launcher.webincloudy.fr/${USER}/luuxis/launcher/package.json",
   "webkit": {
     "plugin": true
   },
