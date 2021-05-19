@@ -5,6 +5,7 @@ import Unzipper from "./lib/Unzipper.js";
 
 const AutoUpdater = require("nw-autoupdater");
 const pkg = require("../package.json");
+const manifestUrl = (pkg).replace('{user}', pkg.user);
 const { config } = require('./assets/js/utils.js');
 const os = require("os");
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
@@ -45,7 +46,7 @@ class index {
   async checkUpdate(){
     if(isDev) return this.maintenanceCheck();
 
-    const manifest = await fetch(pkg.manifestUrl).then(res => res.json());
+    const manifest = await fetch(manifestUrl).then(res => res.json());
     const update = await updater.checkNewVersion(manifest);
     if(!update) return this.maintenanceCheck();
 

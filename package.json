@@ -18,7 +18,7 @@
   "chromium-args": "--enable-logging --v=1 ",
   "config": "http://launcher.webincloudy.fr/users/{user}/launcher/config-launcher/config.json",
   "info": "http://launcher.webincloudy.fr/users/{user}/launcher/config-launcher/info.json",
-  "manifestUrl": "http://launcher.webincloudy.fr/users/luuxis/launcher/package.json",
+  "manifestUrl": "http://launcher.webincloudy.fr/users/{user}/launcher/package.json",
   "webkit": {
     "plugin": true
   },
