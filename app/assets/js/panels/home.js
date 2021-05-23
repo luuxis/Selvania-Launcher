@@ -38,3 +38,43 @@ function play(){
         }
     })
 }
+
+
+
+
+function setStatus(){
+    let player = document.querySelector(".etat-text .text");
+    let desc = document.querySelector(".server-text .desc");
+    let online = document.querySelector(".etat-text .online");
+
+    let start = new Date();
+    let client = net.connect(25565, "proxy.paladium-pvp.fr", () => {
+      client.write(Buffer.from([ 0xFE, 0x01 ]));
+    });
+
+    client.setTimeout(5 * 1000);
+
+    client.on('data', (data) => {
+      if (data != null && data != '') {
+        desc.innerHTML = `<span class="green">Opérationnel</span> - ${Math.round(new Date() - start)}ms`;
+        if(online.classList.contains("off")) online.classList.toggle("off");
+        var infos = data.toString().split("\x00\x00\x00");
+        if (infos[4]) player.textContent = infos[4].replace(/\u0000/g, '');
+      }
+      client.end();
+    });
+
+    client.on('timeout', () => {
+      desc.innerHTML = `<span class="red">Fermé</span> - 0ms`;
+      if(!online.classList.contains("off")) online.classList.toggle("off");
+      player.textContent = 0;
+      client.end();
+    });
+
+    client.on('err', (err) => {
+      desc.innerHTML = `<span class="red">Fermé</span> - 0ms`;
+      if(!online.classList.contains("off")) online.classList.toggle("off");
+      player.textContent = 0;
+      console.error(err);
+    });
+  }
