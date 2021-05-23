@@ -19,7 +19,7 @@ function play(){
                     root: dataDirectory + "/" + res.dataDirectory,
                     version: res.game_version,
                     forge: res.forge_version,
-                    checkFiles: true,
+                    checkFiles: false,
                     memory: {
                         max: "1G",
                         min: "1G"
