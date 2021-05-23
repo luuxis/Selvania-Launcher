@@ -1,5 +1,4 @@
 {
-  "ip_server": "127.0.0.1",
   "maintenance": "off",
   "maintenance_message": "Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.",
   "offline": "off",
