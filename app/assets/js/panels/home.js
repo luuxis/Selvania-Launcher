@@ -1,8 +1,10 @@
 const { config, auth } = require('./assets/js/utils.js');
 const { MCAuth, MCLaunch } = require('emc-core-luuxis');
+const net = require('net');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
-
+require('nw.gui').Window.get().showDevTools();
+    
 
 function play(){
     config.fetch().then(res => {
@@ -38,17 +40,14 @@ function play(){
         }
     })
 }
-
-
-
-
 function setStatus(){
+config.info().then(info => {
     let player = document.querySelector(".etat-text .text");
     let desc = document.querySelector(".server-text .desc");
     let online = document.querySelector(".etat-text .online");
 
     let start = new Date();
-    let client = net.connect(25565, "proxy.paladium-pvp.fr", () => {
+    let client = net.connect(25565, info.ip_server, () => {
       client.write(Buffer.from([ 0xFE, 0x01 ]));
     });
 
@@ -77,4 +76,9 @@ function setStatus(){
       player.textContent = 0;
       console.error(err);
     });
-  }
+  }).catch( err => {
+    console.log("impossible de charger le config.json");
+    console.log(err);
+    return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+  })
+}
