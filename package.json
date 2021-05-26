@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "nw .",
-    "dev": "nw . --user-data-dir=./data",
+    "dev": "nw . --user-data-dir=./AppData",
     "build:win": "build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:mac": "build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:linux": "build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
@@ -44,7 +44,7 @@
       ".gitignore",
       "node-js.bat",
       "web/**",
-      "data/**",
+      "AppData/**",
       "node-v*/**",
       "test/**",
       "package-lock.json",
