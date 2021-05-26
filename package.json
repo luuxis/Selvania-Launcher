@@ -16,9 +16,7 @@
     "icon": "app/assets/images/icon/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 ",
-  "config": "http://launcher.webincloudy.fr/users/{user}/launcher/config-launcher/config.json",
-  "info": "http://launcher.webincloudy.fr/users/{user}/launcher/config-launcher/info.json",
-  "manifestUrl": "http://launcher.webincloudy.fr/users/{user}/launcher/package.json",
+  "url": "http://launcher.webincloudy.fr/users/{user}",
   "webkit": {
     "plugin": true
   },
@@ -80,7 +78,7 @@
     "adm-zip": "^0.4.16",
     "emc-core-luuxis": "^1.0.1",
     "node-fetch": "^2.6.1",
-    "nw-autoupdater": "^1.1.11",
+    "nw-autoupdater-luuxis": "^1.1.0",
     "xml-js": "^1.6.11"
   },
   "repository": {

@@ -3,12 +3,15 @@
 import Downloader from "./lib/Downloader.js";
 import Unzipper from "./lib/Unzipper.js";
 
-const AutoUpdater = require("nw-autoupdater");
+const AutoUpdater = require("nw-autoupdater-luuxis");
 const pkg = require("../package.json");
-const manifestUrl = pkg.manifestUrl.replace('{user}', pkg.user);
+
+const url = pkg.url.replace('{user}', pkg.user);
+const manifestUrl = url + "/launcher/package.json";
+
 const { config } = require('./assets/js/utils.js');
 const os = require("os");
-const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
+const updater = new AutoUpdater(manifestUrl, { strategy: "ScriptSwap" });
 const fs = require("fs");
 
 let win = nw.Window.get();

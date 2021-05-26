@@ -1,0 +1,14 @@
+{
+  "name": "launcher-arche",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "emc-core-luuxis": "^1.0.3"
+  }
+}

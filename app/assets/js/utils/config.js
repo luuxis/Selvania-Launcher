@@ -1,6 +1,7 @@
 const pkg = require("../../../../package.json");
-const config = pkg.config.replace('{user}', pkg.user);
-const info = pkg.info.replace('{user}', pkg.user);
+const url = pkg.url.replace('{user}', pkg.user);
+const config = url + "/launcher/config-launcher/config.json";
+const info = url + "/launcher/config-launcher/info.json";
 
 module.exports.fetch = getData;
 
