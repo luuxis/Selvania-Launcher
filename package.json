@@ -79,7 +79,7 @@
     "adm-zip": "^0.4.16",
     "emc-core-luuxis": "^1.0.1",
     "node-fetch": "^2.6.1",
-    "nw-autoupdater-luuxis": "^1.1.0",
+    "nw-autoupdater-luuxis": "^1.1.1",
     "xml-js": "^1.6.11"
   },
   "repository": {
