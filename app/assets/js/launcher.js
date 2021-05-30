@@ -1,7 +1,7 @@
 const { config, auth } = require('./assets/js/utils.js');
+window.location.href = "./panels/home.html"
 
-
-config.isonline().then(online => {
+/*config.isonline().then(online => {
     if (auth.isLogged()) {
         window.location.href = "./panels/home.html"
     }
@@ -13,4 +13,4 @@ config.isonline().then(online => {
         console.log("Loading offline login \(crack login\)");
         window.location.href = "./panels/login-offline.html"
     }
-})
+})*/
