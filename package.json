@@ -23,7 +23,7 @@
   "scripts": {
     "start": "nw .",
     "dev": "nw . --user-data-dir=./AppData",
-    "server": "echo Usage: node node_modules/emc-core-luuxis/utils/builder.js --v=version",
+    "server": "node node_modules/emc-core-luuxis/utils/builder.js --v=1.12.2",
     "build:win": "build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:mac": "build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:linux": "build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
