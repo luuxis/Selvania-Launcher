@@ -23,6 +23,7 @@
   "scripts": {
     "start": "nw .",
     "dev": "nw . --user-data-dir=./AppData",
+    "server": "echo Usage: node node_modules/emc-core-luuxis/utils/builder.js --v=version",
     "build:win": "build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:mac": "build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:linux": "build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
@@ -77,7 +78,7 @@
   },
   "dependencies": {
     "adm-zip": "^0.4.16",
-    "emc-core-luuxis": "^1.0.1",
+    "emc-core-luuxis": "^1.0.5",
     "node-fetch": "^2.6.1",
     "nw-autoupdater-luuxis": "^1.1.1",
     "xml-js": "^1.6.11"
