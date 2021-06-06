@@ -1,4 +1,5 @@
 const pkg = require("../../../../package.json");
+const fetch = require("node-fetch")
 const url = pkg.url.replace('{user}', pkg.user);
 const config = url + "/launcher/config-launcher/config.json";
 const info = url + "/launcher/config-launcher/info.json";
