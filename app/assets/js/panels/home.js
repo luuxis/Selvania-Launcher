@@ -1,4 +1,4 @@
-const { config, auth, status_server } = require('./assets/js/utils.js');
+const { config, auth } = require('./assets/js/utils.js');
 const { MCAuth, MCLaunch } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
@@ -39,19 +39,3 @@ function play(){
         }
     })
 }
-
-function statusserver() {
-    status_server.init('193.70.80.225', 25565, function() {
-        if (status_server.online) {
-            console.log("on")
-            $("#status-server-players").html(status_server.current_players);
-            $("#status-server-latency").html(status_server.latency);
-
-            $("#server-total-players").html(status_server.current_players + " <i class=\"online\"></i>");
-        }
-        else
-        console.log("off")
-            $("#server-total-players").html("0 <i class=\"offline\"></i>");
-    });
-}
-statusserver()
