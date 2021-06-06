@@ -16,7 +16,7 @@
     "icon": "app/assets/images/icon/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 ",
-  "url": "http://launcheur.arche-rp.fr//{user}",
+  "url": "http://launcheur.arche-rp.fr/{user}",
   "webkit": {
     "plugin": true
   },
