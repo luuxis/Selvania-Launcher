@@ -1,6 +1,6 @@
 @echo off
 set ver=13.0.0
-set appdata=%CD%\node-v%ver%-win-x64\cache
+set appdata=%CD%\AppData\nodejs
 set url=https://nodejs.org/dist/v%ver%/node-v%ver%-win-x64.zip
 
 mkdir %CD%\node-v%ver%-win-x64
