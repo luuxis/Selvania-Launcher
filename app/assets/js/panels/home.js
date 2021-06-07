@@ -31,11 +31,11 @@ function play(){
 
                 launcher.on('debug', (e) => console.log("[DEBUG]" + e));
                 launcher.on('data', (e) => console.log("[DATA]" + e));
-                launcher.on('download-status', (e) => console.log("[DOWNLOAD][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")"));
+                launcher.on('download-status', (e) => console.log("[DOWNLOAD][emc-core-luuxis][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")"));
                 launcher.on('close', () => console.log("Le jeux est fermer."));
                 launcher.on('error', (e) => console.log("[ERROR]" + e));
         } else {
-          //  window.location.href = "../launcher.html"
+            window.location.href = "../launcher.html"
         }
     })
 }
