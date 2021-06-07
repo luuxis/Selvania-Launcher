@@ -5,5 +5,5 @@
 /node_modules/
 /dist/
 unknown.png
-/data/
 node-v*
+AppData
