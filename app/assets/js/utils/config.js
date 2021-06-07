@@ -4,12 +4,12 @@ const url = pkg.url.replace('{user}', pkg.user);
 const config = url + "/launcher/config-launcher/config.json";
 const info = url + "/launcher/config-launcher/info.json";
 
-module.exports.fetch = getData;
+module.exports.config = getData;
 
 function getData() {
     return new Promise((resolve, reject) => {
-        fetch(config).then(res => {
-            return resolve(res.json());
+        fetch(config).then(config => {
+            return resolve(config.json());
         }).catch(error => {
             return reject(error);
         })
@@ -29,8 +29,8 @@ function getInfo() {
 
 module.exports.isonline = function isonline() {
     return new Promise((resolve, reject) => {
-        getData().then(res => {
-            return resolve(res.offline != "on")
+        getData().then(config => {
+            return resolve(config.offline != "on")
         }).catch(error => {
             return reject(error);
         })

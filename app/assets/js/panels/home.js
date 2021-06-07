@@ -3,23 +3,24 @@ const { MCLaunch } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
 require('nw.gui').Window.get().showDevTools();
-    
+   
+
 
 function play(){
-    config.fetch().then(res => {
+    config.config().then(config => {
         if (auth.isLogged()){
             document.querySelector(".play-btn").disabled = true;
 
 
                 let opts = {
-                    url: res.game_url,
+                    url: config.game_url,
                     overrides: {
                         detached: false
                     },
                     authorization: auth.authenticator,
-                    root: dataDirectory + "/" + res.dataDirectory,
-                    version: res.game_version,
-                    forge: res.forge_version,
+                    root: dataDirectory + "/" + config.dataDirectory,
+                    version: config.game_version,
+                    forge: config.forge_version,
                     checkFiles: true,
                     memory: {
                         max: "1G",
