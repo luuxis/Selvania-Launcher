@@ -22,4 +22,4 @@ if not exist "%CD%\node-v%ver%-win-x64\node.exe" (
 )
 
 cls
-npm i && npm run dev
+npm install && npm run dev
