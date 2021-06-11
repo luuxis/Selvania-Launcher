@@ -6,7 +6,7 @@ const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get();
 
     nw.Window.open("app/launcher.html", {
-      "title": "Evoldia-Network Launcher",
+      "title": "Arche Launcher",
       "width": 980,
       "height": 552,
       "min_width": 980,
