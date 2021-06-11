@@ -1,7 +1,5 @@
-@font-face {
-    font-family: 'Icons';
-    src: url('../../fonts/Icons.woff2') format('woff2');
-}
+@import "../font.css";
+
 
 .dragbar {
     position: absolute;
