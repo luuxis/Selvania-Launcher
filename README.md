@@ -1,6 +1,6 @@
-<p align="center"><img src="./app/assets/images/icon/icon.png" width="400px" height="400px" alt="Evoldia-Network"></p>
+<p align="center"><img src="./app/assets/images/icon/icon.png" width="400px" height="400px" alt="Arche"></p>
 
-<h1 align="center">Evoldia-Network Launcher</h1>
+<h1 align="center">Arche Launcher</h1>
 
 
 [<p align="center">
@@ -12,8 +12,8 @@
 **Cloner et installer les dépendances**
 
 ```console
-> git clone https://github.com/luuxis/Evoldia-Network-Launcher.git
-> cd Evoldia-Network-Launcher
+> git clone https://github.com/luuxis/Arche-Launcher.git
+> cd Arche-Launcher
 > npm install
 ```
 
