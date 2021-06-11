@@ -4,7 +4,7 @@
 
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/launcher/releases) [<img src="https://img.shields.io/badge/version-v1.0.1%20alpha03-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/launcher/releases) [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/launcher/releases) </p>
+<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Arche-Launcher/releases) [<img src="https://img.shields.io/badge/version-v1.0.1%20alpha03-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Arche-Launcher/releases) [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Arche-Launcher/releases) </p>
 
 
 ---
@@ -44,7 +44,7 @@ Build pour sa plateforme :
 ---
 
 
-[releases]: https://github.com/luuxis/launcher/releases 'releases'
-[build]: https://github.com/luuxis/launcher/releases 'build'
+[releases]: https://github.com/luuxis/Arche-Launcher/releases 'releases'
+[build]: https://github.com/luuxis/Arche-Launcher/releases 'build'
 
 
