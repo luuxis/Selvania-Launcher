@@ -1,13 +1,13 @@
 {
-  "name": "Evoldia-Network-Launcher",
+  "name": "Arche-Launcher",
   "user": "web",
   "version": "1.0.1-alpha04",
-  "productName": "Evoldia-Network Launcher",
-  "description": "Evoldia-Network Launcher",
+  "productName": "Arche Launcher",
+  "description": "Arche Launcher",
   "main": "app/index.html",
   "author": "Luuxis",
   "window": {
-    "title": "Evoldia update",
+    "title": "Arche update",
     "width": 400,
     "height": 500,
     "frame": false,
@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "build": {
-    "appId": "Evoldia-Network Launcher",
+    "appId": "Arche Launcher",
     "nwVersion": "0.48.4",
     "packed": true,
     "targets": [
@@ -53,17 +53,17 @@
     ],
     "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
     "win": {
-      "productName": "Evoldia-Network Launcher",
-      "companyName": "Evoldia-Network Launcher",
+      "productName": "Arche Launcher",
+      "companyName": "Arche Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.ico"
     },
     "mac": {
-      "displayName": "Evoldia-Network Launcher",
+      "displayName": "Arche Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.icns",
       "plistStrings": {
-        "CFBundleIdentifier": "Evoldia-Network Launcher",
+        "CFBundleIdentifier": "Arche Launcher",
         "CFBundleDocumentTypes": []
       }
     },
@@ -85,6 +85,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luuxis/Evoldia-Network-Launcher.git"
+    "url": "git+https://github.com/luuxis/Arche-Launcher.git"
   }
 }
