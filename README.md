@@ -1,4 +1,4 @@
-<p align="center"><img src="./app/assets/images/icon/icon.png" width="80%" height="80%" alt="Arche"></p>
+<p align="center"><img src="./app/assets/images/icon/icon.png" width="65%" height="65%" alt="Arche"></p>
 
 <h1 align="center">Arche Launcher</h1>
 
