@@ -1,20 +1,20 @@
-const { config, auth } = require('./assets/js/utils.js');
-const { MCLaunch } = require('emc-core-luuxis');
+const { config, auth, status } = require('./assets/js/utils.js');
+const { MCLaunch, MCAuth } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
-const Gamedig = require('gamedig');
 require('nw.gui').Window.get().showDevTools();
 
 config.info().then(config => {
-Gamedig.query({
-    type: 'minecraft',
-    host: config.ip_server
-}).then((state) => {
-    console.log(state);
-}).catch((error) => {
-    console.log("Server is offline");
-});
-)}
+    status.query({
+        type: 'minecraft',
+        host: config.ip_server,
+        port: config.port
+    }).then((state) => {
+        console.log(state.raw.vanilla.raw.players.online + "/" + state.raw.vanilla.raw.players.max);
+    }).catch((error) => {
+        console.log("Server is offline")
+    })
+})
 
 
 function play(){
@@ -28,7 +28,7 @@ function play(){
                     overrides: {
                         detached: false
                     },
-                    authorization: auth.authenticator,
+                    authorization: MCAuth.auth("username", ""),
                     root: dataDirectory + "/" + config.dataDirectory,
                     version: config.game_version,
                     forge: config.forge_version,
