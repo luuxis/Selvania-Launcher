@@ -1,11 +1,11 @@
-const { config, auth, status } = require('./assets/js/utils.js');
+const { config, auth, status_server } = require('./assets/js/utils.js');
 const { MCLaunch, MCAuth } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
 require('nw.gui').Window.get().showDevTools();
 
 config.info().then(config => {
-    status.query({
+    status_server.query({
         type: 'minecraft',
         host: config.ip_server,
         port: config.port
