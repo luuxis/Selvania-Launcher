@@ -10,6 +10,7 @@ config.info().then(config => {
         host: config.ip_server,
         port: config.port
     }).then((state) => {
+        document.getElementById("online").innerHTML = state.raw.vanilla.raw.players.online + "/" + state.raw.vanilla.raw.players.max;
         console.log(state.raw.vanilla.raw.players.online + "/" + state.raw.vanilla.raw.players.max);
     }).catch((error) => {
         console.log("Server is offline")
