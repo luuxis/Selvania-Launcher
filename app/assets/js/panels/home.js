@@ -23,6 +23,7 @@ function play(){
     config.config().then(config => {
         if (auth.isLogged()){
             document.querySelector(".play-btn").disabled = true;
+            
 
 
                 let opts = {
@@ -36,8 +37,8 @@ function play(){
                     forge: config.forge_version,
                     checkFiles: true,
                     memory: {
-                        max: "1G",
-                        min: "1G"
+                        max: max_ram,
+                        min: min_ram
                     }
                 }
                 launcher.launch(opts);
