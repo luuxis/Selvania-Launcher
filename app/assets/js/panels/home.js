@@ -5,7 +5,7 @@ const launcher = new MCLaunch;
 const Gamedig = require('gamedig');
 require('nw.gui').Window.get().showDevTools();
 
-config.config().then(config => {
+config.info().then(config => {
 Gamedig.query({
     type: 'minecraft',
     host: config.ip_server
