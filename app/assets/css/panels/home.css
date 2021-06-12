@@ -43,6 +43,14 @@
     border-radius: 5%;
     background: rgba(255, 255, 255, 0.295);
 }
+.ram {
+    -webkit-appearance: none;
+    height: 2%; 
+    background: #1c633a79;
+    border-radius: 5%;
+    outline: none;
+}
+ 
 
 .bottom{
     font-size: 80%;

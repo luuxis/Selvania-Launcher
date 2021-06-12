@@ -4,6 +4,13 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 const launcher = new MCLaunch;
 require('nw.gui').Window.get().showDevTools();
 
+function ram() {
+    document.querySelector('.ram').onchange = function() {
+        document.getElementById("ram-text").innerHTML = "Ram " + this.value + "G";
+    }
+}
+
+
 config.info().then(config => {
     status_server.query({
         type: 'minecraft',
@@ -23,6 +30,7 @@ function play(){
     config.config().then(config => {
         if (auth.isLogged()){
             document.querySelector(".play-btn").disabled = true;
+            const max_ram = document.getElementById("ram").value
             
 
 
@@ -37,8 +45,8 @@ function play(){
                     forge: config.forge_version,
                     checkFiles: true,
                     memory: {
-                        max: max_ram,
-                        min: min_ram
+                        max: max_ram + "G",
+                        min: "1G"
                     }
                 }
                 launcher.launch(opts);
