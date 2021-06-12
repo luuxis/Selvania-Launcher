@@ -2,8 +2,19 @@ const { config, auth } = require('./assets/js/utils.js');
 const { MCLaunch } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
+const Gamedig = require('gamedig');
 require('nw.gui').Window.get().showDevTools();
-   
+
+config.config().then(config => {
+Gamedig.query({
+    type: 'minecraft',
+    host: config.ip_server
+}).then((state) => {
+    console.log(state);
+}).catch((error) => {
+    console.log("Server is offline");
+});
+)}
 
 
 function play(){
