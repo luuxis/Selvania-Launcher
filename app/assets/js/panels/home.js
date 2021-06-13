@@ -12,6 +12,7 @@ function ram() {
 
 
 config.info().then(config => {
+    ram()
     status_server.query({
         type: 'minecraft',
         host: config.ip_server,
@@ -28,7 +29,6 @@ config.info().then(config => {
 
 function play(){
     config.config().then(config => {
-        if (auth.isLogged()){
             document.querySelector(".play-btn").disabled = true;
             const max_ram = document.getElementById("ram").value
             
@@ -57,8 +57,5 @@ function play(){
                 launcher.on('download-status', (e) => console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")"));
                 launcher.on('close', () => console.log("Le jeux est fermer."));
                 launcher.on('error', (e) => console.log("[ERROR]" + e));
-        } else {
-            window.location.href = "../launcher.html"
-        }
     })
 }
