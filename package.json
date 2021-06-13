@@ -1,7 +1,7 @@
 {
   "name": "Arche-Launcher",
   "user": "web",
-  "version": "1.0.1-alpha04",
+  "version": "1.0.1-beta-01",
   "productName": "Arche Launcher",
   "description": "Arche Launcher",
   "main": "app/index.html",
@@ -79,20 +79,21 @@
   },
   "dependencies": {
     "adm-zip": "^0.4.16",
-    "emc-core-luuxis": "^1.0.5",
-    "node-fetch": "^2.6.1",
-    "nw-autoupdater-luuxis": "^1.1.1",
-    "xml-js": "^1.6.11",
     "cheerio": "^1.0.0-rc.3",
     "compressjs": "^1.0.2",
+    "emc-core-luuxis": "^1.0.5",
+    "fs": "0.0.1-security",
     "gbxremote": "^0.2.1",
     "got": "^11.5.1",
     "iconv-lite": "^0.6.2",
     "long": "^4.0.0",
     "minimist": "^1.2.5",
     "moment": "^2.27.0",
+    "node-fetch": "^2.6.1",
+    "nw-autoupdater-luuxis": "^1.1.1",
     "punycode": "^2.1.1",
-    "varint": "^5.0.0"
+    "varint": "^5.0.0",
+    "xml-js": "^1.6.11"
   },
   "repository": {
     "type": "git",
