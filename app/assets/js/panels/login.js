@@ -8,7 +8,6 @@ function setloging(){
   config.config().then(config => {
     
     const patch = (dataDirectory + "/" + config.dataDirectory)
-    const login = (patch + "/login.json" )
     
     const name = document.querySelector(".pseudo").value;
     const password = document.querySelector(".password").value;
@@ -17,12 +16,16 @@ function setloging(){
       "user": name,
       "password": password,
     }; 
-    
-    const dataStringified = JSON.stringify(data);
-    fs.mkdirSync(patch)
-    fs.writeFileSync(login, dataStringified);
+
+    let toSaveString = JSON.stringify(data);
+
+    if(!fs.existsSync(patch + "/login.json")) {
+      fs.mkdirSync(patch, {recursive: true})
+    }
+    fs.writeFileSync(patch + "/login.json", toSaveString);
   })
 }
+
 
 function login(online) {
     if (online){
