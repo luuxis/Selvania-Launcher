@@ -1,21 +1,27 @@
 const { config, auth } = require('./assets/js/utils.js');
 const fs = require("fs")
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
+
 
 
 function setloging(){
-  const patch =("./data")
-  const login = (patch + "/login.json" )
-
-  const name = document.querySelector(".pseudo").value;
-  const password = document.querySelector(".password").value;
-
-  let data ={ 
-    "user": name,
-    "password": password,
-  }; 
-  const dataStringified = JSON.stringify(data);
-  fs.mkdirSync(patch)
-  fs.writeFileSync(login, dataStringified);
+  config.config().then(config => {
+    
+    const patch = (dataDirectory + "/" + config.dataDirectory)
+    const login = (patch + "/login.json" )
+    
+    const name = document.querySelector(".pseudo").value;
+    const password = document.querySelector(".password").value;
+    
+    const data ={ 
+      "user": name,
+      "password": password,
+    }; 
+    
+    const dataStringified = JSON.stringify(data);
+    fs.mkdirSync(patch)
+    fs.writeFileSync(login, dataStringified);
+  })
 }
 
 function login(online) {
