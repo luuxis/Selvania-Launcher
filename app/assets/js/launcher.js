@@ -1,8 +1,8 @@
 const { config, auth } = require('./assets/js/utils.js');
-window.location.href = "./panels/home.html"
-
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 config.config().then(res => {
+  const patch = (dataDirectory + "/" + config.dataDirectory + "/login.json") 
     if (fs.existsSync(patch)){
         const login = require(patch)
         auth.login(login.user, login.password).then(user => {

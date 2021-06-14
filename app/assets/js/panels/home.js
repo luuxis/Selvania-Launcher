@@ -31,6 +31,8 @@ function play(){
     config.config().then(config => {
             document.querySelector(".play-btn").disabled = true;
             const max_ram = document.getElementById("ram").value
+            const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
+
             
 
 
@@ -39,7 +41,7 @@ function play(){
                     overrides: {
                         detached: false
                     },
-                    authorization: MCAuth.auth("username", ""),
+                    authorization: MCAuth.auth(login.user, login.password),
                     root: dataDirectory + "/" + config.dataDirectory,
                     version: config.game_version,
                     forge: config.forge_version,
