@@ -1,4 +1,5 @@
 @import "./frame.css";
+
 body{
     background: url("../../images/background/1.png");
 }
@@ -33,11 +34,15 @@ hr{
 }
 
 input.text{
-    color: rgb(255, 255, 255);
-    background: none;
-    border: none;
-    margin: 20px;
+    margin: 2%;
+    background: rgba(255, 255, 255, 0.534);
     text-align: center;
+    position: relative;
+    width: 300px;
+    height: 32px;
+    border-radius: 16px;
+    border: none;
+    outline: none;
 
 }
 

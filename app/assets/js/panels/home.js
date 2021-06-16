@@ -33,8 +33,6 @@ function play(){
             const max_ram = document.getElementById("ram").value
             const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
 
-            
-
 
                 let opts = {
                     url: config.game_url,
