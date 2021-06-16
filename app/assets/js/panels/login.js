@@ -24,6 +24,8 @@ function setlogging(){
     }
     
     fs.writeFileSync(login, dataStringified);
+    console.log(patch)
+    window.location.href = "./home.html";
   })
 }
 
@@ -44,7 +46,6 @@ function login(online) {
     document.querySelector(".error").style.display = "none";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
       setlogging()
-      window.location.href = "./home.html";
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;

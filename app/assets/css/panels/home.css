@@ -1,5 +1,10 @@
 @import "./frame.css";
 @import "./test.css";
+
+
+body{
+    background: url("../../images/background/1.png");
+}
 .home{
     position: absolute;
     text-align: center;
@@ -12,17 +17,16 @@
 }
 .top{
     height: 15%;
-    background: rgb(49, 49, 49);
+    background: rgba(49, 49, 49, 0.549);
 }
 
 .logo-arche{
-    padding: 1%;
+    padding: 3%;
     width: 15%;
 }
 
 .bottom{
     height: 85%;
-    background: url("../../images/background/1.png");
 }
 
 .play-btn {
