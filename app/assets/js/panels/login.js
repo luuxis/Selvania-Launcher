@@ -20,11 +20,11 @@ function setlogging(){
     let dataStringified = JSON.stringify(data);
     
     if(!fs.existsSync(patch)){
-      fs.mkdirSync(patch)
+      fs.mkdirSync(patch);
     }
     
     fs.writeFileSync(login, dataStringified);
-    console.log(patch)
+    console.log(patch);
     window.location.href = "./home.html";
   })
 }
