@@ -44,7 +44,7 @@ function login(online) {
     document.querySelector(".error").style.display = "none";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
       setloging()
-      //window.location.href = "./home.html";
+      window.location.href = "./home.html";
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;
