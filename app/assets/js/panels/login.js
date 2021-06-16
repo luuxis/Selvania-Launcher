@@ -6,23 +6,24 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 
 function setloging(){
   config.config().then(config => {
-    
     const patch = (dataDirectory + "/" + config.dataDirectory)
-    
+    const login = (patch + "/login.json" )
+
     const name = document.querySelector(".pseudo").value;
     const password = document.querySelector(".password").value;
     
-    const data ={ 
+    let data = { 
       "user": name,
       "password": password,
     }; 
-
-    let toSaveString = JSON.stringify(data);
-
-    if(!fs.existsSync(patch + "/login.json")) {
-      fs.mkdirSync(patch, {recursive: true})
+    
+    let dataStringified = JSON.stringify(data);
+    
+    if(!fs.existsSync(patch)){
+      fs.mkdirSync(patch)
     }
-    fs.writeFileSync(patch + "/login.json", toSaveString);
+    
+    fs.writeFileSync(login, dataStringified);
   })
 }
 
@@ -43,7 +44,7 @@ function login(online) {
     document.querySelector(".error").style.display = "none";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
       setloging()
-      window.location.href = "./home.html";
+      //window.location.href = "./home.html";
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;

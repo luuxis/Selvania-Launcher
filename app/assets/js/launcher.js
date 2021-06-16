@@ -3,16 +3,12 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 
 config.config().then(res => {
   const patch = (dataDirectory + "/" + config.dataDirectory + "/login.json") 
-    if (fs.existsSync(patch)){
-        const login = require(patch)
-        auth.login(login.user, login.password).then(user => {
-          window.location.href = "./home.html";
-        }).catch (err => {
-          document.querySelector(".pseudo").disabled = false;
-          document.querySelector(".password").disabled = false;
-          document.querySelector(".error").style.display = "block";
-        })
-      }
+  if (fs.existsSync(patch)){
+    const login = require(patch)
+    auth.login(login.user, login.password).then(user => {
+      window.location.href = "./home.html";
+    })
+  }
 })
 
 config.isonline().then(online => {
