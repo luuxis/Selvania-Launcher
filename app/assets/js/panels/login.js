@@ -4,7 +4,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 
 
 
-function setloging(){
+function setlogging(){
   config.config().then(config => {
     const patch = (dataDirectory + "/" + config.dataDirectory)
     const login = (patch + "/login.json" )
@@ -43,7 +43,7 @@ function login(online) {
     document.querySelector(".password").disabled = true;
     document.querySelector(".error").style.display = "none";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
-      setloging()
+      setlogging()
       window.location.href = "./home.html";
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
