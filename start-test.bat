@@ -20,6 +20,5 @@ if not exist "%CD%\node-v%ver%-win-x64\node.exe" (
     del %CD%\node-v%ver%-win-x64\7z.dll
     rmdir "%CD%\cache" /S /Q
 )
-
 cls
 npm install && npm run dev
