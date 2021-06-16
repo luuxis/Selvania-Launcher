@@ -1,7 +1,6 @@
 const fs = require("fs");
 
-const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
-const login = (patch + "/login.json" )
+const login = ("/data" + "/login.json")
 
 const user = ""
 const password = ""

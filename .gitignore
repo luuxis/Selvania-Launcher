@@ -1,6 +1,3 @@
-# Configuration
-/.vs/
-/.vscode/
 # Generated
 /node_modules/
 /dist/
