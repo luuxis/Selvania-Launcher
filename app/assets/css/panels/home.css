@@ -5,6 +5,7 @@
 body{
     background: url("../../images/background/1.png");
 }
+
 .home{
     position: absolute;
     text-align: center;
@@ -15,6 +16,7 @@ body{
     width: 100%;
     height: 100%;
 }
+
 .top{
     height: 15%;
     background: rgba(49, 49, 49, 0.549);
@@ -37,6 +39,7 @@ body{
     height: 20px;
     border-radius: 20px;
 }
+
 .ram {
     -webkit-appearance: none;
     height: 2%; 
