@@ -6,7 +6,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 
 config.config().then(config => {
   if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/login.json")) {
-    let rawData = fs.readFileSync(dataDirectory + "/" + ".arche" + "/login.json")
+    let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/login.json")
     let json = JSON.parse(rawData);
     MCAuth.auth(json.user, json.password).then(user => {
       window.location.href = "./panels/home.html";
