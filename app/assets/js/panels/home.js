@@ -28,7 +28,7 @@ config.info().then(config => {
 
 function play(){
     config.config().then(config => {
-            document.querySelector(".play-btn").disabled = true;
+            document.querySelector(".play-btn").style.display = "none";
             const max_ram = document.getElementById("ram").value
             const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
             const password = crypt.decrypt(login.password);
