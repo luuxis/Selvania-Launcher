@@ -48,7 +48,7 @@
       "AppData/**",
       "node-v*/**",
       "test/**",
-      "start-test.bat",
+      "start.bat",
       "package-lock.json",
       "README.md"
     ],
