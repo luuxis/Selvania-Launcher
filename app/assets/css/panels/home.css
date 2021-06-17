@@ -8,7 +8,6 @@ body{
 
 .home{
     position: absolute;
-    text-align: center;
     top: 0px;
     left: 0px;
     bottom: 0px;
@@ -18,7 +17,8 @@ body{
 }
 
 .top{
-    height: 15%;
+    height: 10%;
+    text-align: center;
     background: rgba(49, 49, 49, 0.549);
 }
 
@@ -28,7 +28,7 @@ body{
 }
 
 .bottom{
-    height: 85%;
+    height: 90%;
 }
 
 .play-btn {
