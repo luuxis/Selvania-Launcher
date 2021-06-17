@@ -1,4 +1,4 @@
-const { config } = require('./assets/js/utils.js');
+const { config, crypt } = require('./assets/js/utils.js');
 const fs = require("fs")
 const { MCAuth } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
@@ -21,7 +21,8 @@ config.config().then(config => {
   if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/login.json")) {
     let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/login.json")
     let json = JSON.parse(rawData);
-    MCAuth.auth(json.user, json.password).then(user => {
+    const password = crypt.decrypt(json.password);
+    MCAuth.auth(json.user, password).then(user => {
       window.location.href = "./panels/home.html";
     }).catch (err => {
       isonline()

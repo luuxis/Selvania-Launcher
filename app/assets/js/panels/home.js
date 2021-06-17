@@ -1,4 +1,4 @@
-const { config, auth, status_server } = require('./assets/js/utils.js');
+const { config, status_server, crypt } = require('./assets/js/utils.js');
 const { MCLaunch, MCAuth } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
@@ -31,6 +31,7 @@ function play(){
             document.querySelector(".play-btn").disabled = true;
             const max_ram = document.getElementById("ram").value
             const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
+            const password = crypt.decrypt(login.password);
 
 
                 let opts = {
@@ -38,7 +39,7 @@ function play(){
                     overrides: {
                         detached: false
                     },
-                    authorization: MCAuth.auth(login.user, login.password),
+                    authorization: MCAuth.auth(login.user, password),
                     root: dataDirectory + "/" + config.dataDirectory,
                     version: config.game_version,
                     forge: config.forge_version,

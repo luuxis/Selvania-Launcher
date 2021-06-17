@@ -1,4 +1,4 @@
-const { config, auth } = require('./assets/js/utils.js');
+const { config, auth, crypt } = require('./assets/js/utils.js');
 const fs = require("fs")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
@@ -11,10 +11,12 @@ function setlogging(){
 
     const name = document.querySelector(".pseudo").value;
     const password = document.querySelector(".password").value;
-    
+
+    const hash = crypt.encrypt(password);
+
     let data = { 
       "user": name,
-      "password": password,
+      "password": hash,
     }; 
     
     let dataStringified = JSON.stringify(data);
