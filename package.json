@@ -81,6 +81,7 @@
     "adm-zip": "^0.4.16",
     "cheerio": "^1.0.0-rc.3",
     "compressjs": "^1.0.2",
+    "crypto": "^1.0.1",
     "emc-core-luuxis": "^1.0.5",
     "fs": "0.0.1-security",
     "gbxremote": "^0.2.1",

@@ -31,7 +31,6 @@ function setlogging(){
   })
 }
 
-
 function login() {
     if (document.querySelector(".pseudo").value == "" || document.querySelector(".password").value == ""){
       document.querySelector(".error").style.display = "block";
