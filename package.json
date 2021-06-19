@@ -24,9 +24,9 @@
     "start": "nw .",
     "dev": "nw . --user-data-dir=./AppData/Arche-Launcher",
     "server": "node node_modules/emc-core-luuxis/utils/builder.js --v=1.12.2",
-    "build:win": "build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:mac": "build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:linux": "build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:win": "npm install && build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:mac": "npm install && build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:linux": "npm install && build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
   },
   "license": "MIT",
