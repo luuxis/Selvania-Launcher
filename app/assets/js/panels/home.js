@@ -28,34 +28,34 @@ config.info().then(config => {
 
 function play(){
     config.config().then(config => {
-            document.querySelector(".play-btn").style.display = "none";
-            const max_ram = document.getElementById("ram").value
-            const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
-            const password = crypt.decrypt(login.password);
+        document.querySelector(".play-btn").style.display = "none";
+        const max_ram = document.getElementById("ram").value
+        const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
+        const password = crypt.decrypt(login.password);
 
 
-                let opts = {
-                    url: config.game_url,
-                    overrides: {
-                        detached: false
-                    },
-                    authorization: MCAuth.auth(login.user, password),
-                    root: dataDirectory + "/" + config.dataDirectory,
-                    version: config.game_version,
-                    forge: config.forge_version,
-                    checkFiles: true,
-                    memory: {
-                        max: max_ram + "G",
-                        min: "1G"
-                    }
-                }
-                launcher.launch(opts);
+        let opts = {
+            url: config.game_url,
+            overrides: {
+                detached: false
+            },
+            authorization: MCAuth.auth(login.user, password),
+            root: dataDirectory + "/" + config.dataDirectory,
+            version: config.game_version,
+            forge: config.forge_version,
+            checkFiles: true,
+            memory: {
+                max: max_ram + "G",
+                min: "1G"
+            }
+        }
+        launcher.launch(opts);
 
 
-                launcher.on('debug', (e) => console.log("[DEBUG]" + e));
-                launcher.on('data', (e) => console.log("[DATA]" + e));
-                launcher.on('download-status', (e) => console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")"));
-                launcher.on('close', () => console.log("Le jeux est fermer."));
-                launcher.on('error', (e) => console.log("[ERROR]" + e));
+        launcher.on('debug', (e) => console.log("[DEBUG]" + e));
+        launcher.on('data', (e) => console.log("[DATA]" + e));
+        launcher.on('download-status', (e) => console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")"));
+        launcher.on('close', () => console.log("Le jeux est fermer."));
+        launcher.on('error', (e) => console.log("[ERROR]" + e));
     })
 }

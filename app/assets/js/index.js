@@ -1,8 +1,5 @@
 'use strict';
 
-import Downloader from "./lib/Downloader.js";
-import Unzipper from "./lib/Unzipper.js";
-
 const AutoUpdater = require("nw-autoupdater-luuxis");
 const pkg = require("../package.json");
 
