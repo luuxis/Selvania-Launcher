@@ -30,7 +30,6 @@ function play(){
     config.config().then(config => {
         document.querySelector(".play-btn").style.display = "none";
         document.querySelector(".info-progress").style.display = "block";
-        bar_txt = document.getElementById("bar-txt").innerHTML;
         const max_ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
         const password = crypt.decrypt(login.password);
@@ -55,37 +54,37 @@ function play(){
 
         launcher.on('debug', (e) => {
             console.log("[DEBUG]" + e);
-            bar_txt = "[DEBUG]" + e
+            document.getElementById("bar-txt").innerHTML = "[DEBUG]" + e
           });
 
           launcher.on('data', (e) => {
             console.log("[DATA]" + e);
-            bar_txt = "[DATA]" + e
+            document.getElementById("bar-txt").innerHTML = "[DATA]" + e
           });
           launcher.on('error', (e) => {
             console.log("[ERROR]" + e);
-            bar_txt = "[ERROR]" + e
+            document.getElementById("bar-txt").innerHTML = "[ERROR]" + e
           });
       
           launcher.on('verification-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
-            bar_txt = "[VERIFICATION] " + e.name + " (" + e.current + "/" + e.total + ")";
-            bar_txt = e.current, e.total;
+            document.getElementById("bar-txt").innerHTML = "[VERIFICATION] " + e.name + " (" + e.current + "/" + e.total + ")";
+            document.getElementById("bar-txt").innerHTML = e.current, e.total;
           });
       
           launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
-            bar_txt = "[DOWNLOAD][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")";
+            document.getElementById("bar-txt").innerHTML = "[DOWNLOAD][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")";
             if(e.downloadedBytes > e.bytesToDownload) {
-                bar_txt = e.downloadedBytes, e.downloadedBytes;
+                document.getElementById("bar-txt").innerHTML = e.downloadedBytes, e.downloadedBytes;
             }else {
-                bar_txt = e.downloadedBytes, e.bytesToDownload;
+                document.getElementById("bar-txt").innerHTML = e.downloadedBytes, e.bytesToDownload;
             }
           });
       
           launcher.on('launch', (e) => {
             console.log("Launching minecraft");
-            bar_txt = "Launching minecraft"
+            document.getElementById("bar-txt").innerHTML = "Launching minecraft"
           });
     })
 }
