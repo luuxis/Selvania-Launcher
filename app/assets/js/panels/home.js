@@ -83,8 +83,13 @@ function play(){
           });
       
           launcher.on('launch', (e) => {
-            console.log("Launching minecraft");
-            document.getElementById("bar-txt").innerHTML = "Launching minecraft"
+            console.log("Demarrage du jeu.");
+            document.getElementById("bar-txt").innerHTML = "Demarrage du jeu."
+          });
+
+          launcher.on('close', () => {
+            console.log("Le jeux est fermer.")
+            document.getElementById("bar-txt").innerHTML = "Le jeux est fermer."
           });
     })
 }
