@@ -17,8 +17,13 @@
             </div>
             
             <div class="bottom">
-                <div class="play-btn" id="play-btn" onclick="play()">Play</div>
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="display: none;">telechargement des ressources du jeu</div>
+                <div class="play-btn" onclick="play()">Play</div>
+
+                <div id="info-progress" class="info-progress" style="display: none;">
+                    <progress value="0" max="0" class="progress-bar"></progress>
+                    <p id="bar-txt" class="bar-txt"></p>
+                </div>
+
                 <label class="ram-text" id="ram-text">Ram 1G</label>
                 <br>
                 <input type="range" class="ram" id="ram" min="1" max="10" step="1" value="1">

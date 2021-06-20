@@ -29,6 +29,8 @@ config.info().then(config => {
 function play(){
     config.config().then(config => {
         document.querySelector(".play-btn").style.display = "none";
+        document.querySelector(".info-progress").style.display = "block";
+        bar_txt = document.getElementById("bar-txt").innerHTML;
         const max_ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
         const password = crypt.decrypt(login.password);
@@ -51,11 +53,39 @@ function play(){
         }
         launcher.launch(opts);
 
+        launcher.on('debug', (e) => {
+            console.log("[DEBUG]" + e);
+            bar_txt = "[DEBUG]" + e
+          });
 
-        launcher.on('debug', (e) => console.log("[DEBUG]" + e));
-        launcher.on('data', (e) => console.log("[DATA]" + e));
-        launcher.on('download-status', (e) => console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")"));
-        launcher.on('close', () => console.log("Le jeux est fermer."));
-        launcher.on('error', (e) => console.log("[ERROR]" + e));
+          launcher.on('data', (e) => {
+            console.log("[DATA]" + e);
+            bar_txt = "[DATA]" + e
+          });
+          launcher.on('error', (e) => {
+            console.log("[ERROR]" + e);
+            bar_txt = "[ERROR]" + e
+          });
+      
+          launcher.on('verification-status', (e) => {
+            console.log("[DOWNLOAD][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
+            bar_txt = "[VERIFICATION] " + e.name + " (" + e.current + "/" + e.total + ")";
+            bar_txt = e.current, e.total;
+          });
+      
+          launcher.on('download-status', (e) => {
+            console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
+            bar_txt = "[DOWNLOAD][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")";
+            if(e.downloadedBytes > e.bytesToDownload) {
+                bar_txt = e.downloadedBytes, e.downloadedBytes;
+            }else {
+                bar_txt = e.downloadedBytes, e.bytesToDownload;
+            }
+          });
+      
+          launcher.on('launch', (e) => {
+            console.log("Launching minecraft");
+            bar_txt = "Launching minecraft"
+          });
     })
 }
