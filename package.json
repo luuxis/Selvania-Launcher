@@ -1,7 +1,7 @@
 {
   "name": "Arche-Launcher",
   "user": "web",
-  "version": "1.0.1-pre01",
+  "version": "1.0.1",
   "productName": "Arche Launcher",
   "description": "Arche Launcher",
   "main": "app/index.html",
@@ -21,8 +21,7 @@
     "plugin": true
   },
   "scripts": {
-    "start": "nw .",
-    "dev": "nw . --user-data-dir=./AppData/Arche-Launcher",
+    "start": "nw . --user-data-dir=./AppData/Arche-Launcher",
     "server": "npm install && node node_modules/emc-core-luuxis/utils/builder.js --v=1.12.2",
     "build:win": "npm install && build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:mac": "npm install && build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",

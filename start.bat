@@ -21,4 +21,4 @@ if not exist "%CD%\node-v%ver%-win-x64\node.exe" (
     rmdir "%CD%\cache" /S /Q
 )
 cls
-npm install && npm run dev
+npm install && npm start
