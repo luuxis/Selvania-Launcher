@@ -39,6 +39,36 @@ Build pour sa plateforme :
 
 ---
 
+**<p align="center">Fonctionnalité du launcher.</p>**
+
+- Mise à jour automatique.
+
+- Maintenance launcher.
+
+- Maintenance message custom.
+
+- Statut serveur complet.
+
+- Authentification mojang.
+
+- Authentification crack.
+
+- Authentification Microsoft (en développement).
+
+- Accepte toutes versions de Minecraft (1.0 > 1.17) (Forge, Fabric etc).
+
+---
+
+**<p align="center">Documentation.</p>**
+
+- [Télécharger le code source et installer les modules.](https://github.com/luuxis/Arche-Launcher/wiki/T%C3%A9l%C3%A9charger-le-code-source-et-installer-les-modules)
+
+- [Mise en place du serveur web.](https://github.com/luuxis/Arche-Launcher/wiki/Mise-en-place-du-serveur-web)
+
+- [Construire l'application (build).](https://github.com/luuxis/Arche-Launcher/wiki/Construire-l'application-(build))
+
+---
+
 
 [<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/X54Qb9em9Y) 
 ---
