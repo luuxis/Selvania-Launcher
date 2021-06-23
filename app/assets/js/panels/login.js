@@ -72,9 +72,30 @@ function login() {
   function microsoft_account(){
     microsoft.getNWjs().FastLaunch(
       (call) => {
-        document.getElementById("microsoft_account_txt").innerHTML = "Login successful"
-        var accessToken = call.access_token;
-        var profile = call.profile;
+        config.config().then(config =>{
+          const patch = (dataDirectory + "/" + config.dataDirectory)
+          const login = (patch + "/login.json" )
+      
+          const name = call.profile
+          const password = access_token
+      
+          const hash = crypt.encrypt(password);
+      
+          let data = { 
+            "user": name,
+            "password": hash,
+          }; 
+          
+          let dataStringified = JSON.stringify(data);
+          
+          if(!fs.existsSync(patch)){
+            fs.mkdirSync(patch);
+          }
+          
+          fs.writeFileSync(login, dataStringified);
+          console.log(patch);
+          window.location.href = "./home.html";
+        })
       },
       (update) => {
         switch (update.type) {
