@@ -7,9 +7,7 @@ const url = pkg.url.replace('{user}', pkg.user);
 const manifestUrl = url + "/launcher/package.json";
 
 const { config } = require('./assets/js/utils.js');
-const os = require("os");
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
-const fs = require("fs");
 
 let win = nw.Window.get();
 
