@@ -25,14 +25,13 @@ config.info().then(config => {
     })
 })
 
-
 function play(){
     config.config().then(config => {
         document.querySelector(".play-btn").style.display = "none";
         document.querySelector(".info-progress").style.display = "block";
         const max_ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
-        const password = crypt.decrypt(login.password);
+        const password = crypt.decrypt(login.mojang.password);
 
 
         let opts = {
@@ -40,7 +39,7 @@ function play(){
             overrides: {
                 detached: false
             },
-            authorization: MCAuth.auth(login.user, password),
+            authorization: MCAuth.auth(login.mojang.user, password),
             root: dataDirectory + "/" + config.dataDirectory,
             version: config.game_version,
             forge: config.forge_version,
@@ -69,27 +68,26 @@ function play(){
           launcher.on('verification-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
             document.getElementById("bar-txt").innerHTML = "[VERIFICATION] " + e.name + " (" + e.current + "/" + e.total + ")";
-            document.getElementById("bar-txt").innerHTML = e.current, e.total;
+            progressBar = document.getElementById("progress-bar")
+            progressBar.max = e.total;
+            progressBar.value = e.current;
           });
       
           launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
             document.getElementById("bar-txt").innerHTML = "[DOWNLOAD][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")";
-            if(e.downloadedBytes > e.bytesToDownload) {
-                document.getElementById("bar-txt").innerHTML = e.downloadedBytes, e.downloadedBytes;
-            }else {
-                document.getElementById("bar-txt").innerHTML = e.downloadedBytes, e.bytesToDownload;
-            }
+            progressBar = document.getElementById("progress-bar")
+            progressBar.max = e.bytesToDownload;
+            progressBar.value = e.downloadedBytes;
           });
       
           launcher.on('launch', (e) => {
-            console.log("Demarrage du jeu.");
             document.getElementById("bar-txt").innerHTML = "Demarrage du jeu."
           });
 
           launcher.on('close', () => {
-            console.log("Le jeux est fermer.")
-            document.getElementById("bar-txt").innerHTML = "Le jeux est fermer."
+            document.querySelector(".play-btn").style.display = "block";
+            document.querySelector(".info-progress").style.display = "none";
           });
     })
 }

@@ -15,8 +15,10 @@ function setlogging(){
     const hash = crypt.encrypt(password);
 
     let data = { 
-      "user": name,
-      "password": hash,
+      "mojang":{
+        "user": name,
+        "password": hash,
+      }
     }; 
     
     let dataStringified = JSON.stringify(data);
@@ -77,13 +79,15 @@ function login() {
           const login = (patch + "/login.json" )
       
           const name = call.profile
-          const password = access_token
+          const password = call.access_token
       
           const hash = crypt.encrypt(password);
       
           let data = { 
-            "user": name,
-            "password": hash,
+            "microsoft":{
+              "user": name,
+              "password": hash,
+            }
           }; 
           
           let dataStringified = JSON.stringify(data);
@@ -100,10 +104,10 @@ function login() {
       (update) => {
         switch (update.type) {
           case "Starting":
-            document.getElementById("microsoft_account_txt").innerHTML = "Checking user started!"
+            document.querySelector(".connexion").style.display = "block";
             break;
           case "Loading":
-            document.getElementById("microsoft_account_txt").innerHTML = "Loading:" + update.data + "-" + update.percent + "%"
+            document.getElementById("microsoft_account_txt").innerHTML = "Connexion: " + update.percent + "%"
             break;
           case "Rejection":
             document.getElementById("microsoft_account_txt").innerHTML = update.data

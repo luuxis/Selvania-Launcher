@@ -60,4 +60,5 @@ input.text{
     opacity: 0.5;
     width: 5%;
     padding: 2%;
+    cursor: pointer;
 }
