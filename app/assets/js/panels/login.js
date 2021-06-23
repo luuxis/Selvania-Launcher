@@ -72,30 +72,29 @@ function login() {
   function microsoft_account(){
     microsoft.getNWjs().FastLaunch(
       (call) => {
-        console.log("Login successful");
+        document.getElementById("microsoft_account_txt").innerHTML = "Login successful"
         var accessToken = call.access_token;
         var profile = call.profile;
       },
       (update) => {
         switch (update.type) {
           case "Starting":
-            console.log("Checking user started!");
+            document.getElementById("microsoft_account_txt").innerHTML = "Checking user started!"
             break;
           case "Loading":
-            console.log("Loading:", update.data, "-", update.percent + "%");
+            document.getElementById("microsoft_account_txt").innerHTML = "Loading:" + update.data + "-" + update.percent + "%"
             break;
           case "Rejection":
-            console.error("Fetch rejected!", update.data);
+            document.getElementById("microsoft_account_txt").innerHTML = "Fetch rejected!" + update.data
             break;
           case "Error":
-            console.error("MC-Account error:", update.data);
+            document.getElementById("microsoft_account_txt").innerHTML = "MC-Account error:" + update.data
             break;
           case "Canceled":
-            console.error("User clicked cancel!");
+            document.getElementById("microsoft_account_txt").innerHTML = "User clicked cancel!"
             break;	
         }
       }
-  )
-  
+    )
   }
   
