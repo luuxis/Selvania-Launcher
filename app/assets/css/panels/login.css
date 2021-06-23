@@ -56,3 +56,8 @@ input.text{
     cursor: pointer;
 }
 
+.logo-microsoft {
+    opacity: 0.5;
+    width: 5%;
+    padding: 2%;
+}

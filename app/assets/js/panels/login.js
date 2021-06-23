@@ -1,4 +1,4 @@
-const { config, auth, crypt } = require('./assets/js/utils.js');
+const { config, auth, crypt, microsoft } = require('./assets/js/utils.js');
 const fs = require("fs")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
@@ -63,5 +63,39 @@ function login() {
       document.querySelector(".password").disabled = false;
       document.querySelector(".error").style.display = "block";
     })
+  }
+
+  function connecte_on() {
+    window.location.href = "./login-online.html";
+  }
+
+  function microsoft_account(){
+    microsoft.getNWjs().FastLaunch(
+      (call) => {
+        console.log("Login successful");
+        var accessToken = call.access_token;
+        var profile = call.profile;
+      },
+      (update) => {
+        switch (update.type) {
+          case "Starting":
+            console.log("Checking user started!");
+            break;
+          case "Loading":
+            console.log("Loading:", update.data, "-", update.percent + "%");
+            break;
+          case "Rejection":
+            console.error("Fetch rejected!", update.data);
+            break;
+          case "Error":
+            console.error("MC-Account error:", update.data);
+            break;
+          case "Canceled":
+            console.error("User clicked cancel!");
+            break;	
+        }
+      }
+  )
+  
   }
   

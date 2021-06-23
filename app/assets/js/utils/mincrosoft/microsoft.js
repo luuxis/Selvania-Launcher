@@ -245,9 +245,6 @@ module.exports.MSLogin = function (token, callback, updates) {
     );
 };
 
-module.exports.getElectron = () => {
-    return require("./electron");
-};
 
 module.exports.getNWjs = () => {
     return require("./nwjs");
