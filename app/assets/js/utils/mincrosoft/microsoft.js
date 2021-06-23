@@ -180,7 +180,7 @@ module.exports.MSCallBack = async function (code, MStoken, callback, updates = (
     var MCPurchaseCheck = await rmcstore.json();
     //console.log(MCPurchaseCheck) //debug
     if (MCPurchaseCheck.items.length < 1) {
-        return error("You do not seem to own minecraft.");
+        return error("Vous ne semblez pas posséder minecraft.");
     }
 
     loadBar(percent * 7, "Fetching player profile");

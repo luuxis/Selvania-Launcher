@@ -85,13 +85,10 @@ function login() {
             document.getElementById("microsoft_account_txt").innerHTML = "Loading:" + update.data + "-" + update.percent + "%"
             break;
           case "Rejection":
-            document.getElementById("microsoft_account_txt").innerHTML = "Fetch rejected!" + update.data
+            document.getElementById("microsoft_account_txt").innerHTML = update.data
             break;
           case "Error":
-            document.getElementById("microsoft_account_txt").innerHTML = "MC-Account error:" + update.data
-            break;
-          case "Canceled":
-            document.getElementById("microsoft_account_txt").innerHTML = "User clicked cancel!"
+            document.getElementById("microsoft_account_txt").innerHTML = update.data
             break;	
         }
       }
