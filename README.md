@@ -51,9 +51,9 @@ Build pour sa plateforme :
 
 - Authentification mojang.
 
-- Authentification crack.
+- Authentification Microsoft.
 
-- Authentification Microsoft (en développement).
+- Authentification crack.
 
 - Accepte toutes versions de Minecraft (1.0 > 1.17) (Forge, Fabric etc).
 
