@@ -20,7 +20,7 @@ jobs:
           node-version: 14
 
       - name: Build app
-        uses: npm run build:all
+        run: npm run build:all
         with:
           github_token: ${{ secrets.github }}
 
