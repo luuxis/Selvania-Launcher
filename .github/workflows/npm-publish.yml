@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 14
 
-      - name: Build app
+      - name: name: Build/release NW.js app
         run: npm run build:all
         with:
           github_token: ${{ secrets.github }}
