@@ -27,8 +27,8 @@ config.info().then(config => {
 
 function play(){
     config.config().then(config => {
-        document.querySelector(".play-btn").style.display = "none";
-        document.querySelector(".info-progress").style.display = "block";
+        document.querySelector(".config").style.display = "none";
+        document.querySelector(".info-progress").style.display = "contents";
         const max_ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
         const password = crypt.decrypt(login.mojang.password);

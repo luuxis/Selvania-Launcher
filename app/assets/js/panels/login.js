@@ -35,7 +35,7 @@ function setlogging(){
 
 function login() {
     if (document.querySelector(".pseudo").value == "" || document.querySelector(".password").value == ""){
-      document.querySelector(".error").style.display = "block";
+      document.querySelector(".error").style.display = "contents";
       return;
     }
     document.querySelector(".pseudo").disabled = true;
@@ -46,13 +46,13 @@ function login() {
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;
-      document.querySelector(".error").style.display = "block";
+      document.querySelector(".error").style.display = "contents";
     })
   }
 
   function loginoff() {
     if (document.querySelector(".pseudo").value == ""){
-      document.querySelector(".error").style.display = "block";
+      document.querySelector(".error").style.display = "contents";
       return;
     }
     document.querySelector(".pseudo").disabled = true;
@@ -63,7 +63,7 @@ function login() {
     }).catch (err => {
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;
-      document.querySelector(".error").style.display = "block";
+      document.querySelector(".error").style.display = "contents";
     })
   }
 
@@ -104,7 +104,7 @@ function login() {
       (update) => {
         switch (update.type) {
           case "Starting":
-            document.querySelector(".connexion").style.display = "block";
+            document.querySelector(".connexion").style.display = "contents";
             break;
           case "Loading":
             document.getElementById("microsoft_account_txt").innerHTML = "Connexion: " + update.percent + "%"
