@@ -13,6 +13,7 @@
     "frame": false,
     "resizable": false,
     "position": "center",
+    "transparent": true,
     "icon": "app/assets/images/icon/icon.png"
   },
   "chromium-args": "--enable-logging --v=1",
