@@ -88,6 +88,7 @@ class index {
       "height": 552,
       "min_width": 980,
       "min_height": 552,
+      "transparent": true,
       "frame": (process.platform == "win32") ? false : true,
       "position": "center",
       "icon": "app/assets/images/icons/icon.png"
