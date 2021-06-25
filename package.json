@@ -16,7 +16,7 @@
     "transparent": true,
     "icon": "app/assets/images/icon/icon.png"
   },
-  "chromium-args": "--enable-logging --v=1",
+  "chromium-args": "--enable-logging --v=1 --disable-gpu",
   "url": "http://launcheur.arche-rp.fr/{user}",
   "webkit": {
     "plugin": true

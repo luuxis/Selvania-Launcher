@@ -15,7 +15,3 @@ module.exports.login = function(username, password){
         })
     })
 }
-
-module.exports.isLogged = function isLogged(){
-    return authenticator != null && authenticator != undefined;
-}
