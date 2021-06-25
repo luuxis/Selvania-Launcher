@@ -41,9 +41,11 @@ function login() {
     document.querySelector(".pseudo").disabled = true;
     document.querySelector(".password").disabled = true;
     document.querySelector(".error").style.display = "none";
+    document.querySelector(".connexion").style.display = "contents";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
       setlogging()
     }).catch (err => {
+      document.querySelector(".connexion").style.display = "none";
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;
       document.querySelector(".error").style.display = "contents";
@@ -55,12 +57,14 @@ function login() {
       document.querySelector(".error").style.display = "contents";
       return;
     }
+    document.querySelector(".connexion").style.display = "contents";
     document.querySelector(".pseudo").disabled = true;
     document.querySelector(".password").disabled = true;
     document.querySelector(".error").style.display = "none";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
       setlogging()
     }).catch (err => {
+      document.querySelector(".connexion").style.display = "none";
       document.querySelector(".pseudo").disabled = false;
       document.querySelector(".password").disabled = false;
       document.querySelector(".error").style.display = "contents";
