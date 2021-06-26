@@ -5,7 +5,7 @@ const launcher = new MCLaunch;
 
 function ram() {
     document.querySelector('.ram').onchange = function() {
-        document.getElementById("ram-text").innerHTML = "Ram " + this.value + "G";
+        document.getElementById("ram-text").innerHTML = "M\u00e9moire vive " + this.value + " Go";
     }
 }
 
@@ -18,10 +18,10 @@ config.info().then(config => {
         port: config.port
     }).then((state) => {
         status_json = state.raw.vanilla;
-        document.getElementById("online").innerHTML = status_json.raw.players.online + "/" + status_json.raw.players.max;
-        console.log(status_json.raw.players.online + "/" + status_json.raw.players.max);
+        document.getElementById("online").innerHTML = status_json.raw.players.online;
+        console.log(status_json.raw.players.online);
     }).catch((error) => {
-        document.getElementById("online").innerHTML = "Le serveur est fermer";
+        document.getElementById("online").innerHTML = "Le serveur est fermé.";
     })
 })
 
@@ -82,7 +82,7 @@ function play(){
           });
       
           launcher.on('launch', (e) => {
-            document.getElementById("bar-txt").innerHTML = "Demarrage du jeu."
+            document.getElementById("bar-txt").innerHTML = "En route pour votre aventure..."
           });
 
           launcher.on('close', () => {

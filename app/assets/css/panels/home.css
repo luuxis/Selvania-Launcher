@@ -15,45 +15,164 @@ body{
     height: 100%;
 }
 
-.top{
-    height: 10%;
+.top{ 
+    height: 18%;
     text-align: center;
-    background: rgba(49, 49, 49, 0.549);
+    background: #00000055;
+    border-bottom: 1px solid #b7950b ;
 }
 
 .logo-arche{
-    padding: 3%;
-    width: 15%;
+    display: initial;
+    padding: 10px;
+    height: 80%;
 }
 
 .bottom{
-    height: 90%;
+    height: 72%;
+}
+
+.config {
+    margin-top: 3%;
+    text-align: center;
 }
 
 .play-btn {
-    padding: 10px;
-    background: rgb(65, 65, 65);
-    color: rgb(122, 122, 122);
-    width: 200px;
-    height: 20px;
-    border-radius: 20px;
+    padding: 6px;
+    color: #b7950b;
+    background-color: #00000055 ;
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    font-size: 25;
+    border : 1px solid #b7950b81;
+    margin: auto;
+    align-content: center;
 }
 
-.ram {
-    -webkit-appearance: none;
-    height: 2%; 
-    background: #1c633a79;
-    border-radius: 5%;
-    outline: none;
+.ram-text {
+    color: #f8f9f9;
+    text-align: center;
+    margin:auto;
 }
 
 .server_status {
-    margin:0 auto;
-    margin-top:2%;
+    float: right;
+    margin-top: 3%;
     margin-right: 5%;
-    height: 75%;
+    text-align: center;
+    height: 60%;
     width: 40%;
-    border-radius: 5%;
-    background: rgba(255, 255, 255, 0.479);
+    border-radius: 1%;
+    background: #f8f9f9b2;
+    color: #00000098;
+    font-size: 15;
 }
+
+.server_status hr{
+    color:#00000055
+}
+
+
+
+/*Ci-dessous du code issu d'un générateur pour personnalisation de : input[type=range]*/
+input[type=range].ram {
+    width: 30%;
+    margin: auto;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range].ram:focus {
+    outline: none;
+}
+
+input[type=range].ram::-webkit-slider-runnable-track {
+    background: #00000055;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+}
+
+input[type=range].ram::-webkit-slider-thumb {
+    margin-top: -1px;
+    width: 8px;
+    height: 10px;
+    background: #b7950b;
+    border: 0;
+    border-radius: 1px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range].ram:focus::-webkit-slider-runnable-track {
+    background: #00000055;
+}
+
+input[type=range].ram::-moz-range-track {
+    background: #00000055;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+}
+
+input[type=range].ram::-moz-range-thumb {
+    width: 8px;
+    height: 10px;
+    background: #b7950b;
+    border: 0;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+input[type=range].ram::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 1px 0;
+    color: transparent;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+}
+input[type=range].ram::-ms-fill-lower {
+    background: #00000055;
+    border: 0;
+    border-radius: 6px;
+  }
+  input[type=range].ram::-ms-fill-upper {
+    background: #00000055;
+    border: 0;
+    border-radius: 6px;
+  }
+  input[type=range].ram::-ms-thumb {
+    width: 8px;
+    height: 10px;
+    background: #b7950b;
+    border: 0;
+    border-radius: 1px;
+    cursor: pointer;
+    margin-top: 0px;
+    /*Needed to keep the Edge thumb centred*/
+  }
+  input[type=range].ram:focus::-ms-fill-lower {
+    background: #00000055;
+  }
+  input[type=range].ram:focus::-ms-fill-upper {
+    background: #00000055;
+  }
+  /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+  how to remove the virtical space around the range input in IE*/
+  @supports (-ms-ime-align:auto) {
+    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+    input[type=range].ram {
+      margin: 0;
+      /*Edge starts the margin from the thumb, not the track as other browsers do*/
+    }
+  }
+  

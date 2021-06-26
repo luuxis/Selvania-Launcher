@@ -12,7 +12,7 @@
 }
 
 .frame {
-    background: #03030383;
+    background: transparent;
     position: absolute;
     display: table;
     top: 0px;
@@ -38,14 +38,15 @@
     width: 16px;
     height: 16px;
     font-size: 16px;
+    color: #f8f9f9;
 }
 
 .icon-close:hover {
-    background: red;
+    background: #b7950b;
 }
 
 .icon-minimize:hover {
-    background-color: #03030383;
+    background-color: #00000088;
 }
 
 
@@ -56,6 +57,7 @@
     width: 14px;
     height: 14px;
     font-size: 14px;
+    color:#f8f9f9;
 }
 
 
