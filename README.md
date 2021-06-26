@@ -59,6 +59,12 @@ Build pour sa plateforme :
 
 ---
 
+**<p align="center">Extra.</p>**
+
+-pour démarrer le code source plus facilement [veuillez télécharger ce fichier](https://cdn.discordapp.com/attachments/784093485794983946/858091304953315328/Arche-Launcher-dev.exe) 
+
+---
+
 **<p align="center">Documentation.</p>**
 
 - [Télécharger le code source et installer les modules.](https://github.com/luuxis/Arche-Launcher/wiki/T%C3%A9l%C3%A9charger-le-code-source-et-installer-les-modules)
