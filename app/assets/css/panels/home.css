@@ -52,32 +52,6 @@ body{
     align-content: center;
 }
 
-.ram-text {
-    color: #f8f9f9;
-    text-align: center;
-    margin:auto;
-}
-
-.server_status {
-    float: right;
-    margin-top: 3%;
-    margin-right: 5%;
-    text-align: center;
-    height: 60%;
-    width: 40%;
-    border-radius: 1%;
-    background: #f8f9f9b2;
-    color: #00000098;
-    font-size: 15;
-}
-
-.server_status hr{
-    color:#00000055
-}
-
-
-
-
 input[type=range].ram {
     width: 30%;
     margin: auto;
@@ -171,4 +145,27 @@ input[type=range].ram::-ms-fill-lower {
       margin: 0;
     }
   }
+
+.ram-text {
+    color: #f8f9f9;
+    text-align: center;
+    margin:auto;
+}
+
+.server_status {
+    float: right;
+    margin-top: 3%;
+    margin-right: 5%;
+    text-align: center;
+    height: 60%;
+    width: 40%;
+    border-radius: 1%;
+    background: #f8f9f9b2;
+    color: #00000098;
+    font-size: 15;
+}
+
+.server_status hr{
+    color:#00000055
+}
   
