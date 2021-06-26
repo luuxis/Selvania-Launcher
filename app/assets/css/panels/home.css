@@ -16,10 +16,10 @@ body{
 }
 
 .top{ 
-    height: 18%;
+    height: 19%;
     text-align: center;
     background: #00000055;
-    border-bottom: 1px solid #b7950b ;
+    border-bottom: 1px solid #afaea9 ;
 }
 
 .logo-arche{
@@ -29,11 +29,11 @@ body{
 }
 
 .bottom{
-    height: 72%;
+    height: 80%;
 }
 
 .config {
-    margin-top: 3%;
+    padding: 3%;
     text-align: center;
 }
 
@@ -146,23 +146,43 @@ input[type=range].ram::-ms-fill-lower {
     }
   }
 
+.info-progress {
+    padding: 3.75%;
+    text-align: center;
+}
 .ram-text {
     color: #f8f9f9;
     text-align: center;
-    margin:auto;
+}
+
+progress {
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    height: 2%;
+    appearance: none;
+    transition: opacity .2s;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #00000055;
+    border-radius: 10px;
+}
+progress::-webkit-progress-value {
+    background-color: #b7950b;
+    border-radius: 10px;
 }
 
 .server_status {
-    float: right;
-    margin-top: 3%;
-    margin-right: 5%;
     text-align: center;
-    height: 60%;
+    display: flow-root;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-right: 5%;
+    height: 65%;
     width: 40%;
-    border-radius: 1%;
-    background: #f8f9f9b2;
-    color: #00000098;
-    font-size: 15;
+    border-radius: 5%;
+    background: rgba(255, 255, 255, 0.479);
 }
 
 .server_status hr{

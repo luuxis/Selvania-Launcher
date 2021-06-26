@@ -28,7 +28,7 @@ config.info().then(config => {
 function play(){
     config.config().then(config => {
         document.querySelector(".config").style.display = "none";
-        document.querySelector(".info-progress").style.display = "contents";
+        document.querySelector(".info-progress").style.display = "block";
         const max_ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json") 
         const password = crypt.decrypt(login.mojang.password);
@@ -53,12 +53,12 @@ function play(){
 
         launcher.on('debug', (e) => {
             console.log("[DEBUG]" + e);
-            document.getElementById("bar-txt").innerHTML = "[DEBUG]" + e
+            //document.getElementById("bar-txt").innerHTML = "Verification des ressources."
           });
 
           launcher.on('data', (e) => {
             console.log("[DATA]" + e);
-            document.getElementById("bar-txt").innerHTML = "[DATA]" + e
+            //document.getElementById("bar-txt").innerHTML = "Verification des ressources."
           });
           launcher.on('error', (e) => {
             console.log("[ERROR]" + e);
@@ -67,7 +67,7 @@ function play(){
       
           launcher.on('verification-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
-            document.getElementById("bar-txt").innerHTML = "[VERIFICATION] " + e.name + " (" + e.current + "/" + e.total + ")";
+            document.getElementById("bar-txt").innerHTML = "Verification des ressources."
             progressBar = document.getElementById("progress-bar")
             progressBar.max = e.total;
             progressBar.value = e.current;
@@ -75,17 +75,18 @@ function play(){
       
           launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
-            document.getElementById("bar-txt").innerHTML = "[DOWNLOAD][" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")";
+            document.getElementById("bar-txt").innerHTML = "Telechargement des ressources."
             progressBar = document.getElementById("progress-bar")
             progressBar.max = e.bytesToDownload;
             progressBar.value = e.downloadedBytes;
           });
       
           launcher.on('launch', (e) => {
-            document.getElementById("bar-txt").innerHTML = "En route pour votre aventure..."
+
           });
 
           launcher.on('close', () => {
+
             document.querySelector(".play-btn").style.display = "block";
             document.querySelector(".info-progress").style.display = "none";
           });
