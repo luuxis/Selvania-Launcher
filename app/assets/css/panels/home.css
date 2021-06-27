@@ -3,8 +3,8 @@
 
 body{
     background: url("../../images/background/1.png");
-    background-size: cover;
     background-position: bottom;
+    background-size: cover;
 }
 
 .home{
@@ -21,7 +21,7 @@ body{
     height: 19%;
     text-align: center;
     background: #00000055;
-    border-bottom: 1px solid #afaea9 ;
+    border-bottom: 1px solid #b7950b ;
 }
 
 .logo-arche{
@@ -184,10 +184,11 @@ progress::-webkit-progress-value {
     height: 65%;
     width: 40%;
     border-radius: 5%;
-    background: rgba(255, 255, 255, 0.479);
+    background: #00000055;
+    color: #f8f9f9;
 }
 
 .server_status hr{
-    color:#00000055
+    color:#b7950b
 }
   
