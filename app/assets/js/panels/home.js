@@ -82,7 +82,7 @@ function play(){
           });
       
           launcher.on('launch', (e) => {
-
+            document.getElementById("bar-txt").innerHTML = "test"
           });
 
           launcher.on('close', () => {

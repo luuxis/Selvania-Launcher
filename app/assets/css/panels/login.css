@@ -2,6 +2,8 @@
 
 body{
     background: url("../../images/background/1.png");
+    background-size: cover;
+    background-position: bottom;
 }
 .login{
     position: absolute;
@@ -13,46 +15,44 @@ body{
     top: 0;
     right: 0;
     bottom: 0;
-    background: #1e272e7e;
-    border-radius: 15px;
+    background: #00000055;
+    border-radius: 2%;
     text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-h1{
-    color: rgb(255, 255, 255);
-}
-
-h2{
-    color: black;
+h1,h2{
+    color: #f9f8f9;
 }
 
 hr{
     width: 75%;
+    color:#b7950b;
 }
 
 input.text{
     margin: 2%;
-    background: rgba(255, 255, 255, 0.534);
+    background: #00000067;
     text-align: center;
     position: relative;
     width: 300px;
     height: 32px;
-    border-radius: 16px;
-    border: none;
+    border-radius: 5px;
+    border: 1px solid #f9f8f9;
     outline: none;
+    color: #fff;
 
 }
 
 .login-btn {
     padding: 10px;
-    background: rgb(65, 65, 65);
-    color: rgb(122, 122, 122);
+    background: #00000088;
+    color: #b7950b;
     width: 200px;
     height: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
