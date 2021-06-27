@@ -191,4 +191,10 @@ progress::-webkit-progress-value {
 .server_status hr{
     color:#b7950b
 }
+
+.users {
+    height: 15%;
+    color: #fff;
+    font-size: 200%;
+}
   
