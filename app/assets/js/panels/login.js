@@ -82,15 +82,10 @@ function login() {
           const patch = (dataDirectory + "/" + config.dataDirectory)
           const login = (patch + "/login.json" )
       
-          const name = call.profile
-          const password = call.access_token
-      
-          const hash = crypt.encrypt(password);
-      
           let data = { 
             "microsoft":{
-              "user": name,
-              "password": hash,
+              "profile": call.profile,
+              "access_token": call.access_token,
             }
           }; 
           
