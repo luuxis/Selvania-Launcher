@@ -18,16 +18,16 @@ body{
 }
 
 .top{ 
-    height: 19%;
+    height: 9%;
     text-align: center;
-    background: #00000055;
+    background: #05050555;
     border-bottom: 1px solid #b7950b ;
 }
 
 .logo-arche{
     display: initial;
-    padding: 10px;
-    height: 80%;
+    padding: 1%;
+    height: 160%;
 }
 
 .bottom{
@@ -35,7 +35,7 @@ body{
 }
 
 .config {
-    padding: 3%;
+    padding: 5%;
     text-align: center;
 }
 
@@ -149,7 +149,7 @@ input[type=range].ram::-ms-fill-lower {
   }
 
 .info-progress {
-    padding: 3.75%;
+    padding: 5.75%;
     text-align: center;
 }
 .ram-text {
