@@ -19,9 +19,12 @@ body{
 
 .top{ 
     height: 9%;
-    
     background: #05050555;
     border-bottom: 1px solid #b7950b ;
+}
+
+.logo{
+    height: 1%;
 }
 
 .logo-arche{
