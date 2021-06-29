@@ -1,6 +1,6 @@
-const { config, crypt } = require('./assets/js/utils.js');
+const { config } = require('./assets/js/utils.js');
+const { Authenticator } = require('minecraft-launcher-core');
 const fs = require("fs")
-const { MCAuth } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 
@@ -22,10 +22,8 @@ config.config().then(config => {
 
     let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/login.json")
     let json = JSON.parse(rawData);
-
-    const password = crypt.decrypt(json.mojang.password);
     
-    MCAuth.auth(json.mojang.user, password).then(user => {
+    Authenticator.validate(json.user.access_token, json.user.client_token).then(user => {
       window.location.href = "./panels/home.html";
     }).catch (err => {
       isonline()

@@ -1,37 +1,6 @@
-const { config, auth, crypt, microsoft } = require('./assets/js/utils.js');
+const { config, auth, microsoft } = require('./assets/js/utils.js');
 const fs = require("fs")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
-
-
-
-function setlogging(){
-  config.config().then(config => {
-    const patch = (dataDirectory + "/" + config.dataDirectory)
-    const login = (patch + "/login.json" )
-
-    const name = document.querySelector(".pseudo").value;
-    const password = document.querySelector(".password").value;
-
-    const hash = crypt.encrypt(password);
-
-    let data = { 
-      "mojang":{
-        "user": name,
-        "password": hash,
-      }
-    }; 
-    
-    let dataStringified = JSON.stringify(data);
-    
-    if(!fs.existsSync(patch)){
-      fs.mkdirSync(patch);
-    }
-    
-    fs.writeFileSync(login, dataStringified);
-    console.log(patch);
-    window.location.href = "./home.html";
-  })
-}
 
 function login() {
     if (document.querySelector(".pseudo").value == "" || document.querySelector(".password").value == ""){
@@ -43,7 +12,22 @@ function login() {
     document.querySelector(".error").style.display = "none";
     document.querySelector(".connexion").style.display = "contents";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
-      setlogging()
+      config.config().then(config => {
+        const patch = (dataDirectory + "/" + config.dataDirectory)
+    
+        let data = { 
+          "user": user,
+        }; 
+        
+        let dataStringified = JSON.stringify(data);
+        
+        if(!fs.existsSync(patch)){
+          fs.mkdirSync(patch);
+        }
+        
+        fs.writeFileSync(patch + "/login.json", dataStringified);
+        window.location.href = "./home.html";
+      })
     }).catch (err => {
       document.querySelector(".connexion").style.display = "none";
       document.querySelector(".pseudo").disabled = false;
@@ -62,7 +46,22 @@ function login() {
     document.querySelector(".password").disabled = true;
     document.querySelector(".error").style.display = "none";
     auth.login(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
-      setlogging()
+      config.config().then(config => {
+        const patch = (dataDirectory + "/" + config.dataDirectory)
+    
+        let data = { 
+          "user": user,
+        }; 
+        
+        let dataStringified = JSON.stringify(data);
+        
+        if(!fs.existsSync(patch)){
+          fs.mkdirSync(patch);
+        }
+        
+        fs.writeFileSync(patch + "/login.json", dataStringified);
+        window.location.href = "./home.html";
+      })
     }).catch (err => {
       document.querySelector(".connexion").style.display = "none";
       document.querySelector(".pseudo").disabled = false;
