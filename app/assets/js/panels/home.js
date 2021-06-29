@@ -84,7 +84,7 @@ function play(){
           });
       
           launcher.on('launch', (e) => {
-            document.getElementById("bar-txt").innerHTML = "test"
+            document.getElementById("bar-txt").innerHTML = "dont close launcher"
           });
 
           launcher.on('close', () => {
