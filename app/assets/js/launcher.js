@@ -19,9 +19,12 @@ function isonline(){
 
 config.config().then(config => {
   if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/login.json")) {
+
     let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/login.json")
     let json = JSON.parse(rawData);
+
     const password = crypt.decrypt(json.mojang.password);
+    
     MCAuth.auth(json.mojang.user, password).then(user => {
       window.location.href = "./panels/home.html";
     }).catch (err => {
