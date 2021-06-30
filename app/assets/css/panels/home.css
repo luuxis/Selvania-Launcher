@@ -28,8 +28,8 @@ body{
 
 .logo{
     height: 50%;
-    padding-bottom: 6%;
     margin: 0.5%;
+    cursor: pointer;
 }
 
 .logo-arche{
