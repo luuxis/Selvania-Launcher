@@ -86,7 +86,7 @@ function play(){
       
           launcher.on('verification-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
-            document.getElementById("bar-txt").innerHTML = "V\u00e9rification des ressources."
+            document.getElementById("bar-txt").innerHTML = "V\u00e9rification des ressources..."
             progressBar = document.getElementById("progress-bar")
             progressBar.max = e.total;
             progressBar.value = e.current;
@@ -94,7 +94,7 @@ function play(){
       
           launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
-            document.getElementById("bar-txt").innerHTML = "Telechargement des ressources."
+            document.getElementById("bar-txt").innerHTML = "Telechargement des ressources..."
             progressBar = document.getElementById("progress-bar")
             progressBar.max = e.bytesToDownload;
             progressBar.value = e.downloadedBytes;
