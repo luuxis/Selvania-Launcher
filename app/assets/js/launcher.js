@@ -18,9 +18,9 @@ function isonline(){
 
 
 config.config().then(config => {
-  if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/login.json")) {
+  if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/account.json")) {
 
-    let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/login.json")
+    let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/account.json")
     let json = JSON.parse(rawData);
     
     Authenticator.validate(json.user.access_token, json.user.client_token).then(user => {

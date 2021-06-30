@@ -32,7 +32,7 @@ function play(){
         document.querySelector(".config").style.display = "none";
         document.querySelector(".info-progress").style.display = "block";
         const max_ram = document.getElementById("ram").value
-        const login = require(dataDirectory + "/" + config.dataDirectory + "/login.json")
+        const login = require(dataDirectory + "/" + config.dataDirectory + "/account.json")
 
 
         let opts = {

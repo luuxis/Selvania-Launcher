@@ -25,7 +25,7 @@ function login() {
           fs.mkdirSync(patch);
         }
         
-        fs.writeFileSync(patch + "/login.json", dataStringified);
+        fs.writeFileSync(patch + "/account.json", dataStringified);
         window.location.href = "./home.html";
       })
     }).catch (err => {
@@ -59,7 +59,7 @@ function login() {
           fs.mkdirSync(patch);
         }
         
-        fs.writeFileSync(patch + "/login.json", dataStringified);
+        fs.writeFileSync(patch + "/account.json", dataStringified);
         window.location.href = "./home.html";
       })
     }).catch (err => {
@@ -79,7 +79,7 @@ function login() {
       (call) => {
         config.config().then(config =>{
           const patch = (dataDirectory + "/" + config.dataDirectory)
-          const login = (patch + "/login.json" )
+          const login = (patch + "/account.json" )
       
           let data = { 
             "microsoft":{
