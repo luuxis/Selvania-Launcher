@@ -82,10 +82,7 @@ function login() {
           const login = (patch + "/account.json" )
       
           let data = { 
-            "microsoft":{
-              "profile": call.profile,
-              "access_token": call.access_token,
-            }
+            "user": call,
           }; 
           
           let dataStringified = JSON.stringify(data);

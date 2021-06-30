@@ -22,9 +22,13 @@ body{
     background: #05050555;
     border-bottom: 1px solid #b7950b ;
 }
+.centre {
+    text-align: center;
+}
 
 .logo{
     height: 1%;
+    display: none;
 }
 
 .logo-arche{
