@@ -60,11 +60,11 @@
       "icon": "./app/assets/images/icon/icon.ico"
     },
     "mac": {
-      "displayName": "Arche Launcher",
+      "displayName": "Arche-Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.icns",
       "plistStrings": {
-        "CFBundleIdentifier": "Arche Launcher",
+        "CFBundleIdentifier": "Arche-Launcher",
         "CFBundleDocumentTypes": []
       }
     },
