@@ -27,6 +27,24 @@ config.info().then(config => {
     })
 })
 
+function web_site(){
+  config.info().then(info => {
+    nw.Shell.openExternal(info.site)
+  })
+}
+
+function discord(){
+  config.info().then(info => {
+    nw.Shell.openExternal(info.discord)
+  })
+}
+
+function youtube(){
+  config.info().then(info => {
+    nw.Shell.openExternal(info.youtube)
+  })
+}
+
 function play(){
     config.config().then(config => {
         document.querySelector(".config").style.display = "none";

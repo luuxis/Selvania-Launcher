@@ -27,14 +27,15 @@ body{
 }
 
 .logo{
-    height: 1%;
-    display: none;
+    height: 50%;
+    padding-bottom: 6%;
+    margin: 0.5%;
 }
 
 .logo-arche{
-    display: initial;
     padding: 1%;
     height: 160%;
+    margin-left: 27.5%;
 }
 
 .bottom{
