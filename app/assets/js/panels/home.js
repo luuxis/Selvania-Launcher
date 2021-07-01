@@ -105,7 +105,7 @@ function play(){
           });
 
           launcher.on('close', () => {
-            document.querySelector(".play-btn").style.display = "block";
+            document.querySelector(".config").style.display = "block";
             document.querySelector(".info-progress").style.display = "none";
           });
     })
