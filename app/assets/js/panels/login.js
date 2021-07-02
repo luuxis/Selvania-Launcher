@@ -16,7 +16,13 @@ function login() {
         const patch = (dataDirectory + "/" + config.dataDirectory)
     
         let data = { 
-          "user": user,
+          "user": {
+            "type": "mojang",
+            "access_token": user.access_token,
+            "client_token": user.client_token,
+            "uuid": user.uuid,
+            "name": user.name
+          }
         }; 
         
         let dataStringified = JSON.stringify(data);
@@ -50,7 +56,13 @@ function login() {
         const patch = (dataDirectory + "/" + config.dataDirectory)
     
         let data = { 
-          "user": user,
+          "user": {
+            "type": "mojang",
+            "access_token": user.access_token,
+            "client_token": user.client_token,
+            "uuid": user.uuid,
+            "name": user.name
+          }
         }; 
         
         let dataStringified = JSON.stringify(data);
@@ -82,8 +94,12 @@ function login() {
           const login = (patch + "/account.json" )
       
           let data = { 
-            "user": call,
-          }; 
+            "user": {
+              "type": "xbox",
+              "accessToken": call.access_token,
+              "profile": call.profile,
+            }
+          };
           
           let dataStringified = JSON.stringify(data);
           
