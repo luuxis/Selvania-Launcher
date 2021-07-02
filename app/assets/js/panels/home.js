@@ -57,7 +57,7 @@ function play(){
         } else if ((login.user.type)  == "offline") {
           account = MCAuth.auth(login.user.pseudo)
         } else if ((login.user.type)  == "xbox") {
-          account = microsoft.getMLC().getAuth(login.user)
+          account = microsoft.getMLC().getAuth(login.user.call)
         }
 
 

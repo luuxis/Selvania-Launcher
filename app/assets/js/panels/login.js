@@ -93,8 +93,7 @@ function login() {
           let data = { 
             "user": {
               "type": "xbox",
-              "accessToken": call.access_token,
-              "profile": call.profile,
+              call
             }
           };
           

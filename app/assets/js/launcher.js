@@ -38,7 +38,7 @@ config.config().then(config => {
         isonline()
       })
     } else if ((json.user.type)  == "xbox") {
-      account = microsoft.getMLC().getAuth(json.user).then(user => {
+      account = microsoft.getMLC().getAuth(json.user.call).then(user => {
         window.location.href = "./panels/home.html";
       }).catch (err => {
         isonline()
