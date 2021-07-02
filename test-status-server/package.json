@@ -5,8 +5,8 @@
   "main": "index.html",
   "window": {
     "title": "Arche update",
-    "width": 400,
-    "height": 500,
+    "width": 980,
+    "height": 552,
     "position": "center"
   },
   "dependencies": {
