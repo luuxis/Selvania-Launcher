@@ -1,4 +1,5 @@
 const MSMC = require("./microsoft");
+const config = require ("../config.js")
 
 const defaultProperties = {
     width: 500,
@@ -36,10 +37,12 @@ module.exports.Launch = (token, callback, updates = () => { }, Windowproperties 
     });
 }
 module.exports.FastLaunch = (callback, updates = () => { }, prompt = "select_account", properties = defaultProperties) => {
-    const token = {
-        client_id: "00000000402b5328",
-        redirect: "https://login.live.com/oauth20_desktop.srf",
-        prompt: prompt,
-    };
-    this.Launch(token, callback, updates, properties);
+    config.config().then(config => {
+        const token = {
+            client_id: config.microsoft_id,
+            redirect: "https://login.live.com/oauth20_desktop.srf",
+            prompt: prompt,
+        };
+        this.Launch(token, callback, updates, properties);   
+    })
 };

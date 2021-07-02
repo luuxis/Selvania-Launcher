@@ -1,5 +1,5 @@
-const { config, status_server } = require('./assets/js/utils.js');
-const { MCLaunch } = require('emc-core-luuxis');
+const { config, status_server, microsoft } = require('./assets/js/utils.js');
+const { MCLaunch, MCAuth } = require('emc-core-luuxis');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const launcher = new MCLaunch;
 
@@ -52,13 +52,21 @@ function play(){
         const max_ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/account.json")
 
+        if((login.user.type)  == "mojang") {
+          account = login.user
+        } else if ((login.user.type)  == "offline") {
+          account = MCAuth.auth(login.user.pseudo)
+        } else if ((login.user.type)  == "xbox") {
+          account = microsoft.getMLC().getAuth(login.user)
+        }
+
 
         let opts = {
             url: config.game_url,
             overrides: {
                 detached: false
             },
-            authorization: login.user,
+            authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
             version: config.game_version,
             forge: config.forge_version,

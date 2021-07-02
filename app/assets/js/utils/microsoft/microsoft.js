@@ -180,7 +180,7 @@ module.exports.MSCallBack = async function (code, MStoken, callback, updates = (
     var MCPurchaseCheck = await rmcstore.json();
     //console.log(MCPurchaseCheck) //debug
     if (MCPurchaseCheck.items.length < 1) {
-        return error("Vous ne semblez pas posséder minecraft.");
+        return error("You do not seem to own minecraft.");
     }
 
     loadBar(percent * 7, "Fetching player profile");
@@ -245,9 +245,13 @@ module.exports.MSLogin = function (token, callback, updates) {
     );
 };
 
-
 module.exports.getNWjs = () => {
     return require("./nwjs");
 };
+
+module.exports.getMLC = () => {
+    return require("./mcl");
+};
+
 /**ES6 compatibility */
 module.exports.default = module.exports

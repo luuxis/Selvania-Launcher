@@ -57,11 +57,8 @@ function login() {
     
         let data = { 
           "user": {
-            "type": "mojang",
-            "access_token": user.access_token,
-            "client_token": user.client_token,
-            "uuid": user.uuid,
-            "name": user.name
+            "type": "offline",
+            "pseudo": user.name
           }
         }; 
         
