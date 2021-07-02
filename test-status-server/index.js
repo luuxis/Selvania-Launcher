@@ -6,7 +6,7 @@ Gamedig.query({
     host: 'jouer.arche-rp.fr'
 }).then((state) => {
     let dataStringified = JSON.stringify(state);
-    fs.writeFileSync("./account.json", dataStringified);
+    fs.writeFileSync("./status.json", dataStringified);
 }).catch((error) => {
     console.log("Server is offline");
 });
