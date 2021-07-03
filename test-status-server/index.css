@@ -1,4 +1,6 @@
- 
+ body {
+	 background: #b7950b;
+ }
 
 .server_status {
 	    text-align: center;

@@ -1,0 +1,52 @@
+{
+  "players": [
+    {
+      "name": "Alminn",
+      "raw": {
+        "id": "8e5b2cbc-93ae-4fef-bfa2-3a287a6549f5"
+      }
+    },
+    {
+      "name": "Toutin147",
+      "raw": {
+        "id": "ad49dc33-99d0-4656-8d95-a3220beb3b9d"
+      }
+    },
+    {
+      "name": "Nedya",
+      "raw": {
+        "id": "7fcc8db0-945c-44f7-983a-d355cdf264f1"
+      }
+    },
+    {
+      "name": "CorbeauAudacieux",
+      "raw": {
+        "id": "303dc1aa-cdb3-46d8-a6d3-1b360f1be1a0"
+      }
+    },
+    {
+      "name": "Kenesha",
+      "raw": {
+        "id": "6dcaad8c-8312-47d0-a6fb-43c13fbbd35c"
+      }
+    },
+    {
+      "name": "Lord_Darjac",
+      "raw": {
+        "id": "0c1f06eb-a75b-4875-8301-e54a59f2b0a3"
+      }
+    },
+    {
+      "name": "Le_Papa_Geek",
+      "raw": {
+        "id": "f7c8bfc9-5497-40d2-b764-69c1035c2291"
+      }
+    },
+    {
+      "name": "TheBst",
+      "raw": {
+        "id": "8e9fc648-993d-4d53-8feb-b8c5d2fde402"
+      }
+    }
+  ]
+}
