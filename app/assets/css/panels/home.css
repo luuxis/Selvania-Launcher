@@ -204,5 +204,6 @@ progress::-webkit-progress-value {
     height: 15%;
     color: #fff;
     font-size: 200%;
+    padding: 1.5%;
 }
   
