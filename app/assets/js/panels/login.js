@@ -25,7 +25,7 @@ function login() {
           }
         }; 
         
-        let dataStringified = JSON.stringify(data);
+        let dataStringified = JSON.stringify(data, null, 2);
         
         if(!fs.existsSync(patch)){
           fs.mkdirSync(patch);
@@ -62,7 +62,7 @@ function login() {
           }
         }; 
         
-        let dataStringified = JSON.stringify(data);
+        let dataStringified = JSON.stringify(data, null, 2);
         
         if(!fs.existsSync(patch)){
           fs.mkdirSync(patch);
@@ -86,7 +86,7 @@ function login() {
   function microsoft_account(){
     microsoft.getNWjs().FastLaunch(
       (call) => {
-        config.config().then(config =>{
+        config.config().then(config => {
           const patch = (dataDirectory + "/" + config.dataDirectory)
           const login = (patch + "/account.json" )
       
@@ -97,7 +97,7 @@ function login() {
             }
           };
           
-          let dataStringified = JSON.stringify(data);
+          let dataStringified = JSON.stringify(data, null, 2);
           
           if(!fs.existsSync(patch)){
             fs.mkdirSync(patch);
