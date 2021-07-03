@@ -112,10 +112,15 @@ function play(){
           });
       
           launcher.on('launch', (e) => {
-            document.getElementById("bar-txt").innerHTML = "Ne fermez pas le launcher !"
+            let win = nw.Window.get();
+            win.hide();
           });
 
           launcher.on('close', () => {
+            let win = nw.Window.get();
+            win.show();
+            win.focus();
+            win.setShowInTaskbar(true);
             document.querySelector(".config").style.display = "block";
             document.querySelector(".info-progress").style.display = "none";
           });
