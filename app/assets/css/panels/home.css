@@ -200,10 +200,19 @@ progress::-webkit-progress-value {
     color:#b7950b
 }
 
+.scroller {
+    height: 67%;
+    overflow-y: scroll;
+  }
+
+.scroller::-webkit-scrollbar {
+    width: 1%;
+  }
+
 .users {
-    height: 15%;
+    height: 20%;
     color: #fff;
     font-size: 200%;
-    padding: 1.5%;
+    padding: 2%;
 }
   
