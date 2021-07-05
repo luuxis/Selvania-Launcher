@@ -1,17 +1,14 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.3",
   "packages": {
     "win64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Evoldia-Network-Launcher-1.0.1-win.zip",
-      "size": 0
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Evoldia-Network-Launcher-1.0.1-win.zip"
     },
     "mac64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Evoldia-Network-Launcher-1.0.1-mac.zip",
-      "size": 0
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Evoldia-Network-Launcher-1.0.1-mac.zip"
     },
     "linux64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Evoldia-Network-Launcher-1.0.1-linux.zip",
-      "size": 0
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Evoldia-Network-Launcher-1.0.1-linux.zip"
     }
   }
 }

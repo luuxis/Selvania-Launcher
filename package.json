@@ -1,7 +1,7 @@
 {
   "name": "Arche-Launcher",
   "user": "web",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "productName": "Arche Launcher",
   "description": "Arche Launcher",
   "main": "app/index.html",
@@ -90,7 +90,7 @@
     "minimist": "^1.2.5",
     "moment": "^2.27.0",
     "node-fetch": "^2.6.1",
-    "nw-autoupdater-luuxis": "^1.0.5",
+    "nw-autoupdater-luuxis": "^1.1.5",
     "punycode": "^2.1.1",
     "varint": "^5.0.0",
     "xml-js": "^1.6.11"
