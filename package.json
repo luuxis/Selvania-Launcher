@@ -47,8 +47,6 @@
       "web/**",
       "AppData/**",
       "node-v*/**",
-      "test/**",
-      "test-status-server/**",
       "start.bat",
       "package-lock.json",
       "README.md"
@@ -83,8 +81,8 @@
     "cheerio": "^1.0.0-rc.3",
     "compressjs": "^1.0.2",
     "crypto": "^1.0.1",
-    "emc-core-luuxis": "^1.0.5",
-    "fs": "0.0.1-security",
+    "emc-core-luuxis": "*",
+    "fs": "*",
     "gbxremote": "^0.2.1",
     "got": "^11.5.1",
     "iconv-lite": "^0.6.2",
@@ -92,7 +90,7 @@
     "minimist": "^1.2.5",
     "moment": "^2.27.0",
     "node-fetch": "^2.6.1",
-    "nw-autoupdater-luuxis": "^1.1.4",
+    "nw-autoupdater-luuxis": "*",
     "punycode": "^2.1.1",
     "varint": "^5.0.0",
     "xml-js": "^1.6.11"
