@@ -19,13 +19,12 @@ function isonline(){
 
 config.config().then(config => {
   if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/account.json")) {
-
     let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/account.json")
     let json = JSON.parse(rawData);
     
-
-
-    if((json.user.type)  == "mojang") {
+    if (!json.user || !json.user.type){
+      isonline()
+    } else if((json.user.type)  == "mojang") {
       Authenticator.validate(json.user.access_token, json.user.client_token).then(user => {
         window.location.href = "./panels/home.html";
       }).catch (err => {
