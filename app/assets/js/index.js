@@ -40,6 +40,7 @@ class index {
 
   async checkUpdate(){
     if(Dev) return this.startLauncher();
+    this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());
     const update = await updater.checkNewVersion(manifest);
@@ -63,7 +64,6 @@ class index {
   }
   
   async maintenanceCheck(){
-    this.setStatus(`Démarrage du launcher`);
     config.config().then(res => {
       if ((res.maintenance) == "on"){
         return this.shutdown(res.maintenance_message);
