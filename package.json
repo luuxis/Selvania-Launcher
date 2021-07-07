@@ -32,7 +32,7 @@
   "license": "MIT",
   "build": {
     "appId": "Arche Launcher",
-    "nwVersion": "0.48.4",
+    "nwVersion": "0.54.1",
     "packed": true,
     "targets": [
       "zip",
@@ -73,7 +73,7 @@
     }
   },
   "devDependencies": {
-    "nw": "^0.48.4-sdk",
+    "nw": "^0.54.1-sdk",
     "nwjs-builder-phoenix": "^1.9.3"
   },
   "dependencies": {
