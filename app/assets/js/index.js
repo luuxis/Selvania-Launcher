@@ -11,18 +11,15 @@ const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
 let win = nw.Window.get();
 
-let isDev = (window.navigator.plugins.namedItem('Native Client') !== null);
+let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
 class index {
   constructor(){
-    if(localStorage.getItem("theme") == "white") document.children[0].classList.toggle("theme-white");
-    else document.children[0].classList.toggle("theme-dark");
     this.splash = document.querySelector(".splash");
     this.splashMessage = document.querySelector(".splash-message");
     this.splashAuthor = document.querySelector(".splash-author");
     this.message = document.querySelector(".message");
     this.progress = document.querySelector("progress");
-   if(localStorage.getItem("theme") == null) localStorage.setItem("theme", "dark");
     var self = this;
     document.addEventListener('DOMContentLoaded', () => { self.startAnimation() });
   }
@@ -42,8 +39,8 @@ class index {
   }
 
   async checkUpdate(){
-    if(isDev) return this.maintenanceCheck();
-
+    if(Dev) return this.startLauncher();
+    
     const manifest = await fetch(manifestUrl).then(res => res.json());
     const update = await updater.checkNewVersion(manifest);
     if(!update) return this.maintenanceCheck();
