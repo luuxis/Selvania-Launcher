@@ -18,7 +18,6 @@ config.info().then(config => {
         port: config.port
     }).then((state) => {
         status_json = state.raw.vanilla;
-        player = "luuxis"
         document.getElementById("online").innerHTML = status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)";
         console.log(status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)");
         for (let pas = 0; pas < status_json.raw.players.online; pas++) { 
