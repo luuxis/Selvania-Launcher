@@ -3,8 +3,11 @@
 <h1 align="center">Arche Launcher</h1>
 
 
+
 [<p align="center">
-<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Arche-Launcher/releases) [<img src="https://img.shields.io/badge/version-v1.0.2-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Arche-Launcher/releases) [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Arche-Launcher/releases) </p>
+<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Arche-Launcher/releases) 
+[<img src="https://img.shields.io/badge/version-v1.0.1-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Arche-Launcher/releases) 
+[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Arche-Launcher/releases) </p>
 
 
 ---
