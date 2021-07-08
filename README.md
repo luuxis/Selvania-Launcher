@@ -31,8 +31,6 @@
 
 **Création du build**
 
-Build pour sa plateforme :
-
 | Platform    | Command              |
 | ----------- | -------------------- |
 | Windows  | `npm run build:win`   |
