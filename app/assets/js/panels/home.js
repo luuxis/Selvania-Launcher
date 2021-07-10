@@ -63,11 +63,14 @@ function play(){
         }
 
         if(["win32"].includes(process.platform)){
+          console.log("win")
           os = "javaw.exe"
         } else if(["darwin"].includes(process.platform)){
-
+          console.log("mac")
+          os = "javaw"
         } else if(["linux"].includes(process.platform)){
-
+          console.log("linux")
+          os = "javaw"
         }
 
 
@@ -78,7 +81,7 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
-            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin" + os,
+            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin/" + os,
             version: config.game_version,
             forge: config.forge_version,
             checkFiles: true,
