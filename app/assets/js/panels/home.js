@@ -62,6 +62,14 @@ function play(){
           account = microsoft.getMLC().getAuth(login.user.call)
         }
 
+        if(["win32"].includes(process.platform)){
+          os = "javaw.exe"
+        } else if(["darwin"].includes(process.platform)){
+
+        } else if(["linux"].includes(process.platform)){
+
+        }
+
 
         let opts = {
             url: config.game_url,
@@ -70,7 +78,7 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
-            //javaPath: "C:/ESD/Minecraft/Minecraft/runtime/jre-legacy/windows-x64/jre-legacy",
+            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin" + os,
             version: config.game_version,
             forge: config.forge_version,
             checkFiles: true,
