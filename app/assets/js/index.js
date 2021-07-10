@@ -1,11 +1,20 @@
 'use strict';
 
+import Downloader from "./lib/Downloader.js";
+import LZMA from "./lib/LZMA.js";
+import Java from "./lib/Java.js";
+
+const fs = require("fs");
+const { execSync } = require("child_process");
+
+
 const AutoUpdater = require("nw-autoupdater-luuxis");
 const pkg = require("../package.json");
 
 const url = pkg.url.replace('{user}', pkg.user);
 const manifestUrl = url + "/launcher/package.json";
 
+const { join } = require("path");
 const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
@@ -20,6 +29,11 @@ class index {
     this.splashAuthor = document.querySelector(".splash-author");
     this.message = document.querySelector(".message");
     this.progress = document.querySelector("progress");
+    this.java = new Java();
+    if(localStorage.getItem(".arche") == null) localStorage.setItem(".arche",  join(process.platform == 'win32' ? process.env.APPDATA : process.platform == "darwin" ? join(process.env.HOME, "Library", "Application Support") : process.env.HOME, process.platform == "darwin" ? "paladium" : ".arche").replace(/\\/g, "/"));
+    this.javaDefaultPath = localStorage.setItem("java", join(localStorage.getItem(".arche"), "runtime", "java", "bin", process.platform == "win32" ? "javaw.exe" : "java"));
+    if(localStorage.getItem("java") == null) localStorage.setItem("java", this.javaDefaultPath);
+    
     var self = this;
     document.addEventListener('DOMContentLoaded', () => { self.startAnimation() });
   }
@@ -39,7 +53,7 @@ class index {
   }
 
   async checkUpdate(){
-    if(Dev) return this.startLauncher();
+    //if(Dev) return this.startLauncher();
     this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());
@@ -68,13 +82,68 @@ class index {
       if ((res.maintenance) == "on"){
         return this.shutdown(res.maintenance_message);
       }
-      this.startLauncher();
+      this.javaCheck();
     }).catch( err => {
       console.log("impossible de charger le config.json");
       console.log(err);
       return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
     })
   }
+
+
+  async javaCheck(){
+      this.setStatus("Vérification de Java");
+  
+      if(!["win32", "darwin", "linux"].includes(process.platform))
+        return this.shutdown("System d'exploitation non supporté");
+  
+      if(localStorage.getItem("java") != this.javaDefaultPath && fs.existsSync(localStorage.getItem("java"))) return this.startLauncher();
+  
+      let bundle = await this.java.getBundle();
+      let todownload = await this.java.checkBundle(bundle);
+  
+      if(todownload.length > 0){
+        this.toggleProgress();
+        this.setStatus("Téléchargement de Java");
+  
+        let downloader = new Downloader();
+        let totsize = this.java.getTotalSize(todownload);
+  
+        downloader.on("progress", (DL, totDL) => {
+          this.setProgress(DL, totDL);
+        });
+  
+        await new Promise((ret) => {
+          downloader.on("finish", ret);
+  
+          downloader.multiple(todownload, totsize, 10);
+        });
+  
+        this.setProgress(0, 1);
+  
+        this.setStatus("Décompression de Java");
+  
+        for(let i=0; i<bundle.length; i++){
+          let file = bundle[i];
+          if(file.lzma){
+            console.log(`Decompressing ${file.path}`);
+            let content = fs.readFileSync(file.path);
+            let decompressed = await LZMA.decompress(content);
+            fs.writeFileSync(file.path, decompressed, { encoding: "utf8", mode: 0o755 });
+          } if(process.platform == "darwin" && file.executable){
+            console.log(`Whitelisting from Apple Quarantine ${file.path}`);
+            let id = String.fromCharCode.apply(null, execSync(`xattr -p com.apple.quarantine "${file.path}"`));
+            execSync(`xattr -w com.apple.quarantine "${id.replace("0081;", "00c1;")}" "${file.path}"`);
+          }
+          this.setProgress(i+1, bundle.length);
+        }
+  
+        this.toggleProgress();
+      }
+  
+      this.startLauncher();
+    }
+  
 
 
   startLauncher(){

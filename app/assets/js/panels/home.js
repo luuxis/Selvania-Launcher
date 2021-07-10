@@ -70,6 +70,7 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
+            //javaPath: "C:/ESD/Minecraft/Minecraft/runtime/jre-legacy/windows-x64/jre-legacy",
             version: config.game_version,
             forge: config.forge_version,
             checkFiles: true,
