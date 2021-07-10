@@ -6,7 +6,7 @@ class LZMA {
   static async decompress(buffer){
     if(Buffer.isBuffer(buffer)) buffer = new Uint8Array(buffer);
     let memory = new WebAssembly.Memory({ initial: 160 });
-    let module = await WebAssembly.instantiateStreaming(fetch(`assets/js/lib/wasm/lzma.wasm`), {
+    let module = await WebAssembly.instantiateStreaming(fetch(`assets/js/utils/wasm/lzma.wasm`), {
       env: {
         memory,
         abort: (filename, line, column) => {

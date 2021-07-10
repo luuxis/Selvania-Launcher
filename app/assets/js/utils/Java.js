@@ -2,6 +2,7 @@
 
 const os = require("os");
 const fs = require("fs");
+//const config = require ("./config.js")
 
 let PlatformJSON = {
   win32: "https://launchermeta.mojang.com/v1/products/launcher/d03cf0cf95cce259fa9ea3ab54b65bd28bb0ae82/windows-x86.json",
@@ -13,7 +14,7 @@ let Arch = {x32: "x86", x64: "x64", arm: "x86", arm64: "x64"};
 
 class Java {
   constructor(){
-    this.hash = new Worker("assets/js/lib/workers/Hash.js");
+    this.hash = new Worker("assets/js/utils/workers/Hash.js");
   }
 
   getTotalSize(bundle){

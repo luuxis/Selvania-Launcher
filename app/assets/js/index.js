@@ -1,8 +1,8 @@
 'use strict';
 
-import Downloader from "./lib/Downloader.js";
-import LZMA from "./lib/LZMA.js";
-import Java from "./lib/Java.js";
+import Downloader from "./utils/Downloader.js";
+import LZMA from "./utils/LZMA.js";
+import Java from "./utils/Java.js";
 
 const fs = require("fs");
 const { execSync } = require("child_process");
@@ -53,7 +53,7 @@ class index {
   }
 
   async checkUpdate(){
-    //if(Dev) return this.startLauncher();
+    if(Dev) return this.startLauncher();
     this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());
