@@ -2,7 +2,7 @@
 
 const os = require("os");
 const fs = require("fs");
-//const config = require ("./config.js")
+const config = require ('./assets/js/utils/config.js')
 
 let PlatformJSON = {
   win32: "https://launchermeta.mojang.com/v1/products/launcher/d03cf0cf95cce259fa9ea3ab54b65bd28bb0ae82/windows-x86.json",
@@ -36,11 +36,13 @@ class Java {
     let java = manifest.find(file => file[0].endsWith(process.platform == "win32" ? "bin/javaw.exe" : "bin/java"))[0];
     let toDelete = java.replace(process.platform == "win32" ? "bin/javaw.exe" : "bin/java", "");
 
+    let dataDirectory = await new config.config().then(res => res.dataDirectory)
+
     let files = [];
     for(let [path, info] of manifest){
       if(info.type == "directory") continue;
       let file = {};
-      file.path = `${localStorage.getItem(".arche")}/runtime/java/${path.replace(toDelete, "")}`;
+      file.path = `${localStorage.getItem(dataDirectory)}/runtime/java/${path.replace(toDelete, "")}`;
       file.folder = file.path.split("/").slice(0, -1).join("/");
       file.executable = info.executable;
       file.sha1 = info.downloads.raw.sha1;

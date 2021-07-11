@@ -31,10 +31,6 @@ class index {
     this.message = document.querySelector(".message");
     this.progress = document.querySelector("progress");
     this.java = new Java();
-    if(localStorage.getItem(dataDirectory) == null) localStorage.setItem(dataDirectory,  join(process.platform == 'win32' ? process.env.APPDATA : process.platform == "darwin" ? join(process.env.HOME, "Library", "Application Support") : process.env.HOME, process.platform == "darwin" ? "paladium" : dataDirectory).replace(/\\/g, "/"));
-    this.javaDefaultPath = localStorage.setItem("java", join(localStorage.getItem(dataDirectory), "runtime", "java", "bin", process.platform == "win32" ? "javaw.exe" : "java"));
-    if(localStorage.getItem("java") == null) localStorage.setItem("java", this.javaDefaultPath);
-    
     var self = this;
     document.addEventListener('DOMContentLoaded', () => { self.startAnimation() });
   }
