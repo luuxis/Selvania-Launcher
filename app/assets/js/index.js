@@ -17,10 +17,11 @@ const manifestUrl = url + "/launcher/package.json";
 const { join } = require("path");
 const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
+const dataDirectory = ".arche"
 
 let win = nw.Window.get();
-
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
+
 
 class index {
   constructor(){
@@ -30,8 +31,8 @@ class index {
     this.message = document.querySelector(".message");
     this.progress = document.querySelector("progress");
     this.java = new Java();
-    if(localStorage.getItem(".arche") == null) localStorage.setItem(".arche",  join(process.platform == 'win32' ? process.env.APPDATA : process.platform == "darwin" ? join(process.env.HOME, "Library", "Application Support") : process.env.HOME, process.platform == "darwin" ? "paladium" : ".arche").replace(/\\/g, "/"));
-    this.javaDefaultPath = localStorage.setItem("java", join(localStorage.getItem(".arche"), "runtime", "java", "bin", process.platform == "win32" ? "javaw.exe" : "java"));
+    if(localStorage.getItem(dataDirectory) == null) localStorage.setItem(dataDirectory,  join(process.platform == 'win32' ? process.env.APPDATA : process.platform == "darwin" ? join(process.env.HOME, "Library", "Application Support") : process.env.HOME, process.platform == "darwin" ? "paladium" : dataDirectory).replace(/\\/g, "/"));
+    this.javaDefaultPath = localStorage.setItem("java", join(localStorage.getItem(dataDirectory), "runtime", "java", "bin", process.platform == "win32" ? "javaw.exe" : "java"));
     if(localStorage.getItem("java") == null) localStorage.setItem("java", this.javaDefaultPath);
     
     var self = this;
@@ -53,7 +54,7 @@ class index {
   }
 
   async checkUpdate(){
-    if(Dev) return this.startLauncher();
+    //if(Dev) return this.startLauncher();
     this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());

@@ -110,16 +110,16 @@ function play(){
             console.log("[vérification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
             document.getElementById("bar-txt").innerHTML = "V\u00e9rification des ressources..."
             progressBar = document.getElementById("progress-bar")
-            progressBar.max = e.total;
             progressBar.value = e.current;
+            progressBar.max = e.total;
           });
       
           launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
             document.getElementById("bar-txt").innerHTML = "T\u00e9l\u00e9chargement des ressources..."
             progressBar = document.getElementById("progress-bar")
-            progressBar.max = e.bytesToDownload;
             progressBar.value = e.downloadedBytes;
+            progressBar.max = e.bytesToDownload;
           });
       
           launcher.on('launch', (e) => {
