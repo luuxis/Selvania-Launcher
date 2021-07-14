@@ -24,8 +24,9 @@ config.info().then(config => {
           player = status_json.raw.players.sample[pas].name
           document.getElementById("users").innerHTML += `<img src="https://mc-heads.net/head/${player}" class="users"><b class="users"> ${player}</b></br>`
         }
-       }).catch((error) => {
+       }).catch((err) => {
         document.getElementById("online").innerHTML = "Le serveur est ferme.";
+        console.log(err)
     })
 })
 
@@ -44,6 +45,27 @@ function discord(){
 function youtube(){
   config.info().then(info => {
     nw.Shell.openExternal(info.youtube)
+  })
+}
+
+function refresh(){
+  config.info().then(config => {
+    status_server.query({
+        type: 'minecraft',
+        host: config.ip_server,
+        port: config.port
+    }).then((state) => {
+        status_json = state.raw.vanilla;
+        document.getElementById("online").innerHTML = status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)";
+        console.log(status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)");
+        for (let pas = 0; pas < status_json.raw.players.online; pas++) { 
+          player = status_json.raw.players.sample[pas].name
+          document.getElementById("users").innerHTML += `<img src="https://mc-heads.net/head/${player}" class="users"><b class="users"> ${player}</b></br>`
+        }
+       }).catch((err) => {
+        document.getElementById("online").innerHTML = "Le serveur est ferme.";
+        console.log(err)
+    })
   })
 }
 
@@ -81,7 +103,7 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
-            //javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin/" + os,
+            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin/" + os,
             version: config.game_version,
             forge: config.forge_version,
             checkFiles: true,
@@ -92,48 +114,43 @@ function play(){
         }
         launcher.launch(opts);
 
-        launcher.on('debug', (e) => {
-            console.log("[DEBUG]" + e);
-            //document.getElementById("bar-txt").innerHTML = "Verification des ressources."
-          });
+        launcher.on('debug', (e) => {console.log("[DEBUG]" + e)});
 
-          launcher.on('data', (e) => {
-            console.log("[DATA]" + e);
-            //document.getElementById("bar-txt").innerHTML = "Verification des ressources."
-          });
-          launcher.on('error', (e) => {
-            console.log("[ERROR]" + e);
-            document.getElementById("bar-txt").innerHTML = "[ERROR]" + e
-          });
-      
-          launcher.on('verification-status', (e) => {
-            console.log("[vérification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
-            document.getElementById("bar-txt").innerHTML = "V\u00e9rification des ressources..."
-            progressBar = document.getElementById("progress-bar")
-            progressBar.value = e.current;
-            progressBar.max = e.total;
-          });
-      
-          launcher.on('download-status', (e) => {
-            console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
-            document.getElementById("bar-txt").innerHTML = "T\u00e9l\u00e9chargement des ressources..."
-            progressBar = document.getElementById("progress-bar")
-            progressBar.value = e.downloadedBytes;
-            progressBar.max = e.bytesToDownload;
-          });
-      
-          launcher.on('launch', (e) => {
-            let win = nw.Window.get();
-            win.hide();
-          });
+        launcher.on('data', (e) => {console.log("[DATA]" + e)});
 
-          launcher.on('close', () => {
-            let win = nw.Window.get();
-            win.show();
-            win.focus();
-            win.setShowInTaskbar(true);
-            document.querySelector(".config").style.display = "block";
-            document.querySelector(".info-progress").style.display = "none";
-          });
+        launcher.on('error', (e) => {
+          console.log("[ERROR]" + e);
+          document.getElementById("bar-txt").innerHTML = "[ERROR]" + e
+        });
+      
+        launcher.on('verification-status', (e) => {
+          console.log("[vérification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
+          document.getElementById("bar-txt").innerHTML = "V\u00e9rification des ressources..."
+          progressBar = document.getElementById("progress-bar")
+          progressBar.value = e.current;
+          progressBar.max = e.total;
+        });
+      
+        launcher.on('download-status', (e) => {
+          console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")");
+          document.getElementById("bar-txt").innerHTML = "T\u00e9l\u00e9chargement des ressources..."
+          progressBar = document.getElementById("progress-bar")
+          progressBar.value = e.downloadedBytes;
+          progressBar.max = e.bytesToDownload;
+        });
+      
+        launcher.on('launch', (e) => {
+          let win = nw.Window.get();
+          win.hide();
+        });
+
+        launcher.on('close', (e) => {
+          let win = nw.Window.get();
+          win.show();
+          win.focus();
+          win.setShowInTaskbar(true);
+          document.querySelector(".config").style.display = "block";
+          document.querySelector(".info-progress").style.display = "none";
+        });
     })
 }

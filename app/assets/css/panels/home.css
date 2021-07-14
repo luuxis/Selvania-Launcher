@@ -200,6 +200,10 @@ progress::-webkit-progress-value {
     color:#b7950b
 }
 
+.refreshing{
+    height: 5%;
+}
+
 .scroller {
     height: 67%;
     overflow-y: scroll;
