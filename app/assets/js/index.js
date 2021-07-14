@@ -17,7 +17,6 @@ const manifestUrl = url + "/launcher/package.json";
 const { join } = require("path");
 const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
-const dataDirectory = ".arche"
 
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
@@ -50,7 +49,7 @@ class index {
   }
 
   async checkUpdate(){
-    if(Dev) return this.startLauncher();
+    //if(Dev) return this.startLauncher();
     this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());
@@ -79,6 +78,8 @@ class index {
       if ((res.maintenance) == "on"){
         return this.shutdown(res.maintenance_message);
       }
+      if(localStorage.getItem(res.dataDirectory) == null) localStorage.setItem(res.dataDirectory,  join(process.platform == 'win32' ? process.env.APPDATA : process.platform == "darwin" ? join(process.env.HOME, "Library", "Application Support") : process.env.HOME, process.platform == "darwin" ? "arche" : res.dataDirectory).replace(/\\/g, "/"));
+      localStorage.setItem("java", join(localStorage.getItem(res.dataDirectory), "runtime", "java", "bin", process.platform == "win32" ? "javaw.exe" : "java"));  
       this.javaCheck();
     }).catch( err => {
       console.log("impossible de charger le config.json");
@@ -93,6 +94,8 @@ class index {
   
       if(!["win32", "darwin", "linux"].includes(process.platform))
         return this.shutdown("System d'exploitation non supporté");
+
+      
   
       if(localStorage.getItem("java") != this.javaDefaultPath && fs.existsSync(localStorage.getItem("java"))) return this.startLauncher();
   
