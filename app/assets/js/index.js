@@ -50,7 +50,7 @@ class index {
   }
 
   async checkUpdate(){
-    //if(Dev) return this.startLauncher();
+    if(Dev) return this.startLauncher();
     this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());
