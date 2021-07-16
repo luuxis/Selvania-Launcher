@@ -1,20 +1,10 @@
 'use strict';
-
-import Downloader from "./utils/Downloader.js";
-import LZMA from "./utils/LZMA.js";
-import Java from "./utils/Java.js";
-
-const fs = require("fs");
-const { execSync } = require("child_process");
-
-
 const AutoUpdater = require("nw-autoupdater-luuxis");
 const pkg = require("../package.json");
 
 const url = pkg.url.replace('{user}', pkg.user);
 const manifestUrl = url + "/launcher/package.json";
 
-const { join } = require("path");
 const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
@@ -94,6 +84,7 @@ class index {
     if(!["win32", "darwin", "linux"].includes(process.platform))
     return this.shutdown("System d'exploitation non supporté");
     this.startLauncher();
+
     }).catch( err => {
       console.log("impossible de charger le config.json");
       console.log(err);
@@ -101,8 +92,6 @@ class index {
     })  
   }
   
-
-
   startLauncher(){
     this.setStatus(`Démarrage du launcher`);
      nw.Window.open("app/launcher.html", {
