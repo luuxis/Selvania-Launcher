@@ -95,6 +95,11 @@ function play(){
           os = "javaw"
         }
 
+        if ((config.forge_version) == "null" || "no" || ""){
+          version = config.game_version
+        } else {
+          version = config.forge_version
+        }
 
         let opts = {
             url: config.game_url,
@@ -105,7 +110,7 @@ function play(){
             root: dataDirectory + "/" + config.dataDirectory,
             javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin/" + os,
             version: config.game_version,
-            forge: config.forge_version,
+            forge: version,
             checkFiles: true,
             memory: {
                 max: max_ram + "G",
