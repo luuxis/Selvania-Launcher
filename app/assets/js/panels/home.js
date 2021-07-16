@@ -108,7 +108,7 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
-            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin/" + os,
+            //javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java/bin/" + os,
             version: config.game_version,
             forge: version,
             checkFiles: true,
