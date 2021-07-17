@@ -129,7 +129,7 @@ function play(){
         });
       
         launcher.on('verification-status', (e) => {
-          console.log("[vérification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
+          console.log("[V\u00e9rification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")");
           document.getElementById("bar-txt").innerHTML = "V\u00e9rification des ressources..."
           progressBar = document.getElementById("progress-bar")
           progressBar.value = e.current;
