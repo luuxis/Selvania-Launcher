@@ -1,12 +1,16 @@
 'use strict';
 const AutoUpdater = require("nw-autoupdater-luuxis");
+const download = require('download');
+const decompress = require('decompress');
 const pkg = require("../package.json");
 
 const url = pkg.url.replace('{user}', pkg.user);
 const manifestUrl = url + "/launcher/package.json";
+const java = require("../web/launcher/jre-download.json")
 
 const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
@@ -38,7 +42,7 @@ class index {
   }
 
   async checkUpdate(){
-    if(Dev) return this.startLauncher();
+    if(Dev) return this.javaCheck();
     this.setStatus(`Recherche de mises à jour`);
     
     const manifest = await fetch(manifestUrl).then(res => res.json());
@@ -82,7 +86,36 @@ class index {
     
     if(!["win32", "darwin", "linux"].includes(process.platform))
     return this.shutdown("System d'exploitation non supporté");
-    this.startLauncher();
+
+    var java = require("../web/launcher/jre-download.json")
+    if ((res.game_version) >= "1.17"){
+      if(["win32"].includes(process.platform)){
+        var url = java.jre16.windows
+          var files = "OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.zip"
+        } else if(["darwin"].includes(process.platform)){
+          var url = java.jre16.mac
+          var files = "OpenJDK16U-jre_x64_mac_hotspot_16.0.1_9.tar.gz"
+        } else if(["linux"].includes(process.platform)){
+          var url = java.jre16.linux  
+          var files = "OpenJDK16U-jre_x64_linux_hotspot_16.0.1_9.tar.gz"   
+        }
+    } else {
+      if(["win32"].includes(process.platform)){
+          var url = java.jre8.windows
+          var files = "OpenJDK8U-jre_x64_windows_hotspot_8u292b10.zip"
+        } else if(["darwin"].includes(process.platform)){
+          var url = java.jre8.mac
+          var files = "OpenJDK8U-jre_x64_mac_hotspot_8u292b10.tar.gz"
+        } else if(["linux"].includes(process.platform)){
+          var url = java.jre8.linux 
+          var files = "OpenJDK8U-jre_x64_linux_hotspot_8u292b10.tar.gz"   
+        }
+    }
+    this.setStatus("Téléchargement de Java");
+    download(url, dataDirectory + "/" + res.dataDirectory + "/runtime")
+    this.setStatus("Décompression de Java");
+    decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime")
+    //this.startLauncher();
 
     }).catch( err => {
       console.log("impossible de charger le config.json");
