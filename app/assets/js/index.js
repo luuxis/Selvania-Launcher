@@ -3,12 +3,12 @@ const AutoUpdater = require("nw-autoupdater-luuxis");
 const download = require('download');
 const decompress = require('decompress');
 const pkg = require("../package.json");
+const fs = require('fs');
 
 const url = pkg.url.replace('{user}', pkg.user);
 const manifestUrl = url + "/launcher/package.json";
-const java = require("../web/launcher/jre-download.json")
 
-const { config } = require('./assets/js/utils.js');
+const { config, compare } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
@@ -82,41 +82,52 @@ class index {
 
   async javaCheck(){
     config.config().then(res => {
-      this.setStatus("Vérification de Java");
-    
-    if(!["win32", "darwin", "linux"].includes(process.platform))
-    return this.shutdown("System d'exploitation non supporté");
-
-    var java = require("../web/launcher/jre-download.json")
-    if ((res.game_version) >= "1.17"){
-      if(["win32"].includes(process.platform)){
-        var url = java.jre16.windows
-          var files = "OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.zip"
-        } else if(["darwin"].includes(process.platform)){
-          var url = java.jre16.mac
-          var files = "OpenJDK16U-jre_x64_mac_hotspot_16.0.1_9.tar.gz"
-        } else if(["linux"].includes(process.platform)){
-          var url = java.jre16.linux  
-          var files = "OpenJDK16U-jre_x64_linux_hotspot_16.0.1_9.tar.gz"   
+      config.java().then(java => {
+        
+        this.setStatus("Vérification de Java");
+        
+        if(!["win32", /*"darwin",*/ "linux"].includes(process.platform))return this.shutdown("System d'exploitation non supporté");
+        
+        
+        if (compare(res.game_version, "1.17") == 1){
+          if(["win32"].includes(process.platform)){
+            var url = java.jre16.windows.url
+            var files = java.jre16.windows.name
+          } else if(["darwin"].includes(process.platform)){
+            var url = java.jre16.mac.url
+            var files = java.jre16.mac.name
+          } else if(["linux"].includes(process.platform)){
+            var url = java.jre16.linux.url
+            var files = java.jre16.linux.name
+          }
+        } else {
+          if(["win32"].includes(process.platform)){
+            var url = java.jre8.windows.url
+            var files = java.jre8.windows.name
+          } else if(["darwin"].includes(process.platform)){
+            var url = java.jre8.mac.url
+            var files = java.jre8.mac.name
+          } else if(["linux"].includes(process.platform)){
+            var url = java.jre8.linux.url
+            var files = java.jre8.linux.name
+          }
         }
-    } else {
-      if(["win32"].includes(process.platform)){
-          var url = java.jre8.windows
-          var files = "OpenJDK8U-jre_x64_windows_hotspot_8u292b10.zip"
-        } else if(["darwin"].includes(process.platform)){
-          var url = java.jre8.mac
-          var files = "OpenJDK8U-jre_x64_mac_hotspot_8u292b10.tar.gz"
-        } else if(["linux"].includes(process.platform)){
-          var url = java.jre8.linux 
-          var files = "OpenJDK8U-jre_x64_linux_hotspot_8u292b10.tar.gz"   
-        }
-    }
-    this.setStatus("Téléchargement de Java");
-    download(url, dataDirectory + "/" + res.dataDirectory + "/runtime")
-    this.setStatus("Décompression de Java");
-    decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime")
-    //this.startLauncher();
-
+        
+        this.setStatus("Téléchargement de Java");
+        download(url, dataDirectory + "/" + res.dataDirectory + "/runtime").then(download_java => {
+          console.log(download_java)
+          this.setStatus("Décompression de Java");
+          decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
+            console.log(decompress_java)
+            fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files)
+            this.startLauncher();
+          })
+        })
+      }).catch( err => {
+        console.log("impossible de charger le jre-download.json");
+        console.log(err);
+        return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+      })
     }).catch( err => {
       console.log("impossible de charger le config.json");
       console.log(err);

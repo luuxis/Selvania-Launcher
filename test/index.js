@@ -1,8 +1,8 @@
 download = require('download');
 decompress = require('decompress');
 
-java = require("../web/launcher/jre-download.json")
-minecraft = "1.16.5"
+java = require("../web/launcher/config-launcher/jre-download.json")
+minecraft = "2.15.5"
 
 
 function compare(v1, v2) {
