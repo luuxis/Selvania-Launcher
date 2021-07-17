@@ -2,12 +2,12 @@ download = require('download');
 decompress = require('decompress');
 
 java = require("../web/launcher/jre-download.json")
-minecraft = "1.17"
+minecraft = "1.16.5"
 
 
 function compare(v1, v2) {
   if (v1===v2)
-    return 0;
+    return 1;
   const nbs1 = v1.split(".");
   const nbs2 = v2.split(".");
   const nbElem = Math.max(nbs1.length, nbs1.length)
