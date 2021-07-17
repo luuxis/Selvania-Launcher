@@ -112,17 +112,18 @@ class index {
             var files = java.jre8.linux.name
           }
         }
-        
-        this.setStatus("Téléchargement de Java");
-        download(url, dataDirectory + "/" + res.dataDirectory + "/runtime").then(download_java => {
-          console.log(download_java)
-          this.setStatus("Décompression de Java");
-          decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
-            console.log(decompress_java)
-            fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files)
-            this.startLauncher();
+        if(!fs.existsSync(dataDirectory + "/" + res.dataDirectory + "/runtime/java/")) {
+          this.setStatus("Téléchargement de Java");
+          download(url, dataDirectory + "/" + res.dataDirectory + "/runtime").then(download_java => {
+            this.setStatus("Décompression de Java");
+            decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
+              fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files)
+              this.startLauncher();
+            })
           })
-        })
+        } else {
+          this.startLauncher();
+        }
       }).catch( err => {
         console.log("impossible de charger le jre-download.json");
         console.log(err);
