@@ -1,3 +1,6 @@
+download = require('download');
+decompress = require('decompress');
+
 java = require("../web/launcher/jre-download.json")
 minecraft = "1.17"
 
@@ -22,9 +25,11 @@ if ((minecraft) >= "1.17"){
     }
 }
 
-const download = require('download');
- 
-(async () => {
-    await download(url, '.arche');
-    
-})()
+
+async function test(){
+  await download(url, '.arche');
+  decompress('.arche/OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.zip', '.arche')
+}
+
+
+test()

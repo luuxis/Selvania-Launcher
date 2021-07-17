@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "decompress": "^4.2.1",
     "download": "^8.0.0"
   }
 }
