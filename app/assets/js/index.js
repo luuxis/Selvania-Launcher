@@ -1,5 +1,5 @@
 const AutoUpdater = require("nw-autoupdater-luuxis");
-const download = require('download');
+const Downloader = require('nodejs-file-downloader');
 const decompress = require('decompress');
 const pkg = require("../package.json");
 const fs = require('fs');
@@ -86,35 +86,39 @@ async function javaCheck(){
         if (compare(res.game_version, "1.17") == 1){
           if(["win32"].includes(process.platform)){
             var url = java.jre16.windows.url
-            var files = java.jre16.windows.name
           } else if(["darwin"].includes(process.platform)){
             var url = java.jre16.mac.url
-            var files = java.jre16.mac.name
           } else if(["linux"].includes(process.platform)){
             var url = java.jre16.linux.url
-            var files = java.jre16.linux.name
           }
         } else {
           if(["win32"].includes(process.platform)){
             var url = java.jre8.windows.url
-            var files = java.jre8.windows.name
           } else if(["darwin"].includes(process.platform)){
             var url = java.jre8.mac.url
-            var files = java.jre8.mac.name
           } else if(["linux"].includes(process.platform)){
             var url = java.jre8.linux.url
-            var files = java.jre8.linux.name
           }
         }
         if(!fs.existsSync(dataDirectory + "/" + res.dataDirectory + "/runtime/java/")) {
-          setStatus("Téléchargement de Java");
-          download(url, dataDirectory + "/" + res.dataDirectory + "/runtime").then(download_java => {
-            setStatus("Décompression de Java");
-            decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
-              fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files)
-              startLauncher();
-            })
+          const downloader = new Downloader({
+            url: url,
+            directory: dataDirectory + "/" + res.dataDirectory + "/runtime/",
+            fileName:'java.tar.gz',
+            onProgress:function(percentage){
+                setStatus("Téléchargement de Java </br>" + percentage + "%")
+            }     
           })
+          try {
+            downloader.download().then(decompress_java => {
+            setStatus("Décompression de Java")
+            decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + 'java.tar.gz', dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
+                fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + 'java.tar.gz')
+                startLauncher();
+            })})
+          } catch (error) {
+            return shutdown("Une erreur est survenue,<br>veuillez réessayer ultérieurement.");
+          }
         } else {
           startLauncher();
         }
