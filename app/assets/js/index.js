@@ -1,4 +1,3 @@
-'use strict';
 const AutoUpdater = require("nw-autoupdater-luuxis");
 const download = require('download');
 const decompress = require('decompress');
@@ -12,81 +11,76 @@ const { config, compare } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-let win = nw.Window.get();
-let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
+const win = nw.Window.get();
+const Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
+const splash = document.querySelector(".splash");
+const splashMessage = document.querySelector(".splash-message");
+const splashAuthor = document.querySelector(".splash-author");
+const message = document.querySelector(".message");
+const progress = document.querySelector("progress");
+document.addEventListener('DOMContentLoaded', () => { startAnimation() });
 
-class index {
-  constructor(){
-    this.splash = document.querySelector(".splash");
-    this.splashMessage = document.querySelector(".splash-message");
-    this.splashAuthor = document.querySelector(".splash-author");
-    this.message = document.querySelector(".message");
-    this.progress = document.querySelector("progress");
-    var self = this;
-    document.addEventListener('DOMContentLoaded', () => { self.startAnimation() });
-  }
-
-  async startAnimation(){
+async function startAnimation(){
     await sleep(100);
     document.querySelector("#splash").style.display = "block";
     await sleep(500);
-    this.splash.classList.add("opacity");
+    splash.classList.add("opacity");
     await sleep(500);
-    this.splash.classList.add("translate");
-    this.splashMessage.classList.add("opacity");
-    this.splashAuthor.classList.add("opacity");
-    this.message.classList.add("opacity");
+    splash.classList.add("translate");
+    splashMessage.classList.add("opacity");
+    splashAuthor.classList.add("opacity");
+    message.classList.add("opacity");
     await sleep(1000);
-    this.checkUpdate();
+    checkUpdate();
   }
 
-  async checkUpdate(){
-    if(Dev) return this.javaCheck();
-    this.setStatus(`Recherche de mises à jour`);
+async function checkUpdate(){
+    if(Dev) return javaCheck();
     
+    setStatus(`Recherche de mises à jour`);
     const manifest = await fetch(manifestUrl).then(res => res.json());
     const update = await updater.checkNewVersion(manifest);
-    if(!update) return this.maintenanceCheck();
+    if(!update) return maintenanceCheck();
 
     updater.on("download", (dlSize, totSize) => {
-      this.setProgress(dlSize, totSize);
+      setProgress(dlSize, totSize);
     });
     updater.on("install", (dlSize, totSize) => {
-      this.setProgress(dlSize, totSize);
+      setProgress(dlSize, totSize);
     });
 
-    this.toggleProgress();
-    this.setStatus(`Téléchargement de la mise à jour`);
+    toggleProgress();
+    setStatus(`Téléchargement de la mise à jour`);
     const file = await updater.download(manifest);
-    this.setStatus(`Décompression de la mise à jour`);
+    setStatus(`Décompression de la mise à jour`);
     await updater.unpack(file);
-    this.toggleProgress();
-    this.setStatus(`Redémarrage`);
+    toggleProgress();
+    setStatus(`Redémarrage`);
     await updater.restartToSwap();
-  }
+}
   
-  async maintenanceCheck(){
+async function maintenanceCheck(){
+    
     config.config().then(res => {
       if ((res.maintenance) == "on"){
-        return this.shutdown(res.maintenance_message);
+        return shutdown(res.maintenance_message);
       }
-      this.javaCheck();
+      javaCheck();
     }).catch( err => {
       console.log("impossible de charger le config.json");
       console.log(err);
-      return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+      return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
     })
-  }
+}
 
 
-  async javaCheck(){
+async function javaCheck(){
     config.config().then(res => {
       config.java().then(java => {
+        setStatus("Vérification de Java");
         
-        this.setStatus("Vérification de Java");
-        
-        if(!["win32", /*"darwin",*/ "linux"].includes(process.platform))return this.shutdown("System d'exploitation non supporté");
+        if(!["win32", /*"darwin",*/ "linux"].includes(process.platform))return shutdown("System d'exploitation non supporté");
         
         
         if (compare(res.game_version, "1.17") == 1){
@@ -113,31 +107,31 @@ class index {
           }
         }
         if(!fs.existsSync(dataDirectory + "/" + res.dataDirectory + "/runtime/java/")) {
-          this.setStatus("Téléchargement de Java");
+          setStatus("Téléchargement de Java");
           download(url, dataDirectory + "/" + res.dataDirectory + "/runtime").then(download_java => {
-            this.setStatus("Décompression de Java");
+            setStatus("Décompression de Java");
             decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files, dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
               fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + files)
-              this.startLauncher();
+              startLauncher();
             })
           })
         } else {
-          this.startLauncher();
+          startLauncher();
         }
       }).catch( err => {
         console.log("impossible de charger le jre-download.json");
         console.log(err);
-        return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+        return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
       })
     }).catch( err => {
       console.log("impossible de charger le config.json");
       console.log(err);
-      return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+      return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
     })  
-  }
+}
   
-  startLauncher(){
-    this.setStatus(`Démarrage du launcher`);
+function startLauncher(){
+    setStatus(`Démarrage du launcher`);
      nw.Window.open("app/launcher.html", {
       "title": "Arche Launcher",
       "width": 980,
@@ -149,33 +143,32 @@ class index {
       "icon": "app/assets/images/icons/icon.png"
     });
     win.close();
-  }
-
-  shutdown(text){
-    this.setStatus(`${text}<br>Arrêt dans 5s`);
-    let i = 4;
-    setInterval(() => {
-      this.setStatus(`${text}<br>Arrêt dans ${i--}s`);
-      if(i < 0) win.close();
-    }, 1000);
-  }
-
-  setStatus(text){
-    this.message.innerHTML = text;
-  }
-
-  toggleProgress(){
-    if(this.progress.classList.toggle("show")) this.setProgress(0, 1);
-  }
-
-  setProgress(value, max){
-    this.progress.value = value;
-    this.progress.max = max;
-  }
 }
 
-new index();
+function shutdown(text){
+    setStatus(`${text}<br>Arrêt dans 5s`);
+    let i = 4;
+    setInterval(() => {
+      setStatus(`${text}<br>Arrêt dans ${i--}s`);
+      if(i < 0) win.close();
+    }, 1000);
+}
+
+function setStatus(text){
+    message.innerHTML = text;
+}
+
+function toggleProgress(){
+    if(progress.classList.toggle("show")) setProgress(0, 1);
+}
+
+function setProgress(value, max){
+    progress.value = value;
+    progress.max = max;
+}
+
 
 function sleep(ms){
   return new Promise((r) => { setTimeout(r, ms) });
 }
+
