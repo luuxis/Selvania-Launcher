@@ -1,7 +1,7 @@
 {
   "name": "Arche-Launcher",
   "user": "web",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "productName": "Arche Launcher",
   "description": "Arche Launcher",
   "main": "app/index.html",
