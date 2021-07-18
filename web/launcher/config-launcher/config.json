@@ -3,8 +3,8 @@
   "maintenance_message": "Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.",
   "offline": "off",
   "microsoft_id": "18707db5-2236-4588-9a1f-a5801c07a0e7",
-  "game_url": "https://launcher.webincloudy.fr/users/luuxis/files/",
-  "game_version": "1.12.2",
-  "forge_version": "14.23.5.2854",
-  "dataDirectory": ".evoldianetwork"
+  "game_url": "http://launcher.webincloudy.fr/users/luuxis/files/",
+  "game_version": "1.0",
+  "forge_version": "",
+  "dataDirectory": ".minecraft"
 }
