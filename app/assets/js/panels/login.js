@@ -126,4 +126,10 @@ function login() {
       }
     )
   }
+
+  document.addEventListener('keydown', function (e) {
+    if(e.key === 'Enter'){
+      login()
+    }
+  })
   
