@@ -104,18 +104,20 @@ async function javaCheck(){
           const downloader = new Downloader({
             url: url,
             directory: dataDirectory + "/" + res.dataDirectory + "/runtime/",
-            fileName:'java.tar.gz',
+            fileName: "java.tar.gz",
+            cloneFiles: false,
             onProgress:function(percentage){
                 setStatus("Téléchargement de Java </br>" + percentage + "%")
             }     
           })
           try {
-            downloader.download().then(decompress_java => {
+            downloader.download().then(err => {
             setStatus("Décompression de Java")
-            decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + 'java.tar.gz', dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(decompress_java => {
-                fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + 'java.tar.gz')
-                startLauncher();
-            })})
+            decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz", dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(err => {
+              fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz")
+              startLauncher();
+            })
+          })
           } catch (error) {
             return shutdown("Une erreur est survenue,<br>veuillez réessayer ultérieurement.");
           }
