@@ -84,17 +84,6 @@ function play(){
           account = microsoft.getMLC().getAuth(login.user.call)
         }
 
-        if(["win32"].includes(process.platform)){
-          console.log("win")
-          os = "/bin/java.exe"
-        } else if(["darwin"].includes(process.platform)){
-          console.log("mac")
-          os = "/Contents/Home/bin/java"
-        } else if(["linux"].includes(process.platform)){
-          console.log("linux")
-          os = "/bin/java"
-        }
-
         if ((config.forge_version) == ""){
           version = config.game_version
         } else {
@@ -108,7 +97,6 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
-            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java" + os,
             version: config.game_version,
             forge: version,
             checkFiles: true,
