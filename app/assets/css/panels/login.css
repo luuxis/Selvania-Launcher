@@ -1,49 +1,54 @@
 @import "./frame.css";
-
-body{
+body {
     background: url("../../images/background/1.png");
     background-size: cover;
     background-position: bottom;
 }
-.login{
+
+.login {
+    padding-top: 15px;
     position: absolute;
     display: flex;
-    width: 70%;
-    height: 70%;
+    width: 700px;
+    height: 430px;
     margin: auto;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background: #00000055;
-    border-radius: 2%;
+    border-radius: 5px;
     text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-h1,h2,h3{
+h1, h2, h3 {
     color: #ffffff;
 }
 
-hr{
+hr {
     width: 75%;
-    color:#b7950b;
+    color: #b7950b;
 }
 
-input.text{
+input.text {
     margin: 2%;
     background: #000000a4;
     text-align: center;
     position: relative;
     width: 300px;
-    height: 32px;
+    height: 50px;
     border-radius: 5px;
     border: 1px solid #f9f8f9;
     outline: none;
     color: #fff;
+    transition: 0.3s;
+}
 
+input.text:hover, input.text:focus {
+    border: 1px solid #b7950b;
 }
 
 .login-btn {
@@ -54,11 +59,50 @@ input.text{
     height: 20px;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: black;
 }
 
 .logo-microsoft {
     opacity: 0.5;
-    width: 5%;
-    padding: 2%;
+    width: 30px;
+    padding-top: 20px;
     cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    top: 0px;
+}
+
+.text-microsoft {
+    opacity: 0;
+    display: block;
+    position: relative;
+    margin: 0;
+    top: -15px;
+    transition: 0.3s;
+    width: 220px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: black;
+}
+
+.text-microsoft:hover~.logo-microsoft {
+    /* top: -20px; */
+    opacity: 0 !important;
+}
+
+.div-logo-ms:hover~.text-microsoft {
+    top: -35px;
+    opacity: 1;
+}
+
+.text-microsoft:hover {
+    top: -35px;
+    opacity: 1;
 }
