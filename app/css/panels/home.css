@@ -1,0 +1,222 @@
+@import "./frame.css";
+
+
+body{
+    background: url("../../images/background/1.png");
+    background-position: bottom;
+    background-size: cover;
+}
+
+.home{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.top{ 
+    height: 9%;
+    background: #05050555;
+    border-bottom: 1px solid #b7950b ;
+}
+.centre {
+    text-align: center;
+}
+
+.logo{
+    height: 50%;
+    margin: 0.5%;
+    cursor: pointer;
+}
+
+.logo-arche{
+    padding: 1%;
+    height: 160%;
+    margin-left: 27.5%;
+}
+
+.bottom{
+    height: 80%;
+}
+
+.config {
+    padding: 5%;
+    text-align: center;
+}
+
+.play-btn {
+    padding: 6px;
+    color: #b7950b;
+    background-color: #00000055 ;
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 25;
+    border : 1px solid #b7950b81;
+    margin: auto;
+    align-content: center;
+}
+
+input[type=range].ram {
+    width: 30%;
+    margin: auto;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range].ram:focus {
+    outline: none;
+}
+
+input[type=range].ram::-webkit-slider-runnable-track {
+    background: #00000055;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+}
+
+input[type=range].ram::-webkit-slider-thumb {
+    margin-top: -1px;
+    width: 8px;
+    height: 10px;
+    background: #b7950b;
+    border: 0;
+    border-radius: 1px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range].ram:focus::-webkit-slider-runnable-track {
+    background: #00000055;
+}
+
+input[type=range].ram::-moz-range-track {
+    background: #00000055;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+}
+
+input[type=range].ram::-moz-range-thumb {
+    width: 8px;
+    height: 10px;
+    background: #b7950b;
+    border: 0;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+input[type=range].ram::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 1px 0;
+    color: transparent;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+}
+input[type=range].ram::-ms-fill-lower {
+    background: #00000055;
+    border: 0;
+    border-radius: 6px;
+  }
+  input[type=range].ram::-ms-fill-upper {
+    background: #00000055;
+    border: 0;
+    border-radius: 6px;
+  }
+  input[type=range].ram::-ms-thumb {
+    width: 8px;
+    height: 10px;
+    background: #b7950b;
+    border: 0;
+    border-radius: 1px;
+    cursor: pointer;
+    margin-top: 0px;
+  }
+  input[type=range].ram:focus::-ms-fill-lower {
+    background: #00000055;
+  }
+  input[type=range].ram:focus::-ms-fill-upper {
+    background: #00000055;
+  }
+  
+  @supports (-ms-ime-align:auto) {
+    input[type=range].ram {
+      margin: 0;
+    }
+  }
+
+.info-progress {
+    padding: 5.75%;
+    text-align: center;
+}
+.ram-text {
+    color: #f8f9f9;
+    text-align: center;
+}
+
+progress {
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    height: 2%;
+    appearance: none;
+    transition: opacity .2s;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #00000055;
+    border-radius: 10px;
+}
+progress::-webkit-progress-value {
+    background-color: #b7950b;
+    border-radius: 10px;
+}
+
+.server_status {
+    text-align: center;
+    display: flow-root;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-right: 5%;
+    height: 65%;
+    width: 40%;
+    border-radius: 5%;
+    background: #00000055;
+    color: #f8f9f9;
+}
+
+.server_status hr{
+    color:#b7950b
+}
+
+.refreshing{
+    height: 5%;
+}
+
+.scroller {
+    height: 67%;
+    overflow-y: scroll;
+  }
+
+.scroller::-webkit-scrollbar {
+    width: 1%;
+  }
+
+.users {
+    height: 20%;
+    color: #fff;
+    font-size: 200%;
+    padding: 2%;
+}
+  
