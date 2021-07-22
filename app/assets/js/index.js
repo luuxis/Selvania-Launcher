@@ -79,7 +79,7 @@ async function javaCheck(){
     config.java().then(java => {
       setStatus("Vérification de Java");
       
-      if(!["win32", /*"darwin",*/ "linux"].includes(process.platform))return shutdown("System d'exploitation non supporté");
+      if(!["win32", "darwin", "linux"].includes(process.platform))return shutdown("System d'exploitation non supporté");
         
         
       if (compare(res.game_version, "1.17") == 1){
@@ -106,11 +106,15 @@ async function javaCheck(){
           fileName: "java.tar.gz",
           cloneFiles: false,
           onProgress:function(percentage){
-              setStatus("Téléchargement de Java </br>" + percentage + "%")
+            setStatus("Téléchargement de Java " + percentage + "%")
+            setProgress(percentage, "100")
+
           }     
         })
         try {
+          toggleProgress()
           downloader.download().then(err => {
+          toggleProgress()
           setStatus("Décompression de Java")
           decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz", dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(err => {
             fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz")
