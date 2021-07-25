@@ -38,7 +38,7 @@ async function startAnimation(){
 async function checkUpdate(){
   if(Dev) return javaCheck();
   
-  setStatus(`Recherche de mises à jour`);
+  setStatus(`Recherche de mises Ã  jour`);
   const manifest = await fetch(manifestUrl).then(res => res.json());
   const update = await updater.checkNewVersion(manifest);
   if(!update) return maintenanceCheck();
@@ -51,12 +51,12 @@ async function checkUpdate(){
   });
 
   toggleProgress();
-  setStatus(`Téléchargement de la mise à jour`);
+  setStatus(`TÃ©lÃ©chargement de la mise Ã  jour`);
   const file = await updater.download(manifest);
-  setStatus(`Décompression de la mise à jour`);
+  setStatus(`DÃ©compression de la mise Ã  jour`);
   await updater.unpack(file);
   toggleProgress();
-  setStatus(`Redémarrage`);
+  setStatus(`RedÃ©marrage`);
   await updater.restartToSwap();
 }
   
@@ -69,7 +69,7 @@ async function maintenanceCheck(){
   }).catch( err => {
     console.log("impossible de charger le config.json");
     console.log(err);
-    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+    return shutdown("Aucune connexion internet dÃ©tectÃ©e,<br>veuillez rÃ©essayer ultÃ©rieurement.");
   })
 }
 
@@ -77,12 +77,13 @@ async function maintenanceCheck(){
 async function javaCheck(){
   config.config().then(res => {
     config.java().then(java => {
-      setStatus("Vérification de Java");
+      setStatus("VÃ©rification de Java");
       
-      if(!["win32", "darwin", "linux"].includes(process.platform))return shutdown("System d'exploitation non supporté");
+      if(!["win32", "darwin", "linux"].includes(process.platform))return shutdown("System d'exploitation non supportÃ©");
         
         
       if (compare(res.game_version, "1.17") == 1){
+        var java_ver = "16"
         if(["win32"].includes(process.platform)){
           var url = java.jre16.windows.url
         } else if(["darwin"].includes(process.platform)){
@@ -91,6 +92,7 @@ async function javaCheck(){
           var url = java.jre16.linux.url
         }
       } else {
+        var java_ver = "8"
         if(["win32"].includes(process.platform)){
           var url = java.jre8.windows.url
         } else if(["darwin"].includes(process.platform)){
@@ -106,7 +108,7 @@ async function javaCheck(){
           fileName: "java.tar.gz",
           cloneFiles: false,
           onProgress:function(percentage){
-            setStatus("Téléchargement de Java " + percentage + "%")
+            setStatus("TÃ©lÃ©chargement de Java " + java_ver)
             setProgress(percentage, "100")
 
           }     
@@ -115,14 +117,14 @@ async function javaCheck(){
           toggleProgress()
           downloader.download().then(err => {
           toggleProgress()
-          setStatus("Décompression de Java")
+          setStatus("DÃ©compression de Java " + java_ver)
           decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz", dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(err => {
             fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz")
             startLauncher();
           })
         })
         } catch (error) {
-          return shutdown("Une erreur est survenue,<br>veuillez réessayer ultérieurement.");
+          return shutdown("Une erreur est survenue,<br>veuillez rÃ©essayer ultÃ©rieurement.");
         }
       } else {
         startLauncher();
@@ -130,17 +132,17 @@ async function javaCheck(){
     }).catch( err => {
       console.log("impossible de charger le jre-download.json");
       console.log(err);
-      return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+      return shutdown("Aucune connexion internet dÃ©tectÃ©e,<br>veuillez rÃ©essayer ultÃ©rieurement.");
     })
   }).catch( err => {
     console.log("impossible de charger le config.json");
     console.log(err);
-    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+    return shutdown("Aucune connexion internet dÃ©tectÃ©e,<br>veuillez rÃ©essayer ultÃ©rieurement.");
   })  
 }
   
 function startLauncher(){
-  setStatus(`Démarrage du launcher`);
+  setStatus(`DÃ©marrage du launcher`);
   nw.Window.open("app/launcher.html", {
     "title": "Arche Launcher",
     "width": 980,
@@ -155,10 +157,10 @@ function startLauncher(){
 }
 
 function shutdown(text){
-  setStatus(`${text}<br>Arrêt dans 5s`);
+  setStatus(`${text}<br>ArrÃªt dans 5s`);
   let i = 4;
   setInterval(() => {
-    setStatus(`${text}<br>Arrêt dans ${i--}s`);
+    setStatus(`${text}<br>ArrÃªt dans ${i--}s`);
     if(i < 0) win.close();
   }, 1000);
 }
@@ -180,4 +182,3 @@ function setProgress(value, max){
 function sleep(ms){
   return new Promise((r) => { setTimeout(r, ms) });
 }
-
