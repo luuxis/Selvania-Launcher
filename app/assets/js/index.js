@@ -38,7 +38,7 @@ async function startAnimation(){
 async function checkUpdate(){
   if(Dev) return javaCheck();
   
-  setStatus(`Recherche de mises Ã  jour`);
+  setStatus(`Recherche de mises à jour`);
   const manifest = await fetch(manifestUrl).then(res => res.json());
   const update = await updater.checkNewVersion(manifest);
   if(!update) return maintenanceCheck();
@@ -51,12 +51,12 @@ async function checkUpdate(){
   });
 
   toggleProgress();
-  setStatus(`TÃ©lÃ©chargement de la mise Ã  jour`);
+  setStatus(`Téléchargement de la mise à jour`);
   const file = await updater.download(manifest);
-  setStatus(`DÃ©compression de la mise Ã  jour`);
+  setStatus(`Décompression de la mise à jour`);
   await updater.unpack(file);
   toggleProgress();
-  setStatus(`RedÃ©marrage`);
+  setStatus(`Redémarrage`);
   await updater.restartToSwap();
 }
   
@@ -69,7 +69,7 @@ async function maintenanceCheck(){
   }).catch( err => {
     console.log("impossible de charger le config.json");
     console.log(err);
-    return shutdown("Aucune connexion internet dÃ©tectÃ©e,<br>veuillez rÃ©essayer ultÃ©rieurement.");
+    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
   })
 }
 
@@ -77,9 +77,9 @@ async function maintenanceCheck(){
 async function javaCheck(){
   config.config().then(res => {
     config.java().then(java => {
-      setStatus("VÃ©rification de Java");
+      setStatus("Vérification de Java");
       
-      if(!["win32", "darwin", "linux"].includes(process.platform))return shutdown("System d'exploitation non supportÃ©");
+      if(!["win32", "darwin", "linux"].includes(process.platform))return shutdown("System d'exploitation non supporté");
         
         
       if (compare(res.game_version, "1.17") == 1){
@@ -108,7 +108,7 @@ async function javaCheck(){
           fileName: "java.tar.gz",
           cloneFiles: false,
           onProgress:function(percentage){
-            setStatus("TÃ©lÃ©chargement de Java " + java_ver)
+            setStatus("Téléchargement de Java " + java_ver)
             setProgress(percentage, "100")
 
           }     
@@ -117,14 +117,14 @@ async function javaCheck(){
           toggleProgress()
           downloader.download().then(err => {
           toggleProgress()
-          setStatus("DÃ©compression de Java " + java_ver)
+          setStatus("Décompression de Java " + java_ver)
           decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz", dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(err => {
             fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz")
             startLauncher();
           })
         })
         } catch (error) {
-          return shutdown("Une erreur est survenue,<br>veuillez rÃ©essayer ultÃ©rieurement.");
+          return shutdown("Une erreur est survenue,<br>veuillez réessayer ultérieurement.");
         }
       } else {
         startLauncher();
@@ -132,17 +132,17 @@ async function javaCheck(){
     }).catch( err => {
       console.log("impossible de charger le jre-download.json");
       console.log(err);
-      return shutdown("Aucune connexion internet dÃ©tectÃ©e,<br>veuillez rÃ©essayer ultÃ©rieurement.");
+      return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
     })
   }).catch( err => {
     console.log("impossible de charger le config.json");
     console.log(err);
-    return shutdown("Aucune connexion internet dÃ©tectÃ©e,<br>veuillez rÃ©essayer ultÃ©rieurement.");
+    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
   })  
 }
   
 function startLauncher(){
-  setStatus(`DÃ©marrage du launcher`);
+  setStatus(`Démarrage du launcher`);
   nw.Window.open("app/launcher.html", {
     "title": "Arche Launcher",
     "width": 980,
@@ -157,10 +157,10 @@ function startLauncher(){
 }
 
 function shutdown(text){
-  setStatus(`${text}<br>ArrÃªt dans 5s`);
+  setStatus(`${text}<br>Arrêt dans 5s`);
   let i = 4;
   setInterval(() => {
-    setStatus(`${text}<br>ArrÃªt dans ${i--}s`);
+    setStatus(`${text}<br>Arrêt dans ${i--}s`);
     if(i < 0) win.close();
   }, 1000);
 }
