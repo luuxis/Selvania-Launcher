@@ -1,5 +1,5 @@
 @echo off
-set ver=14.17.3
+set ver=14.17.4
 set appdata=%CD%\AppData
 set url=https://nodejs.org/dist/v%ver%/node-v%ver%-win-x64.zip
 
