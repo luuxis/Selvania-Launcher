@@ -73,7 +73,7 @@ function play(){
     config.config().then(config => {
         document.querySelector(".config").style.display = "none";
         document.querySelector(".info-progress").style.display = "block";
-        const max_ram = document.getElementById("ram").value
+        const ram = document.getElementById("ram").value
         const login = require(dataDirectory + "/" + config.dataDirectory + "/account.json")
 
         if((login.user.type)  == "mojang") {
@@ -113,8 +113,8 @@ function play(){
             forge: version,
             checkFiles: true,
             memory: {
-                max: max_ram + "G",
-                min: "1G"
+                max: ram + "G",
+                min: ram + "G"
             }
         }
         launcher.launch(opts);
