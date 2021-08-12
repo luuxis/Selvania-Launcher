@@ -1,17 +1,20 @@
 const { config, status_server, microsoft } = require('./assets/js/utils.js');
 const { MCLaunch, MCAuth } = require('emc-core-luuxis');
+const os = require("os");
+
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
+const total_ram = os.totalmem()
+const valid_ram = os.freemem()
 const launcher = new MCLaunch;
 
-function ram() {
-    document.querySelector('.ram').onchange = function() {
-        document.getElementById("ram-text").innerHTML = "M\u00e9moire vive " + this.value + " Go";
-    }
+
+document.querySelector('.ram').onchange = function() {
+  document.getElementById("ram-text").innerHTML = "M\u00e9moire vive " + this.value + " Go";
 }
 
 
+
 config.info().then(config => {
-    ram()
     status_server.query({
         type: 'minecraft',
         host: config.ip_server,
@@ -86,13 +89,13 @@ function play(){
 
         if(["win32"].includes(process.platform)){
           console.log("win")
-          os = "/bin/java.exe"
+          java = "/bin/java.exe"
         } else if(["darwin"].includes(process.platform)){
           console.log("mac")
-          os = "/Contents/Home/bin/java"
+          java = "/Contents/Home/bin/java"
         } else if(["linux"].includes(process.platform)){
           console.log("linux")
-          os = "/bin/java"
+          java = "/bin/java"
         }
 
         if ((config.forge_version) == ""){
@@ -108,7 +111,7 @@ function play(){
             },
             authorization: account,
             root: dataDirectory + "/" + config.dataDirectory,
-            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java" + os,
+            javaPath: dataDirectory + "/" + config.dataDirectory + "/runtime/java" + java,
             version: config.game_version,
             forge: version,
             checkFiles: true,

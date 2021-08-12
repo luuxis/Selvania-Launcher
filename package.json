@@ -1,6 +1,5 @@
 {
   "name": "Arche-Launcher",
-  "user": "web",
   "version": "1.0.5",
   "productName": "Arche Launcher",
   "description": "Arche Launcher",
@@ -17,7 +16,8 @@
     "icon": "app/assets/images/icon/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 --disable-gpu",
-  "url": "http://launcheur.arche-rp.fr/{user}",
+  "url": "http://launcheur.arche-rp.fr/web",
+  "user": "",
   "webkit": {
     "plugin": true
   },

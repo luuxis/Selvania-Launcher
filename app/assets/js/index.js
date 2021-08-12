@@ -3,8 +3,11 @@ const Downloader = require('nodejs-file-downloader');
 const decompress = require('decompress');
 const pkg = require("../package.json");
 const fs = require('fs');
-
-const url = pkg.url.replace('{user}', pkg.user);
+if((pkg.user) === undefined || (pkg.user) === ""){
+  var url = pkg.url
+} else {
+  var url = pkg.url + "/" + pkg.user
+}
 const manifestUrl = url + "/launcher/package.json";
 
 const { config, compare } = require('./assets/js/utils.js');
