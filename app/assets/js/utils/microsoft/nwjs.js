@@ -14,13 +14,12 @@ module.exports.Launch = (token, callback, updates = () => { }, Windowproperties 
     var redirect = MSMC.CreateLink(token);
     var loading = false;
     nw.Window.open(redirect, Windowproperties, function (new_win) {
-        new_win.on('close', function () {
-            if (!loading) {
-                updates({ type: "Canceled" });
-            }
-        })
+        new_win.on('closed', () => {
+            if(!code) code = "cancel";
+            if(interval) clearInterval(interval);
+            resolve(code);
+          });
         new_win.on('loaded', function () {
-
             const loc = new_win.window.location.href;
             console.log(loc);
             if (loc.startsWith(token.redirect)) {
