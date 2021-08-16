@@ -3,9 +3,14 @@ const { MCLaunch, MCAuth } = require('emc-core-luuxis');
 const os = require("os");
 
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
-const total_ram = os.totalmem()
-const valid_ram = os.freemem()
+
 const launcher = new MCLaunch;
+
+const totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
+const freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
+
+console.log(totalMem)
+console.log(freeMem)
 
 
 document.querySelector('.ram').onchange = function() {
