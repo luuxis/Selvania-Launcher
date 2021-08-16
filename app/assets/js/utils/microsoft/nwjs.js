@@ -2,10 +2,12 @@ const MSMC = require("./microsoft");
 const config = require ("../config.js")
 
 const defaultProperties = {
-    width: 500,
-    height: 650,
-    resizable: false,
-    title: "Microsoft Login"
+    "title": "Se connecter à votre compte Microsoft",
+    "width": 1000,
+    "height": 620,
+    "frame": true,
+    "position": "center",
+    "icon": "app/assets/images/logo/microsoft.png"
 };
 
 module.exports.Launch = (token, callback, updates = () => { }, Windowproperties = defaultProperties) => {
