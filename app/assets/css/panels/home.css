@@ -50,7 +50,7 @@ body{
 .play-btn {
     padding: 6px;
     color: #b7950b;
-    background-color: #00000055 ;
+    background-color: #000000ab;
     width: 300px;
     height: 25px;
     border-radius: 5px;
@@ -74,7 +74,7 @@ input[type=range].ram:focus {
 }
 
 input[type=range].ram::-webkit-slider-runnable-track {
-    background: #00000055;
+    background: #000000ab;
     border: 0;
     border-radius: 3px;
     width: 100%;
@@ -192,7 +192,7 @@ progress::-webkit-progress-value {
     height: 65%;
     width: 40%;
     border-radius: 5%;
-    background: #00000055;
+    background: #000000ab;
     color: #f8f9f9;
 }
 

@@ -28,10 +28,10 @@ config.info().then(config => {
         status_json = state.raw.vanilla;
         document.getElementById("online").innerHTML = status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)";
         console.log(status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)");
-        for (let pas = 0; pas < status_json.raw.players.online; pas++) { 
-          player = status_json.raw.players.sample[pas].name
-          document.getElementById("users").innerHTML += `<img src="https://mc-heads.net/head/${player}" class="users"><b class="users"> ${player}</b></br>`
-        }
+        // for (let pas = 0; pas < status_json.raw.players.online; pas++) { 
+        //   player = status_json.raw.players.sample[pas].name
+        //   document.getElementById("users").innerHTML += `<img src="https://mc-heads.net/head/${player}" class="users"><b class="users"> ${player}</b></br>`
+        // }
        }).catch((err) => {
         document.getElementById("online").innerHTML = "Le serveur est ferme.";
         console.log(err)
