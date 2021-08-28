@@ -20,10 +20,16 @@
             
             <div class="bottom">
                 <div class="config">
-                    <div class="play-btn" onclick="play()">Rejoindre l'aventure</div>
-                    <label class="ram-text" id="ram-text">M&#233;moire vive 1 Go</label>
-                    <br>
-                    <input type="range" class="ram" id="ram" min="1" max="16" step="1" value="1">
+                    <div class="btn-config">
+                        <div class="play-btn" onclick="play()">Rejoindre l'aventure</div>
+                        <div class="settings-btn" onclick="settings()">hh</div>
+                    </div>
+
+                    <div class="settings" style="display: none;">
+                        <label class="ram-text" id="ram-text">M&#233;moire vive 4 Go</label>
+                        <br>
+                        <input type="range" class="ram" id="ram" min="1" max="16" step="1" value="4">
+                    </div>
                 </div>
 
                 <div id="info-progress" class="info-progress" style="display: none;">

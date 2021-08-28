@@ -93,7 +93,6 @@ function play(){
         }
 
         if(["win32"].includes(process.platform)){
-          console.log("win")
           java = "/bin/java.exe"
         } else if(["darwin"].includes(process.platform)){
           console.log("mac")
@@ -166,4 +165,9 @@ function play(){
           document.querySelector(".info-progress").style.display = "none";
         });
     })
+}
+
+
+function settings() {
+  document.querySelector(".settings").style.display = "block";
 }
