@@ -32,7 +32,7 @@
   "license": "MIT",
   "build": {
     "appId": "Arche Launcher",
-    "nwVersion": "0.55.0",
+    "nwVersion": "0.56.0",
     "packed": true,
     "targets": [
       "zip",
