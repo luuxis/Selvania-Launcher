@@ -75,7 +75,7 @@
   },
   "devDependencies": {
     "nw": "^0.54.1-sdk",
-    "nwjs-builder-phoenix": "^1.9.3"
+    "nwjs-builder-phoenix": "^1.15.0"
   },
   "dependencies": {
     "adm-zip": "^0.4.16",
