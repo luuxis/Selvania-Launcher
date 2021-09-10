@@ -1,5 +1,6 @@
 # Generated
 /node_modules/
+/package-lock.json
 /dist/
 node-v*
 AppData

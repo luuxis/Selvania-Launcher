@@ -22,7 +22,7 @@
     "plugin": true
   },
   "scripts": {
-    "start": "nw . --user-data-dir=./AppData/Arche-Launcher",
+    "start": "run --64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "server": "npm install && node node_modules/emc-core-luuxis/utils/builder.js --v=1.0",
     "build:win": "npm install && build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:mac": "npm install && build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
@@ -32,7 +32,7 @@
   "license": "MIT",
   "build": {
     "appId": "Arche Launcher",
-    "nwVersion": "0.54.1",
+    "nwVersion": "0.55.0",
     "packed": true,
     "targets": [
       "zip",
@@ -74,7 +74,6 @@
     }
   },
   "devDependencies": {
-    "nw": "^0.54.1-sdk",
     "nwjs-builder-phoenix": "^1.15.0"
   },
   "dependencies": {
