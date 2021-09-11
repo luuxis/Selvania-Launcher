@@ -1,22 +1,21 @@
 {
-  "name": "Arche-Launcher",
-  "version": "1.0.5",
-  "productName": "Arche Launcher",
-  "description": "Arche Launcher",
+  "name": "Uzurion-Launcher",
+  "version": "2.0.0",
+  "productName": "Uzurion Launcher",
+  "description": "Uzurion Launcher",
   "main": "app/index.html",
   "author": "Luuxis",
   "window": {
-    "title": "Arche update",
+    "title": "Uzurion update",
     "width": 400,
     "height": 500,
     "frame": false,
     "resizable": false,
     "position": "center",
-    "transparent": true,
     "icon": "app/assets/images/icon/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 --disable-gpu",
-  "url": "http://launcheur.arche-rp.fr/web",
+  "url": "http://146.59.227.140",
   "user": "",
   "webkit": {
     "plugin": true
@@ -31,7 +30,7 @@
   },
   "license": "MIT",
   "build": {
-    "appId": "Arche Launcher",
+    "appId": "Uzurion Launcher",
     "nwVersion": "0.56.0",
     "packed": true,
     "targets": [
@@ -54,18 +53,16 @@
     ],
     "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
     "win": {
-      "productName": "Arche Launcher",
-      "companyName": "Arche Launcher",
+      "productName": "Uzurion Launcher",
+      "companyName": "Uzurion Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icon/icon.ico"
     },
     "mac": {
-      "displayName": "Arche-Launcher",
+      "displayName": "Uzurion-Launcher",
       "copyright": "copyright",
-      "icon": "./app/assets/images/icon/icon.icns",
       "plistStrings": {
-        "CFBundleIdentifier": "Arche-Launcher",
-        "CFBundleDocumentTypes": []
+        "CFBundleIdentifier": "Uzurion-Launcher"
       }
     },
     "nsis": {
@@ -76,28 +73,15 @@
   "devDependencies": {
     "nwjs-builder-luuxis": "^1.15.0"
   },
-  "dependencies": {
-    "adm-zip": "^0.4.16",
-    "cheerio": "^1.0.0-rc.3",
-    "compressjs": "^1.0.2",
-    "decompress": "^4.2.1",
-    "emc-core-luuxis": "^1.0.9",
-    "fs": "0.0.1-security",
-    "gbxremote": "^0.2.1",
-    "got": "^11.5.1",
-    "iconv-lite": "^0.6.2",
-    "long": "^4.0.0",
-    "minimist": "^1.2.5",
-    "moment": "^2.27.0",
-    "node-fetch": "^2.6.1",
-    "nodejs-file-downloader": "^4.7.1",
-    "nw-autoupdater-luuxis": "^1.1.5",
-    "punycode": "^2.1.1",
-    "varint": "^5.0.0",
-    "xml-js": "^1.6.11"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luuxis/Arche-Launcher.git"
+  },
+  "dependencies": {
+    "decompress": "^4.2.1",
+    "emc-core-luuxis": "^1.0.9",
+    "node-fetch": "^2.6.1",
+    "nodejs-file-downloader": "^4.7.3",
+    "nw-autoupdater-luuxis": "^1.1.6"
   }
 }
