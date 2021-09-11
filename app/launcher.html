@@ -2,19 +2,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/launcher.css">
 </head>
-<body>
+<body class="hide">
+    <div class="dragbar hide"></div>
+    <div class="frame hide">
+      <div id="minimize" class="button-frame icon-minimize"></div>
+      <div id="maximize" class="button-frame icon-maximize"></div>
+      <div id="close" class="button-frame icon-close"></div>
+    </div>
     le launcher est actuellement en développement merci de réessayer ultérieurement
     <div id="panels"></div>
-    <script>
-    const fs = require("fs");
-    function panel () {
-        let panelsElem = document.querySelector("#panels");
-        let div = document.createElement("div");
-        div.innerHTML = fs.readFileSync(`app/index.html`, "utf8");
-        panelsElem.appendChild(div); 
-    }
-    //panel()
-    </script>
+    <script src="assets/js/launcher.js"></script>    
 </body>
 </html>
