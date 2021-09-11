@@ -53,6 +53,10 @@
     color:#f8f9f9;
 }
 
+.panel{
+    display: none;
+}
+
 
 .icon-close:before { font-family: "Icons"; content: "\e90e"; }
 .icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
