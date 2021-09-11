@@ -104,7 +104,7 @@ async function javaCheck(){
           var url = java.jre8.linux.url
         }
       }
-      if(!fs.existsSync(dataDirectory + "/" + res.dataDirectory + "/runtime/java/")) {
+      if(!fs.existsSync(dataDirectory + "/" + res.dataDirectory + "/runtime/java")) {
         const downloader = new Downloader({
           url: url,
           directory: dataDirectory + "/" + res.dataDirectory + "/runtime/",
@@ -147,7 +147,7 @@ async function javaCheck(){
 function startLauncher(){
   setStatus(`Démarrage du launcher`);
   nw.Window.open("app/launcher.html", {
-    "title": "Arche Launcher",
+    "title": "Uzurion Launcher",
     "width": 980,
     "height": 552,
     "min_width": 980,

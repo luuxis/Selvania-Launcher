@@ -1,6 +1,6 @@
 <p align="center"><img src="./app/assets/images/icon/icon.png" width="65%" height="65%" alt="Arche"></p>
 
-<h1 align="center">Arche Launcher</h1>
+<h1 align="center">Uzurion Launcher</h1>
 
 
 
