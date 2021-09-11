@@ -1,13 +1,13 @@
-<p align="center"><img src="./app/assets/images/icon/icon.png" width="65%" height="65%" alt="Arche"></p>
+<p align="center"><img src="./app/assets/images/icon/icon.png" width="65%" height="65%" alt="Uzurion"></p>
 
 <h1 align="center">Uzurion Launcher</h1>
 
 
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Arche-Launcher/releases) 
-[<img src="https://img.shields.io/badge/version-v1.0.4-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Arche-Launcher/releases) 
-[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Arche-Launcher/releases) </p>
+<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Uzurion-Launcher/releases) 
+[<img src="https://img.shields.io/badge/version-V2.0.0-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
+[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Uzurion-Launcher/releases) </p>
 
 
 ---
@@ -15,8 +15,8 @@
 **Cloner et installer les dépendances**
 
 ```console
-> git clone https://github.com/luuxis/Arche-Launcher.git
-> cd Arche-Launcher
+> git clone https://github.com/luuxis/Uzurion-Launcher.git
+> cd Uzurion-Launcher
 > npm install
 ```
 
@@ -56,7 +56,7 @@
 
 - Authentification crack.
 
-- Accepte toutes versions de Minecraft (1.0 > 1.17)  (1.7.x ne fonctionne pour le moment pas)(Forge, Fabric etc).
+- Accepte toutes versions de Minecraft 1.0 > 1.17 (Forge, Fabric etc).
 
 ---
 
@@ -68,11 +68,11 @@
 
 **<p align="center">Documentation.</p>**
 
-- [Télécharger le code source et installer les modules.](https://github.com/luuxis/Arche-Launcher/wiki/T%C3%A9l%C3%A9charger-le-code-source-et-installer-les-modules)
+- [Télécharger le code source et installer les modules.](https://github.com/luuxis/Uzurion-Launcher/wiki/T%C3%A9l%C3%A9charger-le-code-source-et-installer-les-modules)
 
-- [Mise en place du serveur web.](https://github.com/luuxis/Arche-Launcher/wiki/Mise-en-place-du-serveur-web)
+- [Mise en place du serveur web.](https://github.com/luuxis/Uzurion-Launcher/wiki/Mise-en-place-du-serveur-web)
 
-- [Construire l'application (build).](https://github.com/luuxis/Arche-Launcher/wiki/Construire-l'application-(build))
+- [Construire l'application (build).](https://github.com/luuxis/Uzurion-Launcher/wiki/Construire-l'application-(build))
 
 ---
 
@@ -81,7 +81,7 @@
 ---
 
 
-[releases]: https://github.com/luuxis/Arche-Launcher/releases 'releases'
-[build]: https://github.com/luuxis/Arche-Launcher/releases 'build'
+[releases]: https://github.com/luuxis/Uzurione-Launcher/releases 'releases'
+[build]: https://github.com/luuxis/Uzurion-Launcher/releases 'build'
 
 
