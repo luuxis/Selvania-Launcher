@@ -1,20 +1,7 @@
 const fs = require("fs");
 let win = nw.Window.get();
 
-
-
-function createPanels(...panels){
-  let panelsElem = document.querySelector("#panels");
-  for(let panel of panels){
-    console.log(`Initializing ${panel} Panel...`);
-    let div = document.createElement("div");
-    div.classList.add("panel", panel);
-    div.innerHTML = fs.readFileSync(`app/panels/${panel}.html`, "utf8");
-    panelsElem.appendChild(div);
-  }
-}
-
-function initFrame(){
+if(process.platform == "win32") {
   document.querySelector(".frame").classList.toggle("hide");
   document.querySelector(".dragbar").classList.toggle("hide");
   
@@ -37,6 +24,18 @@ function initFrame(){
   })
 }
 
-if(process.platform == "win32") initFrame()
-createPanels('login', 'home', 'settings')
-//document.querySelector(".login").style.display = "block";
+(function(...panels){
+  let panelsElem = document.querySelector("#panels");
+  for(let panel of panels){
+    console.log(`Initializing ${panel} Panel...`);
+    let div = document.createElement("div");
+    div.classList.add("panel", panel);
+    div.innerHTML = fs.readFileSync(`app/panels/${panel}.html`, "utf8");
+    panelsElem.appendChild(div);
+    import ("./panels/" + panel + ".js")
+  }
+ })('login', 'home', 'settings');
+
+document.querySelector(".login").style.display = "block";
+  
+
