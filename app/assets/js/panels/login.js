@@ -1,11 +1,8 @@
-const { MCAuth, MCLaunch } = require('emc-core-luuxis');
-const launcher = new MCLaunch();
+const { auth } = require('./assets/js/utils.js');
+const id = {
+  "email":"luuxis", //votre email minecraft
+  "password":"" //votre mot de passe minecraft
 
-let authenticator;
+}
 
-MCAuth.auth("luuxis").then(user => {
-  authenticator = user;
-  //success
-}).catch(error => {
-  //error
-})
+auth.login(id.email, id.password)
