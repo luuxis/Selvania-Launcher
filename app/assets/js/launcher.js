@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get();
 
 if(process.platform == "win32") {
@@ -37,5 +38,3 @@ if(process.platform == "win32") {
  })('login', 'home', 'settings');
 
 document.querySelector(".login").style.display = "block";
-  
-
