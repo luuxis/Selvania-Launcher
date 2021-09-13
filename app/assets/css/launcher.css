@@ -13,6 +13,7 @@
     height: 26px;
     -webkit-app-region: drag;
     z-index: 9;
+    display: none;
 }
 
 
@@ -24,8 +25,12 @@
     right: 0px;
     z-index: 10;
     -webkit-app-region: no-drag;
+    display: none;
 }
 
+.hide {
+    display: block;
+}
 
 .button-frame {
     position: relative;
