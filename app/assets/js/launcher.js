@@ -2,6 +2,7 @@ const fs = require("fs");
 const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get();
 
+
 if(process.platform == "win32") {
   document.querySelector(".frame").classList.toggle("hide");
   document.querySelector(".dragbar").classList.toggle("hide");
@@ -33,8 +34,10 @@ if(process.platform == "win32") {
     div.classList.add("panel", panel);
     div.innerHTML = fs.readFileSync(`app/panels/${panel}.html`, "utf8");
     panelsElem.appendChild(div);
-    import ("./panels/" + panel + ".js")
+    import (`./panels/${panel}.js`)
   }
- })('login', 'home', 'settings');
+ })("login", 'home', 'settings');
 
 document.querySelector(".login").style.display = "block";
+  
+
