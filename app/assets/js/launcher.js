@@ -25,6 +25,14 @@ if(process.platform == "win32") {
     win.close();
   })
 }
+function changePanel(V1, V2){
+  if(V1 == ""){
+    document.querySelector(`.${V2}`).style.display = "block"
+  } else {
+    document.querySelector(`.${V1}`).style.display = "none"
+    document.querySelector(`.${V2}`).style.display = "block"
+  }
+}
 
 (function(...panels){
   let panelsElem = document.querySelector("#panels");
@@ -36,8 +44,8 @@ if(process.platform == "win32") {
     panelsElem.appendChild(div);
     import (`./panels/${panel}.js`)
   }
- })("login", 'home', 'settings');
+})('login', 'home', 'settings');
 
-document.querySelector(".login").style.display = "block";
+changePanel("", "login")
   
 
