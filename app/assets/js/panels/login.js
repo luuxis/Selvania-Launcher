@@ -1,8 +1,12 @@
-const { auth } = require('./assets/js/utils.js');
-const id = {
-  "email": "luuxis", //votre email minecraft
-  "password": "" //votre mot de passe minecraft
+const { config } = require('./assets/js/utils.js');
 
-}
-
-auth.login(id.email, id.password)
+config.isonline().then(online => {
+  if (online) {
+    console.log("Loading online login \(officiel login\)");
+    import ("./login/microsoft.js")
+    import ("./login/mojang.js")
+  } else {
+    console.log("Loading offline login \(crack login\)");
+    import ("./login/crack.js")
+  }
+})
