@@ -40,7 +40,7 @@ async function startAnimation(){
 
 async function checkUpdate(){
   if(Dev) return javaCheck();
-  
+  nw.App.clearCache();
   setStatus(`Recherche de mises à jour`);
   const manifest = await fetch(manifestUrl).then(res => res.json());
   const update = await updater.checkNewVersion(manifest);
