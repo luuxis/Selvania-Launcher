@@ -2,13 +2,13 @@
   "version": "1.0.3",
   "packages": {
     "win64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Arche-Launcher-1.0.1-win.zip"
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Uzurion-Launcher-1.0.1-win.zip"
     },
     "mac64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Arche-Launcher-1.0.1-mac.zip"
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Uzurion-Launcher-1.0.1-mac.zip"
     },
     "linux64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Arche-Launcher-1.0.1-linux.zip"
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Uzurion-Launcher-1.0.1-linux.zip"
     }
   }
 }
