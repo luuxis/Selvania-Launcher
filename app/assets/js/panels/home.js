@@ -3,7 +3,7 @@ const launcher = new MCLaunch();
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { auth, config } = require('./assets/js/utils.js');
 
-document.querySelector(".play").addEventListener("click", () => {
+document.querySelector(".play-btn").addEventListener("click", () => {
     config.config().then(config => {
         
         if(["win32"].includes(process.platform)){
@@ -13,11 +13,17 @@ document.querySelector(".play").addEventListener("click", () => {
         } else if(["linux"].includes(process.platform)){
             var java = "/bin/java"
         }
-        
+
         if ((config.forge_version) == ""){
             var version = config.game_version
         } else {
             var version = config.forge_version
+        }
+
+        if(auth.user == undefined){
+            var authenticator = auth.userMI
+        } else if (auth.userMI == undefined){
+            var authenticator = auth.user
         }
         
         let opts = {
@@ -25,7 +31,7 @@ document.querySelector(".play").addEventListener("click", () => {
             overrides: {
                 detached: false
             },
-            authorization: auth.user,
+            authorization: authenticator,
             root: `${dataDirectory}/${config.dataDirectory}`,
             javaPath: `${dataDirectory}/${config.dataDirectory}/runtime/java${java}`,
             version: config.game_version,
@@ -36,7 +42,6 @@ document.querySelector(".play").addEventListener("click", () => {
                 min: "5G"
             }
         }
-        
         launcher.launch(opts);
         
         launcher.on('debug', (e) => {
