@@ -1,4 +1,5 @@
 const { auth } = require('./assets/js/utils.js')
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 document.getElementsByName('pseudo')[0].placeholder='Adresse E-mail';
 
@@ -24,6 +25,18 @@ document.querySelector(".login-btn").addEventListener("click", () => {
     document.querySelector(".info-login").innerHTML = "Connexion en cours..."
     document.querySelector(".info-login").style.display = "block"
     auth.loginMojang(document.querySelector(".pseudo").value, document.querySelector(".password").value).then(user => {
+
+        if(document.querySelector(".loginRemember").checked == true){
+            const Account = {
+                "login":{
+                    "Mojang": {
+                        "user": user
+                    }
+                }
+            }
+            config.config().then(res => fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(Account, null, 4), 'UTF-8'))
+        }
+
         changePanel("login", "home")
     }).catch (err => {
         document.querySelector(".login-btn").disabled = false

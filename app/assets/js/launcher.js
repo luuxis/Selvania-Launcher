@@ -28,6 +28,13 @@ if(process.platform == "win32") {
 function changePanel(V1, V2){
   if(V1 == ""){
     document.querySelector(`.${V2}`).style.display = "block"
+  } else if (V1 == "login"){
+    document.querySelector(`.${V1}`).style.display = "none"
+    document.querySelector(`.${V2}`).style.display = "block"
+    document.querySelector(".login-btn").disabled = false
+    document.querySelector(".pseudo").disabled = false
+    //document.querySelector(".microsoft-btn").disabled = false
+    document.querySelector(".password").disabled = false
   } else {
     document.querySelector(`.${V1}`).style.display = "none"
     document.querySelector(`.${V2}`).style.display = "block"
