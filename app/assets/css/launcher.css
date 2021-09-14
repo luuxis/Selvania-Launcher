@@ -3,7 +3,6 @@
 @import "Panels/home.css";
 @import "Panels/settings.css";
 
-
 .dragbar {
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
