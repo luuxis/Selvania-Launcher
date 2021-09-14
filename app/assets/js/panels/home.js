@@ -21,8 +21,8 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         }
 
         if(auth.user == undefined){
-            var authenticator = auth.userMI
-        } else if (auth.userMI == undefined){
+            
+        } else {
             var authenticator = auth.user
         }
         
@@ -42,6 +42,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
                 min: "5G"
             }
         }
+
         launcher.launch(opts);
         
         launcher.on('debug', (e) => {
