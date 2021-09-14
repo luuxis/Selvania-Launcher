@@ -28,7 +28,7 @@
     "build:linux": "npm install && build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
   },
-  "license": "MIT",
+  "license": "CC0",
   "build": {
     "appId": "Uzurion Launcher",
     "nwVersion": "0.56.0",
