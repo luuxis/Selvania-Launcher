@@ -1,4 +1,4 @@
-const { auth } = require('./assets/js/utils.js')
+const { auth, config } = require('./assets/js/utils.js')
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 document.getElementsByName('pseudo')[0].placeholder='Adresse E-mail';
