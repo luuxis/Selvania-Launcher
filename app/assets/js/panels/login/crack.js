@@ -32,7 +32,6 @@ document.querySelector(".login-btn").addEventListener("click", () => {
         }
         changePanel("login", "home")
     }).catch (err => {
-        console.log(err)
         document.querySelector(".login-btn").disabled = false
         document.querySelector(".pseudo").disabled = false
         document.querySelector(".info-login").innerHTML = "error"
