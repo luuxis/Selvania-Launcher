@@ -1,7 +1,7 @@
 const { auth, config } = require('./assets/js/utils.js')
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-document.querySelector(".microsoft").addEventListener("click", () => {
+document.querySelector(".microsoft-btn").addEventListener("click", () => {
     document.querySelector(".login-btn").disabled = true
     document.querySelector(".pseudo").disabled = true
     document.querySelector(".password").disabled = true
