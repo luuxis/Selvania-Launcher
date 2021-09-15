@@ -5,6 +5,7 @@ const { auth, config } = require('./assets/js/utils.js');
 
 document.querySelector(".play-btn").addEventListener("click", () => {
     config.config().then(config => {
+        const login = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
         
         if(["win32"].includes(process.platform)){
             var java = "/bin/java.exe"
@@ -20,6 +21,12 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             var version = config.forge_version
         }
 
+        if(login.Settings.Java.Directory === null){
+            var Java = `${dataDirectory}/${config.dataDirectory}/runtime/java${java}`
+        } else {
+            var Java = login.Settings.Java.Directory
+        }
+
         if(auth.user == undefined){
             
         } else {
@@ -33,17 +40,18 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             },
             authorization: authenticator,
             root: `${dataDirectory}/${config.dataDirectory}`,
-            javaPath: `${dataDirectory}/${config.dataDirectory}/runtime/java${java}`,
+            javaPath: Java,
             version: config.game_version,
             forge: version,
             checkFiles: true,
             memory: {
-                max: "5G",
-                min: "5G"
+                max: `${login.Settings.Java.RamMax}G`,
+                min: `${login.Settings.Java.RamMin}G`
             }
         }
 
-        launcher.launch(opts);
+        console.log(Java)
+        //launcher.launch(opts);
         
         launcher.on('debug', (e) => {
             console.log("[DEBUG]" + e)
