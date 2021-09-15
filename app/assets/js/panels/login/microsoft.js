@@ -10,9 +10,9 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
     auth.loginMicrosoft().then(user => {
         if(document.querySelector(".loginRemember").checked == true){
             const Account = {
-                "login":{
+                "Login":{
                     "Microsoft":{
-                        "user": user
+                        "User": user
                     }
                 }
             }
