@@ -47,3 +47,11 @@ document.querySelector(".login-btn").addEventListener("click", () => {
         document.querySelector(".info-login").style.display = "block"
     })
 })
+
+
+document.addEventListener('keydown', function (e) {
+    if(e.key === 'Enter'){
+        var click = new Event('click')
+        document.querySelector(".login-btn").dispatchEvent(click)
+    }
+})
