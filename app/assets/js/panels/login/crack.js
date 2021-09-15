@@ -22,9 +22,9 @@ document.querySelector(".login-btn").addEventListener("click", () => {
     auth.loginMojang(document.querySelector(".pseudo").value).then(user => {
         if(document.querySelector(".loginRemember").checked == true){
             const Account = {
-                "login":{
+                "Login":{
                     "Crack":{
-                        "user": user
+                        "User": user
                     }
                 }
             }

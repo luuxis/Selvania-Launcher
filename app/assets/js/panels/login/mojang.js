@@ -28,9 +28,9 @@ document.querySelector(".login-btn").addEventListener("click", () => {
 
         if(document.querySelector(".loginRemember").checked == true){
             const Account = {
-                "login":{
+                "Login":{
                     "Mojang": {
-                        "user": user
+                        "User": user
                     }
                 }
             }
