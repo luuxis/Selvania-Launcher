@@ -50,8 +50,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             }
         }
 
-        console.log(Java)
-        //launcher.launch(opts);
+        launcher.launch(opts);
         
         launcher.on('debug', (e) => {
             console.log("[DEBUG]" + e)
