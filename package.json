@@ -21,17 +21,17 @@
     "plugin": true
   },
   "scripts": {
-    "start": "run --64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "start": "run --64 --mirror https://dl.nwjs.io/ .",
     "server": "npm install && node node_modules/emc-core-luuxis/utils/builder.js --v=1.0",
-    "build:win": "npm install && build --win --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:mac": "npm install && build --mac --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
-    "build:linux": "npm install && build --linux --x64 --mirror https://npm.taobao.org/mirrors/nwjs/ .",
+    "build:win": "npm install && build --win --x64 --mirror https://dl.nwjs.io/ .",
+    "build:mac": "npm install && build --mac --x64 --mirror https://dl.nwjs.io/ .",
+    "build:linux": "npm install && build --linux --x64 --mirror https://dl.nwjs.io/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win"
   },
   "license": "CC0",
   "build": {
     "appId": "Uzurion Launcher",
-    "nwVersion": "0.56.0",
+    "nwVersion": "0.55.0",
     "packed": true,
     "targets": [
       "zip",
