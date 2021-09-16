@@ -20,16 +20,13 @@ document.querySelector(".login-btn").addEventListener("click", () => {
     document.querySelector(".info-login").innerHTML = "Connexion en cours..."
     document.querySelector(".info-login").style.display = "block"
     auth.loginMojang(document.querySelector(".pseudo").value).then(user => {
-        if(document.querySelector(".loginRemember").checked == true){
-            const Account = {
-                "Login":{
-                    "Crack":{
-                        "User": user
-                    }
-                }
+        config.config().then(res => {
+            if(document.querySelector(".loginRemember").checked == true){
+                const file = require(`${dataDirectory}/${res.dataDirectory}/config.json`);
+                file.Login.Account = {"Crack":{"User": user}} 
+                fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
             }
-            config.config().then(res => fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(Account, null, 4), 'UTF-8'))
-        }
+        })
         changePanel("login", "home")
     }).catch (err => {
         document.querySelector(".login-btn").disabled = false
