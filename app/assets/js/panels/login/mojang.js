@@ -9,9 +9,7 @@ document.querySelector(".login-btn").addEventListener("click", () => {
         document.querySelector(".info-login").style.color = "red";
         document.querySelector(".info-login").style.display = "block"
         return;
-    }
-
-    if (document.querySelector(".password").value == ""){
+    } else if (document.querySelector(".password").value == ""){
         document.querySelector(".info-login").innerHTML = "Entrez votre mot de passe"
         document.querySelector(".info-login").style.color = "red";
         document.querySelector(".info-login").style.display = "block"
