@@ -73,3 +73,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         })
     })
 })
+
+document.querySelector(".settings-btn").addEventListener("click", () => {
+    changePanel("login", "settings")
+})
