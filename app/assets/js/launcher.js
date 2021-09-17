@@ -1,6 +1,9 @@
 const fs = require("fs");
+const msmc = require("msmc");
+const { Authenticator } = require('minecraft-launcher-core')
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
+const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get()
-
 
 if(process.platform == "win32") {
   document.querySelector(".frame").classList.toggle("hide")
@@ -53,4 +56,40 @@ function changePanel(V1, V2){
   }
 })('login', 'home', 'settings')
 
-changePanel("", "login")
+
+config.config().then(config => {
+  if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/config.json")) {
+    let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/config.json")
+    let json = JSON.parse(rawData);
+    
+    if ((json.Login.UserConnect) === null){
+      changePanel("", "login")
+
+    } else if(json.Login.UserConnect == "Mojang") {
+      if (!json.Login.Account || !json.Login.Account.Mojang || !json.Login.Account.Mojang.User || !json.Login.Account.Mojang.User.access_token || !json.Login.Account.Mojang.User.client_token) changePanel("", "login")
+      Authenticator.validate(json.Login.Account.Mojang.User.access_token, json.Login.Account.Mojang.User.client_token).then(user => {
+        changePanel("", "home")
+      }).catch (err => {
+        changePanel("", "login")
+      })
+
+    } else if (json.Login.UserConnect == "Crack") {
+      if (!json.Login.Account || !json.Login.Account.Crack || !json.Login.Account.Crack.User || !json.Login.Account.Crack.User.name) changePanel("", "login")
+      Authenticator.getAuth(json.Login.Account.Crack.User.name).then(user => {
+        changePanel("", "home")
+      }).catch (err => {
+        changePanel("", "login")
+      })
+
+    } else if (json.Login.UserConnect == "Microsoft") {
+      if (!json.Login.Account || !json.Login.Account.Microsoft || !json.Login.Account.Microsoft.User) changePanel("", "login")
+      msmc.getMCLC().validate(json.Login.Account.Microsoft.User).then(user => {
+        changePanel("", "home")
+      }).catch (err => {
+        changePanel("", "login")
+      })
+    }
+  } else {
+    changePanel("", "login")
+  }
+})

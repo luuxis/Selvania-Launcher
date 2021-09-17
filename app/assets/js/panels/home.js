@@ -1,5 +1,6 @@
 const { MCLaunch } = require('emc-core-luuxis');
 const launcher = new MCLaunch();
+const msmc = require("msmc");
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { auth, config } = require('./assets/js/utils.js');
 
@@ -28,7 +29,13 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         }
 
         if(auth.user == undefined){
-            
+            if(login.Login.UserConnect == "Microsoft"){
+                var authenticator = msmc.getMCLC().getAuth(login.Login.Account.Microsoft.User)
+            } else if(login.Login.UserConnect == "Mojang"){
+                var authenticator = login.Login.Account.Mojang.User
+            } else if(login.Login.UserConnect == "Crack") {
+                var authenticator = login.Login.Account.Crack.User 
+            }
         } else {
             var authenticator = auth.user
         }
