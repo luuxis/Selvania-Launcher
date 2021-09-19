@@ -5,6 +5,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 const { auth, config } = require('./assets/js/utils.js');
 
 document.querySelector(".play-btn").addEventListener("click", () => {
+    document.querySelector(".play-btn").disabled = true
     config.config().then(config => {
         const login = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
         
