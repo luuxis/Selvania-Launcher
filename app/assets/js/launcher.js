@@ -59,7 +59,8 @@ function changePanel(V1, V2){
 
 config.config().then(config => {
   if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/config.json")) {
-    let json = dataDirectory + "/" + config.dataDirectory + "/config.json"
+    let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/config.json")
+    let json = JSON.parse(rawData);
     
     if ((json.Login.UserConnect) === null){
       changePanel("", "login")
