@@ -3,6 +3,7 @@ const launcher = new MCLaunch();
 const msmc = require("msmc");
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { auth, config } = require('./assets/js/utils.js');
+const win = nw.Window.get();
 
 document.querySelector(".play-btn").addEventListener("click", () => {
     document.querySelector(".play-btn").disabled = true
@@ -17,7 +18,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             var java = "/bin/java"
         }
 
-        if ((config.forge_version) == ""){
+        if (!(config.forge_version) == ""){
             var version = config.game_version
         } else {
             var version = config.forge_version
@@ -79,6 +80,17 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")")
         })
+
+        launcher.on('launch', (e) => {
+            // win.hide();
+        });
+        
+        launcher.on('close', (e) => {
+            // win.show();
+            // win.focus();
+            // win.setShowInTaskbar(true);
+            document.querySelector(".play-btn").disabled = false
+        });
     })
 })
 
