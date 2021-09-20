@@ -18,7 +18,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             var java = "/bin/java"
         }
 
-        if (!(config.forge_version) == ""){
+        if ((config.forge_version) == ""){
             var version = config.game_version
         } else {
             var version = config.forge_version
