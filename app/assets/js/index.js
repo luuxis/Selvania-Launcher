@@ -148,8 +148,8 @@ function startLauncher(){
   setStatus(`Démarrage du launcher`);
   nw.Window.open("app/launcher.html", {
     "title": "Uzurion Launcher",
-    "width": 980,
-    "height": 552,
+    "width": 1280,
+    "height": 720,
     "min_width": 980,
     "min_height": 552,
     "frame": (process.platform == "win32") ? false : true,
