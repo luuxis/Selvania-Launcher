@@ -1,8 +1,6 @@
 const { auth, config } = require('./assets/js/utils.js')
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-document.getElementsByName('pseudo')[0].placeholder='Adresse E-mail';
-
 document.querySelector(".login-btn").addEventListener("click", () => {
     if (document.querySelector(".pseudo").value == ""){
         document.querySelector(".info-login").innerHTML = "Entrez votre adresse email / nom d'utilisateur"

@@ -4,7 +4,6 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 
 document.querySelector(`.password`).style.display = "none"
 document.querySelector(`.microsoft-btn`).style.display = "none"
-document.getElementsByName('pseudo')[0].placeholder ='nom d\'utilisateur';
 
 document.querySelector(".login-btn").addEventListener("click", () => {
     if (document.querySelector(".pseudo").value == ""){
