@@ -1,0 +1,96 @@
+body {
+    background-color:#1F2022!important;
+  }
+.uzurionAppGenShadow {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.5)!important;
+  }
+  .uzurionAppGenHeader {
+    position: relative;
+    background-color: black;
+    height: 100vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  .uzurionAppGenHeader video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .uzurionAppGenHeader .container {
+    position: relative;
+    z-index: 2;
+  }
+  .uzurionAppGenHeader .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  .uzurionAppGenHeader {
+    background: url("../../images/background/wallpaper.jpg") black no-repeat center center scroll;
+  }
+  .uzurionAppGenHeader video {
+    display: none;
+  }
+  /* LOGIN */
+  .uzurionAppLoginLogo{
+    width:30%!important;
+    margin-bottom:50px;
+  }
+  .uzurionAppLoginCard{
+    width:460px;
+    background-color:#1F2022;
+    border:none;
+    border-radius:10px;
+  }
+  .uzurionAppLoginCardInformation{
+    font-size:13px;
+    color:#F2F2F2;
+  }
+  .uzurionAppLoginCardInformationPassReset{
+    font-size:13px;
+    color:#F2F2F2;
+  }
+  .uzurionAppLoginCardLabel{
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+    font-size:14px;
+    letter-spacing:2px;
+    color:#F2F2F2;
+    margin-bottom:4px
+  }
+  .uzurionAppLoginCardInput{
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #fff;
+    border: solid 0px rgba(0,0,0,0);
+    border-radius: 30px;
+    background-color: #373737;
+  }
+  .uzurionAppLoginCardSubmit {
+    transition: all 0.25s ease;
+    background: linear-gradient(to right bottom, #54f659, #59e860, #5dda65, #61cd6a, #64bf6d);
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 0px solid rgba(0,0,0,0);
+    font-family: 'Roboto', sans-serif;letter-spacing:2px;
+  }
+  .uzurionAppLoginCardSubmit:hover {
+    background-image: linear-gradient(to right bottom, #54f659, #57eb5f, #5be064, #5ed669, #61cb6c);
+  }
