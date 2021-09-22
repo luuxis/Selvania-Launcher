@@ -2,8 +2,11 @@ const { auth, config } = require('./assets/js/utils.js');
 const fs = require("fs-extra")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-document.querySelector(`.password`).style.display = "none"
+document.querySelector(`.online`).style.display = "none"
 document.querySelector(`.microsoft-btn`).style.display = "none"
+document.querySelector(`.uzurionAppLoginCardInformation`).innerHTML = "Le serveur Minecraft accepte les crack,<br>pour vous connecter il vous suffit de rentrer votre pseudo"
+document.querySelector(`.uzurionAppLoginCardLabel`).innerHTML = "nom d\'utilisateur"
+document.querySelector(".uzurionAppGenHeader").style.display = "block"
 
 document.querySelector(".login-btn").addEventListener("click", () => {
     if (document.querySelector(".pseudo").value == ""){

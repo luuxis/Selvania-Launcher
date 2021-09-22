@@ -8,6 +8,7 @@
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
+    display: none;
   }
   .uzurionAppGenHeader video {
     position: absolute;
