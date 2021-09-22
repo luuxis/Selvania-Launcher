@@ -114,5 +114,24 @@
 .microsoft-btn {
   background-color: transparent;
   border: none;
-  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.loginSpanDim {
+  color: white;
+  cursor: pointer;
+}
+.loginRemember {
+  cursor: pointer;
+}
+
+.loginSpanDim:hover {
+  color: rgb(82, 82, 82);
+}
+
+.store {
+  cursor: pointer;
+}
+.store:hover {
+  color: rgb(82, 82, 82);
 }

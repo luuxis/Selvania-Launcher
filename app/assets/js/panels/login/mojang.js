@@ -40,6 +40,18 @@ document.querySelector(".login-btn").addEventListener("click", () => {
     })
 })
 
+document.querySelector(".loginSpanDim").addEventListener("click", () => {
+    nw.Shell.openExternal("https://www.minecraft.net/password/forgot")
+})
+
+document.querySelector(".store").addEventListener("click", () => {
+    nw.Shell.openExternal("https://www.minecraft.net/store/minecraft-java-edition")
+})
+
+document.querySelector(".store-mi").addEventListener("click", () => {
+    nw.Shell.openExternal("https://www.minecraft.net/store/minecraft-java-edition")
+})
+
 
 document.addEventListener('keydown', function (e) {
     if(e.key === 'Enter'){
