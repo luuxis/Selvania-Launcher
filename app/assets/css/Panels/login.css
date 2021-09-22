@@ -92,6 +92,10 @@
   border-radius: 30px;
   background-color: #373737;
 }
+.uzurionAppLoginCardInput:disabled {
+  background-color: #272727;
+}
+
 
 .uzurionAppLoginCardSubmit {
   transition: all 0.25s ease;

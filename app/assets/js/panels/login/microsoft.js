@@ -24,6 +24,7 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
     }).catch (err => {
         document.querySelector(".info-login").innerHTML = "&nbsp;"
         document.querySelector(".login-btn").disabled = false
+        document.querySelector(".microsoft-btn").disabled = false
         document.querySelector(".pseudo").disabled = false
         document.querySelector(".password").disabled = false
     })
