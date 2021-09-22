@@ -3,6 +3,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 
 document.querySelector(".microsoft-btn").addEventListener("click", () => {
     document.querySelector(".login-btn").disabled = true
+    document.querySelector(".microsoft-btn").disabled = true
     document.querySelector(".pseudo").disabled = true
     document.querySelector(".password").disabled = true
     document.querySelector(".uzurion-mail").innerHTML = "&nbsp;"

@@ -10,6 +10,7 @@
     overflow: hidden;
     display: none;
   }
+
   .uzurionAppGenHeader video {
     position: absolute;
     top: 50%;
@@ -92,3 +93,9 @@
   .uzurionAppLoginCardSubmit:hover {
     background-image: linear-gradient(to right bottom, #54f659, #57eb5f, #5be064, #5ed669, #61cb6c);
   }
+  
+  .microsoft-btn {
+    background-color: transparent;
+    border: none;
+    pointer-events: stroke;
+}
