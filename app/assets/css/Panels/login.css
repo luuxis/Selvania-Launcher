@@ -1,7 +1,3 @@
-.uzurionAppGenShadow {
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.5)!important;
-}
-
 .uzurionAppGenHeader {
   position: relative;
   background-color: black;
@@ -44,7 +40,7 @@
 }
 
 .uzurionAppGenHeader {
-  background: url("../../images/background/wallpaper.jpg") black no-repeat center center scroll;
+  background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("../../images/background/wallpaper.jpg") black no-repeat center center scroll;
 }
 
 .uzurionAppGenHeader video {
