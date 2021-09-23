@@ -4,8 +4,8 @@ const os = require("os")
 import ("./settings/java-memory.js")
 let DEFAULT_CONFIG
 
-const totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
-const freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
+const totalMem = Math.trunc(os.totalmem() / 1048576 * 10) / 10;
+const freeMem = Math.trunc(os.freemem() / 1048576 * 10) / 10;
 
 
 config.config().then(res => {

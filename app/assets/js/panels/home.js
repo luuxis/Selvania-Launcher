@@ -54,8 +54,8 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             forge: version,
             checkFiles: true,
             memory: {
-                max: `${login.Settings.Java.RamMax}G`,
-                min: `${login.Settings.Java.RamMin}G`
+                max: `${login.Settings.Java.RamMax}M`,
+                min: `${login.Settings.Java.RamMin}M`
             }
         }
 
