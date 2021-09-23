@@ -5,7 +5,7 @@
 
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-stable-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Uzurion-Launcher/releases) 
+<img src="https://img.shields.io/badge/build-bata-orange.svg?style=for-the-badge" alt="travis">](https://github.com/luuxis/Uzurion-Launcher/releases) 
 [<img src="https://img.shields.io/badge/version-V2.0.0-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
 [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Uzurion-Launcher/releases) </p>
 
@@ -60,9 +60,9 @@
 
 ---
 
-**<p align="center">Extra.</p>**
+**<p align="center">Test.</p>**
 
-- pour démarrer le code source plus facilement [veuillez télécharger ce fichier](https://cdn.discordapp.com/attachments/784093485794983946/858091304953315328/Arche-Launcher-dev.exe) 
+- Pour tester le Launcher [veuillez télécharger ce fichier](https://github.com/luuxis/Launcher-test/releases/download/1.0.0/Launcher-test.exe) 
 
 ---
 
