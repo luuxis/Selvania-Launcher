@@ -1,0 +1,126 @@
+/* COULEUR BLACK DE BASE        : #272727 */
+
+/* COULEUR BLACK- DE BASE       : #363636 */
+
+/* COULEUR BLACK-- DE BASE      : #414141 */
+
+/* COULEUR BLACK BOUTON         : #3D3D3D */
+
+/* COULEUR BLACK- BOUTON        : #535353 */
+
+/* COULEUR RED- LOGOUT BOUTON   : #4A1D1D */
+
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);
+* {
+    font-family: "Roboto", sans-serif;
+    outline: 0px;
+}
+
+body {
+    margin: 8px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.header {
+    font-size: 15px;
+    color: white;
+    background: #272727;
+    border-radius: 10px;
+    text-align: center;
+    padding-bottom: 0.1px;
+}
+
+.news-title-form {
+    color: white;
+    border-radius: 10px;
+    background: #363636;
+    padding-bottom: 0px;
+}
+
+.news-title {
+    margin: 20px 20px 16px 20px;
+    padding-top: 16px;
+    font-size: 16px;
+}
+
+.news-body-form {
+    color: white;
+    border-radius: 10px;
+    background: #414141;
+    font-size: 14px;
+    padding: 20px;
+}
+
+.news-img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.news-date {
+    padding: 10px;
+    font-size: 12px;
+    margin: 0px;
+    text-align: right;
+    line-height: 1;
+}
+
+.small-button {
+    background-color: #3d3d3d;
+    height: 25px;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    transition: all 0.3s;
+}
+
+.small-button:hover {
+    background-color: #535353;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.small-button:hover:active {
+    box-shadow: none;
+}
+
+.body {
+    font-size: 15px;
+    color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 0px;
+    line-height: 25px;
+}
+
+a {
+    color: #2E77B0;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+a:hover {
+    color: #2196F3;
+    transition: all 0.3s;
+    background-color: #535353;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+a:hover:active {
+    box-shadow: none;
+}
+
+body {
+    background: white;
+    background-position-x: center;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+}
