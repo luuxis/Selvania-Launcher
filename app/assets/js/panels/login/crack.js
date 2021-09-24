@@ -18,7 +18,7 @@ document.querySelector(".login-btn").addEventListener("click", () => {
     }
 
     if (document.querySelector(".pseudo").value.length <= 2) {
-       document.querySelector(".info-login").innerHTML = "votre nom d'utilisateur doit avoir au moins 3 caractères"
+       document.querySelector(".info-login").innerHTML = "Votre nom d'utilisateur doit avoir au moins 3 caractères"
         document.querySelector(".info-login").style.color = "red";
         document.querySelector(".info-login").style.display = "block"
         return;
