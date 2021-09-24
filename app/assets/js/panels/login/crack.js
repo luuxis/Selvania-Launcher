@@ -17,6 +17,13 @@ document.querySelector(".login-btn").addEventListener("click", () => {
         return;
     }
 
+    if (document.querySelector(".pseudo").value.length <= 2) {
+       document.querySelector(".info-login").innerHTML = "votre nom d'utilisateur doit avoir au moins 3 caractères"
+        document.querySelector(".info-login").style.color = "red";
+        document.querySelector(".info-login").style.display = "block"
+        return;
+    }
+
     document.querySelector(".login-btn").disabled = true
     document.querySelector(".pseudo").disabled = true
     document.querySelector(".info-login").style.color = "#000000";
