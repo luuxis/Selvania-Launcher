@@ -46,7 +46,7 @@ function getjava() {
 
 module.exports.news = getNews;
 
-function getData() {
+function getNews() {
     return new Promise((resolve, reject) => {
         fetch(news).then(config => {
             return resolve(config.json());
