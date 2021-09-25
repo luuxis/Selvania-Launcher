@@ -4,6 +4,32 @@ const msmc = require("msmc");
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { auth, config } = require('./assets/js/utils.js');
 const win = nw.Window.get();
+let newsForm = document.querySelector(".news")
+
+config.news().then(config => {
+    for (let i = 0; i < config.news.length; i++) {
+        var newsTitle = config.news[i].title
+        var newsBody = config.news[i].body
+        var newsImage = config.news[i].img
+        var newsAuthor = config.news[i].author
+        var newsDate = config.news[i].date
+        
+        if (newsImage === "") {
+            newsForm.innerHTML += 
+            `<div class="newsTitle">${newsTitle}</div>
+            <div class="newsBody">${newsBody}</div>
+            <div class="newsAuthor">${newsAuthor}</div>
+            <div class="newsDate">${newsDate}</div>`
+        } else {
+            newsForm.innerHTML += 
+            `<div class="newsTitle">${newsTitle}</div>
+            <div class="newsBody">${newsBody}</div>
+            <img class="newsImage" src="${newsImage}">
+            <div class="newsAuthor">${newsAuthor}</div>
+            <div class="newsDate">${newsDate}</div>`
+        }
+    }
+})
 
 document.querySelector(".play-btn").addEventListener("click", () => {
     document.querySelector(".play-btn").disabled = true
