@@ -1,4 +1,38 @@
 const config = require("../../web/launcher/news-launcher/news-launcher.json")
+let win = nw.Window.get()
+
+if(process.platform == "win32") {
+  document.querySelector(".frame").classList.toggle("hide")
+  document.querySelector(".dragbar").classList.toggle("hide")
+  
+  document.querySelector("#minimize").addEventListener("click", () => {
+    win.minimize()
+  });
+
+  let maximized = false;
+  let maximize = document.querySelector("#maximize")
+  maximize.addEventListener("click", () => {
+    if(maximized) win.unmaximize()
+    else win.maximize()
+    maximized = !maximized
+    maximize.classList.toggle("icon-maximize")
+    maximize.classList.toggle("icon-restore-down")
+  });
+
+  document.querySelector("#close").addEventListener("click", () => {
+    win.close();
+  })
+}
+
+
+
+
+
+
+
+
+
+
 let newsForm = document.querySelector(".news")
 
 news()
@@ -30,4 +64,3 @@ for (let i = 0; i < config.news.length; i++) {
         }
     }
 }
-
