@@ -1,41 +1,21 @@
-const config = require("../../web/launcher/news-launcher/news-launcher.json")
-let win = nw.Window.get()
-
-if(process.platform == "win32") {
-  document.querySelector(".frame").classList.toggle("hide")
-  document.querySelector(".dragbar").classList.toggle("hide")
-  
-  document.querySelector("#minimize").addEventListener("click", () => {
-    win.minimize()
-  });
-
-  let maximized = false;
-  let maximize = document.querySelector("#maximize")
-  maximize.addEventListener("click", () => {
-    if(maximized) win.unmaximize()
-    else win.maximize()
-    maximized = !maximized
-    maximize.classList.toggle("icon-maximize")
-    maximize.classList.toggle("icon-restore-down")
-  });
-
-  document.querySelector("#close").addEventListener("click", () => {
-    win.close();
-  })
+const config = {
+  "news": [
+    {
+      "title": "salut",
+      "body": "news",
+      "img": "https://raw.githubusercontent.com/luuxis/Uzurion-Launcher/V2/app/assets/images/background/wallpaper.jpg",
+      "author": "luuxis",
+      "date": "pas de date"
+    }
+  ]
 }
-
-
-
-
-
-
-
-
-
 
 let newsForm = document.querySelector(".news")
 
 news()
+
+document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${config.news[0].author}/100/nohelm.png`
+
 
 
 async function news () {
@@ -64,3 +44,4 @@ for (let i = 0; i < config.news.length; i++) {
         }
     }
 }
+
