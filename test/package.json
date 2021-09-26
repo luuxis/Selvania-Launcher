@@ -5,6 +5,12 @@
   "description": "Uzurion Launcher",
   "main": "app/index.html",
   "author": "Luuxis",
+  "window": {
+    "width": 1280,
+    "height": 720,
+    "position": "center",
+    "frame": false
+  },
   "webkit": {
     "plugin": true
   },
