@@ -64,9 +64,4 @@
     display: none;
 }
 
-
-.icon-close:before { font-family: "Icons"; content: "\e90e"; }
-.icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
-.icon-maximize:before { font-family: "Icons"; content: "\e90c"; }
-.icon-restore-down:before { font-family: "Icons"; content: "\e90d"; }
   

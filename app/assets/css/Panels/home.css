@@ -15,6 +15,8 @@
 }
 
 .settings-btn {
+    margin-top: 26px;
+    margin-left: 95%;
     background: white;
     border: none;
     width: 47px;
@@ -22,4 +24,5 @@
     transition: all 0.25s ease;
     color: black;
     border-radius: 15px;
+    font-size: 200%;
 }
