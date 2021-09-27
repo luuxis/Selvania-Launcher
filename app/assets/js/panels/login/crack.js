@@ -1,5 +1,4 @@
 const { auth, config } = require('./assets/js/utils.js');
-const fs = require("fs-extra")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 document.querySelector(`.online`).style.display = "none"
