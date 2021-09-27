@@ -57,3 +57,11 @@
   line-height: 1em;
   -webkit-font-smoothing: antialiased;
 }
+
+
+.icon-close:before { font-family: "Icons"; content: "\e90e"; }
+.icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
+.icon-maximize:before { font-family: "Icons"; content: "\e90c"; }
+.icon-restore-down:before { font-family: "Icons"; content: "\e90d"; }
+.icon-java:before { font-family: "Icons"; content: "\e905"; }
+.icon-settings:before { font-family: "Icons"; content: "\e909"; }
