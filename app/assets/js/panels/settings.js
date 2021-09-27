@@ -29,5 +29,6 @@ config.config().then(res => {
     }
 })
 
-
-
+document.querySelector(".back").addEventListener("click", () => {
+    changePanel("settings", "home")
+})

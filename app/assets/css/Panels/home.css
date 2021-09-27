@@ -1,0 +1,25 @@
+.overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("../../images/background/wallpaper.jpg") no-repeat center center scroll;
+    height: 55vh;
+    width: 100%;
+}
+
+.user-head {
+    width: 47px;
+    height: auto;
+}
+
+.settings-btn:hover {
+    transition: all 0.25s ease;
+    border-radius: 5px;
+}
+
+.settings-btn {
+    background: white;
+    border: none;
+    width: 47px;
+    height: 47px;
+    transition: all 0.25s ease;
+    color: black;
+    border-radius: 15px;
+}
