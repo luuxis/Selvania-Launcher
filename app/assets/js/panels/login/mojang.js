@@ -42,7 +42,7 @@ document.querySelector(".login-btn").addEventListener("click", () => {
 })
 
 document.querySelector(".loginSpanDim").addEventListener("click", () => {
-    nw.Shell.openExternal("https://www.minecraft.net/password/forgot")
+    nw.Shell.openExternal("https://www.minecraft.net/login")
 })
 
 document.querySelector(".store").addEventListener("click", () => {
