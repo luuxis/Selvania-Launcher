@@ -20,6 +20,7 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
                 fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
             }
         })
+        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.profile.name}/100/nohelm.png`
         changePanel("login", "home")
     }).catch (err => {
         document.querySelector(".info-login").innerHTML = "&nbsp;"
