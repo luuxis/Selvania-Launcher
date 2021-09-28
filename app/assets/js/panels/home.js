@@ -6,6 +6,10 @@ const { auth, config } = require('./assets/js/utils.js');
 const win = nw.Window.get();
 let newsForm = document.querySelector(".news")
 
+
+//document.querySelector(".user-head").src = `https://mc-heads.net/avatar/luuxis/100/nohelm.png`
+
+
 config.news().then(config => {
     for (let i = 0; i < config.news.length; i++) {
         var newsTitle = config.news[i].title
