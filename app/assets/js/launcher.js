@@ -68,6 +68,7 @@ config.config().then(config => {
     } else if(json.Login.UserConnect == "Mojang") {
       if (!json.Login.Account || !json.Login.Account.Mojang || !json.Login.Account.Mojang.User || !json.Login.Account.Mojang.User.access_token || !json.Login.Account.Mojang.User.client_token) changePanel("", "login")
       Authenticator.validate(json.Login.Account.Mojang.User.access_token, json.Login.Account.Mojang.User.client_token).then(user => {
+        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Mojang.User.name}/100/nohelm.png`
         changePanel("", "home")
       }).catch (err => {
         changePanel("", "login")
@@ -76,6 +77,7 @@ config.config().then(config => {
     } else if (json.Login.UserConnect == "Crack") {
       if (!json.Login.Account || !json.Login.Account.Crack || !json.Login.Account.Crack.User || !json.Login.Account.Crack.User.name) changePanel("", "login")
       Authenticator.getAuth(json.Login.Account.Crack.User.name).then(user => {
+        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Crack.User.name}/100/nohelm.png`
         changePanel("", "home")
       }).catch (err => {
         changePanel("", "login")
@@ -84,6 +86,7 @@ config.config().then(config => {
     } else if (json.Login.UserConnect == "Microsoft") {
       if (!json.Login.Account || !json.Login.Account.Microsoft || !json.Login.Account.Microsoft.User) changePanel("", "login")
       msmc.getMCLC().validate(json.Login.Account.Microsoft.User).then(user => {
+        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Microsoft.User.profile.name}/100/nohelm.png`
         changePanel("", "home")
       }).catch (err => {
         changePanel("", "login")
