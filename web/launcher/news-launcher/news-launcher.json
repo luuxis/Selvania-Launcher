@@ -1,13 +1,12 @@
 {
-    "news": 
-        [
-            {
-                "title": "salut",
-                "body": "news",
-                "img": "https://raw.githubusercontent.com/luuxis/Uzurion-Launcher/V2/app/assets/images/background/wallpaper.jpg",
-                "author": "luuxis",
-                "date": "pas de date"
-            }
+    "news": [
+        {
+            "title": "salut",
+            "body": "news",
+            "img": "https://raw.githubusercontent.com/luuxis/Uzurion-Launcher/V2/app/assets/images/background/wallpaper.jpg",
+            "author": "luuxis",
+            "date": "pas de date"
+        }
             
-        ]
+    ]
 }
