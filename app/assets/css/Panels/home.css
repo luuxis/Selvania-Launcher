@@ -1,9 +1,3 @@
-.container-home {
-    height: 100vh;
-    width: 100%;
-    background: rgb(27, 27, 27);
-}
-
 .overlay {
     position: absolute;
     background: linear-gradient(rgba(27, 27, 27, 0.4),rgb(27, 27, 27)), url("../../images/background/wallpaper.jpg") no-repeat center center scroll;
@@ -87,4 +81,15 @@
 
 .play-btn:disabled {
     background: #272928;
+}
+
+.news {
+    position: absolute;
+    background: #222222;
+    border-radius: 20px;
+    text-align: center;
+    width: 65%;
+    color: black;
+    margin-top: 40%;
+    margin-left: 3%;
 }
