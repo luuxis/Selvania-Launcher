@@ -49,7 +49,7 @@
     display: flex;
 }
 
-.player-connect {
+.player-connect-number {
     position: absolute;
     width: 40%;
     height: 50%;
@@ -88,8 +88,19 @@
     background: #222222;
     border-radius: 20px;
     text-align: center;
-    width: 65%;
+    width: 55%;
     color: black;
     margin-top: 40%;
-    margin-left: 3%;
+    margin-left: 4%;
+}
+
+.player-connect-head {
+    position: absolute;
+    background: #222222;
+    border-radius: 20px;
+    text-align: center;
+    width: 30%;
+    color: black;
+    margin-top: 40%;
+    margin-left: 65%;
 }

@@ -9,16 +9,16 @@ config.info().then(config => {
     }).then((state) => {
         var status_json = state.raw.vanilla;
         if(status_json.raw.players.online === 0){
-            document.querySelector(".player-connect").innerHTML = `Aucun joueur actuellement connect\u00e9`;
+            document.querySelector(".player-connect-number").innerHTML = `Aucun joueur actuellement connect\u00e9`;
         } else if (status_json.raw.players.online === 1){
-            document.querySelector(".player-connect").innerHTML = `${status_json.raw.players.online} joueur actuellement connect\u00e9`;
+            document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueur actuellement connect\u00e9`;
         } else {
             document.querySelector(".player-connect").innerHTML = `${status_json.raw.players.online} joueurs actuellement connect\u00e9s`;
         }
 
        }).catch((err) => {
            console.log(err)
-           document.querySelector(".player-connect").innerHTML = "Le serveur est actuellement ferme.";
+           document.querySelector(".player-connect-number").innerHTML = "Le serveur est actuellement ferme.";
     })
 })
 

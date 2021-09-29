@@ -11,7 +11,7 @@ const { auth, config } = require('./assets/js/utils.js');
 document.querySelector(".play-btn").addEventListener("click", () => {
     document.querySelector(".play-btn").disabled = true
     config.config().then(config => {
-        const login = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
+        const config_launcher = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
         
 
         if ((config.forge_version) == ""){
@@ -20,7 +20,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             var version = config.forge_version
         }
 
-        if(login.Settings.Java.Directory === null){
+        if(config_launcher.Settings.Java.Directory === null){
             if(["win32"].includes(process.platform)){
                 var java = "/bin/java.exe"
             } else if(["darwin"].includes(process.platform)){
@@ -30,16 +30,16 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             }
             var Java = `${dataDirectory}/${config.dataDirectory}/runtime/java${java}`
         } else {
-            var Java = login.Settings.Java.Directory
+            var Java = config_launcher.Settings.Java.Directory
         }
 
         if(auth.user == undefined){
-            if(login.Login.UserConnect == "Microsoft"){
-                var authenticator = msmc.getMCLC().getAuth(login.Login.Account.Microsoft.User)
-            } else if(login.Login.UserConnect == "Mojang"){
-                var authenticator = login.Login.Account.Mojang.User
-            } else if(login.Login.UserConnect == "Crack") {
-                var authenticator = login.Login.Account.Crack.User 
+            if(config_launcher.Login.UserConnect == "Microsoft"){
+                var authenticator = msmc.getMCLC().getAuth(config_launcher.Login.Account.Microsoft.User)
+            } else if(config_launcher.Login.UserConnect == "Mojang"){
+                var authenticator = config_launcher.Login.Account.Mojang.User
+            } else if(config_launcher.Login.UserConnect == "Crack") {
+                var authenticator = config_launcher.Login.Account.Crack.User 
             }
         } else {
             var authenticator = auth.user
@@ -57,8 +57,8 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             forge: version,
             checkFiles: true,
             memory: {
-                max: `${login.Settings.Java.RamMax}M`,
-                min: `${login.Settings.Java.RamMin}M`
+                max: `${config_launcher.Settings.Java.RamMax}M`,
+                min: `${config_launcher.Settings.Java.RamMin}M`
             }
         }
 
@@ -79,19 +79,23 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         launcher.on('verification-status', (e) => {
             console.log("[V\u00e9rification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")")
         })
-
+        
         launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")")
         })
 
         launcher.on('launch', (e) => {
-            // win.hide();
+            if(config_launcher.Settings.CloseLauncher === true){
+                win.hide();
+            }
         });
         
         launcher.on('close', (e) => {
-            // win.show();
-            // win.focus();
-            // win.setShowInTaskbar(true);
+            if(config_launcher.Settings.CloseLauncher === true){
+                win.show();
+                win.focus();
+                win.setShowInTaskbar(true);
+            }
             document.querySelector(".play-btn").disabled = false
         });
     })

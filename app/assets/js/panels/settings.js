@@ -17,7 +17,7 @@ config.config().then(res => {
                     "Directory": null
                 },
                 "Resolution": null,
-                "CloseLauncher": null
+                "CloseLauncher": true
             },
             "Login": {
                 "UserConnect": null,
