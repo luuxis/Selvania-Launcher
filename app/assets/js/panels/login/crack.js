@@ -37,7 +37,7 @@ document.querySelector(".login-btn").addEventListener("click", () => {
                 fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
             }
         })
-        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.name}/100/nohelm.png`
+        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.name}/100`
         changePanel("login", "home")
     }).catch (err => {
         document.querySelector(".login-btn").disabled = false
