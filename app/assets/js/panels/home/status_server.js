@@ -18,7 +18,7 @@ config.info().then(config => {
 
        }).catch((err) => {
            console.log(err)
-        document.querySelector(".player-connect").innerHTML = "Le serveur est ferme.";
+           document.querySelector(".player-connect").innerHTML = "Le serveur est ferme.";
     })
 })
 
