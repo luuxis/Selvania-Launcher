@@ -15,7 +15,7 @@
     "icon": "app/assets/images/icons/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 --disable-gpu",
-  "url": "http://146.59.227.140",
+  "url": "http://localhost",
   "user": "",
   "webkit": {
     "plugin": true

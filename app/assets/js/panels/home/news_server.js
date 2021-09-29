@@ -1,5 +1,5 @@
 const { config } = require('./assets/js/utils.js');
-let newsForm = document.querySelector(".news")
+let newsForm = document.querySelector(".container-news")
 
 
 config.news().then(config => {
