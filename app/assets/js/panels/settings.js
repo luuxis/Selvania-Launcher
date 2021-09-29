@@ -1,7 +1,6 @@
 const { config } = require('./assets/js/utils.js');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const os = require("os")
-import ("./settings/java-memory.js")
 let DEFAULT_CONFIG
 
 const totalMem = Math.trunc(os.totalmem() / 1048576 * 10) / 10;
@@ -13,8 +12,8 @@ config.config().then(res => {
         DEFAULT_CONFIG = {
             "Settings": {
                 "Java": {
-                    "RamMin": `${(freeMem / 2).toFixed(0)}`,
-                    "RamMax": `${(totalMem / 2).toFixed(0)}`,
+                    "RamMin": `${(freeMem / 3).toFixed(0)}`,
+                    "RamMax": `${(totalMem / 3).toFixed(0)}`,
                     "Directory": null
                 },
                 "Resolution": null,
