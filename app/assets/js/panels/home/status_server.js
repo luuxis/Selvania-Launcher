@@ -1,15 +1,23 @@
-const status_server = require('gamedig')
+const Gamedig = require('gamedig')
 const { config } = require('./assets/js/utils.js');
 
 config.info().then(config => {
-    status_server.query({
+    Gamedig.query({
         type: 'minecraft',
         host: config.ip_server,
         port: config.port
     }).then((state) => {
-        status_json = state.raw.vanilla;
-        document.getElementById("online").innerHTML = status_json.raw.players.online + " joueur(s) actuellement connect\u00e9(s)";
+        var status_json = state.raw.vanilla;
+        if(status_json.raw.players.online === 0){
+            document.querySelector(".player-connect").innerHTML = `Aucun joueur actuellement connect\u00e9`;
+        } else if (status_json.raw.players.online === 1){
+            document.querySelector(".player-connect").innerHTML = `${status_json.raw.players.online} joueur actuellement connect\u00e9`;
+        } else {
+            document.querySelector(".player-connect").innerHTML = `${status_json.raw.players.online} joueurs actuellement connect\u00e9s`;
+        }
+
        }).catch((err) => {
+           console.log(err)
         document.querySelector(".player-connect").innerHTML = "Le serveur est ferme.";
     })
 })
