@@ -52,8 +52,5 @@
     margin: 10%;
     margin-top: 28%;
     border-radius: 10px;
-}
-
-.play-btn {
-    position: absolute;
+    display: flex;
 }
