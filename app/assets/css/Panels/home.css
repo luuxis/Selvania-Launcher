@@ -65,7 +65,7 @@
     color: azure;
     text-align: center;
     margin-top: 1.7%;
-    background: linear-gradient(#61cd6a80, #64bf6d80);
+    background: #64bf6d80;
 }
 
 .play-btn {
@@ -78,5 +78,13 @@
     color: azure;
     margin-top: 1.7%;
     margin-left: 80%;
-    background: linear-gradient(to right bottom, #54f659, #59e860, #5dda65, #61cd6a, #64bf6d);
+    background: #64bf6d;
+}
+
+.play-btn:hover {
+    background: #272928;
+}
+
+.play-btn:disabled {
+    background: #272928;
 }
