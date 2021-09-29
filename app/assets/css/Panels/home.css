@@ -46,11 +46,37 @@
 
 .block-play {
     position: absolute;
-    background: #21265c;
+    background: #222222;
     width: 75%;
     height: 10%;
     margin: 10%;
     margin-top: 28%;
     border-radius: 10px;
     display: flex;
+}
+
+.player-connect {
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    font-size: 130%;
+    border-radius: 20px;
+    margin-left: 20%;
+    color: azure;
+    text-align: center;
+    margin-top: 1.7%;
+    background: linear-gradient(#61cd6a80, #64bf6d80);
+}
+
+.play-btn {
+    position: absolute;
+    width: 10%;
+    height: 50%;
+    font-size: 130%;
+    border-radius: 20px;
+    border: none;
+    color: azure;
+    margin-top: 1.7%;
+    margin-left: 80%;
+    background: linear-gradient(to right bottom, #54f659, #59e860, #5dda65, #61cd6a, #64bf6d);
 }
