@@ -13,16 +13,19 @@ config.news().then(config => {
         if (newsImage === "") {
             newsForm.innerHTML += 
             `<div class="newsTitle">${newsTitle}</div>
-            <div class="newsBody">${newsBody}</div>
-            <div class="newsAuthor">${newsAuthor}</div>
-            <div class="newsDate">${newsDate}</div>`
+            <div class="newsBody">
+              <div class="texenewsbody">${newsBody}</div>
+            </div>
+            <div class="newsAuthor">Par ${newsAuthor}, le ${newsDate}</div>`
         } else {
             newsForm.innerHTML += 
             `<div class="newsTitle">${newsTitle}</div>
-            <div class="newsBody">${newsBody}</div>
-            <img class="newsImage" src="${newsImage}">
-            <div class="newsAuthor">${newsAuthor}</div>
-            <div class="newsDate">${newsDate}</div>`
+            <div class="newsBody">
+              <div class="texenewsbody">${newsBody}
+                <img class="newsImage" src="${newsImage}">
+              </div>
+            </div>
+            <div class="newsAuthor">Par ${newsAuthor}, le ${newsDate}</div>`
         }
     }
 })
