@@ -13,7 +13,7 @@ config.info().then(config => {
         } else if (status_json.raw.players.online === 1){
             document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueur actuellement connect\u00e9`;
         } else {
-            document.querySelector(".player-connect").innerHTML = `${status_json.raw.players.online} joueurs actuellement connect\u00e9s`;
+            document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueurs actuellement connect\u00e9s`;
         }
 
        }).catch((err) => {
