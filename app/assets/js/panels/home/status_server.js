@@ -14,6 +14,11 @@ config.info().then(config => {
             document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueur actuellement connect\u00e9`;
         } else {
             document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueurs actuellement connect\u00e9s`;
+            
+            for (let i = 0; i < status_json.raw.players.online; i++) { 
+                var player = status_json.raw.players.sample[i].name
+                document.querySelector(".player-connect").innerHTML += `<div><img class="users" src="https://mc-heads.net/head/${player}"><b class="users"> ${player}</b></div>`
+            }
         }
 
        }).catch((err) => {
@@ -21,8 +26,3 @@ config.info().then(config => {
            document.querySelector(".player-connect-number").innerHTML = "Le serveur est actuellement ferme.";
     })
 })
-
-// for (let i = 0; i < status_json.raw.players.online; i++) { 
-//     player = status_json.raw.players.sample[i].name
-//     document.querySelector(".player-connect").innerHTML += `<img src="https://mc-heads.net/head/${player}" class="users"><b class="users"> ${player}</b></br>`
-//   }
