@@ -15,7 +15,7 @@
     "icon": "app/assets/images/icons/icon.png"
   },
   "chromium-args": "--enable-logging --v=1 --disable-gpu",
-  "url": "http://localhost",
+  "url": "http://uzurion.luuxis.fr",
   "user": "",
   "webkit": {
     "plugin": true
