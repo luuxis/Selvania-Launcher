@@ -83,14 +83,9 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         
         launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")")
-            if(e.downloadedBytes > e.bytesToDownload) {
-                document.querySelector(".progress-bar").value = e.downloadedBytes;
-                document.querySelector(".progress-bar").max = e.bytesToDownload;
-            } else {
-                document.querySelector(".progress-bar").value = e.downloadedBytes;
-                document.querySelector(".progress-bar").max = e.bytesToDownload;
-            }
-        })
+            document.querySelector(".progress-bar").value = e.downloadedBytes;
+            document.querySelector(".progress-bar").max = e.bytesToDownload;
+            })
 
         launcher.on('launch', (e) => {
             if(config_launcher.Settings.CloseLauncher === true){
