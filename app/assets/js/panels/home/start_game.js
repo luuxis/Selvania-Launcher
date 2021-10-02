@@ -6,10 +6,9 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 const { auth, config } = require('./assets/js/utils.js');
 
 
-
-
 document.querySelector(".play-btn").addEventListener("click", () => {
-    document.querySelector(".play-btn").disabled = true
+    document.querySelector(".play-btn").style.display = "none"
+    document.querySelector(".progress-bar").style.display = "block"
     config.config().then(config => {
         const config_launcher = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
         
@@ -78,10 +77,19 @@ document.querySelector(".play-btn").addEventListener("click", () => {
 
         launcher.on('verification-status', (e) => {
             console.log("[V\u00e9rification][emc-core-luuxis]: " + e.name + " (" + e.current + "/" + e.total + ")")
+            document.querySelector(".progress-bar").value = e.current;
+            document.querySelector(".progress-bar").max = e.total;
         })
         
         launcher.on('download-status', (e) => {
             console.log("[DOWNLOAD][emc-core-luuxis]: [" + e.type + "] " + e.name + " (" + e.downloadedBytes + "/" + e.bytesToDownload + ")")
+            if(e.downloadedBytes > e.bytesToDownload) {
+                document.querySelector(".progress-bar").value = e.downloadedBytes;
+                document.querySelector(".progress-bar").max = e.bytesToDownload;
+            } else {
+                document.querySelector(".progress-bar").value = e.downloadedBytes;
+                document.querySelector(".progress-bar").max = e.bytesToDownload;
+            }
         })
 
         launcher.on('launch', (e) => {
@@ -96,7 +104,8 @@ document.querySelector(".play-btn").addEventListener("click", () => {
                 win.focus();
                 win.setShowInTaskbar(true);
             }
-            document.querySelector(".play-btn").disabled = false
-        });
+            document.querySelector(".play-btn").style.display = "block"
+            document.querySelector(".progress-bar").style.display = "none"
+        })
     })
 })
