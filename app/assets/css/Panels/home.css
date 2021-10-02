@@ -79,8 +79,25 @@
     background: #272928;
 }
 
-.play-btn:disabled {
-    background: #272928;
+.progress-bar {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 75%;
+    height: 15%;
+    width: 20%;
+    display: none;
+    appearance: none;
+    transition: opacity .2s;
+}
+
+.progress-bar::-webkit-progress-bar {
+    background-color: #272928;
+    border-radius: 10px;
+}
+
+.progress-bar::-webkit-progress-value {
+    background-color: #64bf6d;
+    border-radius: 10px;
 }
 
 .news {
@@ -136,7 +153,19 @@
     border-radius: 20px;
     text-align: center;
     width: 30%;
-    color: black;
+    color: azure;
     margin-top: 40%;
     margin-left: 65%;
+}
+.player-connect {
+    background: #2b2b2b;
+    border-radius: 20px;
+    margin: 3%;
+}
+
+.users {
+    width: 21%;
+    color: azure;
+    padding: 1%;
+    font-size: 150%;
 }
