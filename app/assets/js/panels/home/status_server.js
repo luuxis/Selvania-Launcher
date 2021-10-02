@@ -11,6 +11,7 @@ config.info().then(config => {
         document.querySelector(".player-connect").innerHTML = ""
         if(status_json.raw.players.online === 0){
             document.querySelector(".player-connect-number").innerHTML = `Aucun joueur actuellement connect\u00e9`;
+            document.querySelector(".player-connect").innerHTML = `Aucun joueur actuellement connect\u00e9`;
         } else if (status_json.raw.players.online === 1){
             document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueur actuellement connect\u00e9`;
             head(status_json)
