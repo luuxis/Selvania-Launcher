@@ -28,6 +28,8 @@ config.config().then(res => {
     }
 })
 
-document.querySelector(".back").addEventListener("click", () => {
+document.querySelector(".settingsSave").addEventListener("click", () => {
+    config.config().then(res => {
+    })
     changePanel("settings", "home")
 })
