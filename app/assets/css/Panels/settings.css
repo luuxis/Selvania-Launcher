@@ -1,5 +1,4 @@
 .settingsNavbtn {
-  position: fixed;
   background: red;
   width: 10%;
   align-items: center;
@@ -11,4 +10,13 @@
 .settingsbtn {
   display: flex;
   border: none;
+}
+
+.tabsettings {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  background: white;
+  width: 90%;
+  height: 80%;
+  margin: 10% 10%;
 }
