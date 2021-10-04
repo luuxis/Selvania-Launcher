@@ -1,4 +1,5 @@
 const { config } = require('./assets/js/utils.js');
+import ("./settings/java-directory.js")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const os = require("os")
 let DEFAULT_CONFIG
@@ -28,8 +29,30 @@ config.config().then(res => {
     }
 })
 
+document.querySelector(".accountsettings").addEventListener("click", () => {
+    tab('accountsettingstab')
+})
+
+document.querySelector(".ramsettings").addEventListener("click", () => {
+    tab('ramsettinstab')
+})
+
+document.querySelector(".javasettings").addEventListener("click", () => {
+    tab('javasettingstab')
+})
+
+document.querySelector(".resolutionsettings").addEventListener("click", () => {
+    tab('resolutionsettingstab')
+})
+
+function tab(info) {
+    let content = document.getElementsByClassName("tabsettings");
+    for (let i = 0; i < content.length; i++) {
+        content[i].style.display = "none";
+    }
+    document.querySelector(`.${info}`).style.display = "block";
+}
+
 document.querySelector(".settingsSave").addEventListener("click", () => {
-    config.config().then(res => {
-    })
     changePanel("settings", "home")
 })
