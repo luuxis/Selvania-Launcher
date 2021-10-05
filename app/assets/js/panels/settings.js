@@ -11,6 +11,10 @@ const freeMem = Math.trunc(os.freemem() / 1048576 * 10) / 10;
 config.config().then(res => {
     if(!fs.existsSync(`${dataDirectory}/${res.dataDirectory}/config.json`)){
         DEFAULT_CONFIG = {
+            "Launcher": {
+                "NewsAutoRefresh": null,
+                "StatusServerAutoRefresh": null
+            },
             "Settings": {
                 "Java": {
                     "RamMin": `${(freeMem / 3).toFixed(0)}`,
@@ -43,6 +47,10 @@ document.querySelector(".javasettings").addEventListener("click", () => {
 
 document.querySelector(".resolutionsettings").addEventListener("click", () => {
     tab('resolutionsettingstab')
+})
+
+document.querySelector(".launchersettings").addEventListener("click", () => {
+    tab('launchersettingstab')
 })
 
 function tab(info) {
