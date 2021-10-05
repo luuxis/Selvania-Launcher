@@ -1,0 +1,35 @@
+.player-connect-number {
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    font-size: 130%;
+    border-radius: 20px;
+    margin-left: 20%;
+    color: azure;
+    text-align: center;
+    margin-top: 1.7%;
+    background: #64bf6d80;
+}
+
+.player-connect-head {
+    position: absolute;
+    background: #222222;
+    border-radius: 20px;
+    text-align: center;
+    width: 30%;
+    color: azure;
+    margin-top: 40%;
+    margin-left: 65%;
+}
+.player-connect {
+    background: #2b2b2b;
+    border-radius: 20px;
+    margin: 3%;
+}
+
+.users {
+    width: 21%;
+    color: azure;
+    padding: 1%;
+    font-size: 150%;
+}

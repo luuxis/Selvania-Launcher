@@ -1,16 +1,22 @@
 .settingsNavbtn {
-  background: red;
   width: 10%;
-  align-items: center;
   text-align: -webkit-center;
   color: white;
-
+  margin: 20% 0%;
 }
 
 .settingsbtn {
   display: flex;
   border: none;
+  background: none;
+  color: #64bf6d80;
+  font-size: 140%;
+  font-weight: bolder;
+  margin: 7% 0%;
+  padding: 0;
 }
+
+
 
 .tabsettings {
   position: absolute;
