@@ -1,0 +1,46 @@
+.news {
+    position: absolute;
+    background: #222222;
+    border-radius: 20px;
+    text-align: center;
+    width: 55%;
+    color: black;
+    margin-top: 40%;
+    margin-left: 4%;
+}
+.news-text {
+    color: azure;
+}
+
+.container-news {
+    margin: 2%;
+    background: #2b2b2b;
+    border-radius: 20px;
+}
+
+.newsTitle {
+    color: azure;
+}
+
+.newsBody {
+    color: azure;
+    background: #3b3b3b;
+    text-align: left;
+    border-radius: 20px;
+}
+
+.texenewsbody {
+    margin: 2%;
+}
+
+.newsImage {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.newsAuthor {
+    padding-bottom: 2%;
+    padding-right: 2%;
+    text-align: right;
+}
