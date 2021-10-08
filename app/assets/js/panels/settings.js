@@ -30,7 +30,11 @@ config.config().then(res => {
         }
         fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(DEFAULT_CONFIG, true, 4), 'UTF-8')
     }
+    import ("./settings/account.js")
     import ("./settings/java-directory.js")
+    import ("./settings/java-memory.js")
+    import ("./settings/resolution.js")
+    import ("./settings/settings-start.js")
 })
 
 document.querySelector(".accountsettings").addEventListener("click", () => {
