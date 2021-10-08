@@ -1,5 +1,4 @@
 const { config } = require('./assets/js/utils.js');
-import ("./settings/java-directory.js")
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const os = require("os")
 let DEFAULT_CONFIG
@@ -31,6 +30,7 @@ config.config().then(res => {
         }
         fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(DEFAULT_CONFIG, true, 4), 'UTF-8')
     }
+    import ("./settings/java-directory.js")
 })
 
 document.querySelector(".accountsettings").addEventListener("click", () => {
