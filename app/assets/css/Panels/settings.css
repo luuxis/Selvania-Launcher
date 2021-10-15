@@ -20,8 +20,10 @@
 
 .tabsettings {
   position: absolute;
+  border-radius: 25px;
   color: rgb(0, 0, 0);
   background: white;
+  padding: 2%;
   width: 90%;
   height: 80%;
   margin: 10% 10%;
