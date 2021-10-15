@@ -35,7 +35,6 @@ document.querySelector(".NewsAutoRefreshSettings").addEventListener("click", () 
         } else if(document.querySelector(".NewsAutoRefreshSettings").checked ==  false){
             file.Launcher.NewsAutoRefresh = false
             fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
-
         }
     })
 })
@@ -49,7 +48,6 @@ document.querySelector(".StatusServerAutoRefreshSettings").addEventListener("cli
         } else if(document.querySelector(".StatusServerAutoRefreshSettings").checked ==  false){
             file.Launcher.StatusServerAutoRefresh = false
             fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
-
         }
     })
 })
@@ -63,7 +61,6 @@ document.querySelector(".CloseLauncherSettings").addEventListener("click", () =>
         } else if(document.querySelector(".CloseLauncherSettings").checked ==  false){
             file.Launcher.CloseLauncher = true
             fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
-
         }
     })
 })
