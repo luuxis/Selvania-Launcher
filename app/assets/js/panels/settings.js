@@ -66,5 +66,6 @@ function tab(info) {
 }
 
 document.querySelector(".settingsSave").addEventListener("click", () => {
+    tab('accountsettingstab')
     changePanel("settings", "home")
 })
