@@ -34,7 +34,7 @@ config.config().then(res => {
     import ("./settings/java-directory.js")
     import ("./settings/java-memory.js")
     import ("./settings/resolution.js")
-    import ("./settings/settings-start.js")
+    import ("./settings/settings-launcher.js")
 })
 
 document.querySelector(".accountsettings").addEventListener("click", () => {
