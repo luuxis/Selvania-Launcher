@@ -85,16 +85,16 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             console.log(`[DOWNLOAD][emc-core-luuxis]: [${e.type}] ${e.name} (${e.downloadedBytes}/${e.bytesToDownload})`)
             document.querySelector(".progress-bar").value = e.downloadFiles;
             document.querySelector(".progress-bar").max = e.filesToDownload;
-            })
+        })
 
         launcher.on('launch', (e) => {
-            if(config_launcher.Settings.CloseLauncher === true){
+            if(config_launcher.Launcher.CloseLauncher === true){
                 win.hide();
             }
         });
         
         launcher.on('close', (e) => {
-            if(config_launcher.Settings.CloseLauncher === true){
+            if(config_launcher.Launcher.CloseLauncher === true){
                 win.show();
                 win.focus();
                 win.setShowInTaskbar(true);
