@@ -12,7 +12,8 @@ config.config().then(res => {
         DEFAULT_CONFIG = {
             "Launcher": {
                 "NewsAutoRefresh": null,
-                "StatusServerAutoRefresh": null
+                "StatusServerAutoRefresh": null,
+                "CloseLauncher": true
             },
             "Settings": {
                 "Java": {
@@ -20,8 +21,7 @@ config.config().then(res => {
                     "RamMax": `${(totalMem / 3).toFixed(0)}`,
                     "Directory": null
                 },
-                "Resolution": null,
-                "CloseLauncher": true
+                "Resolution": null
             },
             "Login": {
                 "UserConnect": null,
