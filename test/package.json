@@ -1,0 +1,14 @@
+{
+  "name": "devtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "nw ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nw": "^0.57.1-sdk"
+  }
+}
