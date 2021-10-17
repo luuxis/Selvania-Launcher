@@ -22,10 +22,18 @@ if not exist "%CD%\node-v%ver%-win-x64\node.exe" (
 )
 :launch
 cls
-echo "node": start nodejs
-echo "start": start launcher
+echo "node":   start nodejs
+echo "start":  start launcher
+echo "win":    build launcher windows
+echo "mac":    build launcher MACos
+echo "linux":  build launcher linux
+echo "all":    build launcher all platform
 set /P c=enter your choice: 
 if /I "%c%" EQU "node" cls && cmd
 if /I "%c%" EQU "start" npm install && npm start
+if /I "%c%" EQU "win" npm run build:win
+if /I "%c%" EQU "mac" npm run build:mac
+if /I "%c%" EQU "linux" npm run build:linux
+if /I "%c%" EQU "all" npm run build:all
 goto :launch
 
