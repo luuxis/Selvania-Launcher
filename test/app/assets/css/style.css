@@ -28,7 +28,7 @@
   }
   
   span:after, span:after {
-    content: "cc";
+    content: "";
     font: normal normal bold 0.6666666666666666px Poppins;
     color: black;
     white-space: nowrap;

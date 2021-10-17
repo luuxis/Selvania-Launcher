@@ -2,13 +2,22 @@
   "name": "devtest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "app/index.html",
+  "window": {
+    "width": 1280,
+    "height": 720,
+    "position": "center",
+    "icon": "app/assets/images/icons/icon.png"
+  },
   "scripts": {
-    "start": "nw ."
+    "start": "run --64 --mirror https://dl.nwjs.io/ ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nw": "^0.57.1-sdk"
+    "nwjs-builder-luuxis": "^1.15.0"
+  },
+  "build": {
+    "nwVersion": "0.57.1"
   }
 }
