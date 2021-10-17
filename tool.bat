@@ -20,5 +20,12 @@ if not exist "%CD%\node-v%ver%-win-x64\node.exe" (
     del "%CD%\node-v%ver%-win-x64\7z.dll"
     rmdir "%CD%\cache" /S /Q
 )
+:launch
 cls
-cmd
+echo "node": start nodejs
+echo "start": start launcher
+set /P c=enter your choice: 
+if /I "%c%" EQU "node" cls && cmd
+if /I "%c%" EQU "start" npm install && npm start
+goto :launch
+
