@@ -1,6 +1,6 @@
 {
   "name": "Uzurion-Launcher",
-  "version": "2.0.0-prebeta",
+  "version": "2.0.0",
   "productName": "Uzurion Launcher",
   "description": "Uzurion Launcher",
   "main": "app/index.html",
@@ -31,7 +31,7 @@
   "license": "CC0",
   "build": {
     "appId": "Uzurion Launcher",
-    "nwVersion": "0.55.0",
+    "nwVersion": "0.57.1",
     "packed": true,
     "targets": [
       "zip",
@@ -42,12 +42,11 @@
     ],
     "excludes": [
       ".gitignore",
-      "node-js.bat",
+      "tool.bat",
       "web/**",
       "AppData/**",
       "node-v*/**",
       "test/**",
-      "start.bat",
       "package-lock.json",
       "README.md"
     ],
