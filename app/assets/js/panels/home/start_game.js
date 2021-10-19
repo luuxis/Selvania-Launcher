@@ -54,6 +54,10 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             javaPath: Java,
             version: config.game_version,
             forge: version,
+            //window: {
+                //width:"",	
+                //height:""
+            //},
             checkFiles: true,
             memory: {
                 max: `${config_launcher.Settings.Java.RamMax}M`,
