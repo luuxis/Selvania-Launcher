@@ -1,3 +1,6 @@
+@import "settings/resolution.css";
+
+
 .settingsNavbtn {
   width: 10%;
   text-align: -webkit-center;
@@ -16,13 +19,10 @@
   padding: 0;
 }
 
-
-
 .tabsettings {
   position: absolute;
   border-radius: 25px;
-  color: rgb(0, 0, 0);
-  background: white;
+  background: rgb(48, 48, 48);
   padding: 2%;
   width: 90%;
   height: 80%;
