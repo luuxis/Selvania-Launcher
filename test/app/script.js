@@ -1,4 +1,3 @@
-
 class slider {
     container = null;
     elem = {};
@@ -125,3 +124,11 @@ const sliderElem = document.getElementById("slider");
 sliderElem.dataset.min = "512";
 sliderElem.dataset.max = "5192";
 const instance = new slider(sliderElem);
+
+// function getResult() {
+//     const fs = require("fs")
+//     const file = require("../config.json")
+//     file.Settings.Java.RamMin = `${instance.val().from}`
+//     file.Settings.Java.RamMax = `${instance.val().to}`
+//     fs.writeFileSync(`../config.json`, JSON.stringify(file, true, 4), 'UTF-8')
+// }
