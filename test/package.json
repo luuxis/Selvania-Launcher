@@ -10,7 +10,6 @@
     "width": 400,
     "height": 500,
     "frame": false,
-    "resizable": false,
     "position": "center",
     "icon": "app/assets/images/icons/icon.png"
   },
@@ -31,7 +30,7 @@
   "license": "CC0",
   "build": {
     "appId": "Uzurion Launcher",
-    "nwVersion": "0.57.1",
+    "nwVersion": "0.55.0",
     "packed": true,
     "targets": [
       "zip",
@@ -83,6 +82,7 @@
     "msmc": "^2.2.1",
     "node-fetch": "^2.6.1",
     "nodejs-file-downloader": "^4.7.3",
-    "nw-autoupdater-luuxis": "^1.1.6"
+    "nw-autoupdater-luuxis": "^1.1.6",
+    "os": "^0.1.2"
   }
 }
