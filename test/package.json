@@ -7,9 +7,8 @@
   "author": "Luuxis",
   "window": {
     "title": "Uzurion update",
-    "width": 400,
+    "width": 1020,
     "height": 500,
-    "frame": false,
     "position": "center",
     "icon": "app/assets/images/icons/icon.png"
   },
