@@ -1,4 +1,4 @@
-import Slider from "./code.js";
+const Slider = require("./code.js");
 const os = require("os")  
 const fs = require("fs")
 const file = require("../config.json")

@@ -2,8 +2,7 @@
 * Classe slider : permet de créer un slider à deux valeurs (utile pour créer des bornes)
 * @author LoganTann, Luuxis
 */
-
-export default  class Slider {
+module.exports = class Slider {
 	/*
 	### Variables ###
 	*/
@@ -60,8 +59,14 @@ export default  class Slider {
 	*/
 	constructor(container, options) {
 		// récupération des paramètres
+		if (!(options.range[0] && options.range[1])) {
+			throw "Slider: Paramètres d'option min et max sont obligatoires.";
+		}
 		options.value[0] = options.value[0] || options.range[0];
 		options.value[1] = options.value[1] || options.range[1];
+		if (options.range[0] > options.value[0] || options.value[0] > options.value[1] || options.value[1] > options.range[1]) {
+			throw "Options invalides (doivent être des nombres où min < value[0] < defaultMax < max)";
+		}
 		this.range = {min: options.range[0], max: options.range[1], defaultMin: options.value[0], defaultMax: options.value[1]};
 
 		// stockage et génération des éléments html du slider
@@ -176,5 +181,4 @@ export default  class Slider {
 		if (this.selection[curr] < 0) this.selection[curr] = 0;
 		return this.updatePositions();
 	}
-};
-
+}
