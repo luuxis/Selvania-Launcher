@@ -19,7 +19,7 @@ instance = new Slider(selector, options);
   
 
 document.getElementById("test").addEventListener( "click", () => {
-    file.Settings.Java.RamMin = `${instance.val()[0]}`
-    file.Settings.Java.RamMax = `${instance.val()[1]}`
+    file.Settings.Java.RamMin = instance.val()[0]
+    file.Settings.Java.RamMax = instance.val()[1]
     fs.writeFileSync(`config.json`, JSON.stringify(file, true, 4), 'UTF-8')
 })
