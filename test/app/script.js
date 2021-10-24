@@ -3,6 +3,9 @@ const os = require("os")
 const fs = require("fs")
 const file = require("../config.json")
 const freeMem = Math.trunc(os.freemem() / 1048576 * 10) / 10;
+
+
+
 let instance
 const selector = document.getElementById("slider");
 const options = {
