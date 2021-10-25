@@ -2,7 +2,7 @@
     "Settings": {
         "Java": {
             "RamMin": 512,
-            "RamMax": 2024,
+            "RamMax": 1792,
             "Directory": null
         },
         "Resolution": null
