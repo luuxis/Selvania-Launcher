@@ -27,3 +27,8 @@ function compare(v1, v2) {
     return 0;
   }
 
+  /**
+* Classe slider : permet de créer un slider à deux valeurs (utile pour créer des bornes)
+* @author LoganTann, Luuxis
+
+*/

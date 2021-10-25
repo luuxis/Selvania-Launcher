@@ -9,7 +9,7 @@ const freeMem = Math.trunc(os.freemem() / 1048576 * 10) / 10;
 let instance
 const selector = document.getElementById("slider");
 const options = {
-    range: [512, ((freeMem).toFixed(0) / 1024).toFixed(0) * 1024],
+    range: [512, 4048],
     value: [file.Settings.Java.RamMin, file.Settings.Java.RamMax]
 }
 
