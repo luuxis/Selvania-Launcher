@@ -94,7 +94,6 @@ module.exports = class Slider {
 		this.container.addEventListener("mouseup",    onleave);
 		this.container.addEventListener("mouseleave", onleave);
 		window.addEventListener("resize", function () {
-			console.log("AAAA");
 			window.requestAnimationFrame(me.onresize.bind(me));
 		});
 
