@@ -3,6 +3,8 @@ const fs = require("fs")
 const { config } = require('./assets/js/utils.js');
 const Slider = require('./assets/js/utils/slider.js');
 const freeMem = Math.trunc(os.freemem() / 1048576 * 10) / 10;
+const TotalMem = Math.trunc(os.totalmem / 1048576 * 10) / 10;
+
 
 
 
@@ -12,8 +14,8 @@ config.config().then(res => {
     let instance
     const selector = document.getElementById("slider");
     const options = {
-        range: [512, 4048],
-        value: [file.Settings.Java.RamMin, file.Settings.Java.RamMax]
+        range: [512, Math.round(TotalMem)],
+        value: [parseInt(file.Settings.Java.RamMin), parseInt(file.Settings.Java.RamMax)]
     }
     instance = new Slider(selector, options);
     
