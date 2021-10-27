@@ -32,7 +32,6 @@ config.config().then(res => {
     }
     import ("./settings/account.js")
     import ("./settings/java-directory.js")
-    
     import ("./settings/resolution.js")
     import ("./settings/settings-launcher.js")
 })
