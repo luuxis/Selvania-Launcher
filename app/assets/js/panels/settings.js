@@ -32,7 +32,7 @@ config.config().then(res => {
     }
     import ("./settings/account.js")
     import ("./settings/java-directory.js")
-    import ("./settings/java-memory.js")
+    
     import ("./settings/resolution.js")
     import ("./settings/settings-launcher.js")
 })
@@ -43,6 +43,7 @@ document.querySelector(".accountsettings").addEventListener("click", () => {
 
 document.querySelector(".ramsettings").addEventListener("click", () => {
     tab('ramsettinstab')
+    import ("./settings/java-memory.js")
 })
 
 document.querySelector(".javasettings").addEventListener("click", () => {
