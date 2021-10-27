@@ -1,5 +1,7 @@
 .slider {
+  margin-top: 1rem;
   padding: 0.6rem 0;
+  padding-bottom: 2rem;
   position: relative;
   height: 1.5rem;
 }

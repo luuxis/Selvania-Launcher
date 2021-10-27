@@ -65,10 +65,10 @@ module.exports = class Slider {
 		options.value[0] = options.value[0] || options.range[0];
 		options.value[1] = options.value[1] || options.range[1];
 		if (options.range[0] > options.value[0] || options.value[0] > options.value[1] || options.value[1] > options.range[1]) {
-			throw "Options invalides (doivent être des nombres où min < value[0] < defaultMax < max)";
+			throw "Options invalides (doivent être des nombres où min < defaultMin < defaultMax < max), donné " + JSON.stringify(options);
 		}
 		this.range = {min: options.range[0], max: options.range[1], defaultMin: options.value[0], defaultMax: options.value[1]};
-
+		let window = nw.Window.get().window;
 		// stockage et génération des éléments html du slider
 		this.container = container;
 		this.elem.selected = document.createElement("div");
@@ -94,6 +94,7 @@ module.exports = class Slider {
 		this.container.addEventListener("mouseup",    onleave);
 		this.container.addEventListener("mouseleave", onleave);
 		window.addEventListener("resize", function () {
+			console.log("AAAA");
 			window.requestAnimationFrame(me.onresize.bind(me));
 		});
 

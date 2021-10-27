@@ -14,7 +14,7 @@
     "position": "center",
     "icon": "app/assets/images/icons/icon.png"
   },
-  "chromium-args": "--enable-logging --v=1 --disable-gpu",
+  "chromium-args": "--enable-logging --v=1 --disable-gpu --mixed-content",
   "url": "http://uzurion.luuxis.fr",
   "user": "",
   "webkit": {
