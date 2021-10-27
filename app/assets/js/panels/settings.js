@@ -17,8 +17,8 @@ config.config().then(res => {
             },
             "Settings": {
                 "Java": {
-                    "RamMin": (freeMem / 3).toFixed(0),
-                    "RamMax": (totalMem / 3).toFixed(0),
+                    "RamMin": `${(freeMem / 3).toFixed(0)}`,
+                    "RamMax": `${(totalMem / 3).toFixed(0)}`,
                     "Directory": null
                 },
                 "Resolution": null
