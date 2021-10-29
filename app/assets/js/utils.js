@@ -1,6 +1,7 @@
 module.exports = {
     config: require("./utils/config.js"),
-    auth: require("./utils/auth.js")
+    auth: require("./utils/auth.js"),
+    Slider: require("./utils/slider.js")
 }
 
 module.exports.compare = compare
