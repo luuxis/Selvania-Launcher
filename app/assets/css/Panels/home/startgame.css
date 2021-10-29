@@ -26,12 +26,23 @@
     background: #272928;
 }
 
+.info-download {
+    color: #fff;
+    height: 15%;
+    width: 20%;
+    text-align: center;
+    margin-top: 1%;
+    margin-left: 75%;
+    display: none;
+}
+
 .progress-bar {
     position: absolute;
     margin-top: 5%;
     margin-left: 75%;
     height: 15%;
     width: 20%;
+    background-color: transparent;
     display: none;
     appearance: none;
     transition: opacity .2s;
