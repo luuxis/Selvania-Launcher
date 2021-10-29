@@ -44,6 +44,17 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         } else {
             var authenticator = auth.user
         }
+
+
+        if(config_launcher.Settings.Resolution.width === null || config_launcher.Settings.Resolution.height === null){
+            var Resolution = null
+        } else {
+            var Resolution = {
+                "width": config_launcher.Settings.Resolution.width,
+                "height": config_launcher.Settings.Resolution.height
+            }
+        }
+        
         
         let opts = {
             url: config.game_url,
@@ -55,7 +66,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             javaPath: Java,
             version: config.game_version,
             forge: version,
-            window: null,
+            window: Resolution,
             checkFiles: true,
             memory: {
                 max: `${config_launcher.Settings.Java.RamMax}M`,

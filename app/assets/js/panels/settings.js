@@ -21,9 +21,10 @@ config.config().then(res => {
                     "RamMax": `${(totalMem / 3).toFixed(0)}`,
                     "Directory": null
                 },
-                "Resolution": [
-                    
-                ]
+                "Resolution": {
+                    "width": null,	
+                    "height": null
+                }
             },
             "Login": {
                 "UserConnect": null,
