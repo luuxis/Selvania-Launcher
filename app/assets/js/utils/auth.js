@@ -18,16 +18,14 @@ module.exports.loginMojang = function(username, password){
 
 module.exports.loginMicrosoft = function(){
     config.config().then(res => {
-            return new Promise((resolve, reject) => {
-                msmc.setFetch(fetch)
-                msmc.fastLaunch(res.client_id, "nwjs").then(user => {
-                    module.exports.user = msmc.getMCLC().getAuth(user)
-                    return resolve(user);
-                }).catch(error => {
-                    return reject (error);
-                })
+        return new Promise((resolve, reject) => {
+            msmc.setFetch(fetch)
+            msmc.fastLaunch(res.client_id, "nwjs").then(user => {
+                module.exports.user = msmc.getMCLC().getAuth(user)
+                return resolve(user);
+            }).catch(error => {
+                return reject (error);
             })
-        
-    
+        })
     })
 }
