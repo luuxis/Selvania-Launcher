@@ -11,22 +11,22 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
     document.querySelector(".info-login").style.color = "white";
     document.querySelector(".info-login").innerHTML = "Connexion en cours..."
     document.querySelector(".info-login").style.display = "block"
-    auth.loginMicrosoft().then(user => {
-        config.config().then(res => {
+    config.config().then(res => {
+        auth.loginMicrosoft(res.client_id).then(user => {
             if(document.querySelector(".loginRemember").checked == true){
                 const file = require(`${dataDirectory}/${res.dataDirectory}/config.json`);
                 file.Login.UserConnect = "Microsoft"
                 file.Login.Account = {"Microsoft":{"User": user}} 
                 fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
             }
+            document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.profile.name}/100`
+            changePanel("login", "home")
+        }).catch (err => {
+            document.querySelector(".info-login").innerHTML = "&nbsp;"
+            document.querySelector(".login-btn").disabled = false
+            document.querySelector(".microsoft-btn").disabled = false
+            document.querySelector(".pseudo").disabled = false
+            document.querySelector(".password").disabled = false
         })
-        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.profile.name}/100`
-        changePanel("login", "home")
-    }).catch (err => {
-        document.querySelector(".info-login").innerHTML = "&nbsp;"
-        document.querySelector(".login-btn").disabled = false
-        document.querySelector(".microsoft-btn").disabled = false
-        document.querySelector(".pseudo").disabled = false
-        document.querySelector(".password").disabled = false
     })
 })
