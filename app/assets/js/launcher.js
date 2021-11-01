@@ -1,5 +1,5 @@
 const fs = require("fs");
-const msmc = require("msmc");
+const msmc = require("msmc-luuxis");
 const { Authenticator } = require('minecraft-launcher-core')
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { config } = require('./assets/js/utils.js');
