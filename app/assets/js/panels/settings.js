@@ -22,8 +22,8 @@ config.config().then(res => {
                     "Directory": null
                 },
                 "Resolution": {
-                    "width": null,	
-                    "height": null
+                    "width": "1280",	
+                    "height": "720"
                 }
             },
             "Login": {
