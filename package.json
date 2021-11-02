@@ -80,7 +80,7 @@
     "decompress": "^4.2.1",
     "emc-core-luuxis": "^1.0.9",
     "gamedig": "^3.0.7",
-    "msmc-luuxis": "^1.0.0",
+    "msmc-luuxis": "^1.0.1",
     "node-fetch": "^2.6.1",
     "nodejs-file-downloader": "^4.7.3",
     "nw-autoupdater-luuxis": "^1.1.6"

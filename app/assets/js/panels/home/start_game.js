@@ -85,15 +85,15 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         })
 
         launcher.on('verification-status', (e) => {
-            console.log(`[Verification][emc-core-luuxis]: ${e.name} (${e.current}/${e.total})`)
+            //console.log(`[Verification][emc-core-luuxis]: ${e.name} (${e.current}/${e.total})`)
             document.querySelector(".info-download").innerHTML = `Vérification (${e.current}/${e.total})`
             document.querySelector(".progress-bar").value = e.current;
             document.querySelector(".progress-bar").max = e.total;
         })
         
         launcher.on('download-status', (e) => {
-            console.log(`[DOWNLOAD][emc-core-luuxis]: [${e.type}] ${e.name} (${e.downloadedBytes}/${e.bytesToDownload})`)
-            document.querySelector(".info-download").innerHTML = `Téléchargement (${e.downloadedBytes}/${e.bytesToDownload})`
+            //console.log(`[DOWNLOAD][emc-core-luuxis]: [${e.type}] ${e.name} (${e.downloadedBytes}/${e.bytesToDownload})`)
+            //document.querySelector(".info-download").innerHTML = `Téléchargement (${e.downloadFiles}/${e.filesToDownload})`
             document.querySelector(".progress-bar").value = e.downloadFiles;
             document.querySelector(".progress-bar").max = e.filesToDownload;
         })
