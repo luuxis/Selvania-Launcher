@@ -44,15 +44,11 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         } else {
             var authenticator = auth.user
         }
-
-
-        if(config_launcher.Settings.Resolution.width === null || config_launcher.Settings.Resolution.height === null){
-            var Resolution = null
-        } else {
-            var Resolution = {
-                "width": config_launcher.Settings.Resolution.width,
-                "height": config_launcher.Settings.Resolution.height
-            }
+        
+        
+        var Resolution = {
+            "width": config_launcher.Settings.Resolution.width,
+            "height": config_launcher.Settings.Resolution.height
         }
         
         
