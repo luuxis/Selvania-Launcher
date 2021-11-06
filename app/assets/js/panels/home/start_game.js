@@ -1,6 +1,7 @@
 const { MCLaunch } = require('emc-core-luuxis');
 const launcher = new MCLaunch();
 const msmc = require("msmc-luuxis");
+const pkg = require('../package.json');
 const win = nw.Window.get();
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { auth, config } = require('./assets/js/utils.js');
@@ -12,6 +13,12 @@ document.querySelector(".play-btn").addEventListener("click", () => {
     document.querySelector(".info-download").style.display = "block"
     config.config().then(config => {
         const config_launcher = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
+
+        if(config.game_url === "" || config.game_url === undefined || config.game_url === null) {
+            var url = `${pkg.url}/files/`
+        } else {
+            var url = config.game_url
+        }
         
 
         if ((config.forge_version) == ""){
@@ -53,7 +60,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         
         
         let opts = {
-            url: config.game_url,
+            url: url,
             overrides: {
                 detached: false
             },
