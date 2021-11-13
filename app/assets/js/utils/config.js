@@ -48,7 +48,7 @@ module.exports.news = getNews;
 
 function getNews() {
     return new Promise((resolve, reject) => {
-        fetch(news).then(config => {
+        fetch(news, {cache: "no-cache"}).then(config => {
             return resolve(config.json());
         }).catch(error => {
             return reject(error);

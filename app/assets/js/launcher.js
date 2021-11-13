@@ -5,6 +5,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get()
 
+
 if(process.platform == "win32") {
   document.querySelector(".frame").classList.toggle("hide")
   document.querySelector(".dragbar").classList.toggle("hide")
