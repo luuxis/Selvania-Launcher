@@ -147,7 +147,7 @@ async function javaCheck(){
 function startLauncher(){
   setStatus(`Démarrage du launcher`);
   nw.Window.open("app/launcher.html", {
-    "title": "Uzurion Launcher",
+    "title": pkg.productName,
     "width": 1280,
     "height": 720,
     "min_width": 980,
