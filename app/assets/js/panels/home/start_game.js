@@ -62,7 +62,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         let opts = {
             url: url,
             overrides: {
-                detached: false
+                detached: true
             },
             authorization: authenticator,
             root: `${dataDirectory}/${config.dataDirectory}`,
