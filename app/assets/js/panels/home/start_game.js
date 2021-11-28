@@ -33,11 +33,11 @@ document.querySelector(".play-btn").addEventListener("click", () => {
        
         
         let opts = {
-            url: "http://uzurion.luuxis.fr/test/",
+            url: url,
             authorization: authenticator,
             path: `${dataDirectory}/${config.dataDirectory}`,
             version: config.game_version,
-            detached: false,
+            detached: true,
             java: true,
             custom: config.custom,
             verify: config.verify,
