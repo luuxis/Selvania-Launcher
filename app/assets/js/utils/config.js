@@ -7,7 +7,6 @@ if((pkg.user) === undefined || (pkg.user) === ""){
 }
 const config = url + "/launcher/config-launcher/config.json";
 const info = url + "/launcher/config-launcher/info.json";
-const java = url + "/launcher/config-launcher/jre-download.json";
 const news = url + "/launcher/news-launcher/news-launcher.json";
 
 module.exports.config = getData;
@@ -26,17 +25,6 @@ module.exports.info = getInfo;
 function getInfo() {
     return new Promise((resolve, reject) => {
         fetch(info).then(info => {
-            return resolve(info.json());
-        }).catch(error => {
-            return reject(error);
-        })
-    })
-}
-
-module.exports.java = getjava;
-function getjava() {
-    return new Promise((resolve, reject) => {
-        fetch(java).then(info => {
             return resolve(info.json());
         }).catch(error => {
             return reject(error);
