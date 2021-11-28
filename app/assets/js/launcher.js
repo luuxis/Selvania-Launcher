@@ -1,6 +1,6 @@
 const fs = require("fs");
 const msmc = require("msmc-luuxis");
-const { Authenticator } = require('minecraft-launcher-core')
+const { Authenticator } = require('minecraft-java-core');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get()
