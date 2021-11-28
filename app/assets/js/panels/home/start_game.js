@@ -36,25 +36,21 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             url: "http://uzurion.luuxis.fr/test/",
             authorization: authenticator,
             path: `${dataDirectory}/${config.dataDirectory}`,
-            version: "1.12.2",
+            version: config.game_version,
             detached: false,
-        
             java: true,
-            custom: false,
-        
-            verify: true,
-            ignored: [],
-        
+            custom: config.custom,
+            verify: config.verify,
+            ignored: config.ignored,
             memory: {
-                min: `2G`,
-                max: `2G` 
+                min: `${config_launcher.Settings.Java.RamMin}M`,
+                max: `${config_launcher.Settings.Java.RamMax}M`
             }
         }
 
         launcher.launch(opts);
         
         launcher.on('progress', (DL, totDL) => {
-            console.log(`${(DL / 1067008).toFixed(2)} Mb to ${(totDL / 1067008).toFixed(2)} Mb`);
             document.querySelector(".progress-bar").style.display = "block"
             document.querySelector(".info-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
             document.querySelector(".progress-bar").value = DL;
@@ -64,13 +60,29 @@ document.querySelector(".play-btn").addEventListener("click", () => {
         launcher.on('speed', (speed) => {
             console.log(`${(speed / 1067008).toFixed(2)} Mb/s`)
         })
+
+        launcher.on('check', (e) => {
+            document.querySelector(".info-download").innerHTML = `Vérification`
+        })
         
         launcher.on('data', (e) => {
             console.log(e)
+            if(config_launcher.Launcher.CloseLauncher === true){
+                win.hide();
+            }
+            document.querySelector(".info-download").innerHTML = `Démarrage du jeu en cours`
         })
         
-        launcher.on('close', () => {
-            console.log("[CLOSE]")
+        launcher.on('close', (e) => {
+            if(config_launcher.Launcher.CloseLauncher === true){
+                win.show();
+                win.focus();
+                win.setShowInTaskbar(true);
+            }
+            document.querySelector(".progress-bar").style.display = "none"
+            document.querySelector(".info-download").style.display = "none"
+            document.querySelector(".info-download").innerHTML = `Vérification`
+            document.querySelector(".play-btn").style.display = "block"
         })
     })
 })
