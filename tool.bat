@@ -1,5 +1,5 @@
 @echo off
-set ver=16.13.0
+set ver=16.13.1
 set arch=64
 set appdata=%CD%\AppData
 
@@ -30,10 +30,10 @@ echo "linux":  build launcher linux
 echo "all":    build launcher all platform
 set /P c=enter your choice: 
 if /I "%c%" EQU "node" cls && cmd
-if /I "%c%" EQU "start" npm install && npm start
-if /I "%c%" EQU "win" npm run build:win
-if /I "%c%" EQU "mac" npm run build:mac
-if /I "%c%" EQU "linux" npm run build:linux
-if /I "%c%" EQU "all" npm run build:all
+if /I "%c%" EQU "start" cls && npm install && npm start
+if /I "%c%" EQU "win" cls && npm run build:win
+if /I "%c%" EQU "mac" cls && npm run build:mac
+if /I "%c%" EQU "linux" cls && npm run build:linux
+if /I "%c%" EQU "all" cls && npm run build:all
 goto :launch
 
