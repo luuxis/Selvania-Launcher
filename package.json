@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "emc-core-luuxis": "^1.0.9",
-    "minecraft-java-core": "^1.0.1",
+    "minecraft-java-core": "^1.1.0",
     "msmc-luuxis": "^1.0.3",
     "nw-autoupdater-luuxis": "^1.1.6"
   }
