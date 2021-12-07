@@ -4,6 +4,8 @@
   "offline": "off",
   "client_id": "",
   "game_version": "1.0",
-  "forge_version": "",
-  "dataDirectory": ".minecraft"
+  "custom": false,
+  "verify": false,
+  "dataDirectory": ".minecraft",
+  "ignored": []
 }

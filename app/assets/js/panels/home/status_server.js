@@ -1,13 +1,14 @@
-const Gamedig = require('gamedig')
 const { config } = require('./assets/js/utils.js');
+const { status } = require('minecraft-java-core');
 
-let status_var = config.info().then(config => {
-    Gamedig.query({
-        type: 'minecraft',
-        host: config.ip_server,
-        port: config.port
-    }).then((state) => {
-        let status_json = state.raw.vanilla
+config.info().then(async (config)  => {
+    let StatusServer = await status.StatusServer(config.ip_server, config.port_server)
+    
+    if(!StatusServer){
+        document.querySelector(".player-connect-number").innerHTML = "Le serveur est actuellement ferme.";
+        document.querySelector(".player-connect-number").innerHTML = "Le serveur est actuellement ferme.";
+    } else {
+        let status_json = StatusServer.raw.vanilla
         document.querySelector(".player-connect").innerHTML = ""
         if(status_json.raw.players.online === 0){
             document.querySelector(".player-connect-number").innerHTML = `Aucun joueur actuellement connecté`;
@@ -19,13 +20,7 @@ let status_var = config.info().then(config => {
             document.querySelector(".player-connect-number").innerHTML = `${status_json.raw.players.online} joueurs actuellement connectés`;
             head(status_json)
         }
-       }).catch((err) => {
-           console.log(err)
-           document.querySelector(".player-connect-number").innerHTML = "Le serveur est actuellement ferme.";
-    })
-
-    StatusServerAutoRefresh()
-
+    }
 })
 
 

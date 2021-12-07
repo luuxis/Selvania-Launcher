@@ -1,6 +1,4 @@
 const AutoUpdater = require("nw-autoupdater-luuxis");
-const Downloader = require('nodejs-file-downloader');
-const decompress = require('decompress');
 const pkg = require("../package.json");
 const fs = require('fs');
 if((pkg.user) === undefined || (pkg.user) === ""){
@@ -40,7 +38,7 @@ async function startAnimation(){
 
 async function checkUpdate(){
   nw.App.clearCache();
-  if(Dev) return javaCheck();
+  if(Dev) return startLauncher();
   setStatus(`Recherche de mises à jour`);
   const manifest = await fetch(manifestUrl).then(res => res.json());
   const update = await updater.checkNewVersion(manifest);
@@ -68,80 +66,12 @@ async function maintenanceCheck(){
     if ((res.maintenance) == "on"){
       return shutdown(res.maintenance_message);
     }
-    javaCheck();
+    startLauncher();
   }).catch( err => {
     console.log("impossible de charger le config.json");
     console.log(err);
     return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
   })
-}
-
-
-async function javaCheck(){
-  config.config().then(res => {
-    config.java().then(java => {
-      setStatus("Vérification de Java");
-      
-      if(!["win32", "darwin", "linux"].includes(process.platform))return shutdown("System d'exploitation non supporté");
-        
-        
-      if (compare(res.game_version, "1.17") == 1){
-        var java_ver = "16"
-        if(["win32"].includes(process.platform)){
-          var url = java.jre16.windows.url
-        } else if(["darwin"].includes(process.platform)){
-          var url = java.jre16.mac.url
-        } else if(["linux"].includes(process.platform)){
-          var url = java.jre16.linux.url
-        }
-      } else {
-        var java_ver = "8"
-        if(["win32"].includes(process.platform)){
-          var url = java.jre8.windows.url
-        } else if(["darwin"].includes(process.platform)){
-          var url = java.jre8.mac.url
-        } else if(["linux"].includes(process.platform)){
-          var url = java.jre8.linux.url
-        }
-      }
-      if(!fs.existsSync(dataDirectory + "/" + res.dataDirectory + "/runtime/java")) {
-        const downloader = new Downloader({
-          url: url,
-          directory: dataDirectory + "/" + res.dataDirectory + "/runtime/",
-          fileName: "java.tar.gz",
-          cloneFiles: false,
-          onProgress:function(percentage){
-            setStatus("Téléchargement de Java " + java_ver)
-            setProgress(percentage, "100")
-
-          }     
-        })
-        try {
-          toggleProgress()
-          downloader.download().then(err => {
-          toggleProgress()
-          setStatus("Décompression de Java " + java_ver)
-          decompress(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz", dataDirectory + "/" + res.dataDirectory + "/runtime/java/").then(err => {
-            fs.unlinkSync(dataDirectory + "/" + res.dataDirectory + "/runtime/" + "java.tar.gz")
-            startLauncher();
-          })
-        })
-        } catch (error) {
-          return shutdown("Une erreur est survenue,<br>veuillez réessayer ultérieurement.");
-        }
-      } else {
-        startLauncher();
-      }
-    }).catch( err => {
-      console.log("impossible de charger le jre-download.json");
-      console.log(err);
-      return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
-    })
-  }).catch( err => {
-    console.log("impossible de charger le config.json");
-    console.log(err);
-    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
-  })  
 }
   
 function startLauncher(){
