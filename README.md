@@ -56,7 +56,7 @@
 
 - Authentification crack.
 
-- Accepte toutes versions de Minecraft 1.0 > <div class="latestminecraft">1.18.1-pre1</div> (Forge, Fabric etc).
+- Accepte toutes versions de Minecraft 1.0 > 1.17 (Forge, Fabric etc).
 
 ---
 
@@ -83,11 +83,5 @@
 
 [releases]: https://github.com/luuxis/Uzurione-Launcher/releases 'releases'
 [build]: https://github.com/luuxis/Uzurion-Launcher/releases 'build'
-<script>
-        if (window.fetch) {
-            fetch('https://launchermeta.mojang.com/mc/game/version_manifest_v2.json').then(response => response.json().then(res => document.querySelector('.latestminecraft').innerHTML = res.latest.snapshot));
-        } else {
-            console.log("Fetch API not supported");
-        }
-    </script>
+
 
