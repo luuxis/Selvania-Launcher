@@ -77,7 +77,6 @@
     "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
   },
   "dependencies": {
-    "emc-core-luuxis": "^1.0.9",
     "minecraft-java-core": "^1.1.1",
     "msmc-luuxis": "^1.0.3",
     "nw-autoupdater-luuxis": "^1.1.6"
