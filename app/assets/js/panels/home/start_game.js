@@ -38,7 +38,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             path: `${dataDirectory}/${config.dataDirectory}`,
             version: config.game_version,
             detached: true,
-            java: true,
+            java: config.java,
             custom: config.custom,
             verify: config.verify,
             ignored: config.ignored,
