@@ -6,6 +6,7 @@
   "game_version": "1.0",
   "custom": false,
   "verify": false,
+  "java": true,
   "dataDirectory": ".minecraft",
   "ignored": []
 }
