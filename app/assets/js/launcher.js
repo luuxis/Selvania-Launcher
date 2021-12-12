@@ -87,8 +87,13 @@ config.config().then(config => {
     } else if (json.Login.UserConnect == "Microsoft") {
       if (!json.Login.Account || !json.Login.Account.Microsoft || !json.Login.Account.Microsoft.User) changePanel("", "login")
       msmc.getMCLC().validate(json.Login.Account.Microsoft.User).then(user => {
-        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Microsoft.User.profile.name}/100`
-        changePanel("", "home")
+        msmc.refresh(json.Login.Account.Microsoft.User.profile).then(user => {
+          json.Login.UserConnect = "Microsoft"
+          json.Login.Account = {"Microsoft":{"User": user}} 
+          fs.writeFileSync(`${dataDirectory}/${config.dataDirectory}/config.json`, JSON.stringify(json, true, 4), 'UTF-8')
+          document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.profile.name}/100`
+          changePanel("", "home")
+        })
       }).catch (err => {
         changePanel("", "login")
       })
