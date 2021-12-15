@@ -17,9 +17,7 @@
   "chromium-args": "--enable-logging --v=1 --disable-gpu --mixed-content",
   "url": "http://uzurion.luuxis.fr",
   "user": "",
-  "webkit": {
-    "plugin": true
-  },
+  "webkit": {"plugin": true},
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
     "server": "npm install && node node_modules/emc-core-luuxis/utils/builder.js --v=1.0",
