@@ -56,7 +56,7 @@
 
 - Authentification crack.
 
-- Accepte toutes versions de Minecraft 1.0 > 1.17 (Forge, Fabric etc).
+- Accepte toutes versions de Minecraft 1.0 > 1.18.x (Forge, Fabric etc).
 
 ---
 
