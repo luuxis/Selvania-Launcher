@@ -60,23 +60,6 @@
 
 ---
 
-**<p align="center">Test.</p>**
-
-- Pour tester le Launcher [veuillez télécharger ce fichier](https://github.com/luuxis/Launcher-test/releases/download/1.0.0/Launcher-test.exe) 
-
----
-
-**<p align="center">Documentation.</p>**
-
-- [Télécharger le code source et installer les modules.](https://github.com/luuxis/Uzurion-Launcher/wiki/T%C3%A9l%C3%A9charger-le-code-source-et-installer-les-modules)
-
-- [Mise en place du serveur web.](https://github.com/luuxis/Uzurion-Launcher/wiki/Mise-en-place-du-serveur-web)
-
-- [Construire l'application (build).](https://github.com/luuxis/Uzurion-Launcher/wiki/Construire-l'application-(build))
-
----
-
-
 [<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/X54Qb9em9Y) 
 ---
 
