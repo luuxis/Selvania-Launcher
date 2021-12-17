@@ -48,7 +48,7 @@
       "package-lock.json",
       "README.md"
     ],
-    "outputPattern": "${NAME}-${VERSION}-${PLATFORM}",
+    "outputPattern": "${NAME}-${PLATFORM}",
     "win": {
       "productName": "Uzurion Launcher",
       "companyName": "Uzurion Launcher",
@@ -64,7 +64,7 @@
     },
     "nsis": {
       "installDirectory": "$LOCALAPPDATA\\Programs\\${_COMPANYNAME}",
-      "diffUpdaters": true
+      "diffUpdaters": false
     }
   },
   "devDependencies": {
