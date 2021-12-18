@@ -6,6 +6,14 @@ let DEFAULT_CONFIG
 const totalMem = Math.trunc(os.totalmem() / 1048576 * 10) / 10;
 const freeMem = Math.trunc(os.freemem() / 1048576 * 10) / 10;
 
+let RamMin
+
+if ((freeMem / 3).toFixed(0)) {
+    RamMin = "512"
+} else {
+    RamMin = `${(freeMem / 3).toFixed(0)}`
+}
+
 
 config.config().then(res => {
     if(!fs.existsSync(`${dataDirectory}/${res.dataDirectory}/config.json`)){
@@ -17,7 +25,7 @@ config.config().then(res => {
             },
             "Settings": {
                 "Java": {
-                    "RamMin": `${(freeMem / 3).toFixed(0)}`,
+                    "RamMin": RamMin,
                     "RamMax": `${(totalMem / 3).toFixed(0)}`,
                     "Directory": null
                 },
