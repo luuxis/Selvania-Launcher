@@ -33,16 +33,29 @@ async function startAnimation(){
   splashAuthor.classList.add("opacity");
   message.classList.add("opacity");
   await sleep(1000);
-  checkUpdate();
+  maintenanceCheck();
+}
+
+async function maintenanceCheck(){
+  nw.App.clearCache();
+  if(Dev) return startLauncher();  
+  config.config().then(res => {
+    if ((res.maintenance) == "on"){
+      return shutdown(res.maintenance_message);
+    }
+    checkUpdate();
+  }).catch( err => {
+    console.log("impossible de charger le config.json");
+    console.log(err);
+    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+  })
 }
 
 async function checkUpdate(){
-  nw.App.clearCache();
-  if(Dev) return startLauncher();
   setStatus(`Recherche de mises à jour`);
   const manifest = await fetch(manifestUrl).then(res => res.json());
   const update = await updater.checkNewVersion(manifest);
-  if(!update) return maintenanceCheck();
+  if(!update) return startLauncher();
 
   updater.on("download", (dlSize, totSize) => {
     setProgress(dlSize, totSize);
@@ -59,19 +72,6 @@ async function checkUpdate(){
   toggleProgress();
   setStatus(`Redémarrage`);
   await updater.restartToSwap();
-}
-  
-async function maintenanceCheck(){    
-  config.config().then(res => {
-    if ((res.maintenance) == "on"){
-      return shutdown(res.maintenance_message);
-    }
-    startLauncher();
-  }).catch( err => {
-    console.log("impossible de charger le config.json");
-    console.log(err);
-    return shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
-  })
 }
   
 function startLauncher(){
