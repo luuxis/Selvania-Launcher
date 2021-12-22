@@ -1,10 +1,9 @@
 const fs = require("fs");
-const msmc = require("msmc-luuxis");
-const { Authenticator } = require('minecraft-java-core');
+const msmc = require("msmc");
+const { mojang } = require('minecraft-java-core');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { config } = require('./assets/js/utils.js');
 let win = nw.Window.get()
-
 
 if(process.platform == "win32") {
   document.querySelector(".frame").classList.toggle("hide")
@@ -68,7 +67,7 @@ config.config().then(config => {
 
     } else if(json.Login.UserConnect == "Mojang") {
       if (!json.Login.Account || !json.Login.Account.Mojang || !json.Login.Account.Mojang.User || !json.Login.Account.Mojang.User.access_token || !json.Login.Account.Mojang.User.client_token) changePanel("", "login")
-      Authenticator.validate(json.Login.Account.Mojang.User.access_token, json.Login.Account.Mojang.User.client_token).then(user => {
+      mojang.validate(json.Login.Account.Mojang.User.access_token, json.Login.Account.Mojang.User.client_token).then(user => {
         document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Mojang.User.name}/100`
         changePanel("", "home")
       }).catch (err => {
@@ -77,7 +76,7 @@ config.config().then(config => {
 
     } else if (json.Login.UserConnect == "Crack") {
       if (!json.Login.Account || !json.Login.Account.Crack || !json.Login.Account.Crack.User || !json.Login.Account.Crack.User.name) changePanel("", "login")
-      Authenticator.getAuth(json.Login.Account.Crack.User.name).then(user => {
+      mojang.getAuth(json.Login.Account.Crack.User.name).then(user => {
         document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Crack.User.name}/100`
         changePanel("", "home")
       }).catch (err => {

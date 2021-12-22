@@ -1,6 +1,6 @@
 {
   "name": "Uzurion-Launcher",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "productName": "Uzurion Launcher",
   "description": "Uzurion Launcher",
   "main": "app/index.html",
@@ -17,7 +17,9 @@
   "chromium-args": "--enable-logging --v=1 --disable-gpu --mixed-content",
   "url": "http://uzurion.luuxis.fr",
   "user": "",
-  "webkit": {"plugin": true},
+  "webkit": {
+    "plugin": true
+  },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
     "server": "npm install && node node_modules/emc-core-luuxis/utils/builder.js --v=1.0",
@@ -75,8 +77,8 @@
     "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
   },
   "dependencies": {
-    "minecraft-java-core": "^1.1.4",
-    "msmc-luuxis": "^1.0.3",
+    "minecraft-java-core": "^1.1.5-alpha.1",
+    "msmc": "^3.0.2",
     "nw-autoupdater-luuxis": "^1.1.6"
   }
 }

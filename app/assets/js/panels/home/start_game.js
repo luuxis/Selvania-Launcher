@@ -1,6 +1,6 @@
 const {launch} = require('minecraft-java-core');
 const launcher = new launch();
-const msmc = require("msmc-luuxis");
+const msmc = require("msmc");
 const pkg = require('../package.json');
 const win = nw.Window.get();
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
