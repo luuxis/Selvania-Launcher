@@ -2,7 +2,7 @@ const { config } = require('./assets/js/utils.js');
 const { status } = require('minecraft-java-core');
 
 config.info().then(async (config)  => {
-    let StatusServer = await status.StatusServer(config.ip_server, parseInt(config.port_server))
+    let StatusServer = await status.StatusServer(config.ip_server, parseInt(config.port))
     
     if(!StatusServer){
         document.querySelector(".player-connect-number").innerHTML = "Le serveur est actuellement ferme.";
