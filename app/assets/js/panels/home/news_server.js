@@ -2,7 +2,7 @@ const { config } = require('./assets/js/utils.js');
 let newsForm = document.querySelector(".container-news")
 
 
-let news_var = config.news().then(config => {
+config.news().then(config => {
   newsForm.innerHTML = ``
   if(config.news.length === 0){
     newsForm.innerHTML = `<div class="newsTitle">Aucune news n'est actuellement disponible.</div>`
@@ -33,19 +33,9 @@ let news_var = config.news().then(config => {
       }
     }
   }
-  NewsAutoRefresh()
 })
 
-function NewsAutoRefresh(){
-  config.config().then(config => {
-    const config_var = require(`${dataDirectory}/${config.dataDirectory}/config.json`)
-    if(config_var.Launcher.NewsAutoRefresh === true){
-      setInterval(function(){
-        news_var
-      }, 600000)
-    }
-  })
-}
+
 
 
 

@@ -1,6 +1,6 @@
 const AutoUpdater = require("nw-autoupdater-luuxis");
 const pkg = require("../package.json");
-const fs = require('fs');
+
 if((pkg.user) === undefined || (pkg.user) === ""){
   var url = pkg.url
 } else {
@@ -8,9 +8,8 @@ if((pkg.user) === undefined || (pkg.user) === ""){
 }
 const manifestUrl = url + "/launcher/package.json";
 
-const { config, compare } = require('./assets/js/utils.js');
+const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
-const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 const win = nw.Window.get();
 const Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
