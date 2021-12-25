@@ -39,6 +39,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             version: config.game_version,
             detached: true,
             java: config.java,
+            args: config.game_args,
             custom: config.custom,
             verify: config.verify,
             ignored: config.ignored,
