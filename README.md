@@ -5,7 +5,7 @@
 
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-pre-release-orange.svg?style=for-the-badge" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
+<img src="https://img.shields.io/badge/build-pre release-orange.svg?style=for-the-badge" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
 [<img src="https://img.shields.io/badge/version-V2.0.4-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
 [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Uzurion-Launcher/releases) </p>
 
