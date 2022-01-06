@@ -10,6 +10,7 @@ const { auth, config } = require('./assets/js/utils.js');
 document.querySelector(".play-btn").addEventListener("click", () => {
     document.querySelector(".play-btn").style.display = "none"
     document.querySelector(".info-download").style.display = "block"
+    let info = config.info().then(response => info = response);
     config.config().then(config => {
         const config_launcher = require(dataDirectory + "/" + config.dataDirectory + "/config.json")
 
@@ -40,7 +41,12 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             detached: true,
             java: config.java,
             args: config.game_args,
-            custom: config.custom,
+            custom: false,
+            server: {
+                ip: info.ip_server,
+                port: info.port,
+                autoconnect: info.autoconnect || false
+            },
             verify: config.verify,
             ignored: config.ignored,
             memory: {
