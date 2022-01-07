@@ -41,7 +41,7 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             detached: true,
             java: config.java,
             args: config.game_args,
-            custom: false,
+            custom: config.custom,
             server: {
                 ip: info.ip_server,
                 port: info.port,
