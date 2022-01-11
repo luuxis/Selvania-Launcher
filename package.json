@@ -14,8 +14,11 @@
     "position": "center",
     "icon": "app/assets/images/icons/icon.png"
   },
+  "engines": {
+    "node": "16.x.x"
+  },
   "chromium-args": "--enable-logging --v=1 --disable-gpu --mixed-content",
-  "url": "http://uzurion.luuxis.fr",
+  "url": "http://146.59.227.140",
   "user": "",
   "webkit": {
     "plugin": true
@@ -42,6 +45,7 @@
     ],
     "excludes": [
       ".gitignore",
+      "nodemon.json",
       "tool.bat",
       "web/**",
       "AppData/**",
