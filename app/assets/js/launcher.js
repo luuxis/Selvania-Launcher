@@ -1,5 +1,4 @@
 const fs = require("fs");
-const msmc = require("msmc");
 const { mojang } = require('minecraft-java-core');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { config } = require('./assets/js/utils.js');
@@ -58,46 +57,6 @@ function changePanel(V1, V2){
 
 
 config.config().then(config => {
-  if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/config.json")) {
-    let rawData = fs.readFileSync(dataDirectory + "/" + config.dataDirectory + "/config.json")
-    let json = JSON.parse(rawData);
-    
-    if ((json.Login.UserConnect) === null){
-      changePanel("", "login")
 
-    } else if(json.Login.UserConnect == "Mojang") {
-      if (!json.Login.Account || !json.Login.Account.Mojang || !json.Login.Account.Mojang.User || !json.Login.Account.Mojang.User.access_token || !json.Login.Account.Mojang.User.client_token) changePanel("", "login")
-      mojang.validate(json.Login.Account.Mojang.User.access_token, json.Login.Account.Mojang.User.client_token).then(user => {
-        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Mojang.User.name}/100`
-        changePanel("", "home")
-      }).catch (err => {
-        changePanel("", "login")
-      })
-
-    } else if (json.Login.UserConnect == "Crack") {
-      if (!json.Login.Account || !json.Login.Account.Crack || !json.Login.Account.Crack.User || !json.Login.Account.Crack.User.name) changePanel("", "login")
-      mojang.getAuth(json.Login.Account.Crack.User.name).then(user => {
-        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${json.Login.Account.Crack.User.name}/100`
-        changePanel("", "home")
-      }).catch (err => {
-        changePanel("", "login")
-      })
-
-    } else if (json.Login.UserConnect == "Microsoft") {
-      if (!json.Login.Account || !json.Login.Account.Microsoft || !json.Login.Account.Microsoft.User) changePanel("", "login")
-      msmc.getMCLC().validate(json.Login.Account.Microsoft.User).then(user => {
-        msmc.refresh(json.Login.Account.Microsoft.User.profile).then(user => {
-          json.Login.UserConnect = "Microsoft"
-          json.Login.Account = {"Microsoft":{"User": user}} 
-          fs.writeFileSync(`${dataDirectory}/${config.dataDirectory}/config.json`, JSON.stringify(json, true, 4), 'UTF-8')
-          document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.profile.name}/100`
-          changePanel("", "home")
-        })
-      }).catch (err => {
-        changePanel("", "login")
-      })
-    }
-  } else {
     changePanel("", "login")
-  }
 })

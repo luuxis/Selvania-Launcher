@@ -15,11 +15,10 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
         auth.loginMicrosoft(res.client_id).then(user => {
             if(document.querySelector(".loginRemember").checked == true){
                 const file = require(`${dataDirectory}/${res.dataDirectory}/config.json`);
-                file.Login.UserConnect = "Microsoft"
-                file.Login.Account = {"Microsoft":{"User": user}} 
+                file.Login[user.uuid] = user
                 fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
             }
-            document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.profile.name}/100`
+            document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${user.name}/100`
             changePanel("login", "home")
         }).catch (err => {
             document.querySelector(".info-login").innerHTML = "&nbsp;"
