@@ -1,6 +1,5 @@
-const { mojang } = require('minecraft-java-core');
-const msmc = require("msmc");
-const fetch = require("node-fetch");
+const { mojang, microsoft } = require('minecraft-java-core');
+const Microsoft = new microsoft();
 
 module.exports.loginMojang = function(username, password){
     return new Promise((resolve, reject) => {
@@ -13,13 +12,10 @@ module.exports.loginMojang = function(username, password){
     })
 }
 
-
-
-module.exports.loginMicrosoft = function(client_id){
+module.exports.loginMicrosoft = function(){
     return new Promise((resolve, reject) => {
-        msmc.setFetch(fetch)
-        msmc.fastLaunch("nwjs").then(user => {
-            module.exports.user = msmc.getMCLC().getAuth(user)
+        Microsoft.getAuth().then(user => {
+            module.exports.user = user
             return resolve(user);
         }).catch(error => {
             return reject (error);
