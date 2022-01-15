@@ -34,10 +34,9 @@ config.config().then(res => {
                     "height": "720"
                 }
             },
-            "Login": [
-                
-            ]
+            "Login": null
         }
+        
         if(!fs.existsSync(`${dataDirectory}/${res.dataDirectory}`)){
             fs.mkdirSync(`${dataDirectory}/${res.dataDirectory}`, { recursive: true })
         }
