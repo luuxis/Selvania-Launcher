@@ -57,6 +57,13 @@ function changePanel(V1, V2){
 
 
 config.config().then(config => {
-  //console.log(`${dataDirectory}/${config.dataDirectory}/config.json`)
-  changePanel("", "login")
+  let file = require(`${dataDirectory}/${config.dataDirectory}/config.json`)
+  let getuser = auth.getUser(file.Login)
+  if(getuser === null){
+    changePanel("", "login")
+  } else {
+    if(getuser){
+    }
+    
+  }
 })

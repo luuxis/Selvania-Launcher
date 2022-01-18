@@ -15,6 +15,7 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
         auth.loginMicrosoft(res.client_id).then(user => {
             if(document.querySelector(".loginRemember").checked == true){
                 const file = require(`${dataDirectory}/${res.dataDirectory}/config.json`);
+                file.select = `${user.uuid}`
                 file.Login[user.uuid] = user
                 fs.writeFileSync(`${dataDirectory}/${res.dataDirectory}/config.json`, JSON.stringify(file, true, 4), 'UTF-8')
             }
