@@ -56,14 +56,27 @@ function changePanel(V1, V2){
 })('login', 'home', 'settings')
 
 
-config.config().then(config => {
-  let file = require(`${dataDirectory}/${config.dataDirectory}/config.json`)
-  let getuser = auth.getUser(file.Login)
-  if(getuser === null){
-    changePanel("", "login")
-  } else {
-    if(getuser){
-    }
+config.config().then(async (config) => {
+  if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/config.json")) {
+    let path = `${dataDirectory}/${config.dataDirectory}/config.json`
+    let file = require(path)
+    let getuser = auth.getUser(file.Login)
     
+    if(getuser === null){
+      changePanel("", "login")
+    } else {
+      for(let user of getuser){
+        if(user.meta.type === "msa") {
+          let msa = await microsoft.refresh(user)
+        } else if(user.meta.type === "mojang") {
+          if(user.meta.offline) continue
+          let mojang = await auth.refreshAuth(user)
+        }
+      }
+      fs.writeFileSync("./AppData/test.json", JSON.stringify(test, true, 2))
+      changePanel("login", "home")
+    }
+  } else {
+    changePanel("", "login")
   }
 })
