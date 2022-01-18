@@ -1,7 +1,7 @@
 const fs = require("fs");
-const { mojang } = require('minecraft-java-core');
+const { mojang, microsoft } = require('minecraft-java-core');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
-const { config } = require('./assets/js/utils.js');
+const { config, auth } = require('./assets/js/utils.js');
 let win = nw.Window.get()
 
 if(process.platform == "win32") {
@@ -57,6 +57,6 @@ function changePanel(V1, V2){
 
 
 config.config().then(config => {
-
-    changePanel("", "login")
+  //console.log(`${dataDirectory}/${config.dataDirectory}/config.json`)
+  changePanel("", "login")
 })

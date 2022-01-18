@@ -1,5 +1,4 @@
 const { mojang, microsoft } = require('minecraft-java-core');
-const Microsoft = new microsoft();
 
 module.exports.loginMojang = function(username, password){
     return new Promise((resolve, reject) => {
@@ -27,7 +26,8 @@ module.exports.getUser = function(id){
     return user
 }
 
-module.exports.loginMicrosoft = function(){
+module.exports.loginMicrosoft = function(id){
+    const Microsoft = new microsoft(id);
     return new Promise((resolve, reject) => {
         Microsoft.getAuth().then(user => {
             module.exports.user = user
