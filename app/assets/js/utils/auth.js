@@ -14,7 +14,7 @@ module.exports.loginMojang = function(username, password){
 module.exports.getUser = function(id){
     let Users = Object.entries(id)
     let user = []
-    if(Users.length < 0 || undefined){
+    if(Users.length === undefined || Users.length === 0){
         return user = null
     }
     for(let [uuid, value] of Users){
