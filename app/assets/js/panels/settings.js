@@ -34,7 +34,7 @@ config.config().then(res => {
                     "height": "720"
                 }
             },
-            "Login": null
+            "Login": {}
         }
         
         if(!fs.existsSync(`${dataDirectory}/${res.dataDirectory}`)){
