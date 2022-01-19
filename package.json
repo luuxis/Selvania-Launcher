@@ -34,7 +34,7 @@
   "license": "CC0",
   "build": {
     "appId": "Uzurion Launcher",
-    "nwVersion": "0.55.0",
+    "nwVersion": "0.60.0",
     "packed": true,
     "targets": [
       "zip",
@@ -82,7 +82,7 @@
     "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
   },
   "dependencies": {
-    "minecraft-java-core": "^1.1.7-rc.3",
+    "minecraft-java-core": "^1.1.7-rc.4",
     "nw-autoupdater-luuxis": "^1.1.6"
   }
 }
