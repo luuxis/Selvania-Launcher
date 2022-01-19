@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { mojang, microsoft } = require('minecraft-java-core');
+const Microsoft = new microsoft()
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const { config, auth } = require('./assets/js/utils.js');
 let win = nw.Window.get()
@@ -57,23 +58,28 @@ function changePanel(V1, V2){
 
 
 config.config().then(async (config) => {
-  if(fs.existsSync(dataDirectory + "/" + config.dataDirectory + "/config.json")) {
-    let path = `${dataDirectory}/${config.dataDirectory}/config.json`
+  let path = `${dataDirectory}/${config.dataDirectory}/config.json`
+  if(fs.existsSync(path)) {
     let file = require(path)
     let getuser = auth.getUser(file.Login)
-    
+
     if(getuser === null){
       changePanel("", "login")
     } else {
+      let allusers = []
       for(let user of getuser){
         if(user.meta.type === "msa") {
-          let msa = await microsoft.refresh(user)
+          let msa = await Microsoft.refresh(user)
+          user[msa.uuid] = msa
         } else if(user.meta.type === "mojang") {
           if(user.meta.offline) continue
           let mojang = await auth.refreshAuth(user)
+          user[mojang.uuid] = mojang
         }
+        allusers.push(user)
       }
-      fs.writeFileSync("./AppData/test.json", JSON.stringify(test, true, 2))
+
+      fs.writeFileSync("./AppData/test.json", JSON.stringify(allusers, true, 4))
       changePanel("login", "home")
     }
   } else {
