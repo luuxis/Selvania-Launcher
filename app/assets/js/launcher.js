@@ -66,20 +66,16 @@ config.config().then(async (config) => {
     if(getuser === null){
       changePanel("", "login")
     } else {
-      let allusers = []
       for(let user of getuser){
         if(user.meta.type === "msa") {
-          let msa = await Microsoft.refresh(user)
-          user[msa.uuid] = msa
+          await Microsoft.refresh(user).then(msa => file.Login[msa.uuid] = msa).catch(error => delete file.Login[user.uuid])
         } else if(user.meta.type === "mojang") {
           if(user.meta.offline) continue
-          let mojang = await auth.refreshAuth(user)
-          user[mojang.uuid] = mojang
+          await auth.refreshAuth(user).then(mojang => file.Login[mojang.uuid] = mojang).catch(error => delete file.Login[user.uuid])
         }
-        allusers.push(user)
       }
 
-      fs.writeFileSync("./AppData/test.json", JSON.stringify(allusers, true, 4))
+      fs.writeFileSync(path, JSON.stringify(file, true, 4))
       changePanel("login", "home")
     }
   } else {
