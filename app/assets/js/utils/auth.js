@@ -39,10 +39,8 @@ module.exports.getUser = function(id){
 }
 
 module.exports.refreshAuth = function(acc){
-    let access_token = acc.access_token;
-    let client_token = acc.client_token;
     return new Promise((resolve, reject) => {
-        mojang.refreshAuth(access_token, client_token).then(user => {
+        mojang.refreshAuth(acc.access_token, acc.client_token).then(user => {
             return resolve(user);
         }).catch(error => {
             return reject (error);
