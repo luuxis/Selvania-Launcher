@@ -68,15 +68,25 @@ config.config().then(async (config) => {
     } else {
       for(let user of getuser){
         if(user.meta.type === "msa") {
-          await Microsoft.refresh(user).then(msa => file.Login[msa.uuid] = msa).catch(error => delete file.Login[user.uuid])
+          await Microsoft.refresh(user).then(msa => file.Login[msa.uuid] = msa).catch(error => {
+            delete file.Login[user.uuid]
+            changePanel("", "login")
+          })
         } else if(user.meta.type === "mojang") {
           if(user.meta.offline) continue
-          await auth.refreshAuth(user).then(mojang => file.Login[mojang.uuid] = mojang).catch(error => delete file.Login[user.uuid])
+          await auth.refreshAuth(user).then(mojang => file.Login[mojang.uuid] = mojang).catch(error => {
+            delete file.Login[user.uuid]
+            changePanel("", "login")
+          })
         }
       }
-
       fs.writeFileSync(path, JSON.stringify(file, true, 4))
-      changePanel("login", "home")
+      if(file.Login[file.select] === undefined) {
+        changePanel("", "login")
+      } else {
+        document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${file.Login[file.select].name}/100`
+        changePanel("login", "home")
+      }
     }
   } else {
     changePanel("", "login")
