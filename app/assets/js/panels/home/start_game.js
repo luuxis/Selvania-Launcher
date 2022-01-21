@@ -19,8 +19,8 @@ document.querySelector(".play-btn").addEventListener("click", () => {
             var url = config.game_url
         }
 
-        if(auth.user == undefined){
-            
+        if(!auth.user){
+            var authenticator = config_launcher.Login[config_launcher.select]       
         } else {
             var authenticator = auth.user
         }
