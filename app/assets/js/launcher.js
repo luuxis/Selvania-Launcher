@@ -81,7 +81,7 @@ config.config().then(async (config) => {
         }
       }
       fs.writeFileSync(path, JSON.stringify(file, true, 4))
-      if(file.Login[file.select] === undefined) {
+      if(!file.Login[file.select] || file.Login[file.select] === "") {
         changePanel("", "login")
       } else {
         document.querySelector(".user-head").src = `https://mc-heads.net/avatar/${file.Login[file.select].name}/100`
