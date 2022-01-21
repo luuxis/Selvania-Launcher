@@ -5,20 +5,20 @@ document.querySelector(".add-account").addEventListener("click", () => {
     changePanel("settings", "login")
 })
 
-config.config().then(res => {
-    let accounts = document.querySelector(".accounts")
-    let path = `${dataDirectory}/${res.dataDirectory}/config.json`
-    const file = require(path)
-    let user = auth.getUser(file.Login)
-    for(let users of user){
-        let account = document.createElement("div")
-        account.classList.add("account")
-        account.innerHTML += `
-            <div class="account-name">${users.name}</div>
-            <div class="account-delete">
-                <button class="account-delete-button">Delete</button>
-            </div>
-        `
-        accounts.appendChild(account)
-    }
-})
+// config.config().then(res => {
+//     let accounts = document.querySelector(".accounts")
+//     let path = `${dataDirectory}/${res.dataDirectory}/config.json`
+//     const file = require(path)
+//     let user = auth.getUser(file.Login)
+//     for(let users of user){
+//         let account = document.createElement("div")
+//         account.classList.add("account")
+//         account.innerHTML += `
+//             <div class="account-name">${users.name}</div>
+//             <div class="account-delete">
+//                 <button class="account-delete-button">Delete</button>
+//             </div>
+//         `
+//         accounts.appendChild(account)
+//     }
+// })
