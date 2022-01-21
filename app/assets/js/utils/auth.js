@@ -3,6 +3,7 @@ const { mojang, microsoft } = require('minecraft-java-core');
 module.exports.loginMojang = function(username, password){
     return new Promise((resolve, reject) => {
         mojang.getAuth(username, password).then(user => {
+            module.exports.user = user
             return resolve(user);
         }).catch(error => {
             return reject (error);
@@ -10,11 +11,11 @@ module.exports.loginMojang = function(username, password){
     })
 }
 
-module.exports.refreshAuth = function(acc){
-    let access_token = acc.access_token;
-    let client_token = acc.client_token;
+module.exports.loginMicrosoft = function(id){
+    const Microsoft = new microsoft(id);
     return new Promise((resolve, reject) => {
-        mojang.refreshAuth(access_token, client_token).then(user => {
+        Microsoft.getAuth().then(user => {
+            module.exports.user = user
             return resolve(user);
         }).catch(error => {
             return reject (error);
@@ -37,13 +38,15 @@ module.exports.getUser = function(id){
     return user
 }
 
-module.exports.loginMicrosoft = function(id){
-    const Microsoft = new microsoft(id);
+module.exports.refreshAuth = function(acc){
+    let access_token = acc.access_token;
+    let client_token = acc.client_token;
     return new Promise((resolve, reject) => {
-        Microsoft.getAuth().then(user => {
+        mojang.refreshAuth(access_token, client_token).then(user => {
             return resolve(user);
         }).catch(error => {
             return reject (error);
         })
     })
 }
+
