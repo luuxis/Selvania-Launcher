@@ -91,4 +91,5 @@ config.config().then(async (config) => {
   } else {
     changePanel("", "login")
   }
+  document.querySelector(".start-loader").style.display = "none"
 })
