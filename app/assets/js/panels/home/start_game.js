@@ -6,7 +6,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? pro
 const { auth, config } = require('./assets/js/utils.js');
 
 
-document.querySelector(".play-btn").addEventListener("click", () => {
+document.querySelector(".play-btn").addEventListener("click", async () => {
     document.querySelector(".play-btn").style.display = "none"
     document.querySelector(".info-download").style.display = "block"
     let info = config.info().then(response => info = response);
