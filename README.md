@@ -1,14 +1,14 @@
-<p align="center"><img src="./app/assets/images/icons/icon.png" width="65%" height="65%" alt="Uzurion"></p>
+<p align="center"><img src="./app/assets/images/icons/icon.png" width="65%" height="65%" alt="Albatros"></p>
 
-<h1 align="center">Uzurion Launcher</h1>
+<h1 align="center">Albatros Launcher</h1>
 
 
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-pre release-orange.svg?style=for-the-badge" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
-[<img src="https://img.shields.io/badge/version-V2.0.4-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
-[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Uzurion-Launcher/releases)
-<img src="https://img.shields.io/github/languages/code-size/luuxis/Uzurion-Launcher"  height="28px" alt="size">
+<img src="https://img.shields.io/badge/build-pre release-orange.svg?style=for-the-badge" alt="build">](https://github.com/luuxis/Albatros-Launcher/releases) 
+[<img src="https://img.shields.io/badge/version-V2.0.4-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Albatros-Launcher/releases) 
+[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=for-the-badge"  height="28px" alt="stark">](https://github.com/luuxis/Albatros-Launcher/releases)
+<img src="https://img.shields.io/github/languages/code-size/luuxis/Albatros-Launcher"  height="28px" alt="size">
 </p>
 
 
@@ -17,8 +17,8 @@
 **Cloner et installer les dépendances**
 
 ```console
-> git clone https://github.com/luuxis/Uzurion-Launcher.git
-> cd Uzurion-Launcher
+> git clone https://github.com/luuxis/Albatros-Launcher.git
+> cd Albatros-Launcher
 > npm install
 ```
 
@@ -73,7 +73,7 @@
 ---
 
 
-[releases]: https://github.com/luuxis/Uzurione-Launcher/releases 'releases'
-[build]: https://github.com/luuxis/Uzurion-Launcher/releases 'build'
+[releases]: https://github.com/luuxis/Albatrose-Launcher/releases 'releases'
+[build]: https://github.com/luuxis/Albatros-Launcher/releases 'build'
 
 

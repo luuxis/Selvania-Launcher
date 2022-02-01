@@ -2,13 +2,13 @@
   "version": "2.0.4",
   "packages": {
     "win64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Uzurion-Launcher-win.zip"
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Albatros-Launcher-win.zip"
     },
     "mac64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Uzurion-Launcher-mac.zip"
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Albatros-Launcher-mac.zip"
     },
     "linux64": {
-      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Uzurion-Launcher-linux.zip"
+      "url": "https://launcher.webincloudy.fr/users/luuxis/launcher/launcher-download/Albatros-Launcher-linux.zip"
     }
   }
 }

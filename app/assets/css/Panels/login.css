@@ -1,4 +1,4 @@
-.uzurionAppGenHeader {
+.AlbatrosAppGenHeader {
   position: relative;
   background-color: black;
   height: 100vh;
@@ -8,7 +8,7 @@
   display: none;
 }
 
-.uzurionAppGenHeader video {
+.AlbatrosAppGenHeader video {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,12 +23,12 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
-.uzurionAppGenHeader .container {
+.AlbatrosAppGenHeader .container {
   position: relative;
   z-index: 2;
 }
 
-.uzurionAppGenHeader .overlay {
+.AlbatrosAppGenHeader .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,37 +39,37 @@
   z-index: 1;
 }
 
-.uzurionAppGenHeader {
+.AlbatrosAppGenHeader {
   background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("../../images/background/wallpaper.jpg") black no-repeat center center scroll;
 }
 
-.uzurionAppGenHeader video {
+.AlbatrosAppGenHeader video {
   display: none;
 }
 
-.uzurionAppLoginLogo {
+.AlbatrosAppLoginLogo {
   width: 30%!important;
   margin-bottom: 50px;
 }
 
-.uzurionAppLoginCard {
+.AlbatrosAppLoginCard {
   width: 460px;
   background-color: #1F2022;
   border: none;
   border-radius: 10px;
 }
 
-.uzurionAppLoginCardInformation {
+.AlbatrosAppLoginCardInformation {
   font-size: 13px;
   color: #F2F2F2;
 }
 
-.uzurionAppLoginCardInformationPassReset {
+.AlbatrosAppLoginCardInformationPassReset {
   font-size: 13px;
   color: #F2F2F2;
 }
 
-.uzurionAppLoginCardLabel {
+.AlbatrosAppLoginCardLabel {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -78,7 +78,7 @@
   margin-bottom: 4px;
 }
 
-.uzurionAppLoginCardInput {
+.AlbatrosAppLoginCardInput {
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
@@ -88,12 +88,12 @@
   border-radius: 30px;
   background-color: #373737;
 }
-.uzurionAppLoginCardInput:disabled {
+.AlbatrosAppLoginCardInput:disabled {
   background-color: #272727;
 }
 
 
-.uzurionAppLoginCardSubmit {
+.AlbatrosAppLoginCardSubmit {
   transition: all 0.25s ease;
   background: linear-gradient(to right bottom, #54f659, #59e860, #5dda65, #61cd6a, #64bf6d);
   padding: 10px 40px;
@@ -103,7 +103,7 @@
   letter-spacing: 2px;
 }
 
-.uzurionAppLoginCardSubmit:hover {
+.AlbatrosAppLoginCardSubmit:hover {
   background-image: linear-gradient(to right bottom, #54f659, #57eb5f, #5be064, #5ed669, #61cb6c);
 }
 

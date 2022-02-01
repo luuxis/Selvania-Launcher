@@ -1,22 +1,22 @@
 const { auth, config } = require('./assets/js/utils.js')
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-document.querySelector(".uzurionAppGenHeader").style.display = "block"
+document.querySelector(".AlbatrosAppGenHeader").style.display = "block"
 
 document.querySelector(".login-btn").addEventListener("click", () => {
     if (document.querySelector(".pseudo").value == ""){
-        document.querySelector(".uzurion-mail").innerHTML = "Entrez votre adresse email / nom d'utilisateur"
+        document.querySelector(".Albatros-mail").innerHTML = "Entrez votre adresse email / nom d'utilisateur"
         return;
     } else if (document.querySelector(".password").value == ""){
-        document.querySelector(".uzurion-password").innerHTML = "Entrez votre mot de passe"
+        document.querySelector(".Albatros-password").innerHTML = "Entrez votre mot de passe"
         return;
     }
 
     document.querySelector(".login-btn").disabled = true
     document.querySelector(".pseudo").disabled = true
     document.querySelector(".password").disabled = true
-    document.querySelector(".uzurion-mail").innerHTML = "&nbsp;"
-    document.querySelector(".uzurion-password").innerHTML = "&nbsp;"
+    document.querySelector(".Albatros-mail").innerHTML = "&nbsp;"
+    document.querySelector(".Albatros-password").innerHTML = "&nbsp;"
     document.querySelector(".info-login").style.color = "white";
     document.querySelector(".info-login").innerHTML = "Connexion en cours..."
     document.querySelector(".info-login").style.display = "block"

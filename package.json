@@ -1,12 +1,12 @@
 {
-  "name": "Uzurion-Launcher",
+  "name": "albatros-launcher",
   "version": "2.0.5",
-  "productName": "Uzurion Launcher",
-  "description": "Uzurion Launcher",
+  "productName": "Albatros Launcher",
+  "description": "Albatros Launcher",
   "main": "app/index.html",
   "author": "Luuxis",
   "window": {
-    "title": "Uzurion update",
+    "title": "Albatros update",
     "width": 400,
     "height": 500,
     "frame": false,
@@ -21,7 +21,7 @@
   "url": "http://146.59.227.140",
   "user": "",
   "webkit": {
-    "plugin": true
+    "plugin": false
   },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
@@ -33,7 +33,7 @@
   },
   "license": "CC0",
   "build": {
-    "appId": "Uzurion Launcher",
+    "appId": "Albatros Launcher",
     "nwVersion": "0.60.0",
     "packed": true,
     "targets": [
@@ -56,16 +56,16 @@
     ],
     "outputPattern": "${NAME}-${PLATFORM}",
     "win": {
-      "productName": "Uzurion Launcher",
-      "companyName": "Uzurion Launcher",
+      "productName": "Albatros Launcher",
+      "companyName": "Albatros Launcher",
       "copyright": "copyright",
       "icon": "./app/assets/images/icons/icon.ico"
     },
     "mac": {
-      "displayName": "Uzurion-Launcher",
+      "displayName": "Albatros-Launcher",
       "copyright": "copyright",
       "plistStrings": {
-        "CFBundleIdentifier": "Uzurion-Launcher"
+        "CFBundleIdentifier": "Albatros-Launcher"
       }
     },
     "nsis": {
@@ -79,7 +79,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
+    "url": "git+https://github.com/luuxis/Albatros-Launcher.git"
   },
   "dependencies": {
     "minecraft-java-core": "^1.1.10",
