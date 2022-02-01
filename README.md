@@ -63,13 +63,10 @@
 ---
 **<p align="center">Configurer votre launcher.</p>**
 
-- [J'ai fait un tuto en video.](https://youtu.be/fiyf_iZNeWE) 
+- [Tuto en video.](https://youtu.be/fiyf_iZNeWE) 
 
 
 
----
-
-[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/X54Qb9em9Y) 
 ---
 
 
