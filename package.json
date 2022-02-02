@@ -21,7 +21,7 @@
   "url": "http://146.59.227.140",
   "user": "",
   "webkit": {
-    "plugin": false
+    "plugin": true
   },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
