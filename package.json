@@ -21,7 +21,7 @@
   "url": "http://146.59.227.140",
   "user": "",
   "webkit": {
-    "plugin": true
+    "plugin": false
   },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
@@ -82,7 +82,7 @@
     "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
   },
   "dependencies": {
-    "minecraft-java-core": "^1.1.10",
+    "minecraft-java-core": "^1.2.0",
     "nw-autoupdater-luuxis": "^1.1.6"
   }
 }
