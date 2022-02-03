@@ -2,6 +2,7 @@ const { config, auth } = require('./assets/js/utils.js');
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 document.querySelector(".add-account").addEventListener("click", () => {
+    document.querySelector(".add-account-cancel").style.display = "block";
     changePanel("settings", "login")
 })
 

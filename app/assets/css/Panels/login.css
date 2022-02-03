@@ -110,7 +110,14 @@
 .microsoft-btn {
   background-color: transparent;
   border: none;
-  cursor: pointer;
+}
+
+.add-account-cancel {
+  right: 5%;
+  top: 82%;
+  position: absolute;
+  background-color: transparent;
+  border: none;
 }
 
 .loginSpanDim {

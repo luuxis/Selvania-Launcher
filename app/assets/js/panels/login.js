@@ -11,3 +11,7 @@ config.isonline().then(online => {
     import ("./login/crack.js")
   }
 })
+
+document.querySelector(".add-account-cancel").addEventListener("click", () => {
+  changePanel("login", "settings")
+})
