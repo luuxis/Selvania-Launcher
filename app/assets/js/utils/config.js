@@ -43,13 +43,3 @@ function getNews() {
         })
     })
 }
-
-module.exports.isonline = function isonline() {
-    return new Promise((resolve, reject) => {
-        getData().then(config => {
-            return resolve(config.offline)
-        }).catch(error => {
-            return reject(error);
-        })
-    })
-}

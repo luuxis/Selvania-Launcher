@@ -1,7 +1,7 @@
 const { config } = require('./assets/js/utils.js');
 
-config.isonline().then(online => {
-  if (online) {
+config.config().then(config => {
+  if (config.online) {
     console.log(`Initializing microsoft Panel...`)
     import ("./login/microsoft.js")
     console.log(`Initializing mojang Panel...`)
