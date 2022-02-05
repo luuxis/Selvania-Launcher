@@ -1,7 +1,7 @@
 {
-  "maintenance": "off",
+  "maintenance": false,
   "maintenance_message": "Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.",
-  "offline": "off",
+  "offline": false,
   "client_id": "",
   "game_version": "1.0",
   "custom": false,

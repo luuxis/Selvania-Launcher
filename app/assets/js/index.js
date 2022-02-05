@@ -39,10 +39,8 @@ async function maintenanceCheck(){
   nw.App.clearCache();
   if(Dev) return startLauncher();  
   config.config().then(res => {
-    if ((res.maintenance) == "on"){
-      return shutdown(res.maintenance_message);
-    }
-    checkUpdate();
+    if (res.maintenance) return shutdown(res.maintenance_message);
+    else checkUpdate();
   }).catch( err => {
     console.log("impossible de charger le config.json");
     console.log(err);
