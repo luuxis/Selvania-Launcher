@@ -3,7 +3,7 @@
 	 background-color: #000000;
 	 font-family: "Poppins";
 	 letter-spacing: 0px;
-	 -webkit-user-select: none;
+	 user-select: none;
 }
  .splash {
 	 position: absolute;

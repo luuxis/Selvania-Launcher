@@ -3,11 +3,11 @@
   "maintenance_message": "Le server est en maintenance.<br>Merci de bien vouloir essayer ultérieurement.",
   "online": true,
   "client_id": "",
-  "game_version": "1.0",
-  "custom": false,
-  "verify": false,
+  "game_version": "1.16.5",
+  "custom": true,
+  "verify": true,
   "java": true,
   "game_args": [],
-  "dataDirectory": ".minecraft",
+  "dataDirectory": ".albatros",
   "ignored": ["config.json"]
 }
