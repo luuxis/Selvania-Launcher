@@ -2,8 +2,6 @@
 
 <h1 align="center">Uzurion Launcher</h1>
 
-
-
 [<p align="center">
 <img src="https://img.shields.io/badge/build-pre release-orange.svg?style=for-the-badge" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
 [<img src="https://img.shields.io/badge/version-V2.0.4-orange.svg?style=for-the-badge" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
@@ -65,11 +63,9 @@
 
 - [J'ai fait un tuto en video.](https://youtu.be/fiyf_iZNeWE) 
 
-
-
 ---
 
-[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/X54Qb9em9Y) 
+[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
 ---
 
 
