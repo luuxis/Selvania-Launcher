@@ -19,7 +19,6 @@
 > cd Uzurion-Launcher
 > npm install
 ```
-
 ---
 
 **Lancer l'application**
