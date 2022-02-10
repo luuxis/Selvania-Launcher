@@ -67,7 +67,6 @@
 [<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
 ---
 
-
 [releases]: https://github.com/luuxis/Uzurione-Launcher/releases 'releases'
 [build]: https://github.com/luuxis/Uzurion-Launcher/releases 'build'
 
