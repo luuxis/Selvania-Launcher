@@ -1,5 +1,4 @@
 const {launch} = require('minecraft-java-core');
-const launcher = new launch();
 const pkg = require('../package.json');
 const win = nw.Window.get();
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
@@ -48,24 +47,24 @@ document.querySelector(".play-btn").addEventListener("click", async () => {
             }
         }
 
-        launcher.launch(opts);
+        launch.launch(opts);
         
-        launcher.on('progress', (DL, totDL) => {
+        launch.on('progress', (DL, totDL) => {
             document.querySelector(".progress-bar").style.display = "block"
             document.querySelector(".info-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
             document.querySelector(".progress-bar").value = DL;
             document.querySelector(".progress-bar").max = totDL;
         });
         
-        launcher.on('speed', (speed) => {
+        launch.on('speed', (speed) => {
             console.log(`${(speed / 1067008).toFixed(2)} Mb/s`)
         })
 
-        launcher.on('check', (e) => {
+        launch.on('check', (e) => {
             document.querySelector(".info-download").innerHTML = `Vérification`
         })
         
-        launcher.on('data', (e) => {
+        launch.on('data', (e) => {
             console.log(e)
             if(config_launcher.Launcher.CloseLauncher === true){
                 win.hide();
@@ -73,7 +72,7 @@ document.querySelector(".play-btn").addEventListener("click", async () => {
             document.querySelector(".info-download").innerHTML = `Démarrage du jeu en cours`
         })
         
-        launcher.on('close', (e) => {
+        launch.on('close', (e) => {
             if(config_launcher.Launcher.CloseLauncher === true){
                 win.show();
                 win.focus();
