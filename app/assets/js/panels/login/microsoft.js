@@ -13,6 +13,14 @@ document.querySelector(".microsoft-btn").addEventListener("click", () => {
     document.querySelector(".info-login").style.display = "block"
     config.config().then(res => {
         auth.loginMicrosoft(res.client_id).then(user => {
+            if (!user) {
+                document.querySelector(".info-login").innerHTML = "&nbsp;"
+                document.querySelector(".login-btn").disabled = false
+                document.querySelector(".microsoft-btn").disabled = false
+                document.querySelector(".pseudo").disabled = false
+                document.querySelector(".password").disabled = false
+                return
+            }
             if(document.querySelector(".loginRemember").checked == true){
                 const file = require(`${dataDirectory}/${res.dataDirectory}/config.json`);
                 file.select = `${user.uuid}`
