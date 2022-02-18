@@ -41,7 +41,10 @@
       "nsis7z"
     ],
     "strippedProperties": [
-      "build"
+      "build",
+      "scripts",
+      "engines",
+      ""
     ],
     "excludes": [
       ".gitignore",
