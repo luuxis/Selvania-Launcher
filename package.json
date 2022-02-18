@@ -44,7 +44,7 @@
       "build",
       "scripts",
       "engines",
-      ""
+      "devDependencies"
     ],
     "excludes": [
       ".gitignore",
