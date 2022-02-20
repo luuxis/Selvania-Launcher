@@ -49,7 +49,7 @@ function changePanel(V1, V2){
     console.log(`Initializing ${panel} Panel...`)
     let div = document.createElement("div")
     div.classList.add("panel", panel)
-    div.innerHTML = fs.readFileSync(`app/panels/${panel}.html`, "utf8")
+    div.innerHTML = fs.readFileSync(`src/panels/${panel}.html`, "utf8")
     panelsElem.appendChild(div);
     import (`./panels/${panel}.js`)
   }

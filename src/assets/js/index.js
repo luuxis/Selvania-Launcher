@@ -73,7 +73,7 @@ async function checkUpdate(){
   
 function startLauncher(){
   setStatus(`Démarrage du launcher`);
-  nw.Window.open("app/launcher.html", {
+  nw.Window.open("src/launcher.html", {
     "title": pkg.productName,
     "width": 1280,
     "height": 720,
@@ -81,7 +81,7 @@ function startLauncher(){
     "min_height": 552,
     "frame": (process.platform == "win32") ? false : true,
     "position": "center",
-    "icon": "app/assets/images/icons/icon.png"
+    "icon": "src/assets/images/icons/icon.png"
   });
   win.close();
 }

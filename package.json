@@ -3,7 +3,7 @@
   "version": "2.0.5",
   "productName": "Uzurion Launcher",
   "description": "Launcher Mincraft custom (crack, premium)",
-  "main": "app/index.html",
+  "main": "src/index.html",
   "author": "Luuxis",
   "window": {
     "title": "Uzurion update",
@@ -12,7 +12,7 @@
     "frame": false,
     "resizable": false,
     "position": "center",
-    "icon": "app/assets/images/icons/icon.png"
+    "icon": "src/assets/images/icons/icon.png"
   },
   "engines": {
     "node": "16.x.x"
@@ -64,7 +64,7 @@
       "productName": "Uzurion Launcher",
       "companyName": "Uzurion Launcher",
       "copyright": "copyright",
-      "icon": "./app/assets/images/icons/icon.ico"
+      "icon": "./src/assets/images/icons/icon.ico"
     },
     "mac": {
       "displayName": "Uzurion-Launcher",
