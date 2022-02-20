@@ -2,7 +2,7 @@
   "name": "Uzurion-Launcher",
   "version": "2.0.5",
   "productName": "Uzurion Launcher",
-  "description": "Uzurion Launcher",
+  "description": "Launcher Mincraft custom (crack, premium)",
   "main": "app/index.html",
   "author": "Luuxis",
   "window": {
@@ -41,10 +41,12 @@
       "nsis7z"
     ],
     "strippedProperties": [
-      "build",
-      "scripts",
+      "description",
       "engines",
+      "scripts",
+      "build",
       "devDependencies"
+      
     ],
     "excludes": [
       ".gitignore",
@@ -81,12 +83,12 @@
     "nodemon": "^2.0.15",
     "nwjs-builder-luuxis": "^1.15.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
-  },
   "dependencies": {
     "minecraft-java-core": "^1.3.0",
     "nw-autoupdater-luuxis": "^1.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
   }
 }
