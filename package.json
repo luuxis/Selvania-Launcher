@@ -25,9 +25,10 @@
   },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
-    "build:win": "npm install && build --win --x64 --mirror https://dl.nwjs.io/ .",
-    "build:mac": "npm install && build --mac --x64 --mirror https://dl.nwjs.io/ .",
-    "build:linux": "npm install && build --linux --x64 --mirror https://dl.nwjs.io/ .",
+    "obf": "npm install",
+    "build:win": "npm run obf && build --win --x64 --mirror https://dl.nwjs.io/ .",
+    "build:mac": "npm run obf && build --mac --x64 --mirror https://dl.nwjs.io/ .",
+    "build:linux": "npm run obf && build --linux --x64 --mirror https://dl.nwjs.io/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win",
     "dev": "nodemon --exec npm start"
   },
