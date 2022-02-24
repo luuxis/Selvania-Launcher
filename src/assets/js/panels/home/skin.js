@@ -1,1 +1,0 @@
-const { skin } = require('minecraft-java-core');
