@@ -27,7 +27,7 @@ document.querySelector(".play-btn").addEventListener("click", async () => {
         
         let opts = {
             url: url,
-            authorization: authenticator,
+            authenticator: authenticator,
             path: `${dataDirectory}/${config.dataDirectory}`,
             version: config.game_version,
             detached: true,
