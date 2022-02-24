@@ -1,6 +1,7 @@
 @import "font.css";
 @import "Panels/login.css";
 @import "Panels/home.css";
+@import "Panels/skin.css";
 @import "Panels/settings.css";
 
 body {
