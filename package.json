@@ -25,10 +25,9 @@
   },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
-    "obf": "npm install",
-    "build:win": "npm run obf && build --win --x64 --mirror https://dl.nwjs.io/ .",
-    "build:mac": "npm run obf && build --mac --x64 --mirror https://dl.nwjs.io/ .",
-    "build:linux": "npm run obf && build --linux --x64 --mirror https://dl.nwjs.io/ .",
+    "build:win": "build --win --x64 --mirror https://dl.nwjs.io/ .",
+    "build:mac": "build --mac --x64 --mirror https://dl.nwjs.io/ .",
+    "build:linux": "build --linux --x64 --mirror https://dl.nwjs.io/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win",
     "dev": "nodemon --exec npm start"
   },
@@ -79,7 +78,6 @@
     }
   },
   "devDependencies": {
-    "javascript-obfuscator": "^4.0.0",
     "nodemon": "^2.0.15",
     "nwjs-builder-luuxis": "^1.15.0"
   },
