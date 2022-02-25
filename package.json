@@ -52,18 +52,30 @@
       "nodemon.json",
       "tool.bat",
       "web/**",
+      "src/**",
       "AppData/**",
       "node-v*/**",
-      "test/**",
       "package-lock.json",
       "README.md"
     ],
+    "overriddenProperties": {
+      "main": "app/index.html",
+      "window": {
+        "title": "Uzurion update",
+        "width": 400,
+        "height": 500,
+        "frame": false,
+        "resizable": false,
+        "position": "center",
+        "icon": "app/assets/images/icons/icon.png"
+      }
+    },
     "outputPattern": "${NAME}-${PLATFORM}",
     "win": {
       "productName": "Uzurion Launcher",
       "companyName": "Uzurion Launcher",
       "copyright": "copyright",
-      "icon": "./src/assets/images/icons/icon.ico"
+      "icon": "src/assets/images/icons/icon.ico"
     },
     "mac": {
       "displayName": "Uzurion-Launcher",

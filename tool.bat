@@ -29,11 +29,11 @@ echo "mac":    build launcher MACos
 echo "linux":  build launcher linux
 echo "all":    build launcher all platform
 set /P c=enter your choice: 
-if /I "%c%" EQU "node" cls && cmd
+if /I "%c%" EQU "node"  cls && cmd
 if /I "%c%" EQU "start" cls && npm install && npm start
-if /I "%c%" EQU "win" cls && npm install && npm run build:win
-if /I "%c%" EQU "mac" cls && npm install && npm run build:mac
+if /I "%c%" EQU "win"   cls && npm install && npm run build:win
+if /I "%c%" EQU "mac"   cls && npm install && npm run build:mac
 if /I "%c%" EQU "linux" cls && npm install && npm run build:linux
-if /I "%c%" EQU "all" cls && npm install && npm run build:all
+if /I "%c%" EQU "all"   cls && npm install && npm run build:all
 goto :launch
 
