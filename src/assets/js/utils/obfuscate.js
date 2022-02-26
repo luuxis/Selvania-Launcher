@@ -45,6 +45,7 @@ class Index {
 
     Obfuscate(){
         for(let i of this.Fileslist){
+            if(i.split("/").pop() === 'obfuscate.js')continue
             if(i.split("/").pop().split(".").pop() == "js"){
                 let file = i.split("/");
                 let path = "";
@@ -52,13 +53,14 @@ class Index {
                     file[1] = 'app'
                     path += `${file[i]}/`;
                 }
-                let confuser = new JsConfuser({
-                    source: fs.readFileSync(`${path}${file[file.length - 1]}`, 'utf8'),
-                    seed: Math.random() * 1000000,
-                    obfuscate: true,
-                    compress: true
+                console.log(`Obfuscate ${path}${file[file.length - 1]}`);
+                let code = fs.readFileSync(i, "utf8");
+                JsConfuser.obfuscate(code, {
+                    target: "node",
+                    preset: "medium",
+                }).then((obfuscated) => {
+                    fs.writeFileSync(`${path}${file[file.length - 1]}`, obfuscated, { encoding: "utf-8" });
                 });
-                fs.writeFileSync(`${path}${file[file.length - 1]}`, confuser.obfuscate());
             }
         }
     }
