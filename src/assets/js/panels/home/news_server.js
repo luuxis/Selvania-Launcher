@@ -34,8 +34,3 @@ config.news().then(config => {
     }
   }
 })
-
-
-
-
-

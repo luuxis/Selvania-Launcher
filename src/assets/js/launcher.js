@@ -66,7 +66,7 @@ config.config().then(async (config) => {
       changePanel("", "login")
     } else {
       for(let user of getuser){
-        if(user.meta.type === "msa") {
+        if(user.meta.type === "Xbox") {
           await new microsoft(config.client_id).refresh(user).then(msa => file.Login[msa.uuid] = msa).catch(error => {
             delete file.Login[user.uuid]
             changePanel("", "login")
