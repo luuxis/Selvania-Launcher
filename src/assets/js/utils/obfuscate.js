@@ -55,6 +55,7 @@ class Index {
                 }
                 console.log(`Obfuscate ${path}${file[file.length - 1]}`);
                 let code = fs.readFileSync(i, "utf8");
+                code = code.replace(/src\//g, 'app/');
                 JsConfuser.obfuscate(code, {
                     target: "node",
                     preset: "medium",
@@ -82,15 +83,3 @@ class Index {
 }
 
 new Index();
-
-
-// // Read the file's code
-// const file = (fs.readFileSync("./src/assets/js/index.js", "utf-8").replace('src/', "app/")).replace('src/', "app/");
-
-// // Obfuscate the code
-// JsConfuser.obfuscate(file, {
-//   target: "node",
-//   preset: "medium",
-// }).then((obfuscated) => {
-//   fs.writeFileSync("./index.js", obfuscated, { encoding: "utf-8" });
-// });
