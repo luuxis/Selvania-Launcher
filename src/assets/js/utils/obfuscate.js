@@ -1,12 +1,11 @@
 'use strict';
 const JavaScriptObfuscator = require('javascript-obfuscator');
 const fs = require("fs");
-let obf
 
 class Index {
     constructor(){
         process.argv.forEach(val => {
-            if(val.startsWith('--obf'))obf=val.split('=')[1]
+            if(val.startsWith('--obf')) this.obf = val.split('=')[1]
         });
         this.Fileslist = this.getFiles("./src");
         this.CleanFiles();
@@ -49,7 +48,7 @@ class Index {
 
     async Obfuscate(){
         for(let i of this.Fileslist){
-            if(i.split("/").pop() === 'obfuscate.js')continue
+            if(i.split("/").pop() === 'obfuscate.js') continue
             if(i.split("/").pop().split(".").pop() == "js"){
                 let file = i.split("/");
                 let path = "";
@@ -59,7 +58,7 @@ class Index {
                 }
                 let code = fs.readFileSync(i, "utf8");
                 code = code.replace(/src\//g, 'app/');
-                if(obf === 'true'){
+                if(this.obf === 'true'){
                     await new Promise((resolve) => {
                         console.log(`Obfuscate ${path}${file[file.length - 1]}`);
                         var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset:'medium-obfuscation'});
