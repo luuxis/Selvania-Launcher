@@ -25,10 +25,11 @@
   },
   "scripts": {
     "start": "run --64 --mirror https://dl.nwjs.io/ .",
-    "build:win": "build --win --x64 --mirror https://dl.nwjs.io/ .",
-    "build:mac": "build --mac --x64 --mirror https://dl.nwjs.io/ .",
-    "build:linux": "build --linux --x64 --mirror https://dl.nwjs.io/ .",
+    "build:win": "npm run clean && build --win --x64 --mirror https://dl.nwjs.io/ .",
+    "build:mac": "npm run clean && build --mac --x64 --mirror https://dl.nwjs.io/ .",
+    "build:linux": "npm run clean && build --linux --x64 --mirror https://dl.nwjs.io/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win",
+    "clean": "node obfuscate",
     "dev": "nodemon --exec npm start"
   },
   "license": "CC0",
@@ -53,6 +54,7 @@
       "tool.bat",
       "web/**",
       "src/**",
+      "obfuscate.js",
       "AppData/**",
       "node-v*/**",
       "package-lock.json",
@@ -94,6 +96,7 @@
     "nwjs-builder-luuxis": "^1.15.0"
   },
   "dependencies": {
+    "js-confuser": "^1.4.2",
     "minecraft-java-core": "^1.3.4",
     "node-fetch": "^2.6.7",
     "nw-autoupdater-luuxis": "^1.1.6"
