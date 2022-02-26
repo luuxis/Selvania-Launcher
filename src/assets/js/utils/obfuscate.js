@@ -1,9 +1,13 @@
 'use strict';
 const JavaScriptObfuscator = require('javascript-obfuscator');
 const fs = require("fs");
+let obf
 
 class Index {
     constructor(){
+        process.argv.forEach(val => {
+            if(val.startsWith('--obf'))obf=val.split('=')[1]
+        });
         this.Fileslist = this.getFiles("./src");
         this.CleanFiles();
         this.CreateFolders();
@@ -53,13 +57,17 @@ class Index {
                     file[1] = 'app'
                     path += `${file[i]}/`;
                 }
-                console.log(`Obfuscate ${path}${file[file.length - 1]}`);
                 let code = fs.readFileSync(i, "utf8");
                 code = code.replace(/src\//g, 'app/');
-                await new Promise((resolve) => {
-                    var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset: 'medium-obfuscation'});
-                    resolve(fs.writeFileSync(`${path}${file[file.length - 1]}`, obf.getObfuscatedCode(), { encoding: "utf-8" }));
-                })
+                if(obf === 'true'){
+                    await new Promise((resolve) => {
+                        console.log(`Obfuscate ${path}${file[file.length - 1]}`);
+                        var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset:'medium-obfuscation'});
+                        resolve(fs.writeFileSync(`${path}${file[file.length-1]}`, obf.getObfuscatedCode(), {encoding: "utf-8"}));
+                    })
+                } else {
+                    fs.writeFileSync(`${path}${file[file.length-1]}`, code, {encoding: "utf-8"});
+                }
             }
         }
     }
