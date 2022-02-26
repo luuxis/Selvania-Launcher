@@ -5,8 +5,16 @@ const fs = require("fs");
 class Index {
     constructor(){
         this.Fileslist = this.getFiles("./src");
+        this.CleanFiles();
         this.CreateFolders();
         this.coppyFiles();
+        this.Obfuscate();
+    }
+
+    CleanFiles(){
+        if(fs.existsSync("./app")){
+            fs.rmSync("./app", {recursive: true});
+        }
     }
 
     CreateFolders(){
@@ -31,6 +39,26 @@ class Index {
                     path += `${file[i]}/`;
                 }
                 fs.copyFileSync(i, `${path}${file[file.length - 1]}`);
+            }
+        }
+    }
+
+    Obfuscate(){
+        for(let i of this.Fileslist){
+            if(i.split("/").pop().split(".").pop() == "js"){
+                let file = i.split("/");
+                let path = "";
+                for(let i = 0; i < file.length - 1; i++){
+                    file[1] = 'app'
+                    path += `${file[i]}/`;
+                }
+                let confuser = new JsConfuser({
+                    source: fs.readFileSync(`${path}${file[file.length - 1]}`, 'utf8'),
+                    seed: Math.random() * 1000000,
+                    obfuscate: true,
+                    compress: true
+                });
+                fs.writeFileSync(`${path}${file[file.length - 1]}`, confuser.obfuscate());
             }
         }
     }
