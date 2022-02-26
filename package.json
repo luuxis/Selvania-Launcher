@@ -29,7 +29,7 @@
     "build:mac": "npm run clean && build --mac --x64 --mirror https://dl.nwjs.io/ .",
     "build:linux": "npm run clean && build --linux --x64 --mirror https://dl.nwjs.io/ .",
     "build:all": "npm run build:linux && npm run build:mac && npm run build:win",
-    "clean": "node obfuscate",
+    "clean": "node src/assets/js/utils/obfuscate.js",
     "dev": "nodemon --exec npm start"
   },
   "license": "CC0",
