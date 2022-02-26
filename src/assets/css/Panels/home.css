@@ -16,6 +16,7 @@
     height: auto;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .user-head:hover {
