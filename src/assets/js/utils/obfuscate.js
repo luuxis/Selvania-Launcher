@@ -4,8 +4,9 @@ const fs = require("fs");
 
 class Index {
     constructor(){
+        this.obf = true
         process.argv.forEach(val => {
-            if(val.startsWith('--obf')) this.obf = val.split('=')[1]
+            if(val.startsWith('--obf')) this.obf = JSON.parse(val.split('=')[1])
         });
         this.Fileslist = this.getFiles("./src");
         this.CleanFiles();
@@ -58,7 +59,7 @@ class Index {
                 }
                 let code = fs.readFileSync(i, "utf8");
                 code = code.replace(/src\//g, 'app/');
-                if(this.obf === 'true'){
+                if(this.obf){
                     await new Promise((resolve) => {
                         console.log(`Obfuscate ${path}${file[file.length - 1]}`);
                         var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset:'medium-obfuscation'});
