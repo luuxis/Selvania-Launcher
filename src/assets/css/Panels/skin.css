@@ -1,0 +1,26 @@
+.container-skin {
+    display: flex;
+    margin: 30px;
+    color: aliceblue;
+
+}
+
+.btn-cancel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 35px 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background: url('../../images/logo/back.png') no-repeat center;
+    background-size: 50px;
+    cursor: pointer;
+}
+
+.vertical-line {
+    border-left: 2px solid rgb(255, 255, 255);
+    display: inline-block;
+    height: 130px;
+    margin: 0 20px;
+}
