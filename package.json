@@ -54,7 +54,6 @@
       "tool.bat",
       "web/**",
       "src/**",
-      "obfuscate.js",
       "AppData/**",
       "node-v*/**",
       "package-lock.json",
