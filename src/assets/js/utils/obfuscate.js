@@ -1,5 +1,5 @@
 'use strict';
-const JsConfuser = require("js-confuser");
+const JavaScriptObfuscator = require('javascript-obfuscator');
 const fs = require("fs");
 
 class Index {
@@ -43,7 +43,7 @@ class Index {
         }
     }
 
-    Obfuscate(){
+    async Obfuscate(){
         for(let i of this.Fileslist){
             if(i.split("/").pop() === 'obfuscate.js')continue
             if(i.split("/").pop().split(".").pop() == "js"){
@@ -56,12 +56,23 @@ class Index {
                 console.log(`Obfuscate ${path}${file[file.length - 1]}`);
                 let code = fs.readFileSync(i, "utf8");
                 code = code.replace(/src\//g, 'app/');
-                JsConfuser.obfuscate(code, {
-                    target: "node",
-                    preset: "medium",
-                }).then((obfuscated) => {
-                    fs.writeFileSync(`${path}${file[file.length - 1]}`, obfuscated, { encoding: "utf-8" });
-                });
+
+                await new Promise((resolve) => {
+                    var obf = JavaScriptObfuscator.obfuscate(
+                        code,
+                        {
+                            compact: false,
+                            controlFlowFlattening: true,
+                            controlFlowFlatteningThreshold: 1,
+                            numbersToExpressions: true,
+                            simplify: true,
+                            stringArrayShuffle: true,
+                            splitStrings: true,
+                            stringArrayThreshold: 1
+                        }
+                    );
+                    resolve(fs.writeFileSync(`${path}${file[file.length - 1]}`, obf.getObfuscatedCode(), { encoding: "utf-8" }));
+                })
             }
         }
     }

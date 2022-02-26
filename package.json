@@ -92,7 +92,7 @@
     }
   },
   "devDependencies": {
-    "js-confuser": "^1.4.2",
+    "javascript-obfuscator": "^4.0.0",
     "nodemon": "^2.0.15",
     "nwjs-builder-luuxis": "^1.15.0"
   },
