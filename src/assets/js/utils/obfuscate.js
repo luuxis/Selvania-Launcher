@@ -56,21 +56,8 @@ class Index {
                 console.log(`Obfuscate ${path}${file[file.length - 1]}`);
                 let code = fs.readFileSync(i, "utf8");
                 code = code.replace(/src\//g, 'app/');
-
                 await new Promise((resolve) => {
-                    var obf = JavaScriptObfuscator.obfuscate(
-                        code,
-                        {
-                            compact: false,
-                            controlFlowFlattening: true,
-                            controlFlowFlatteningThreshold: 1,
-                            numbersToExpressions: true,
-                            simplify: true,
-                            stringArrayShuffle: true,
-                            splitStrings: true,
-                            stringArrayThreshold: 1
-                        }
-                    );
+                    var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset: 'medium-obfuscation'});
                     resolve(fs.writeFileSync(`${path}${file[file.length - 1]}`, obf.getObfuscatedCode(), { encoding: "utf-8" }));
                 })
             }
