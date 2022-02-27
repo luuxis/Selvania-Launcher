@@ -62,7 +62,7 @@ class Index {
                 if(this.obf){
                     await new Promise((resolve) => {
                         console.log(`Obfuscate ${path}${file[file.length - 1]}`);
-                        var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset:'medium-obfuscation'});
+                        var obf = JavaScriptObfuscator.obfuscate(code,{optionsPreset:'low-obfuscation'});
                         resolve(fs.writeFileSync(`${path}${file[file.length-1]}`, obf.getObfuscatedCode(), {encoding: "utf-8"}));
                     })
                 } else {
@@ -87,5 +87,4 @@ class Index {
         return file;
     }
 }
-
 new Index();
