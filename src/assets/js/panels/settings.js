@@ -34,7 +34,9 @@ config.config().then(res => {
                     "height": "720"
                 }
             },
-            "Login": {}
+            "Login": {},
+            "select": null,
+            "Skins": []
         }
         
         if(!fs.existsSync(`${dataDirectory}/${res.dataDirectory}`)){
