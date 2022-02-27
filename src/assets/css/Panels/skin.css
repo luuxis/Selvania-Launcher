@@ -26,6 +26,11 @@
     height: 100vh;
 
 }
+.drage-skin {
+    height: 70vh;
+    width: 40vh;
+    margin: 5vh 10vh;
+}
 
 .vertical-line {
     border-left: 0.5vh solid #64bf6d;
