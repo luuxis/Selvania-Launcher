@@ -2,7 +2,6 @@
     display: flex;
     margin: 30px;
     color: aliceblue;
-
 }
 
 .btn-cancel {
@@ -19,12 +18,15 @@
     cursor: pointer;
 }
 
+.title-skin {
+    padding-bottom: 2vh;
+}
+
 .left-skin {
     width: 60vh;
     font-size: 5vh;
     text-align: center;
     height: 100vh;
-
 }
 .drage-skin {
     height: 70vh;
@@ -45,5 +47,18 @@
     font-size: 5vh;
     text-align: center;
     height: 100vh;
+}
 
+.btn-add-skin {
+    background-color: #64bf6d;
+    cursor: pointer;
+}
+
+.card-skin {
+    width: 20vh;
+    height: 40vh;
+    border-radius: 5px;
+    color: aliceblue;
+    display: inline-block;
+    background-color: none;
 }
