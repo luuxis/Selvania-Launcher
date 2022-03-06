@@ -3,11 +3,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    height: 75%;
-    background-color: red;
-    transition: background-color .2s, opacity .2s;
+    width: 90%;
+    height: 80%;
+    background: #121212;
+    transition: 0.2s;
     padding: 20px;
-    border-radius: 10px;
-    display: none;
+    font: normal normal bold 19px/29px Poppins;
+    text-align: center;
+    color: #E1E1E1;
+    border-radius: 20px;
+    opacity: 0;
+    overflow: auto;
 }
