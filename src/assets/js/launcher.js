@@ -14,26 +14,19 @@ class Launcher {
     }
 
     initLog() {
-        window.logger = {
-            launcher: new Logger("Launcher", "#FF7F18"),
-            minecraft: new Logger("Minecraft", "#43B581")
-        }
         let logs = document.querySelector(".log-console");
         let block = false;
         document.addEventListener("keydown", (e) => {
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || event.keyCode == 123 && !Dev) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73 && Dev) {
                 if (block === true) {
-                    logs.style.display = "none";
+                    logs.style.opacity = 0;
                     block = false;
                 } else {
-                    logs.style.display = "block";
+                    logs.style.opacity = 1;
                     block = true;
                 }
             }
         })
-
-        window.console = window.logger.launcher
-        console.log("Logger initialized.")
     }
 
     initFrame() {

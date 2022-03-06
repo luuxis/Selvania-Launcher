@@ -1,6 +1,12 @@
 @import "font.css";
 @import "log.css";
 
+body {
+    background: #222424;
+    margin: 0;
+    padding: 0;
+}
+
 .dragbar {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
