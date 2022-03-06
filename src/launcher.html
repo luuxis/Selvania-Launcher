@@ -1,17 +1,19 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="assets/css/launcher.css">
-  </head>
-  <body class="hide">
-    <div class="dragbar"></div>
-    <div class="frame">
-      <div id="minimize" class="button-frame icon-minimize"></div>
-      <div id="maximize" class="button-frame icon-maximize"></div>
-      <div id="close" class="button-frame icon-close"></div>
-    </div>
-    <div id="panels"></div>
-    <script src="assets/js/launcher.js"></script> 
-  </body>
+    <head>
+        <meta charset="UTF-8" http-equiv="Content-Security-Policy" content="script-src 'self' 'wasm-eval'; object-src 'self'">
+        <link rel="stylesheet" href="assets/css/launcher.css">
+    </head>
+    <body class="hide">
+        <div class="dragbar"></div>
+        <div class="frame">
+            <div id="minimize" class="button-frame icon-minimize"></div>
+            <div id="maximize" class="button-frame icon-maximize"></div>
+            <div id="close" class="button-frame icon-close"></div>
+        </div>
+        <div class="log-console">
+            
+        </div>
+        <div id="panels"></div>
+        <script src="assets/js/launcher.js" type="module"></script>
+    </body>
 </html>
