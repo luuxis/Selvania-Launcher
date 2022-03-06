@@ -1,0 +1,13 @@
+.log-console {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 75%;
+    background-color: red;
+    transition: background-color .2s, opacity .2s;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
