@@ -15,9 +15,10 @@ class Launcher {
 
     initLog() {
         let logs = document.querySelector(".log-console");
+        let logs_content = document.querySelector(".log-console-content");
         let block = false;
         document.addEventListener("keydown", (e) => {
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 73 && Dev) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
                 if (block === true) {
                     logs.style.opacity = 0;
                     block = false;
@@ -27,9 +28,16 @@ class Launcher {
                 }
             }
         })
+        var logBak = console.log;
+
+        console.log = (value) => {
+            logs_content.innerHTML += `${value}<br>`;
+            logBak.call(console, value);
+        };
     }
 
     initFrame() {
+        console.log("Initializing Frame...")
         document.querySelector(".frame").classList.toggle("hide")
         document.querySelector(".dragbar").classList.toggle("hide")
 
