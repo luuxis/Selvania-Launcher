@@ -22,7 +22,7 @@ class Splash {
         this.splashAuthor = document.querySelector(".splash-author");
         this.message = document.querySelector(".message");
         this.progress = document.querySelector("progress");
-        document.addEventListener('DOMContentLoaded', () => { this.startAnimation() });
+        document.addEventListener('DOMContentLoaded', () => this.startAnimation());
     }
 
     async startAnimation() {
