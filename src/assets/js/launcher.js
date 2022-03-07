@@ -55,37 +55,35 @@ class Launcher {
     }
 
     Logger(name, color, logs_content) {
-
         let console_log = console.log;
         console.log = (value) => {
-            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span>${value}</span></p>`;
             console_log.call(console, `%c[${name}]:`, `color: ${color};`, value);
         };
 
         let console_info = console.info;
         console.info = (value) => {
-            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span>${value}</span></p>`;
             console_info.call(console, `%c[${name}]:`, `color: ${color};`, value);
         };
 
         let console_warn = console.warn;
         console.warn = (value) => {
-            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span>${value}</span></p>`;
             console_warn.call(console, `%c[${name}]:`, `color: ${color};`, value);
         };
 
         let console_debug = console.debug;
         console.debug = (value) => {
-            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span>${value}</span></p>`;
             console_debug.call(console, `%c[${name}]:`, `color: ${color};`, value);
         };
 
         let console_error = console.error;
         console.error = (value) => {
-            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span>${value}</span></p>`;
             console_error.call(console, `%c[${name}]:`, `color: ${color};`, value);
         };
-
         // #36b030
     }
 }
