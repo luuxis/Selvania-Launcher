@@ -1,11 +1,7 @@
 const pkg = require("../../../../package.json");
 const fetch = require("node-fetch")
-let url
-if (!pkg.user) {
-    url = pkg.url
-} else {
-    url = pkg.url + "/" + pkg.user
-}
+
+let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 const config = url + "/launcher/config-launcher/config.json";
 
 module.exports.config = getData;
