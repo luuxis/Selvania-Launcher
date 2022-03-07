@@ -9,9 +9,26 @@
     transition: 0.2s;
     padding: 20px;
     font: normal normal bold 19px/29px Poppins;
-    text-align: center;
     color: #E1E1E1;
     border-radius: 20px;
-    opacity: 0;
     overflow: auto;
+    display: none;
+}
+
+.title-log {
+    text-align: center;
+}
+
+.log-console-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    background: #1a1a1a;
+    text-align: left;
+    border-radius: inherit;
+    padding: 0.7em 1em;
+    margin: 0.5em 0;
 }

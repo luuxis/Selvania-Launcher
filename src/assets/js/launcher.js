@@ -1,7 +1,6 @@
 'use strict';
 
 // libs 
-const { Logger } = require('./assets/js/utils.js');
 
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
@@ -20,20 +19,15 @@ class Launcher {
         document.addEventListener("keydown", (e) => {
             if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
                 if (block === true) {
-                    logs.style.opacity = 0;
+                    logs.style.display = "none";
                     block = false;
                 } else {
-                    logs.style.opacity = 1;
+                    logs.style.display = "block";
                     block = true;
                 }
             }
         })
-        var logBak = console.log;
-
-        console.log = (value) => {
-            logs_content.innerHTML += `${value}<br>`;
-            logBak.call(console, value);
-        };
+        this.Logger('Launcher', '#7289da', logs_content);
     }
 
     initFrame() {
@@ -58,6 +52,41 @@ class Launcher {
         document.querySelector("#close").addEventListener("click", () => {
             win.close();
         })
+    }
+
+    Logger(name, color, logs_content) {
+
+        let console_log = console.log;
+        console.log = (value) => {
+            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            console_log.call(console, `%c[${name}]:`, `color: ${color};`, value);
+        };
+
+        let console_info = console.info;
+        console.info = (value) => {
+            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            console_info.call(console, `%c[${name}]:`, `color: ${color};`, value);
+        };
+
+        let console_warn = console.warn;
+        console.warn = (value) => {
+            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            console_warn.call(console, `%c[${name}]:`, `color: ${color};`, value);
+        };
+
+        let console_debug = console.debug;
+        console.debug = (value) => {
+            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            console_debug.call(console, `%c[${name}]:`, `color: ${color};`, value);
+        };
+
+        let console_error = console.error;
+        console.error = (value) => {
+            logs_content.innerHTML += `[${name}]: ${value}<br>`;
+            console_error.call(console, `%c[${name}]:`, `color: ${color};`, value);
+        };
+
+        // #36b030
     }
 }
 
