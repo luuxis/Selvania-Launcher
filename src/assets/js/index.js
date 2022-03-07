@@ -4,14 +4,9 @@ const pkg = require("../package.json");
 const { config } = require('./assets/js/utils.js');
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
-let url
-if (!pkg.user) {
-    url = pkg.url
-} else {
-    url = pkg.url + "/" + pkg.user
-}
-
+let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 const manifestUrl = url + "/launcher/package.json";
+
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
