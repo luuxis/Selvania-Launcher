@@ -1,6 +1,5 @@
 @import "font.css";
 @import "log.css";
-
 body {
     background: #222424;
     margin: 0;
@@ -18,7 +17,6 @@ body {
     z-index: 9;
     display: none;
 }
-
 
 .frame {
     background: transparent;
@@ -49,17 +47,29 @@ body {
     background: #e21212;
 }
 
-.icon-minimize:hover, .icon-restore-down:hover, .icon-maximize:hover{
+.icon-minimize:hover,
+.icon-restore-down:hover,
+.icon-maximize:hover {
     background-color: #0000009d;
 }
 
-
-.icon-close:before, .icon-minimize:before, .icon-maximize:before ,.icon-restore-down:before {
+.icon-close:before,
+.icon-minimize:before,
+.icon-maximize:before,
+.icon-restore-down:before {
     position: absolute;
     top: 6px;
     left: 8px;
     width: 14px;
     height: 14px;
     font-size: 14px;
-    color:#f8f9f9;
+    color: #f8f9f9;
+}
+
+.panels {
+    display: none;
+}
+
+.active {
+    display: block;
 }
