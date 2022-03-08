@@ -58,7 +58,8 @@ class Launcher {
 
     changePanel(id) {
         let panel = document.querySelector(`.${id}`);
-        document.querySelector(`.active`).classList.toggle("active");
+        let active = document.querySelector(`.active`)
+        if(active) active.classList.toggle("active");
         panel.classList.add("active");
     }
 
@@ -67,7 +68,6 @@ class Launcher {
         for (let panel of panels) {
             console.log(`Initializing ${panel} Panel...`)
             let div = document.createElement("div")
-            if (panel === "login") div.classList.add("active");
             div.classList.add("panel", panel)
             div.innerHTML = fs.readFileSync(`src/panels/${panel}.html`, "utf8")
             panelsElem.appendChild(div);
