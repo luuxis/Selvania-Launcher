@@ -1,6 +1,7 @@
 'use strict';
 
 // libs 
+const fs = require('fs');
 
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
@@ -10,6 +11,7 @@ class Launcher {
         this.initLog();
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
+        this.createPanels("login", "home", "settings");
     }
 
     initLog() {
@@ -17,17 +19,17 @@ class Launcher {
         let logs_content = document.querySelector(".log-console-content");
         let block = false;
         document.addEventListener("keydown", (e) => {
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
-                if (block === true) {
-                    logs.style.display = "none";
-                    block = false;
-                } else {
-                    logs.style.display = "block";
-                    block = true;
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
+                    if (block === true) {
+                        logs.style.display = "none";
+                        block = false;
+                    } else {
+                        logs.style.display = "block";
+                        block = true;
+                    }
                 }
-            }
-        })
-        this.Logger('Launcher', '#7289da', logs_content);
+            })
+            this.Logger('Launcher', '#7289da', logs_content);
     }
 
     initFrame() {
@@ -52,6 +54,25 @@ class Launcher {
         document.querySelector("#close").addEventListener("click", () => {
             win.close();
         })
+    }
+
+    changePanel(id) {
+        let panel = document.querySelector(`.${id}`);
+        document.querySelector(`.active`).classList.toggle("active");
+        panel.classList.add("active");
+    }
+
+    createPanels(...panels) {
+        let panelsElem = document.querySelector(".panels")
+        for (let panel of panels) {
+            console.log(`Initializing ${panel} Panel...`)
+            let div = document.createElement("div")
+            if (panel === "login") div.classList.add("active");
+            div.classList.add("panel", panel)
+            div.innerHTML = fs.readFileSync(`src/panels/${panel}.html`, "utf8")
+            panelsElem.appendChild(div);
+            import (`./panels/${panel}.js`)
+        }
     }
 
     Logger(name, color, logs_content) {
