@@ -19,17 +19,17 @@ class Launcher {
         let logs_content = document.querySelector(".log-console-content");
         let block = false;
         document.addEventListener("keydown", (e) => {
-                if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
-                    if (block === true) {
-                        logs.style.display = "none";
-                        block = false;
-                    } else {
-                        logs.style.display = "block";
-                        block = true;
-                    }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
+                if (block === true) {
+                    logs.style.display = "none";
+                    block = false;
+                } else {
+                    logs.style.display = "block";
+                    block = true;
                 }
-            })
-            this.Logger('Launcher', '#7289da', logs_content);
+            }
+        })
+        this.Logger('Launcher', '#7289da', logs_content);
     }
 
     initFrame() {
@@ -59,7 +59,7 @@ class Launcher {
     changePanel(id) {
         let panel = document.querySelector(`.${id}`);
         let active = document.querySelector(`.active`)
-        if(active) active.classList.toggle("active");
+        if (active) active.classList.toggle("active");
         panel.classList.add("active");
     }
 
