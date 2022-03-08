@@ -1,5 +1,6 @@
 @import "font.css";
 @import "log.css";
+
 body {
     background: #222424;
     margin: 0;
@@ -66,7 +67,7 @@ body {
     color: #f8f9f9;
 }
 
-.panels {
+.panel {
     display: none;
 }
 
