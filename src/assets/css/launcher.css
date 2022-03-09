@@ -1,5 +1,4 @@
 @import "font.css";
-@import "log.css";
 
 body {
     margin: 0;
@@ -100,6 +99,22 @@ body {
     border-radius: 10px;
     padding: 0.7em 1em;
     margin: 0.5em 0;
+}
+
+.console-log, .console-info {
+    color: #E1E1E1;
+}
+
+.console-warn {
+    color: #f46800;
+}
+
+.console-debug {
+    color: #3dacee;
+}
+
+.console-error {
+    color: #a30000;
 }
 
 .log-console-content::-webkit-scrollbar {
