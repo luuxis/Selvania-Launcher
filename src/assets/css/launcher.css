@@ -1,4 +1,5 @@
 @import "font.css";
+@import "panels/login.css";
 
 body {
     margin: 0;
@@ -79,6 +80,7 @@ body {
     font: normal normal bold 19px/29px Poppins;
     color: #E1E1E1;
     border-radius: 15px;
+    z-index: 11;
     display: none;
 }
 
