@@ -1,6 +1,6 @@
 .log-console {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
@@ -10,7 +10,7 @@
     padding: 20px;
     font: normal normal bold 19px/29px Poppins;
     color: #E1E1E1;
-    border-radius: 20px;
+    border-radius: 15px;
     display: none;
 }
 
@@ -28,24 +28,25 @@
     height: 80%;
     background: #1a1a1a;
     text-align: left;
-    border-radius: inherit;
+    border-radius: 10px;
     padding: 0.7em 1em;
     margin: 0.5em 0;
 }
 
 .log-console-content::-webkit-scrollbar {
-    border-radius: 10px;
-    width: 5px;
+    width: 15px;
+    width: 15px;
 }
 
 .log-console-content::-webkit-scrollbar-track {
-    background: none;
+    display: none;
 }
 
 .log-console-content::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #5b5b5b;
+    border-radius: 15px;
 }
 
 .log-console-content::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #33643b;
 }
