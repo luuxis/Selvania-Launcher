@@ -2,9 +2,9 @@
 @import "log.css";
 
 body {
-    background: #222424;
     margin: 0;
     padding: 0;
+    background: #1b1b1b;
 }
 
 .dragbar {
@@ -65,6 +65,54 @@ body {
     height: 14px;
     font-size: 14px;
     color: #f8f9f9;
+}
+
+.log-console {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    background: #121212;
+    transition: 0.2s;
+    padding: 20px;
+    font: normal normal bold 19px/29px Poppins;
+    color: #E1E1E1;
+    border-radius: 15px;
+    display: none;
+}
+
+.title-log {
+    text-align: center;
+}
+
+.log-console-content {
+    position: absolute;
+    top: 50%;
+    overflow: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    background: #1a1a1a;
+    text-align: left;
+    border-radius: 10px;
+    padding: 0.7em 1em;
+    margin: 0.5em 0;
+}
+
+.log-console-content::-webkit-scrollbar {
+    width: 15px;
+}
+
+.log-console-content::-webkit-scrollbar-thumb {
+    background: #5b5b5b;
+    border-radius: 15px;
+}
+
+.log-console-content::-webkit-scrollbar-thumb:hover {
+    background: #33643b;
 }
 
 .panel {
