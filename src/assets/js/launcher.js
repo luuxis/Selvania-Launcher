@@ -2,6 +2,7 @@
 
 // libs 
 const fs = require('fs');
+import { database } from './utils.js';
 
 import Login from './panels/login.js';
 import Home from './panels/home.js';
@@ -16,6 +17,7 @@ class Launcher {
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
         this.createPanels(Login, Home, Settings)
+        database.init()
     }
 
     initLog() {
