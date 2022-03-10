@@ -140,13 +140,44 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.preload-progress {
-    width: 100px;
-    height: 100px;
+.dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-left: 12px;
+    background: #ffffff;
     border-radius: 50%;
-    border: 10px solid transparent;
-    border-top-color: #3dacee;
-    animation: preload-progress 2s linear infinite;
+    transform: translateX(0);
+    animation: dot 2.8s infinite;
+}
+
+.dots {
+    transform: translateX(0);
+    margin-top: 12px;
+    margin-left: 31px;
+    animation: dots 2.8s infinite;
+}
+
+.dots span {
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-left: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+@keyframes dot {
+    50% {
+        transform: translateX(96px);
+    }
+}
+
+@keyframes dots {
+    50% {
+        transform: translateX(-31px);
+    }
 }
 
 .preload-title {
@@ -154,15 +185,6 @@ body {
     color: #E1E1E1;
     text-align: center;
     margin: 2em 0;
-}
-
-@keyframes preload-progress {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 .panel {
