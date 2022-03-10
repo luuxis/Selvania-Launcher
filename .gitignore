@@ -1,5 +1,6 @@
 # Generated
 /node_modules/
+test.js
 app
 /package-lock.json
 /dist/
