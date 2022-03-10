@@ -135,9 +135,16 @@ body {
 
 .preload-content {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.preload-progress {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 127px;
 }
 
 .dot {
@@ -145,6 +152,7 @@ body {
     width: 16px;
     height: 16px;
     margin-left: 12px;
+    margin-top: 12px;
     background: #ffffff;
     border-radius: 50%;
     transform: translateX(0);
