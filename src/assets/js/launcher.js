@@ -16,7 +16,6 @@ class Launcher {
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
         this.createPanels(Login, Home, Settings)
-        this.changePanel("login");
     }
 
     initLog() {
