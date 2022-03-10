@@ -1,6 +1,5 @@
 @import "font.css";
 @import "panels/login.css";
-
 body {
     margin: 0;
     padding: 0;
@@ -104,7 +103,8 @@ body {
     margin: 0.5em 0;
 }
 
-.console-log, .console-info {
+.console-log,
+.console-info {
     color: #E1E1E1;
 }
 
@@ -131,6 +131,38 @@ body {
 
 .log-console-content::-webkit-scrollbar-thumb:hover {
     background: #33643b;
+}
+
+.preload-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.preload-progress {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid transparent;
+    border-top-color: #3dacee;
+    animation: preload-progress 2s linear infinite;
+}
+
+.preload-title {
+    font: normal normal bold 30px/40px Poppins;
+    color: #E1E1E1;
+    text-align: center;
+    margin: 2em 0;
+}
+
+@keyframes preload-progress {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .panel {
