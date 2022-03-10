@@ -1,7 +1,7 @@
 'use strict';
 const AutoUpdater = require("nw-autoupdater-luuxis");
 const pkg = require("../package.json");
-const { config } = require('./assets/js/utils.js');
+import { config } from './utils.js';
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
