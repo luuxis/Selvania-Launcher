@@ -3,15 +3,20 @@
 // libs 
 const fs = require('fs');
 
+import Login from './panels/login.js';
+import Home from './panels/home.js';
+import Settings from './panels/settings.js';
+
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
 class Launcher {
-    constructor() {
+    init() {
         this.initLog();
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
-        this.createPanels("login", "home", "settings");
+        this.createPanels(Login, Home, Settings)
+        this.changePanel("login");
     }
 
     initLog() {
@@ -67,12 +72,12 @@ class Launcher {
     createPanels(...panels) {
         let panelsElem = document.querySelector(".panels")
         for (let panel of panels) {
-            console.log(`Initializing ${panel} Panel...`)
-            let div = document.createElement("div")
-            div.classList.add("panel", panel)
-            div.innerHTML = fs.readFileSync(`src/panels/${panel}.html`, "utf8")
+            console.log(`Initializing ${panel.name} Panel...`);
+            let div = document.createElement("div");
+            div.classList.add("panel", panel.id)
+            div.innerHTML = fs.readFileSync(`src/panels/${panel.id}.html`, "utf8");
             panelsElem.appendChild(div);
-            import (`./panels/${panel}.js`)
+            new panel().init();
         }
     }
 
@@ -109,4 +114,6 @@ class Launcher {
     }
 }
 
-new Launcher();
+export default new Launcher;
+
+new Launcher().init();
