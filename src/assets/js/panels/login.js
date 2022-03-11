@@ -1,12 +1,13 @@
 'use strict';
 
-import { config } from '../utils.js';
+import { config, database } from '../utils.js';
 
 const { microsoft, mojang } = require('minecraft-java-core');
 
 class Login {
     static id = "login";
-    init() {
+    async init() {
+        this.database = await new database().init();
         this.link();
         config.config().then(res => {
             if (!res.online) this.online()
@@ -17,7 +18,7 @@ class Login {
             document.querySelector(".login-card-mojang").style.display = "block";
         })
     }
-    
+
     online() {
         this.loginmojang();
         this.loginmicrosoft();
