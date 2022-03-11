@@ -31,8 +31,9 @@ class database {
 
     get(uuid, type) {
         let store = this.getStore(type);
+        let uuidKey = this.genKey(uuid);
         return new Promise((resolve) => {
-            let get = store.get(uuid);
+            let get = store.get(uuidKey);
             get.onsuccess = (event) => {
                 resolve(event.target.result);
             }
