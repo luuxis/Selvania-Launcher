@@ -8,6 +8,7 @@ class Login {
     static id = "login";
     async init() {
         this.database = await new database().init();
+
         this.link();
         config.config().then(res => {
             if (!res.online) this.online()
@@ -39,7 +40,30 @@ class Login {
     }
 
     loginmojang() {}
-    loginmicrosoft() {}
+    loginmicrosoft() {
+        document.querySelector(".microsoft").addEventListener("click", () => {
+            new microsoft().getAuth().then(user => {
+                this.database.add({
+                    access_token: user.access_token,
+                    client_token: user.client_token,
+                    uuid: user.uuid,
+                    name: user.name,
+                    refresh_token: user.refresh_token,
+                    user_properties: user.user_properties,
+                    meta: {
+                        type: user.meta.type,
+                        demo: user.meta.demo
+                    }
+                }, 'accounts')
+
+                this.database.add({
+                    uuid: user.uuid,
+                    skins: user.profile.skins,
+                    cape: user.profile.capes
+                }, 'profile')
+            })
+        })
+    }
     loginoffline() {}
 }
 
