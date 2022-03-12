@@ -35,7 +35,7 @@
     "license": "CC0",
     "build": {
         "appId": "Uzurion Launcher",
-        "nwVersion": "0.60.0",
+        "nwVersion": "0.62.0",
         "packed": true,
         "targets": [
             "zip",
