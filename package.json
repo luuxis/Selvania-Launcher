@@ -25,10 +25,10 @@
     },
     "scripts": {
         "start": "run --64 --mirror https://dl.nwjs.io/ .",
-        "build:win": "npm run clean && build --win --x64 --mirror https://dl.nwjs.io/ .",
-        "build:mac": "npm run clean && build --mac --x64 --mirror https://dl.nwjs.io/ .",
-        "build:linux": "npm run clean && build --linux --x64 --mirror https://dl.nwjs.io/ .",
-        "build:all": "npm run build:linux && npm run build:mac && npm run build:win",
+        "build:win": "npm run clean && build --tasks win-x86,win-x64 --mirror https://dl.nwjs.io/ .",
+        "build:mac": "npm run clean && build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
+        "build:linux": "npm run clean && build --tasks linux-x86,linux-x64 --mirror https://dl.nwjs.io/ .",
+        "build:all": "npm run clean && build --tasks win-x86,win-x64,linux-x86,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
         "clean": "node src/assets/js/utils/obfuscate.js --obf=true",
         "dev": "nodemon --exec npm start"
     },
@@ -37,6 +37,7 @@
         "appId": "Uzurion Launcher",
         "nwVersion": "0.62.0",
         "packed": true,
+        "args":["--user-data-dir=./AppData/launcher data"],
         "targets": [
             "zip",
             "nsis7z"
@@ -71,7 +72,7 @@
                 "icon": "app/assets/images/icons/icon.png"
             }
         },
-        "outputPattern": "${NAME}-${PLATFORM}",
+        "outputPattern": "${NAME}-${PLATFORM}-${ARCH}",
         "win": {
             "productName": "Uzurion Launcher",
             "companyName": "Uzurion Launcher",
@@ -97,7 +98,7 @@
     "devDependencies": {
         "javascript-obfuscator": "^4.0.0",
         "nodemon": "^2.0.15",
-        "nwjs-builder-luuxis": "^1.15.0"
+        "nwjs-builder-luuxis": "^2.0.0"
     },
     "dependencies": {
         "minecraft-java-core": "^1.3.5",
