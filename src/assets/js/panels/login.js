@@ -47,7 +47,7 @@ class Login {
     loginmicrosoft() {
         document.querySelector(".microsoft").addEventListener("click", () => {
             new microsoft().getAuth().then(user => {
-                if (user === null || user === undefined || !user) return;
+                if (!user) return;
 
                 this.database.add({
                     access_token: user.access_token,
