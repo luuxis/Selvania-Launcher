@@ -3,6 +3,7 @@ body {
     background-color: #000000;
     font-family: "Poppins";
     letter-spacing: 0px;
+    -webkit-app-region: drag;
     -webkit-user-select: none;
 }
 
