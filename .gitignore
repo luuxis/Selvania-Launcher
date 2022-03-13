@@ -1,8 +1,0 @@
-# Generated
-/node_modules/
-app
-/package-lock.json
-/dist/
-node-v*
-AppData
-web/files/files
