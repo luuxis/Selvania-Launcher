@@ -2,15 +2,17 @@
 
 // libs 
 const fs = require('fs');
+import { logger } from './utils.js';
 
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
 
+
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
-class Launcher {
+export default class Launcher {
     init() {
         this.initLog();
         console.log("Initializing Launcher...");
@@ -33,8 +35,8 @@ class Launcher {
                 }
             }
         })
-        this.Logger('Launcher', '#7289da', logs_content);
-        // this.Logger('Minecraft', '#36b030', logs_content);
+        new logger('Launcher', '#7289da', logs_content)
+            // new logger('Minecraft', '#36b030', logs_content);
     }
 
     initFrame() {
@@ -79,40 +81,7 @@ class Launcher {
             new panel().init();
         }
     }
-
-    Logger(name, color, logs_content) {
-        let console_log = console.log;
-        console.log = (value) => {
-            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span class="console-log">${value}</span></p>`;
-            console_log.call(console, `%c[${name}]:`, `color: ${color};`, value);
-        };
-
-        let console_info = console.info;
-        console.info = (value) => {
-            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span class="console-info">${value}</span></p>`;
-            console_info.call(console, `%c[${name}]:`, `color: ${color};`, value);
-        };
-
-        let console_warn = console.warn;
-        console.warn = (value) => {
-            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span class="console-warn">${value}</span></p>`;
-            console_warn.call(console, `%c[${name}]:`, `color: ${color};`, value);
-        };
-
-        let console_debug = console.debug;
-        console.debug = (value) => {
-            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span class="console-debug">${value}</span></p>`;
-            console_debug.call(console, `%c[${name}]:`, `color: ${color};`, value);
-        };
-
-        let console_error = console.error;
-        console.error = (value) => {
-            logs_content.innerHTML += `<p><span style="color:${color};">[${name}]: </span><span class="console-error">${value}</span></p>`;
-            console_error.call(console, `%c[${name}]:`, `color: ${color};`, value);
-        };
-    }
 }
 
-export default new Launcher;
 
 new Launcher().init();
