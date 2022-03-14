@@ -62,14 +62,7 @@ export default class Launcher {
             win.close();
         })
     }
-
-    changePanel(id) {
-        let panel = document.querySelector(`.${id}`);
-        let active = document.querySelector(`.active`)
-        if (active) active.classList.toggle("active");
-        panel.classList.add("active");
-    }
-
+    
     createPanels(...panels) {
         let panelsElem = document.querySelector(".panels")
         for (let panel of panels) {
@@ -80,6 +73,13 @@ export default class Launcher {
             panelsElem.appendChild(div);
             new panel().init(this.config);
         }
+    }
+
+    changePanel(id) {
+        let panel = document.querySelector(`.${id}`);
+        let active = document.querySelector(`.active`)
+        if (active) active.classList.toggle("active");
+        panel.classList.add("active");
     }
 }
 
