@@ -9,22 +9,9 @@ class Login {
     async init(config) {
         this.config = config
         this.database = await new database().init();
-        
         if (this.config.online) this.online()
         else this.offline()
-
-
-        document.querySelector(".mojang").addEventListener("click", () => {
-            document.querySelector(".login-card").style.display = "none";
-            document.querySelector(".login-card-mojang").style.display = "block";
-        })
-
-        document.querySelector(".store").addEventListener("click", () => {
-            nw.Shell.openExternal("https://www.minecraft.net/store/minecraft-java-edition")
-        })
-        document.querySelector(".loginSpanDim").addEventListener("click", () => {
-            nw.Shell.openExternal("https://www.minecraft.net/password/forgot")
-        })
+        this.InitBtn();
     }
 
     online() {
@@ -72,6 +59,21 @@ class Login {
         })
     }
     loginoffline() {}
+
+    InitBtn() {
+        document.querySelector(".mojang").addEventListener("click", () => {
+            document.querySelector(".login-card").style.display = "none";
+            document.querySelector(".login-card-mojang").style.display = "block";
+        })
+
+        document.querySelector(".store").addEventListener("click", () => {
+            nw.Shell.openExternal("https://www.minecraft.net/store/minecraft-java-edition")
+        })
+        document.querySelector(".loginSpanDim").addEventListener("click", () => {
+            nw.Shell.openExternal("https://www.minecraft.net/password/forgot")
+        })
+    }
+
 }
 
 export default Login;
