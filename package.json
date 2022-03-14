@@ -37,11 +37,8 @@
         "appId": "Uzurion Launcher",
         "nwVersion": "0.62.0",
         "packed": true,
-        "args":["--user-data-dir=./AppData/launcher data"],
-        "targets": [
-            "zip",
-            "nsis7z"
-        ],
+        "args": ["--user-data-dir=./AppData/launcher data"],
+        "targets": ["zip", "nsis7z"],
         "strippedProperties": [
             "description",
             "engines",
