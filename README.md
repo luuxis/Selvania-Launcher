@@ -17,6 +17,7 @@
 ```console
 > git clone https://github.com/luuxis/Uzurion-Launcher.git
 > cd Uzurion-Launcher
+(si linux) > sudo apt install -y libatomic1
 > npm install
 ```
 ---
