@@ -10,7 +10,9 @@ function dirToArray($dir) {
             $hash = hash_file('sha1', $dir . "/" . $value);
             $size = filesize($dir . "/" . $value);
             $path = str_replace("files/", "", $dir . "/" . $value);
+            $path = str_replace("\\", "/", $path);
             $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $dir . "/" . $value;
+            $url = str_replace("\\", "/", $url);
             if (strpos($path, "libraries") !== false) {
                $type = "LIBRARY";
             } else if (strpos($path, "mods") !== false) {
