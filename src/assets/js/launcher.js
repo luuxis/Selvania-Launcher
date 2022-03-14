@@ -2,7 +2,7 @@
 
 // libs 
 const fs = require('fs');
-import { logger } from './utils.js';
+import { config, logger } from './utils.js';
 
 import Login from './panels/login.js';
 import Home from './panels/home.js';
@@ -13,16 +13,17 @@ let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
 export default class Launcher {
-    init() {
+    async init() {
         this.initLog();
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
+        this.config = await config.config().then(res => res);;
         this.createPanels(Login, Home, Settings)
+        this.changePanel("login")
     }
 
     initLog() {
         let logs = document.querySelector(".log-console");
-        let logs_content = document.querySelector(".log-content");
         let block = false;
         document.addEventListener("keydown", (e) => {
             if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
@@ -35,8 +36,7 @@ export default class Launcher {
                 }
             }
         })
-        new logger('Launcher', '#7289da', logs_content)
-            // new logger('Minecraft', '#36b030', logs_content);
+        new logger('Launcher', '#7289da', document.querySelector(".log-content"))
     }
 
     initFrame() {
@@ -78,10 +78,9 @@ export default class Launcher {
             div.classList.add("panel", panel.id)
             div.innerHTML = fs.readFileSync(`src/panels/${panel.id}.html`, "utf8");
             panelsElem.appendChild(div);
-            new panel().init();
+            new panel().init(this.config);
         }
     }
 }
-
 
 new Launcher().init();

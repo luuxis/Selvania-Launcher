@@ -1,5 +1,6 @@
 @import "font.css";
 @import "panels/login.css";
+@import "panels/home.css";
 body {
     margin: 0;
     padding: 0;
