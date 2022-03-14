@@ -1,16 +1,15 @@
 'use strict';
 
-import { config, database } from '../utils.js';
-
+import { database } from '../utils.js';
+import launcher from "../launcher.js";
 const { microsoft, mojang } = require('minecraft-java-core');
 
 class Login {
     static id = "login";
-    async init() {
+    async init(config) {
+        this.config = config
         this.database = await new database().init();
-        this.config = await config.config().then(res => res);
-
-
+        
         if (this.config.online) this.online()
         else this.offline()
 
@@ -67,6 +66,8 @@ class Login {
                     skins: user.profile.skins,
                     cape: user.profile.cape
                 }, 'profile')
+
+                new launcher().changePanel("home");
             })
         })
     }
