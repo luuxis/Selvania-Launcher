@@ -85,6 +85,7 @@
         },
         "nsis": {
             "installDirectory": "$LOCALAPPDATA\\Programs\\${_COMPANYNAME}",
+            "icon": "src\\assets\\images\\icons\\icon.ico",
             "diffUpdaters": false
         }
     },
