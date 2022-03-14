@@ -8,9 +8,7 @@ class Home {
     static id = "home";
     init(config) {
         this.config = config
-
         this.launch()
-
     }
 
     async launch() {
