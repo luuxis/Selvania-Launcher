@@ -1,18 +1,19 @@
 'use strict';
 
-import { logger } from '../utils.js';
+import { logger, database } from '../utils.js';
 
 const { launch, mojang } = require('minecraft-java-core');
 
 class Home {
     static id = "home";
-    init(config) {
+    async init(config) {
         this.config = config
+        this.database = await new database().init();
         this.launch()
     }
 
     async launch() {
-        let mc = await mojang.getAuth('luuxis')
+        let mc = (await this.database.getAll('accounts'))[0].value;
         document.querySelector(".play-btn").addEventListener("click", () => {            
             let opts = {
                 url: "http://launcher.selvania.fr/luuxis",
