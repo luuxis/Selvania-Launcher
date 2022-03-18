@@ -2,7 +2,7 @@
 
 // libs 
 const fs = require('fs');
-import { config, logger } from './utils.js';
+import { config, logger, changePanel } from './utils.js';
 
 import Login from './panels/login.js';
 import Home from './panels/home.js';
@@ -12,14 +12,14 @@ import Settings from './panels/settings.js';
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
-export default class Launcher {
+class Launcher {
     async init() {
         this.initLog();
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
-        this.config = await config.config().then(res => res);;
-        this.createPanels(Login, Home, Settings)
-        this.changePanel("login")
+        this.config = await config.config().then(res => res);
+        this.createPanels(Login, Home, Settings);
+        changePanel("login");
     }
 
     initLog() {
@@ -73,13 +73,6 @@ export default class Launcher {
             panelsElem.appendChild(div);
             new panel().init(this.config);
         }
-    }
-
-    changePanel(id) {
-        let panel = document.querySelector(`.${id}`);
-        let active = document.querySelector(`.active`)
-        if (active) active.classList.toggle("active");
-        panel.classList.add("active");
     }
 }
 
