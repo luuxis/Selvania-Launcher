@@ -1,7 +1,6 @@
 'use strict';
 
-import { database } from '../utils.js';
-import launcher from "../launcher.js";
+import { database, changePanel } from '../utils.js';
 const { microsoft, mojang } = require('minecraft-java-core');
 
 class Login {
@@ -54,7 +53,7 @@ class Login {
                     cape: user.profile.cape
                 }, 'profile')
 
-                new launcher().changePanel("home");
+                changePanel("home");
             })
         })
     }

@@ -5,5 +5,13 @@ import logger from './utils/logger.js';
 export {
     config as config,
     database as database,
-    logger as logger
+    logger as logger,
+    changePanel as changePanel
+}
+
+function changePanel(id) {
+    let panel = document.querySelector(`.${id}`);
+    let active = document.querySelector(`.active`)
+    if (active) active.classList.toggle("active");
+    panel.classList.add("active");
 }
