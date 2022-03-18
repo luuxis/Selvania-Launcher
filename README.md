@@ -1,4 +1,4 @@
-<p align="center"><img src="./src/assets/images/icons/icon.png" width="65%" height="65%" alt="Uzurion"></p>
+<p align="center"><img src="./src/assets/images/icon.png" width="65%" height="65%" alt="Uzurion"></p>
 
 <h1 align="center">Uzurion Launcher</h1>
 

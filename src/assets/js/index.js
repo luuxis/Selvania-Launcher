@@ -86,7 +86,7 @@ class Splash {
             "min_height": 552,
             "frame": (process.platform == "win32") ? false : true,
             "position": "center",
-            "icon": "src/assets/images/icons/icon.png"
+            "icon": "src/assets/images/icon.png"
         });
         win.close();
     }
