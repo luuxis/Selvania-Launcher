@@ -13,7 +13,7 @@ class Home {
     }
 
     async launch() {
-        let mc = (await this.database.getAll('accounts'))[0].value;
+        let mc = (await this.database.getAll('accounts'))[0]?.value;
         document.querySelector(".play-btn").addEventListener("click", () => {            
             let opts = {
                 url: "http://launcher.selvania.fr/luuxis",
