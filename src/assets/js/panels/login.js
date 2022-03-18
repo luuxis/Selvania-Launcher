@@ -66,6 +66,11 @@ class Login {
             document.querySelector(".login-card-mojang").style.display = "block";
         })
 
+        document.querySelector(".cancel-mojang").addEventListener("click", () => {
+            document.querySelector(".login-card").style.display = "block";
+            document.querySelector(".login-card-mojang").style.display = "none";
+        })
+
         document.querySelector(".store").addEventListener("click", () => {
             nw.Shell.openExternal("https://www.minecraft.net/store/minecraft-java-edition")
         })
