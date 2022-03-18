@@ -19,6 +19,26 @@
     text-align: center;
 }
 
+.login-type {
+    display: grid;
+    padding: 0 7%;
+}
+
+.btn-login {
+    border-radius: 15px;
+    border: none;
+    margin: 2% 0;
+    height: 2em;
+    background-color: #00bd7a;
+    color: #121212;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #006e47;
+}
+
 .login-card-mojang {
     position: absolute;
     top: 52%;
