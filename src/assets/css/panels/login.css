@@ -10,7 +10,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 35%;
-    height: 30%;
+    height: 32%;
     background: #121212;
     padding: 20px;
     font: normal normal bold 19px/29px Poppins;
@@ -70,4 +70,9 @@
     border-radius: 30px;
     background-color: #373737;
     padding: 0.375rem 0.75rem;
+}
+
+.cancel:hover {
+    cursor: pointer;
+    color: #373737;
 }
