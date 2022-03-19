@@ -2,7 +2,7 @@
 
 // libs 
 const fs = require('fs');
-import { config, logger, changePanel } from './utils.js';
+import { config, logger, changePanel, database } from './utils.js';
 
 import Login from './panels/login.js';
 import Home from './panels/home.js';
@@ -18,8 +18,9 @@ class Launcher {
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
         this.config = await config.config().then(res => res);
+        this.database = await new database().init();
         this.createPanels(Login, Home, Settings);
-        changePanel("login");
+        this.getaccounts();
     }
 
     initLog() {
@@ -74,6 +75,17 @@ class Launcher {
             new panel().init(this.config);
         }
     }
+
+    async getaccounts() {
+        let accounts = await this.database.getAll('accounts');
+        
+        if (accounts.length > 0) {
+            changePanel("home");
+        } else {
+            changePanel("login");
+        }
+    }
+
 }
 
 new Launcher().init();
