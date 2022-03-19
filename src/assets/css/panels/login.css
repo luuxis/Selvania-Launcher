@@ -23,7 +23,7 @@
     padding: 0 7%;
 }
 
-.btn-login {
+.login-type-btn {
     border-radius: 15px;
     border: none;
     margin: 2% 0;
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 
-.btn-login:hover {
+.login-type-btn:hover {
     background-color: #006e47;
 }
 
@@ -45,7 +45,7 @@
     transform: translate(-50%, -50%);
     width: 35%;
     background: #121212;
-    padding: 20px;
+    padding: 0 20px;
     font: normal normal bold 19px/29px Poppins;
     color: #E1E1E1;
     border-radius: 15px;
@@ -71,7 +71,35 @@
     padding: 0.375rem 0.75rem;
 }
 
-.cancel:hover {
+.loginDisclaimerText {
+    text-align: center;
+    font-size: 0.5em;
+}
+
+.btn-option-login {
+    width: 100%;
+    margin-left: 50%;
+}
+
+.login-btn {
+    border-radius: 15px;
+    border: none;
+    margin: 2% 0;
+    height: 2em;
+    background-color: #00bd7a;
+    color: #121212;
+    font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+}
+
+.cancel {
+    border: none;
+    background-color: #ffffff00;
+    color: #ffffff;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+}
+
+.cancel:hover {
     color: #373737;
 }

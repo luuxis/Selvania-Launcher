@@ -73,7 +73,7 @@ class Login {
         document.querySelector(".store").addEventListener("click", () => {
             nw.Shell.openExternal("https://www.minecraft.net/store/minecraft-java-edition")
         })
-        document.querySelector(".loginSpanDim").addEventListener("click", () => {
+        document.querySelector(".password-reset").addEventListener("click", () => {
             nw.Shell.openExternal("https://www.minecraft.net/password/forgot")
         })
     }
