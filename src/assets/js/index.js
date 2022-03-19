@@ -1,6 +1,6 @@
 'use strict';
 const AutoUpdater = require("nw-autoupdater-luuxis");
-const pkg = nw.global.manifest;
+const pkg = nw.global.manifest.__nwjs_manifest;
 import { config } from './utils.js';
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 

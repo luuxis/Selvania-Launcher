@@ -1,4 +1,4 @@
-const pkg = nw.global.manifest;
+const pkg = nw.global.manifest.__nwjs_manifest;
 const fetch = require("node-fetch")
 
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
