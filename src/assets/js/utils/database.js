@@ -29,11 +29,11 @@ class database {
         return store.add({ key: this.genKey(data.uuid), value: data });
     }
 
-    get(uuid, type) {
+    get(keys, type) {
         let store = this.getStore(type);
-        let uuidKey = this.genKey(uuid);
+        let Key = this.genKey(keys);
         return new Promise((resolve) => {
-            let get = store.get(uuidKey);
+            let get = store.get(Key);
             get.onsuccess = (event) => {
                 resolve(event.target.result);
             }
@@ -50,9 +50,22 @@ class database {
         });
     }
 
-    delete(uuid, type) {
+    update(data, type) {
+        let self = this;
+        return new Promise(async(resolve) => {
+            let store = self.getStore(type);
+            let keyCursor = store.openCursor(self.genKey(data.uuid));
+            keyCursor.onsuccess = async(event) => {
+                let cursor = event.target.result;
+                for (let [key, value] of Object.entries({value: data})) cursor.value[key] = value;
+                resolve(cursor.update(cursor.value));
+            }
+        });
+    }
+
+    delete(key, type) {
         let store = this.getStore(type);
-        return store.delete(uuid);
+        return store.delete(this.genKey(key));
     }
 
     getStore(type) {

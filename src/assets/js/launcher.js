@@ -2,8 +2,10 @@
 
 // libs 
 const fs = require('fs');
-import { config, logger, changePanel, database } from './utils.js';
+const { microsoft, mojang } = require('minecraft-java-core');
 
+
+import { config, logger, changePanel, database } from './utils.js';
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
@@ -63,7 +65,7 @@ class Launcher {
             win.close();
         })
     }
-    
+
     createPanels(...panels) {
         let panelsElem = document.querySelector(".panels")
         for (let panel of panels) {
@@ -78,14 +80,57 @@ class Launcher {
 
     async getaccounts() {
         let accounts = await this.database.getAll('accounts');
-        
-        if (accounts.length > 0) {
-            changePanel("home");
-        } else {
+        if (!accounts.length) {
             changePanel("login");
+        } else {
+            for (let account of accounts) {
+                account = account.value;
+                if (account.meta.type === 'Xbox') {
+                    let refresh = await new microsoft(this.config.client_id).refresh(account);
+                    let refresh_accounts;
+                    let refresh_profile;
+
+                    if (refresh.error) {
+                        this.database.delete(account.uuid, 'accounts');
+                        this.database.delete(account.uuid, 'profile');
+                        console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
+                        continue;
+                    }
+
+                    refresh_accounts = {
+                        access_token: refresh.access_token,
+                        client_token: refresh.client_token,
+                        uuid: refresh.uuid,
+                        name: refresh.name,
+                        refresh_token: refresh.refresh_token,
+                        user_properties: refresh.user_properties,
+                        meta: {
+                            type: refresh.meta.type,
+                            demo: refresh.meta.demo
+                        }
+                    }
+
+                    refresh_profile = {
+                        uuid: refresh.uuid,
+                        skins: refresh.profile.skins,
+                        cape: refresh.profile.cape
+                    }
+
+                    this.database.update(refresh_accounts, 'accounts');
+                    this.database.update(refresh_profile, 'profile')
+                } else if (account.meta.type === 'Mojang') {
+                    let refresh = await new microsoft().refresh(account);
+                    if (!refresh.error) {
+                        this.database.delete(account.uuid, 'accounts');
+                        console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
+                        continue;
+                    }
+
+                }
+            }
+            changePanel("home");
         }
     }
-
 }
 
 new Launcher().init();

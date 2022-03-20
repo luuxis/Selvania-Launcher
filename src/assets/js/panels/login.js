@@ -31,7 +31,7 @@ class Login {
     loginmojang() {}
     loginmicrosoft() {
         document.querySelector(".microsoft").addEventListener("click", () => {
-            new microsoft().getAuth().then(user => {
+            new microsoft(this.config.client_id).getAuth().then(user => {
                 if (!user) return;
 
                 this.database.add({
