@@ -4,7 +4,6 @@
 const fs = require('fs');
 const { microsoft, mojang } = require('minecraft-java-core');
 
-
 import { config, logger, changePanel, database } from './utils.js';
 import Login from './panels/login.js';
 import Home from './panels/home.js';
@@ -154,6 +153,7 @@ class Launcher {
             }
             changePanel("home");
         }
+        document.querySelector(".preload-content").style.display = "none";
     }
 }
 
