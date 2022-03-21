@@ -3,8 +3,8 @@
 <h1 align="center">Uzurion Launcher</h1>
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-Stable-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
-[<img src="https://img.shields.io/badge/version-V3.0.0-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
+<img src="https://img.shields.io/badge/build-pre--alpha-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
+[<img src="https://img.shields.io/badge/version-V3.0.0--pre--alpha.1-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
 [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=social&logo=appveyor" alt="stark">](https://github.com/luuxis/Uzurion-Launcher/releases)
 <img src="https://img.shields.io/github/languages/code-size/luuxis/Uzurion-Launcher?style=social&logo=appveyor" alt="size">
 </p>

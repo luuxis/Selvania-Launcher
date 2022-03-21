@@ -78,7 +78,8 @@
 
 .btn-option-login {
     width: 100%;
-    margin-left: 50%;
+    display: grid;
+    text-align: center;
 }
 
 .login-btn {
@@ -90,6 +91,10 @@
     color: #121212;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #006e47;
 }
 
 .cancel {
