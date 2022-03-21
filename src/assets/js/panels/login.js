@@ -116,7 +116,6 @@ class Login {
             nw.Shell.openExternal("https://www.minecraft.net/password/forgot")
         })
     }
-
 }
 
 export default Login;
