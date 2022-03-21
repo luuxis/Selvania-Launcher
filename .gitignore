@@ -1,6 +1,7 @@
 # Generated
 node_modules
 app
+test
 package-lock.json
 dist
 node-v*

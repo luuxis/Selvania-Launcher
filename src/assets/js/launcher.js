@@ -117,15 +117,39 @@ class Launcher {
                     }
 
                     this.database.update(refresh_accounts, 'accounts');
-                    this.database.update(refresh_profile, 'profile')
+                    this.database.update(refresh_profile, 'profile');
+
                 } else if (account.meta.type === 'Mojang') {
-                    let refresh = await new microsoft().refresh(account);
-                    if (!refresh.error) {
+                    if (account.meta.offline) continue;
+                    let validate = await mojang.validate(account);
+                    if (!validate) {
+                        this.database.delete(account.uuid, 'accounts');
+                        console.error(`[Account] ${account.uuid}: error`);
+                        continue;
+                    }
+
+                    let refresh = await mojang.refresh(account);
+                    let refresh_accounts;
+
+                    if (refresh.error) {
                         this.database.delete(account.uuid, 'accounts');
                         console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
                         continue;
                     }
 
+                    refresh_accounts = {
+                        access_token: refresh.access_token,
+                        client_token: refresh.client_token,
+                        uuid: refresh.uuid,
+                        name: refresh.name,
+                        user_properties: refresh.user_properties,
+                        meta: {
+                            type: refresh.meta.type,
+                            offline: refresh.meta.offline
+                        }
+                    }
+
+                    this.database.update(refresh_accounts, 'accounts');
                 }
             }
             changePanel("home");

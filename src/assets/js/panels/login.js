@@ -28,7 +28,26 @@ class Login {
         this.loginmicrosoft();
     }
 
-    loginmojang() {}
+    loginmojang() {
+        document.querySelector(".login-btn").addEventListener("click", () => {
+            mojang.getAuth(document.querySelector(".Mail").value, document.querySelector(".Password").value).then(user => {
+                if (!user) return;
+                this.database.add({
+                    access_token: user.access_token,
+                    client_token: user.client_token,
+                    uuid: user.uuid,
+                    name: user.name,
+                    user_properties: user.user_properties,
+                    meta: {
+                        type: user.meta.type,
+                        offline: user.meta.offline
+                    }
+                }, 'accounts')
+                changePanel('home');
+            })
+        })
+    }
+
     loginmicrosoft() {
         document.querySelector(".microsoft").addEventListener("click", () => {
             new microsoft(this.config.client_id).getAuth().then(user => {
@@ -57,7 +76,27 @@ class Login {
             })
         })
     }
-    loginoffline() {}
+
+    loginoffline() {
+        document.querySelector(".login-btn").addEventListener("click", () => {
+            mojang.getAuth(document.querySelector(".Mail").value).then(user => {
+                if (!user) return;
+                this.database.add({
+                    access_token: user.access_token,
+                    client_token: user.client_token,
+                    uuid: user.uuid,
+                    name: user.name,
+                    user_properties: user.user_properties,
+                    meta: {
+                        type: user.meta.type,
+                        offline: user.meta.offline
+                    }
+                }, 'accounts')
+
+                changePanel('home');
+            })
+        })
+    }
 
     InitBtn() {
         document.querySelector(".mojang").addEventListener("click", () => {
