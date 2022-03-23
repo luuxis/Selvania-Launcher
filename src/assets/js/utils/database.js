@@ -9,11 +9,29 @@ class database {
                 if (!db.objectStoreNames.contains('accounts')) {
                     db.createObjectStore('accounts', { keyPath: "key" });
                 }
-                if (!db.objectStoreNames.contains('settings')) {
-                    db.createObjectStore('settings', { keyPath: "key" });
+
+                if (!db.objectStoreNames.contains('accounts-selected')) {
+                    db.createObjectStore('accounts-selected', { keyPath: "key" });
                 }
+
+                if (!db.objectStoreNames.contains('java')) {
+                    db.createObjectStore('java', { keyPath: "key" });
+                }
+
+                if (!db.objectStoreNames.contains('launcher')) {
+                    db.createObjectStore('launcher', { keyPath: "key" });
+                }
+
                 if (!db.objectStoreNames.contains('profile')) {
                     db.createObjectStore('profile', { keyPath: "key" });
+                }
+
+                if (!db.objectStoreNames.contains('ram')) {
+                    db.createObjectStore('ram', { keyPath: "key" });
+                }
+
+                if (!db.objectStoreNames.contains('screen')) {
+                    db.createObjectStore('screen', { keyPath: "key" });
                 }
             }
 
@@ -57,7 +75,7 @@ class database {
             let keyCursor = store.openCursor(self.genKey(data.uuid));
             keyCursor.onsuccess = async(event) => {
                 let cursor = event.target.result;
-                for (let [key, value] of Object.entries({value: data})) cursor.value[key] = value;
+                for (let [key, value] of Object.entries({ value: data })) cursor.value[key] = value;
                 resolve(cursor.update(cursor.value));
             }
         });
