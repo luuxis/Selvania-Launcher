@@ -17,7 +17,7 @@
     "engines": {
         "node": "16.x.x"
     },
-    "chromium-args": "--enable-logging --v=1 --disable-gpu --mixed-content",
+    "chromium-args": "--enable-logging --v=1",
     "url": "http://146.59.227.140",
     "user": false,
     "webkit": {
