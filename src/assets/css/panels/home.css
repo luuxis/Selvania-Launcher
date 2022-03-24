@@ -11,8 +11,6 @@
     transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
-    border-radius: 50%;
     background: #fff;
-    box-shadow: 0px 0px 10px #000;
     cursor: pointer;
 }

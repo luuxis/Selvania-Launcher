@@ -6,7 +6,8 @@ export {
     config as config,
     database as database,
     logger as logger,
-    changePanel as changePanel
+    changePanel as changePanel,
+    addAccount as addAccount
 }
 
 function changePanel(id) {
@@ -14,4 +15,7 @@ function changePanel(id) {
     let active = document.querySelector(`.active`)
     if (active) active.classList.toggle("active");
     panel.classList.add("active");
+}
+
+function addAccount(data) {
 }
