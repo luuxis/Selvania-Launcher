@@ -4,7 +4,7 @@
 const fs = require('fs');
 const { microsoft, mojang } = require('minecraft-java-core');
 
-import { config, logger, changePanel, database } from './utils.js';
+import { config, logger, changePanel, database, addAccount } from './utils.js';
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
@@ -117,6 +117,7 @@ class Launcher {
 
                     this.database.update(refresh_accounts, 'accounts');
                     this.database.update(refresh_profile, 'profile');
+                    addAccount(refresh_accounts);
 
                 } else if (account.meta.type === 'Mojang') {
                     if (account.meta.offline) continue;
@@ -149,6 +150,7 @@ class Launcher {
                     }
 
                     this.database.update(refresh_accounts, 'accounts');
+                    addAccount(refresh_accounts);
                 }
             }
             changePanel("home");
