@@ -32,7 +32,8 @@ class Login {
         document.querySelector(".login-btn").addEventListener("click", () => {
             mojang.getAuth(document.querySelector(".Mail").value, document.querySelector(".Password").value).then(user => {
                 if (!user) return;
-                this.database.add({
+
+                let account = {
                     access_token: user.access_token,
                     client_token: user.client_token,
                     uuid: user.uuid,
@@ -42,7 +43,10 @@ class Login {
                         type: user.meta.type,
                         offline: user.meta.offline
                     }
-                }, 'accounts')
+                }
+
+                this.database.add(account, 'accounts')
+                addAccount(account)
                 changePanel('home');
             })
         })
@@ -53,7 +57,7 @@ class Login {
             new microsoft(this.config.client_id).getAuth().then(user => {
                 if (!user) return;
 
-                this.database.add({
+                let account = {
                     access_token: user.access_token,
                     client_token: user.client_token,
                     uuid: user.uuid,
@@ -64,14 +68,17 @@ class Login {
                         type: user.meta.type,
                         demo: user.meta.demo
                     }
-                }, 'accounts')
+                }
 
-                this.database.add({
+                let profile = {
                     uuid: user.uuid,
                     skins: user.profile.skins,
                     cape: user.profile.cape
-                }, 'profile')
+                }
 
+                this.database.add(account, 'accounts')
+                this.database.add(profile, 'profile')
+                addAccount(account)
                 changePanel("home");
             })
         })
@@ -81,7 +88,8 @@ class Login {
         document.querySelector(".login-btn").addEventListener("click", () => {
             mojang.getAuth(document.querySelector(".Mail").value).then(user => {
                 if (!user) return;
-                this.database.add({
+
+                let account = {
                     access_token: user.access_token,
                     client_token: user.client_token,
                     uuid: user.uuid,
@@ -91,8 +99,9 @@ class Login {
                         type: user.meta.type,
                         offline: user.meta.offline
                     }
-                }, 'accounts')
-
+                }
+                this.database.add(account, 'accounts')
+                addAccount(account)
                 changePanel('home');
             })
         })
