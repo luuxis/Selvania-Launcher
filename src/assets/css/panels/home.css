@@ -1,12 +1,17 @@
-.home-content {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-}
-
 .play-btn {
     position: absolute;
     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.settings-btn {
+    position: absolute;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100px;
