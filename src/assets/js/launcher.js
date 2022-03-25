@@ -120,7 +120,12 @@ class Launcher {
                     addAccount(refresh_accounts);
 
                 } else if (account.meta.type === 'Mojang') {
-                    if (account.meta.offline) continue;
+
+                    if (account.meta.offline) {
+                        addAccount(account);
+                        continue;
+                    }
+
                     let validate = await mojang.validate(account);
                     if (!validate) {
                         this.database.delete(account.uuid, 'accounts');
