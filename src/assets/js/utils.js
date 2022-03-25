@@ -18,4 +18,13 @@ function changePanel(id) {
 }
 
 function addAccount(data) {
+    let div = document.createElement("div");
+    div.classList.add("account");
+    div.id = data.uuid;
+    div.innerHTML = `
+    <img class="account-image" src="https://mc-heads.net/head/${data.uuid}">
+    <div class="account-name">${data.name}</div>
+    <div class="account-uuid">${data.uuid}</div>
+    `
+    document.querySelector('.accounts').appendChild(div);
 }
