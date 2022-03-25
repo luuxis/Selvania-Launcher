@@ -1,0 +1,22 @@
+.account-image,
+.account-name,
+.account-uuid {
+    pointer-events: none;
+}
+
+.accounts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account {
+    margin: 0 1em;
+    width: 20rem;
+    background: #fff;
+    border-radius: 0.5rem;
+}
+
+.account-image {
+    width: 62px;
+    height: 62px;
+}
