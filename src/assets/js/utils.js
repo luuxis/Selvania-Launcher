@@ -22,7 +22,7 @@ function addAccount(data) {
     div.classList.add("account");
     div.id = data.uuid;
     div.innerHTML = `
-    <img class="account-image" src="https://mc-heads.net/head/${data.uuid}">
+    <img class="account-image" src="https://mc-heads.net/head/${data.name}">
     <div class="account-name">${data.name}</div>
     <div class="account-uuid">${data.uuid}</div>
     `
