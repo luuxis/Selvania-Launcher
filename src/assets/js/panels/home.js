@@ -1,6 +1,6 @@
 'use strict';
 
-import { logger, database } from '../utils.js';
+import { logger, database, changePanel } from '../utils.js';
 
 const { launch } = require('minecraft-java-core');
 const pkg = nw.global.manifest.__nwjs_manifest;
@@ -12,6 +12,7 @@ class Home {
     async init(config) {
         this.config = config
         this.database = await new database().init();
+        this.initBtn();
     }
 
     launch(data) {
@@ -41,6 +42,12 @@ class Home {
         launch.on('data', (e) => {})
         launch.on('close', (e) => {})
 
+    }
+
+    initBtn() {
+        document.querySelector('.settings-btn').addEventListener('click', () => {
+            changePanel('settings');
+        });
     }
 }
 export default Home;
