@@ -1,6 +1,6 @@
 'use strict';
 
-import { database, changePanel } from '../utils.js';
+import { database, changePanel, addAccount } from '../utils.js';
 const { microsoft, mojang } = require('minecraft-java-core');
 
 class Login {
