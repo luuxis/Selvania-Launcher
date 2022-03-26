@@ -50,7 +50,6 @@
         "excludes": [
             ".gitignore",
             "tool.bat",
-            "web/**",
             "src/**",
             "AppData/**",
             "node-v*/**",
