@@ -23,7 +23,7 @@ class Home {
             authenticator: account,
             path: `${dataDirectory}/${this.config.dataDirectory}`,
             version: this.config.game_version,
-            detached: true,
+            detached: settings.detached,
             java: this.config.java,
             args: this.config.game_args,
             custom: this.config.custom,
@@ -55,7 +55,8 @@ class Home {
                 account: mc,
                 settings: {
                     RamMin: '2048',
-                    RamMax: '4048'
+                    RamMax: '4048',
+                    detached: false
                 }
             }
             this.launch(data);
