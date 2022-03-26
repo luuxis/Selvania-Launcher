@@ -48,6 +48,18 @@ class Home {
         document.querySelector('.settings-btn').addEventListener('click', () => {
             changePanel('settings');
         });
+
+        document.querySelector('.play-btn').addEventListener('click', async() => {
+            let mc = (await this.database.getAll('accounts'))[0]?.value;
+            let data = {
+                account: mc,
+                settings: {
+                    RamMin: '2048',
+                    RamMax: '4048'
+                }
+            }
+            this.launch(data);
+        })
     }
 }
 export default Home;
