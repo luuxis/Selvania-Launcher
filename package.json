@@ -25,11 +25,11 @@
     },
     "scripts": {
         "start": "run --64 --mirror https://dl.nwjs.io/ .",
-        "build:win": "npm run clean && build --tasks win-x86,win-x64 --mirror https://dl.nwjs.io/ .",
-        "build:mac": "npm run clean && build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
-        "build:linux": "npm run clean && build --tasks linux-x86,linux-x64 --mirror https://dl.nwjs.io/ .",
-        "build:all": "npm run clean && build --tasks win-x86,win-x64,linux-x86,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
-        "clean": "node src/assets/js/utils/obfuscate.js --obf=true",
+        "build:win": "npm run obf && build --tasks win-x86,win-x64 --mirror https://dl.nwjs.io/ .",
+        "build:mac": "npm run obf && build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
+        "build:linux": "npm run obf && build --tasks linux-x86,linux-x64 --mirror https://dl.nwjs.io/ .",
+        "build:all": "npm run obf && build --tasks win-x86,win-x64,linux-x86,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
+        "obf": "node src/assets/js/utils/obfuscate.js --obf=true",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",

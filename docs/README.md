@@ -61,11 +61,7 @@
 ---
 **<p align="center">Configurer votre launcher.</p>**
 
-- Il vous faudra un serveur web, avec PHP tournant sur Apache ou autre.
-
-- Il vous faudra télécharger et extraire l'archive [web-folder](https://github.com/luuxis/Uzurion-Launcher/archive/refs/heads/WEB-Folder.zip).
-
-- Rendez-vous dans le dossier `launcher/config-launcher` et ouvrez le fichier `config.json` et faites vos config.
+- [Doc ici](./wiki.md).
 
 ---
 
