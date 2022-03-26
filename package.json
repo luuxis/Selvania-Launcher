@@ -48,13 +48,14 @@
             "devDependencies"
         ],
         "excludes": [
-            ".gitignore",
-            "tool.bat",
-            "src/**",
+            ".github/**",
             "AppData/**",
+            "docs/**",
             "node-v*/**",
+            "src/**",
+            ".gitignore",
             "package-lock.json",
-            "README.md"
+            "tool.bat"
         ],
         "overriddenProperties": {
             "main": "app/index.html",
