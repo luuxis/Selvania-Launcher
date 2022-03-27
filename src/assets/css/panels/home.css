@@ -5,7 +5,7 @@
     height: 50px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background: #fff;
+    background: #00bd7a61;
 }
 
 .player-head {
@@ -18,16 +18,26 @@
     border-radius: 50%;
     border: none;
     background: #fff;
-    box-shadow: 0px 0px 5px #000;
 }
 
 .play-element {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+    text-align: center;
 }
 
-.info-download {
+.play-btn {
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+}
+
+.text-download {
     display: none;
 }
 

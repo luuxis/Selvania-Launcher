@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient( #0000009a, #0000009a), url("../images/background/wallpaper.jpg") black no-repeat center center scroll;
+    background: linear-gradient( #000000b3, #000000b3), url("../images/background/wallpaper.jpg") black no-repeat center center scroll;
 }
 
 .dragbar {
