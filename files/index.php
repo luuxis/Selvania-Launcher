@@ -18,8 +18,10 @@ function dirToArray($dir) {
             } else if (strpos($path, "versions") !== false) {
                if (substr($path, -5) == ".json") {
                   $type = "VERIONSCUSTOM";
-               } else {
+               } else if(substr($path, -4) == ".jar"){
                   $type = "VERIONS";
+               } else {
+                  $type = "FILE";
                }
             } else {
                $type = "FILE";
