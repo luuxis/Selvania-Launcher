@@ -17,6 +17,8 @@ class Home {
 
     launch(data) {
         let { account, settings } = data;
+        document.querySelector(".play-btn").style.display = "none"
+        document.querySelector(".text-download").style.display = "block"
 
         let opts = {
             url: this.config.game_url === "" || this.config.game_url === undefined ? `${pkg.url}/files` : this.config.game_url,
@@ -36,12 +38,36 @@ class Home {
         }
 
         launch.launch(opts);
-        launch.on('progress', (DL, totDL) => {});
-        launch.on('speed', (speed) => {})
-        launch.on('check', (e) => {})
-        launch.on('data', (e) => {})
-        launch.on('close', (e) => {})
+        launch.on('progress', (DL, totDL) => {
+            document.querySelector(".progress-bar").style.display = "block"
+            document.querySelector(".text-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
+            document.querySelector(".progress-bar").value = DL;
+            document.querySelector(".progress-bar").max = totDL;
+        })
 
+        launch.on('speed', (speed) => {
+
+        })
+
+        launch.on('check', (e) => {
+
+        })
+
+        launch.on('data', (e) => {
+
+            new logger('Minecraft', '#36b030', document.querySelector(".log-content"));
+            console.log(e);
+
+        })
+
+        launch.on('close', () => {
+            document.querySelector(".progress-bar").style.display = "none"
+            document.querySelector(".text-download").style.display = "none"
+            document.querySelector(".text-download").innerHTML = `Vérification`
+            document.querySelector(".play-btn").style.display = "block"
+            new logger('Launcher', '#7289da', document.querySelector(".log-content"))
+            console.log('Close');
+        })
     }
 
     initBtn() {
