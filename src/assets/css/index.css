@@ -10,9 +10,10 @@ body {
 .splash {
     position: absolute;
     top: 180px;
-    left: 132px;
-    width: 136px;
-    height: 141px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 140px;
+    height: 140px;
     transition: opacity .3s, top 1.5s;
     opacity: 0;
 }
