@@ -54,8 +54,12 @@ class Login {
 
     loginmicrosoft() {
         document.querySelector(".microsoft").addEventListener("click", () => {
+            document.querySelector(".microsoft").disabled = true;
             new microsoft(this.config.client_id).getAuth().then(user => {
-                if (!user) return;
+                if (!user){
+                    document.querySelector(".microsoft").disabled = false;
+                    return;
+                }
 
                 let account = {
                     access_token: user.access_token,
@@ -80,6 +84,8 @@ class Login {
                 this.database.add(profile, 'profile')
                 addAccount(account)
                 changePanel("home");
+            }).catch (err => {
+                document.querySelector(".microsoft").disabled = false;
             })
         })
     }
