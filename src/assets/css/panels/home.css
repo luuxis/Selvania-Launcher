@@ -2,22 +2,14 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 50px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background: #00bd7a61;
+    height: 70px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    background: #121212;
 }
 
 .player-head {
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    left: 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: none;
-    background: #fff;
+
 }
 
 .play-element {
@@ -28,13 +20,15 @@
 }
 
 .play-btn {
-    position: absolute;
     top: 10px;
-    width: 30px;
+    width: 10rem;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 20px;
     border: none;
-    background: #fff;
+    background: #00bd7a;
+    font: normal normal bold 19px/29px Poppins;
+    color: #121212;
+    margin: 20px 0;
 }
 
 .text-download {
@@ -46,13 +40,5 @@
 }
 
 .settings-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: none;
-    background: #fff;
-    box-shadow: 0px 0px 5px #000;
+  
 }
