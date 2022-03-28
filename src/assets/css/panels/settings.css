@@ -1,6 +1,4 @@
-.account-image,
-.account-name,
-.account-uuid {
+.account-image, .account-name, .account-uuid {
     pointer-events: none;
 }
 
