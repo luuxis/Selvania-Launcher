@@ -1,12 +1,12 @@
 {
-    "name": "Uzurion-Launcher",
+    "name": "Selvania-Launcher",
     "version": "3.0.0-alpha.1",
-    "productName": "Uzurion Launcher",
+    "productName": "Selvania Launcher",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/index.html",
     "author": "Luuxis",
     "window": {
-        "title": "Uzurion update",
+        "title": "Selvania update",
         "width": 400,
         "height": 500,
         "frame": false,
@@ -18,7 +18,7 @@
         "node": "16.x.x"
     },
     "chromium-args": "--enable-logging --v=1",
-    "url": "http://146.59.227.140",
+    "url": "http://launcher.selvania.fr",
     "user": false,
     "webkit": {
         "plugin": true
@@ -34,8 +34,8 @@
     },
     "license": "CC0",
     "build": {
-        "appId": "Uzurion Launcher",
-        "nwVersion": "0.62.0",
+        "appId": "Selvania Launcher",
+        "nwVersion": "0.62.2",
         "packed": true,
         "args": ["--user-data-dir=./AppData/launcher data"],
         "targets": ["zip", "nsis7z"],
@@ -60,7 +60,7 @@
         "overriddenProperties": {
             "main": "app/index.html",
             "window": {
-                "title": "Uzurion update",
+                "title": "Selvania update",
                 "width": 400,
                 "height": 500,
                 "frame": false,
@@ -77,10 +77,10 @@
             "icon": "src/assets/images/icon.ico"
         },
         "mac": {
-            "displayName": "Uzurion-Launcher",
+            "displayName": "Selvania-Launcher",
             "copyright": "copyright",
             "plistStrings": {
-                "CFBundleIdentifier": "Uzurion-Launcher"
+                "CFBundleIdentifier": "Selvania-Launcher"
             }
         },
         "nsis": {
