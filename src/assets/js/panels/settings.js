@@ -43,6 +43,10 @@ class Settings {
                 TabBtn[i].classList.add('active-tab-btn');
             });
         }
+
+        document.querySelector('.save-tabs-btn').addEventListener('click', () => {
+            changePanel("home");
+        })
     }
 }
 export default Settings;
