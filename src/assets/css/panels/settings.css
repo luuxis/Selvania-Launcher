@@ -17,6 +17,7 @@
     height: 45px;
     margin: auto 30px;
     background: #00bd7a;
+    border: 4px solid #00bd7a;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
 }
