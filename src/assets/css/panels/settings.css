@@ -22,7 +22,20 @@
     box-shadow: 0 0 5px #00bd7a;
 }
 
+.tab-btn-css:hover {
+    background: #006e47;
+    box-shadow: 0 0 5px #006e47;
+    border: 4px solid #006e47;
+}
+
 .active-tab-btn {
+    background: #006e47;
+    border: 4px solid #ff7f18;
+    box-shadow: 0 0 5px #ff7f18;
+}
+
+.active-tab-btn:hover {
+    background: #006e47;
     border: 4px solid #ff7f18;
     box-shadow: 0 0 5px #ff7f18;
 }

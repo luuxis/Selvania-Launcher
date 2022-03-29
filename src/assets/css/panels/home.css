@@ -29,6 +29,7 @@
     font: normal normal bold 19px/29px Poppins;
     color: #121212;
     margin: 20px 0;
+    box-shadow: 0 0 5px #00bd7a;
 }
 
 .text-download {
