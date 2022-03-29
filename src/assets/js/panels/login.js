@@ -83,6 +83,7 @@ class Login {
                 this.database.add(account, 'accounts')
                 this.database.add(profile, 'profile')
                 addAccount(account)
+                document.querySelector(".microsoft").disabled = false;
                 changePanel("home");
             }).catch (err => {
                 document.querySelector(".microsoft").disabled = false;
