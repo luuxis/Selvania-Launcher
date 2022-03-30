@@ -66,25 +66,58 @@
     color: #D1D1D1;
     background-color: #303030;
     box-shadow: 1px 2px 5px #585858;
-}
-
-.account-image, .account-name, .account-uuid {
-    pointer-events: none;
+    margin: 20px 0;
+    margin-bottom: 10px;
 }
 
 .accounts {
-    display: flex;
-    flex-wrap: wrap;
+    display: contents;
+    justify-content: center;
 }
 
 .account {
-    margin: 0 1em;
-    width: 20rem;
-    background: #fff;
-    border-radius: 0.5rem;
+    display: inline-block;
+    background: #00bd7a;
+    box-shadow: 0 0 5px #006e47;
+    font: normal normal bold 30px/40px Poppins;
+    width: 500px;
+    height: 100px;
+    margin: 1% 2%;
+    border-radius: 100px;
+    text-align: start;
 }
 
 .account-image {
-    width: 62px;
-    height: 62px;
+    position: absolute;
+    border-radius: 31px;
+    height: 70px;
+    margin: 15px 20px;
+    pointer-events: none;
+}
+
+.account-name {
+    margin: 0 100px;
+    margin-top: 15px;
+    font: normal normal bold 24px/35px Poppins;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 29ch;
+    pointer-events: none;
+}
+
+.account-uuid {
+    margin: 0 100px;
+    font: normal normal normal 18px/27px Poppins;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 29ch;
+    pointer-events: none;
+}
+
+.account-delete {    
+    margin: -50px 420px;
+    color: red;
+    font-size: 50px;
 }
