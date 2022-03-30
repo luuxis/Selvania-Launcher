@@ -6,6 +6,7 @@ class Settings {
     static id = "settings";
     async init() {
         this.database = await new database().init();
+        this.initdatabase();
         this.inittab();
         this.initBtn();
     }
@@ -47,6 +48,15 @@ class Settings {
         document.querySelector('.save-tabs-btn').addEventListener('click', () => {
             changePanel("home");
         })
+    }
+
+    async initdatabase() {
+        let bdd = {uuid: "1234"}
+        if (!(await this.database.getAll('accounts-selected')).length) this.database.add(bdd, 'accounts-selected')
+        if (!(await this.database.getAll('java')).length) this.database.add(bdd, 'java')
+        if (!(await this.database.getAll('launcher')).length) this.database.add(bdd, 'launcher')
+        if (!(await this.database.getAll('ram')).length) this.database.add(bdd, 'ram')
+        if (!(await this.database.getAll('screen')).length) this.database.add(bdd, 'screen')
     }
 }
 export default Settings;
