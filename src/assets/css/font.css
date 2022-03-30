@@ -36,10 +36,12 @@
     text-transform: none;
     line-height: 1em;
     -webkit-font-smoothing: antialiased;
-  }
-  
-  
-  .icon-close:before { font-family: "Icons"; content: "\e90e"; }
-  .icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
-  .icon-maximize:before { font-family: "Icons"; content: "\e90c"; }
-  .icon-restore-down:before { font-family: "Icons"; content: "\e90d"; }
+}
+
+.icon-close:before { font-family: "Icons"; content: "\e90e"; }
+.icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
+.icon-maximize:before { font-family: "Icons"; content: "\e90c"; }
+.icon-restore-down:before { font-family: "Icons"; content: "\e90d"; }
+.icon-account-add:before { font-family: "Icons"; content: "\e901"; }
+.icon-account-delete:before { font-family: "Icons"; content: "\e902"; }
+.icon-settings:before { font-family: "Icons"; content: "\e909"; }
