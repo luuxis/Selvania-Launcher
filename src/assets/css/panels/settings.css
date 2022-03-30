@@ -3,8 +3,8 @@
     bottom: 0;
     width: 100%;
     height: 70px;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
     background: #121212;
     display: flex;
     justify-content: center;
@@ -30,14 +30,14 @@
 
 .active-tab-btn {
     background: #006e47;
-    border: 4px solid #ff7f18;
-    box-shadow: 0 0 5px #ff7f18;
+    border: 4px solid #bd5d26;
+    box-shadow: 0 0 5px #bd5d26;
 }
 
 .active-tab-btn:hover {
     background: #006e47;
-    border: 4px solid #ff7f18;
-    box-shadow: 0 0 5px #ff7f18;
+    border: 4px solid #bd5d26;
+    box-shadow: 0 0 5px #bd5d26;
 }
 
 .tabs-settings-content {
@@ -49,11 +49,23 @@
     height: 80%;
     border-radius: 20px;
     background: #121212;
+    text-align: center;
     display: none;
 }
 
 .active-tab-content {
     display: block;
+}
+
+.add-account {
+    width: 80%;
+    height: 10%;
+    border: none;
+    border-radius: 15px;
+    font: normal normal bold 30px/40px Poppins;
+    color: #D1D1D1;
+    background-color: #303030;
+    box-shadow: 1px 2px 5px #585858;
 }
 
 .account-image, .account-name, .account-uuid {
