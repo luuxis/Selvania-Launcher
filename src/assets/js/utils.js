@@ -25,7 +25,7 @@ function addAccount(data) {
         <img class="account-image" src="https://mc-heads.net/head/${data.name}">
         <div class="account-name">${data.name}</div>
         <div class="account-uuid">${data.uuid}</div>
-        <div class="account-delete">X</div>
+        <div class="account-delete icon-account-delete"></div>
     `
     document.querySelector('.accounts').appendChild(div);
 }
