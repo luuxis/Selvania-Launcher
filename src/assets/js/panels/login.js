@@ -46,6 +46,8 @@ class Login {
                 }
 
                 this.database.add(account, 'accounts')
+                this.database.update({uuid: "1234",selected: account.uuid}, 'accounts-selected');
+
                 addAccount(account)
                 changePanel('home');
             })
@@ -82,6 +84,7 @@ class Login {
 
                 this.database.add(account, 'accounts')
                 this.database.add(profile, 'profile')
+                this.database.update({uuid: "1234",selected: account.uuid}, 'accounts-selected');
                 addAccount(account)
                 document.querySelector(".microsoft").disabled = false;
                 changePanel("home");
@@ -108,6 +111,8 @@ class Login {
                     }
                 }
                 this.database.add(account, 'accounts')
+                this.database.update({uuid: "1234",selected: account.uuid}, 'accounts-selected');
+
                 addAccount(account)
                 changePanel('home');
             })
