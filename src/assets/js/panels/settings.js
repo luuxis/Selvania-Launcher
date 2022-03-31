@@ -81,7 +81,7 @@ class Settings {
             this.database.add({
                 uuid: "1234",
                 ramMin: "1024",
-                ramMax: "1048"
+                ramMax: "2048"
             }, 'ram')
         }
 
