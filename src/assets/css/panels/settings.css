@@ -125,6 +125,7 @@
     width: 65px;
     height: 65px;
     border-radius: 100%;
+    cursor: pointer;
     text-align: center;
 }
 
