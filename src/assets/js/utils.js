@@ -10,7 +10,6 @@ export {
     changePanel as changePanel,
     addAccount as addAccount,
     slider as slider,
-    changeaccount as changeaccount,
     headplayer as headplayer
 }
 
@@ -32,17 +31,6 @@ function addAccount(data) {
         <div class="account-delete"><div class="icon-account-delete icon-account-delete-btn"></div></div>
     `
     document.querySelector('.accounts').appendChild(div);
-}
-
-function changeaccount(uuid) {
-    let account = document.querySelector(`.account[id="${uuid}"]`);
-    let pseudo = account.querySelector('.account-name').innerText;
-
-    let activeAccount = document.querySelector('.active-account')
-    if (activeAccount) activeAccount.classList.toggle('active-account');
-    account.classList.add('active-account');
-
-    headplayer(pseudo);
 }
 
 function headplayer(pseudo) {

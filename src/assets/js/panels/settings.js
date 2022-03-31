@@ -1,6 +1,6 @@
 'use strict';
 
-import { database, changePanel, changeaccount } from '../utils.js';
+import { database, changePanel } from '../utils.js';
 
 class Settings {
     static id = "settings";
@@ -14,9 +14,16 @@ class Settings {
     initAccount() {
         document.querySelector('.accounts').addEventListener('click', (e) => {
             let uuid = e.target.id;
-            
+
             if (e.path[0].classList.contains('account')) {
-                changeaccount(uuid)
+                let account = document.querySelector(`.account[id="${uuid}"]`);
+                let pseudo = account.querySelector('.account-name').innerText;
+                let activeAccount = document.querySelector('.active-account')
+                
+                if (activeAccount) activeAccount.classList.toggle('active-account');
+                account.classList.add('active-account');
+            
+                headplayer(pseudo);
                 this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
             }
 
