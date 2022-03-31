@@ -33,12 +33,13 @@ class Home {
             verify: this.config.verify,
             ignored: this.config.ignored,
             memory: {
-                min: `${settings.ram.RamMin}M`,
-                max: `${settings.ram.RamMax}M`
+                min: `${settings.ram.ramMin}M`,
+                max: `${settings.ram.ramMax}M`
             }
         }
 
         launch.launch(opts);
+
         launch.on('progress', (DL, totDL) => {
             document.querySelector(".progress-bar").style.display = "block"
             document.querySelector(".text-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
