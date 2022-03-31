@@ -1,6 +1,6 @@
 'use strict';
 
-import { database, changePanel } from '../utils.js';
+import { database, changePanel, changeaccount } from '../utils.js';
 
 class Settings {
     static id = "settings";
@@ -8,12 +8,18 @@ class Settings {
         this.database = await new database().init();
         this.initdatabase();
         this.inittab();
-        this.initBtn();
+        this.initAccount();
     }
 
-    initBtn() {
+    initAccount() {
         document.querySelector('.accounts').addEventListener('click', (e) => {
             let uuid = e.target.id;
+            
+            if (e.path[0].classList.contains('account')) {
+                changeaccount(uuid)
+                this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
+            }
+
             if (e.target.classList.contains("account-delete")) {
                 this.database.delete(e.path[1].id, 'accounts');
                 document.querySelector('.accounts').removeChild(e.path[1])
@@ -52,7 +58,7 @@ class Settings {
     }
 
     async initdatabase() {
-        let bdd = {uuid: "1234"}
+        let bdd = { uuid: "1234" }
         if (!(await this.database.getAll('accounts-selected')).length) this.database.add(bdd, 'accounts-selected')
         if (!(await this.database.getAll('java')).length) this.database.add(bdd, 'java')
         if (!(await this.database.getAll('launcher')).length) this.database.add(bdd, 'launcher')

@@ -79,6 +79,7 @@
     display: inline-block;
     background: #00bd7a;
     box-shadow: 0 0 5px #006e47;
+    border: 4px solid #00bd7a;
     font: normal normal bold 30px/40px Poppins;
     width: 500px;
     height: 100px;
@@ -133,4 +134,16 @@
     margin: 7px 9px;
     position: absolute;
     pointer-events: none;
+}
+
+.active-account {
+    background: #006e47;
+    border: 4px solid #bd5d26;
+    box-shadow: 0 0 5px #bd5d26;
+}
+
+.active-account:hover {
+    background: #006e47;
+    border: 4px solid #bd5d26;
+    box-shadow: 0 0 5px #bd5d26;
 }
