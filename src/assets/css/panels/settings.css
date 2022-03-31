@@ -13,11 +13,11 @@
 .tab-btn-css {
     border-radius: 23px;
     width: 145px;
-    height: 45px;
+    height: 30px;
     margin: auto 30px;
     background: #00bd7a;
     border: 4px solid #00bd7a;
-    font: normal normal bold 19px/29px Poppins;
+    font: normal normal bold 15px/20px Poppins;
     cursor: pointer;
     box-shadow: 0 0 5px #00bd7a;
 }
