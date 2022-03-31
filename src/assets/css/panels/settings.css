@@ -117,7 +117,18 @@
 }
 
 .account-delete {    
-    margin: -50px 420px;
-    color: red;
+    margin: -60px 415px;
+    color: #f73434;
     font-size: 50px;
+    background: #353535c7;
+    box-shadow: 0 0 5px #353535c7;
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.icon-account-delete-btn {
+    margin: 7px 9px;
+    position: absolute;
 }
