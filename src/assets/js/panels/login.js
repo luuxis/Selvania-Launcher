@@ -49,7 +49,6 @@ class Login {
                 this.database.update({uuid: "1234",selected: account.uuid}, 'accounts-selected');
 
                 addAccount(account)
-                changeaccount(user.uuid)
                 changePanel('home');
             })
         })
