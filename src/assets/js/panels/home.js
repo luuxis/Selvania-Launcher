@@ -17,11 +17,12 @@ class Home {
 
     launch(data) {
         let { account, settings } = data;
+        let urlpkg = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
         document.querySelector(".play-btn").style.display = "none"
         document.querySelector(".text-download").style.display = "block"
 
         let opts = {
-            url: this.config.game_url === "" || this.config.game_url === undefined ? `${pkg.url}/files` : this.config.game_url,
+            url: this.config.game_url === "" || this.config.game_url === undefined ? `${urlpkg}/files` : this.config.game_url,
             authenticator: account,
             path: `${dataDirectory}/${this.config.dataDirectory}`,
             version: this.config.game_version,
@@ -32,8 +33,8 @@ class Home {
             verify: this.config.verify,
             ignored: this.config.ignored,
             memory: {
-                min: `${settings.RamMin}M`,
-                max: `${settings.RamMax}M`
+                min: `${settings.ram.RamMin}M`,
+                max: `${settings.ram.RamMax}M`
             }
         }
 
@@ -76,15 +77,21 @@ class Home {
         });
 
         document.querySelector('.play-btn').addEventListener('click', async() => {
-            let mc = (await this.database.getAll('accounts'))[0]?.value;
+            let uuid = (await this.database.get('1234', 'accounts-selected')).value.selected
+            let mc = (await this.database.get(uuid, 'accounts')).value;
+            let ram = (await this.database.get('1234', 'ram')).value;
+
             let data = {
                 account: mc,
                 settings: {
-                    RamMin: '2048',
-                    RamMax: '4048',
+                    ram: {
+                        ramMin: ram.ramMin,
+                        ramMax: ram.ramMax
+                    },
                     detached: false
                 }
             }
+
             this.launch(data);
         })
     }
