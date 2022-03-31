@@ -1,13 +1,17 @@
 import config from './utils/config.js';
 import database from './utils/database.js';
 import logger from './utils/logger.js';
+import slider from './utils/slider.js';
 
 export {
     config as config,
     database as database,
     logger as logger,
     changePanel as changePanel,
-    addAccount as addAccount
+    addAccount as addAccount,
+    slider as slider,
+    changeaccount as changeaccount,
+    headplayer as headplayer
 }
 
 function changePanel(id) {
@@ -28,4 +32,19 @@ function addAccount(data) {
         <div class="account-delete"><div class="icon-account-delete icon-account-delete-btn"></div></div>
     `
     document.querySelector('.accounts').appendChild(div);
+}
+
+function changeaccount(uuid) {
+    let account = document.querySelector(`.account[id="${uuid}"]`);
+    let pseudo = account.querySelector('.account-name').innerText;
+
+    let activeAccount = document.querySelector('.active-account')
+    if (activeAccount) activeAccount.classList.toggle('active-account');
+    account.classList.add('active-account');
+
+    headplayer(pseudo);
+}
+
+function headplayer(pseudo) {
+    document.querySelector(".player-head").style.backgroundImage = `url(https://mc-heads.net/avatar/${pseudo}/100)`;
 }

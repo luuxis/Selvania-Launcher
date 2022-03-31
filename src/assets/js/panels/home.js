@@ -12,12 +12,7 @@ class Home {
     async init(config) {
         this.config = config
         this.database = await new database().init();
-        this.headplayer();
         this.initBtn();
-    }
-
-    headplayer() {
-        // document.querySelector(".player-head").style.backgroundImage = `url(https://mc-heads.net/avatar/luuxis/100)`;
     }
 
     launch(data) {
