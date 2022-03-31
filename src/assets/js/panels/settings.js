@@ -1,13 +1,13 @@
 'use strict';
 
-import { database, changePanel } from '../utils.js';
+import { database, changePanel, headplayer } from '../utils.js';
 
 class Settings {
     static id = "settings";
     async init() {
         this.database = await new database().init();
-        this.initdatabase();
-        this.inittab();
+        this.initSettingsDefault();
+        this.initTab();
         this.initAccount();
     }
 
@@ -19,10 +19,10 @@ class Settings {
                 let account = document.querySelector(`.account[id="${uuid}"]`);
                 let pseudo = account.querySelector('.account-name').innerText;
                 let activeAccount = document.querySelector('.active-account')
-                
+
                 if (activeAccount) activeAccount.classList.toggle('active-account');
                 account.classList.add('active-account');
-            
+
                 headplayer(pseudo);
                 this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
             }
@@ -42,7 +42,7 @@ class Settings {
         })
     }
 
-    inittab() {
+    initTab() {
         let TabBtn = document.querySelectorAll('.tab-btn');
         let TabContent = document.querySelectorAll('.tabs-settings-content');
 
@@ -64,13 +64,31 @@ class Settings {
         })
     }
 
-    async initdatabase() {
-        let bdd = { uuid: "1234" }
-        if (!(await this.database.getAll('accounts-selected')).length) this.database.add(bdd, 'accounts-selected')
-        if (!(await this.database.getAll('java')).length) this.database.add(bdd, 'java')
-        if (!(await this.database.getAll('launcher')).length) this.database.add(bdd, 'launcher')
-        if (!(await this.database.getAll('ram')).length) this.database.add(bdd, 'ram')
-        if (!(await this.database.getAll('screen')).length) this.database.add(bdd, 'screen')
+    async initSettingsDefault() {
+        if (!(await this.database.getAll('accounts-selected')).length) {
+            this.database.add({ uuid: "1234" }, 'accounts-selected')
+        }
+
+        if (!(await this.database.getAll('java')).length) {
+            this.database.add({ uuid: "1234" }, 'java')
+        }
+
+        if (!(await this.database.getAll('launcher')).length) {
+            this.database.add({ uuid: "1234" }, 'launcher')
+        }
+
+        if (!(await this.database.getAll('ram')).length) {
+            this.database.add({
+                uuid: "1234",
+                ramMin: "1024",
+                ramMax: "1048"
+            }, 'ram')
+        }
+
+        if (!(await this.database.getAll('screen')).length) {
+            this.database.add({ uuid: "1234" }, 'screen')
+        }
+
     }
 }
 export default Settings;
