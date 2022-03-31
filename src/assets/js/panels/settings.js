@@ -46,6 +46,7 @@ class Settings {
         }
 
         document.querySelector('.save-tabs-btn').addEventListener('click', () => {
+            document.querySelector('.default-tab-btn').click();
             changePanel("home");
         })
     }
