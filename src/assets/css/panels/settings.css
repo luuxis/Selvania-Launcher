@@ -131,4 +131,5 @@
 .icon-account-delete-btn {
     margin: 7px 9px;
     position: absolute;
+    pointer-events: none;
 }
