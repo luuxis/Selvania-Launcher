@@ -47,7 +47,7 @@ class Home {
         })
 
         launch.on('speed', (speed) => {
-
+            console.log(`${(speed / 1067008).toFixed(2)} Mb/s`)
         })
 
         launch.on('check', (e) => {
