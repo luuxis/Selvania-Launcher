@@ -1,12 +1,12 @@
-<p align="center"><img src="../src/assets/images/icon.png" width="65%" height="65%" alt="Uzurion"></p>
+<p align="center"><img src="../src/assets/images/icon.png" width="65%" height="65%" alt="icon-launcher"></p>
 
 <h1 align="center">Uzurion Launcher</h1>
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-pre--alpha-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Uzurion-Launcher/releases) 
-[<img src="https://img.shields.io/badge/version-V3.0.0--pre--alpha.1-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Uzurion-Launcher/releases) 
-[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=social&logo=appveyor" alt="stark">](https://github.com/luuxis/Uzurion-Launcher/releases)
-<img src="https://img.shields.io/github/languages/code-size/luuxis/Uzurion-Launcher?style=social&logo=appveyor" alt="size">
+<img src="https://img.shields.io/badge/build-pre--alpha-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Selvania-Launcher/releases) 
+[<img src="https://img.shields.io/badge/version-V3.0.0--pre--alpha.1-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Selvania-Launcher/releases) 
+[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=social&logo=appveyor" alt="stark">](https://github.com/luuxis/Selvania-Launcher/releases)
+<img src="https://img.shields.io/github/languages/code-size/luuxis/Selvania-Launcher?style=social&logo=appveyor" alt="size">
 </p>
 
 
@@ -15,7 +15,7 @@
 **Cloner et installer les dépendances**
 
 ```console
-> git clone https://github.com/luuxis/Uzurion-Launcher.git
+> git clone https://github.com/luuxis/Selvania-Launcher.git
 > cd Uzurion-Launcher
 (si linux) > sudo apt install -y libatomic1
 > npm install
@@ -68,7 +68,7 @@
 [<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
 ---
 
-[releases]: https://github.com/luuxis/Uzurione-Launcher/releases 'releases'
-[build]: https://github.com/luuxis/Uzurion-Launcher/releases 'build'
+[releases]: https://github.com/luuxis/Selvania-Launcher/releases 'releases'
+[build]: https://github.com/luuxis/Selvania-Launcher/releases 'build'
 
 
