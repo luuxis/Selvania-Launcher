@@ -50,11 +50,13 @@
     border-radius: 20px;
     background: #121212;
     text-align: center;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .active-tab-content {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .add-account {
@@ -117,7 +119,7 @@
     pointer-events: none;
 }
 
-.account-delete {    
+.account-delete {
     margin: -60px 415px;
     color: #f73434;
     font-size: 50px;
@@ -146,4 +148,66 @@
     background: #006e47;
     border: 4px solid #bd5d26;
     box-shadow: 0 0 5px #bd5d26;
+}
+
+.memory-slider {
+    position: relative;
+    margin: 24px;
+    height: 18px;
+    width: 330px;
+    user-select: none;
+}
+
+.slider-touch-left, .slider-touch-right {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    z-index: 2;
+}
+
+.slider-touch-left span, .slider-touch-right span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #F1F1F1;
+    border: 4px solid #00bd7a;
+    transition: background-color .2s, border .2s;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.slider-touch-left span:after, .slider-touch-right span:after {
+    content: attr(value);
+    color: #00bd7a;
+    font: normal normal bold 12px/18px Poppins;
+    white-space: nowrap;
+    pointer-events: none;
+    position: absolute;
+    top: -20px;
+    left: 55%;
+    transform: translate(-50%);
+}
+
+.slider-line {
+    box-sizing: border-box;
+    position: absolute;
+    width: calc(100% - 18px);
+    left: 9px;
+    top: 7px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #F0F0F0;
+    transition: background-color .2s;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.slider-line span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #00bd7a;
+    transition: background-color .2s;
 }
