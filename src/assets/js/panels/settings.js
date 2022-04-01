@@ -12,8 +12,9 @@ class Settings {
     }
 
     initAccount() {
-        document.querySelector('.accounts').addEventListener('click', (e) => {
+        document.querySelector('.accounts').addEventListener('click', async (e) => {
             let uuid = e.target.id;
+            let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
             if (e.path[0].classList.contains('account')) {
                 accountSelect(uuid);
@@ -22,9 +23,20 @@ class Settings {
 
             if (e.target.classList.contains("account-delete")) {
                 this.database.delete(e.path[1].id, 'accounts');
+
                 document.querySelector('.accounts').removeChild(e.path[1])
                 if (!document.querySelector('.accounts').children.length) {
                     changePanel("login");
+                    return
+                }
+
+                if (e.path[1].id === selectedaccount.value.selected) {
+                    let uuid = (await this.database.getAll('accounts'))[0].value.uuid
+                    this.database.update({
+                        uuid: "1234",
+                        selected: uuid
+                    }, 'accounts-selected')
+                    accountSelect(uuid)
                 }
             }
         })
