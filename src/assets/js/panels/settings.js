@@ -1,6 +1,7 @@
 'use strict';
 
-import { database, changePanel, accountSelect } from '../utils.js';
+import { database, changePanel, accountSelect, Slider } from '../utils.js';
+const os = require('os');
 
 class Settings {
     static id = "settings";
@@ -9,10 +10,11 @@ class Settings {
         this.initSettingsDefault();
         this.initTab();
         this.initAccount();
+        this.initRam();
     }
 
     initAccount() {
-        document.querySelector('.accounts').addEventListener('click', async (e) => {
+        document.querySelector('.accounts').addEventListener('click', async(e) => {
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
@@ -45,6 +47,27 @@ class Settings {
             document.querySelector(".cancel-login").style.display = "contents";
             changePanel("login");
         })
+    }
+
+    async initRam() {
+        let sliderDiv = document.querySelector(".memory-slider");
+        sliderDiv.setAttribute("max", Math.trunc(os.totalmem() / 1073741824 * 10) / 10);
+
+
+        let ram = (await this.database.get('1234', 'ram')).value;
+        let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
+
+        let minSpan = document.querySelector(".slider-touch-left span");
+        let maxSpan = document.querySelector(".slider-touch-right span");
+
+        minSpan.setAttribute("value", `${ram.ramMin} Go`);
+        maxSpan.setAttribute("value", `${ram.ramMax} Go`);
+
+        slider.on("change", (min, max) => {
+            minSpan.setAttribute("value", `${min} Go`);
+            maxSpan.setAttribute("value", `${max} Go`);
+            this.database.update({ uuid: "1234", ramMin: `${min}`, ramMax: `${max}` }, 'ram')
+        });
     }
 
     initTab() {
@@ -85,8 +108,8 @@ class Settings {
         if (!(await this.database.getAll('ram')).length) {
             this.database.add({
                 uuid: "1234",
-                ramMin: "1024",
-                ramMax: "2048"
+                ramMin: "1",
+                ramMax: "2"
             }, 'ram')
         }
 

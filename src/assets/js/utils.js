@@ -9,7 +9,7 @@ export {
     logger as logger,
     changePanel as changePanel,
     addAccount as addAccount,
-    slider as slider,
+    slider as Slider,
     accountSelect as accountSelect
 }
 
