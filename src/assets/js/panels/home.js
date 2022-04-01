@@ -86,8 +86,8 @@ class Home {
                 account: mc,
                 settings: {
                     ram: {
-                        ramMin: ram.ramMin,
-                        ramMax: ram.ramMax
+                        ramMin: ram.ramMin * 1024,
+                        ramMax: ram.ramMax * 1024
                     },
                     detached: false
                 }
