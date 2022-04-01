@@ -4,7 +4,7 @@
 const fs = require('fs');
 const { microsoft, mojang } = require('minecraft-java-core');
 
-import { config, logger, changePanel, database, addAccount } from './utils.js';
+import { config, logger, changePanel, database, addAccount, accountSelect } from './utils.js';
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
@@ -79,6 +79,7 @@ class Launcher {
 
     async getaccounts() {
         let accounts = await this.database.getAll('accounts');
+        let selectaccount = (await this.database.get('1234', 'accounts-selected')).value.selected;
         if (!accounts.length) {
             changePanel("login");
         } else {
@@ -92,6 +93,7 @@ class Launcher {
                     if (refresh.error) {
                         this.database.delete(account.uuid, 'accounts');
                         this.database.delete(account.uuid, 'profile');
+                        if(account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                         console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
                         continue;
                     }
@@ -118,17 +120,18 @@ class Launcher {
                     this.database.update(refresh_accounts, 'accounts');
                     this.database.update(refresh_profile, 'profile');
                     addAccount(refresh_accounts);
-
+                    if(account.uuid === selectaccount) accountSelect(refresh.uuid)
                 } else if (account.meta.type === 'Mojang') {
-
                     if (account.meta.offline) {
                         addAccount(account);
+                        if(account.uuid === selectaccount) accountSelect(account.uuid)
                         continue;
                     }
 
                     let validate = await mojang.validate(account);
                     if (!validate) {
                         this.database.delete(account.uuid, 'accounts');
+                        if(account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                         console.error(`[Account] ${account.uuid}: error`);
                         continue;
                     }
@@ -138,6 +141,7 @@ class Launcher {
 
                     if (refresh.error) {
                         this.database.delete(account.uuid, 'accounts');
+                        if(account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                         console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
                         continue;
                     }
@@ -156,6 +160,7 @@ class Launcher {
 
                     this.database.update(refresh_accounts, 'accounts');
                     addAccount(refresh_accounts);
+                    if(account.uuid === selectaccount) accountSelect(refresh.uuid)
                 }
             }
             changePanel("home");
