@@ -80,6 +80,7 @@ class Launcher {
     async getaccounts() {
         let accounts = await this.database.getAll('accounts');
         let selectaccount = (await this.database.get('1234', 'accounts-selected')).value.selected;
+
         if (!accounts.length) {
             changePanel("login");
         } else {
@@ -93,7 +94,7 @@ class Launcher {
                     if (refresh.error) {
                         this.database.delete(account.uuid, 'accounts');
                         this.database.delete(account.uuid, 'profile');
-                        if(account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
+                        if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                         console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
                         continue;
                     }
@@ -120,18 +121,18 @@ class Launcher {
                     this.database.update(refresh_accounts, 'accounts');
                     this.database.update(refresh_profile, 'profile');
                     addAccount(refresh_accounts);
-                    if(account.uuid === selectaccount) accountSelect(refresh.uuid)
+                    if (account.uuid === selectaccount) accountSelect(refresh.uuid)
                 } else if (account.meta.type === 'Mojang') {
                     if (account.meta.offline) {
                         addAccount(account);
-                        if(account.uuid === selectaccount) accountSelect(account.uuid)
+                        if (account.uuid === selectaccount) accountSelect(account.uuid)
                         continue;
                     }
 
                     let validate = await mojang.validate(account);
                     if (!validate) {
                         this.database.delete(account.uuid, 'accounts');
-                        if(account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
+                        if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                         console.error(`[Account] ${account.uuid}: error`);
                         continue;
                     }
@@ -141,7 +142,7 @@ class Launcher {
 
                     if (refresh.error) {
                         this.database.delete(account.uuid, 'accounts');
-                        if(account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
+                        if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                         console.error(`[Account] ${account.uuid}: ${refresh.errorMessage}`);
                         continue;
                     }
@@ -160,12 +161,26 @@ class Launcher {
 
                     this.database.update(refresh_accounts, 'accounts');
                     addAccount(refresh_accounts);
-                    if(account.uuid === selectaccount) accountSelect(refresh.uuid)
+                    if (account.uuid === selectaccount) accountSelect(refresh.uuid)
                 }
             }
-            changePanel("home");
+        }
+        if (!(await this.database.get('1234', 'accounts-selected')).value.selected) {
+            let uuid = (await this.database.getAll('accounts'))[0].value.uuid
+            this.database.update({
+                uuid: "1234",
+                selected: uuid
+            }, 'accounts-selected')
+            accountSelect(uuid)
+        }
+
+        if ((await this.database.getAll('accounts')).length == 0) {
+            changePanel("login");
+            document.querySelector(".preload-content").style.display = "none";
+            return
         }
         document.querySelector(".preload-content").style.display = "none";
+        changePanel("home");
     }
 }
 
