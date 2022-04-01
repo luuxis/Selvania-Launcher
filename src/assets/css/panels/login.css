@@ -34,6 +34,17 @@
     box-shadow: 0 0 5px #006e47;
 }
 
+.login-type-btn:disabled {
+    background-color: #00bd7a;
+    box-shadow: 0 0 5px #00bd7a;
+    cursor: default;
+}
+
+.login-type-btn:disabled:hover {
+    background-color: #00bd7a;
+    box-shadow: 0 0 5px #00bd7a;
+}
+
 .login-card-mojang {
     position: absolute;
     top: 52%;
@@ -98,11 +109,16 @@
 .cancel {
     border: none;
     background-color: #ffffff00;
-    color: #ffffff;
+    color: #F1F1F1;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
 }
 
 .cancel:hover {
     color: #373737;
+}
+
+.cancel:hover:disabled {
+    color: #F1F1F1;
+    cursor: default;
 }
