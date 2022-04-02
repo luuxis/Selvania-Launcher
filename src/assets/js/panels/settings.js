@@ -107,8 +107,8 @@ class Settings {
         if (!(await this.database.getAll('ram')).length) {
             this.database.add({
                 uuid: "1234",
-                ramMin: "1",
-                ramMax: "2"
+                ramMin: "2",
+                ramMax: "4"
             }, 'ram')
         }
 
