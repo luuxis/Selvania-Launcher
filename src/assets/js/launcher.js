@@ -79,7 +79,7 @@ class Launcher {
 
     async getaccounts() {
         let accounts = await this.database.getAll('accounts');
-        let selectaccount = (await this.database.get('1234', 'accounts-selected')).value.selected;
+        let selectaccount = (await this.database.get('1234', 'accounts-selected'))?.value?.selected;
 
         if (!accounts.length) {
             changePanel("login");
@@ -162,25 +162,30 @@ class Launcher {
                     this.database.update(refresh_accounts, 'accounts');
                     addAccount(refresh_accounts);
                     if (account.uuid === selectaccount) accountSelect(refresh.uuid)
+                } else {
+                    this.database.delete(account.uuid, 'accounts');
+                    if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                 }
             }
-        }
-        if (!(await this.database.get('1234', 'accounts-selected')).value.selected) {
-            let uuid = (await this.database.getAll('accounts'))[0].value.uuid
-            this.database.update({
-                uuid: "1234",
-                selected: uuid
-            }, 'accounts-selected')
-            accountSelect(uuid)
-        }
-
-        if ((await this.database.getAll('accounts')).length == 0) {
-            changePanel("login");
-            document.querySelector(".preload-content").style.display = "none";
-            return
+            if (!(await this.database.get('1234', 'accounts-selected')).value.selected) {
+                let uuid = (await this.database.getAll('accounts'))[0]?.value?.uuid
+                if (uuid) {
+                    this.database.update({
+                        uuid: "1234",
+                        selected: uuid
+                    }, 'accounts-selected')
+                    accountSelect(uuid)
+                }
+            }
+    
+            if ((await this.database.getAll('accounts')).length == 0) {
+                changePanel("login");
+                document.querySelector(".preload-content").style.display = "none";
+                return
+            }
+            changePanel("home");
         }
         document.querySelector(".preload-content").style.display = "none";
-        changePanel("home");
     }
 }
 
