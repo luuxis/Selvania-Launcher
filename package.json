@@ -1,6 +1,6 @@
 {
     "name": "Selvania-Launcher",
-    "version": "3.0.0-alpha.2",
+    "version": "3.0.0-alpha.3",
     "productName": "Selvania Launcher",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/index.html",
@@ -99,7 +99,7 @@
         "nwjs-build": "^1.2.0"
     },
     "dependencies": {
-        "minecraft-java-core": "^1.3.6-beta.2",
+        "minecraft-java-core": "^1.3.6",
         "node-fetch": "^2.6.7",
         "nw-autoupdater-luuxis": "^1.1.6"
     },
