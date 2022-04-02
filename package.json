@@ -71,8 +71,8 @@
         },
         "outputPattern": "${NAME}-${PLATFORM}-${ARCH}",
         "win": {
-            "productName": "Uzurion Launcher",
-            "companyName": "Uzurion Launcher",
+            "productName": "Selvania Launcher",
+            "companyName": "Selvania Launcher",
             "copyright": "copyright",
             "icon": "src/assets/images/icon.ico"
         },
