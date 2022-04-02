@@ -53,8 +53,7 @@ class Settings {
         let sliderDiv = document.querySelector(".memory-slider");
         sliderDiv.setAttribute("max", Math.trunc(os.totalmem() / 1073741824 * 10) / 10);
 
-
-        let ram = (await this.database.get('1234', 'ram')).value;
+        let ram = (await this.database.get('1234', 'ram'))?.value ? (await this.database.get('1234', 'ram'))?.value : { ramMin: "1", ramMax: "2" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
 
         let minSpan = document.querySelector(".slider-touch-left span");
