@@ -5,7 +5,7 @@
     height: 70px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
-    background: #121212;
+    background: #00000080;
     display: flex;
     justify-content: center;
 }
@@ -49,7 +49,6 @@
     height: 80%;
     border-radius: 20px;
     background: #121212;
-    text-align: center;
     opacity: 0;
     pointer-events: none;
 }
@@ -58,6 +57,33 @@
     opacity: 1;
     pointer-events: all;
 }
+
+.information {
+    padding: 0 40px;
+    font: normal normal normal 16px/25px Poppins;
+    color: #F1F1F1;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.settings-content-scroll {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.settings-content-scroll::-webkit-scrollbar {
+    width: 0;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * account sttings                                                             *
+ *                                                                             *
+ ******************************************************************************/
 
 .add-account {
     width: 80%;
@@ -150,15 +176,31 @@
     box-shadow: 0 0 5px #bd5d26;
 }
 
+
+/*******************************************************************************
+ *                                                                             *
+ * java settings                                                             *
+ *                                                                             *
+ ******************************************************************************/
+
+.ram-setting {
+    background: #292929;
+    border-radius: 20px;
+    width: 90%;
+    margin: 3% auto;
+    padding: 20px;
+}
+
 .memory-slider {
     position: relative;
     margin: 24px;
     height: 18px;
-    width: 600px;
+    width: 550px;
     user-select: none;
 }
 
-.slider-touch-left, .slider-touch-right {
+.slider-touch-left,
+.slider-touch-right {
     box-sizing: border-box;
     display: block;
     position: absolute;
@@ -167,9 +209,10 @@
     z-index: 2;
 }
 
-.slider-touch-left span, .slider-touch-right span {
+.slider-touch-left span,
+.slider-touch-right span {
     display: block;
-    width: 15px;
+    width: 20px;
     height: 10px;
     background: #F1F1F1;
     border: 4px solid #00bd7a;
@@ -178,7 +221,8 @@
     cursor: pointer;
 }
 
-.slider-touch-left span:after, .slider-touch-right span:after {
+.slider-touch-left span:after,
+.slider-touch-right span:after {
     content: attr(value);
     color: #00bd7a;
     font: normal normal bold 12px/18px Poppins;
@@ -186,7 +230,7 @@
     pointer-events: none;
     position: absolute;
     top: -20px;
-    left: 55%;
+    left: 83%;
     transform: translate(-50%);
 }
 
@@ -210,4 +254,11 @@
     width: 0%;
     background: #00bd7a;
     transition: background-color .2s;
+}
+
+.ram-info {
+    display: flex;
+    align-items: center;
+    font: normal normal bold 15px/25px Poppins;
+    color: #F1F1F1F1;
 }
