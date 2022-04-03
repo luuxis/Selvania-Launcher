@@ -25,7 +25,7 @@ class Launcher {
     }
 
     initLog() {
-        let logs = document.querySelector(".log-console");
+        let logs = document.querySelector(".log-panel");
         let block = false;
         document.addEventListener("keydown", (e) => {
             if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123 && !Dev) {
