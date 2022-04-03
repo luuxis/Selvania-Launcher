@@ -50,8 +50,14 @@ class Settings {
     }
 
     async initRam() {
+        let totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
+        let freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
+
+        document.getElementById("total-ram").textContent = `${totalMem} Go`;
+        document.getElementById("free-ram").textContent = `${freeMem} Go`;
+
         let sliderDiv = document.querySelector(".memory-slider");
-        sliderDiv.setAttribute("max", Math.trunc(os.totalmem() / 1073741824 * 10) / 10);
+        sliderDiv.setAttribute("max", totalMem);
 
         let ram = (await this.database.get('1234', 'ram'))?.value ? (await this.database.get('1234', 'ram'))?.value : { ramMin: "1", ramMax: "2" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
