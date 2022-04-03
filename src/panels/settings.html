@@ -8,23 +8,45 @@
     </div>
 
     <div class="tabs-settings-content active-tab-content">
-        <button class="add-account">Ajouter un compte</button>
-        <div class="accounts"></div>
+        <div class="center-align">
+            <button class="add-account">Ajouter un compte</button>
+            <div class="accounts"></div>
+        </div>
     </div>
 
     <div class="tabs-settings-content">
+        <div class="settings-content-scroll">
+            <div class="ram-setting">
+                <div class="information">
+                    Définition de la RAM alloué à votre jeu, une quantité plus important augmenteras les performances de votre jeu.<br> A noter qu'il faut éviter de mettre une trop grande quantité sinon cela peut provoquer des pertes de performances survos
+                    autres applications.
+                    <br><br>
+                    <b>- RAM Maximale :</b> Indique la quantité totale de RAM allouée à votre jeu. Il est recommandé de ne pas dépasser 50% de la quantité totale de RAM présente sur votre PC afin qu'il puisse fonctionner correctement. Si votre ordinateur
+                    a plus de 8Go de RAM, nous vous recommandons d'allouer 3Go. Si votre ordinateur a 4Go ou moins, n'allouez pas plus de 2Go.<br><br>
+                    <b>- RAM Minimale :</b> Indique la quantité minimale de RAM allouée au démarrage de votre jeu. Il est recommandé de ne pas mettre plus de 3Go pour cette valeur. La valeur typique est de 1Go.
+                </div>
+                <div class="ram-info">
+                    <div class="memory-slider" min="0.5" max="8" step="0.5">
+                        <div class="slider-touch-left">
+                            <span value="0 Go"></span>
+                        </div>
+                        <div class="slider-touch-right">
+                            <span value="0 Go"></span>
+                        </div>
+                        <div class="slider-line">
+                            <span></span>
+                        </div>
+                    </div>
 
-        <div class="memory-slider" min="0.5" max="8" step="0.5">
-            <div class="slider-touch-left">
-                <span value="0 Go"></span>
-            </div>
-            <div class="slider-touch-right">
-                <span value="0 Go"></span>
-            </div>
-            <div class="slider-line">
-                <span></span>
+                    <div class="ram-info-block">
+                        <b>Vous possédez un total de <span id="total-ram">0 Go</span> RAM.</b><br>
+                        <b>Vous possédez un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="path-setting"></div>
+        <div class="java-settig"></div>
 
     </div>
 
