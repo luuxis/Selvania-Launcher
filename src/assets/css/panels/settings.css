@@ -51,6 +51,7 @@
     transform: translate(-50%, -50%);
     width: 95%;
     height: 80%;
+    padding-bottom: 1.5rem;
     border-radius: 20px;
     background: #121212;
     opacity: 0;
