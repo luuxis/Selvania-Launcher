@@ -16,7 +16,8 @@
 
     <div class="tabs-settings-content">
         <div class="settings-content-scroll">
-            <div class="ram-setting">
+            <div class="title-settings">Paramètre de votre RAM.</div>
+            <div class="java-settings">
                 <div class="information">
                     Définition de la RAM alloué à votre jeu, une quantité plus important augmenteras les performances de votre jeu.<br> A noter qu'il faut éviter de mettre une trop grande quantité sinon cela peut provoquer des pertes de performances survos
                     autres applications.
@@ -44,11 +45,23 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="path-setting"></div>
-        <div class="java-settig"></div>
 
+            <div class="title-settings">Emplacement de Java.</div>
+            <div class="java-settings">
+                <div class="information">
+                    Le launcher utilise une version embarquée de Java.<br> Cette version est disponible dans le répertoire <span id="info-path"></span>.<br> Toutefois, vous pouvez spécifier votre propre exécutable.
+                </div>
+                <input type="text" value="" class="path" disabled/>
+                <button class="path-button">Changer</button>
+                <button class="path-button-reset">reset</button>
+                <input type="file" class="path-file" accept="application/octet-stream" />
+            </div>
+            <div class="title-settings">Paramètres des arguments java.</div>
+            <div class="java-settings"></div>
+        </div>
     </div>
+
+
 
 
     <div class="tabs-settings-content"></div>

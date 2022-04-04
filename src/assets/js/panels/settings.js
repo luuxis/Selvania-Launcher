@@ -1,16 +1,20 @@
 'use strict';
 
 import { database, changePanel, accountSelect, Slider } from '../utils.js';
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
+
 const os = require('os');
 
 class Settings {
     static id = "settings";
-    async init() {
+    async init(config) {
+        this.config = config;
         this.database = await new database().init();
         this.initSettingsDefault();
         this.initTab();
         this.initAccount();
         this.initRam();
+        this.initJavaPath();
     }
 
     initAccount() {
@@ -50,6 +54,7 @@ class Settings {
     }
 
     async initRam() {
+        let ramDatabase = await this.database.get('1234', 'ram').value;
         let totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
         let freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
 
@@ -57,9 +62,9 @@ class Settings {
         document.getElementById("free-ram").textContent = `${freeMem} Go`;
 
         let sliderDiv = document.querySelector(".memory-slider");
-        sliderDiv.setAttribute("max", totalMem);
+        sliderDiv.setAttribute("max", Math.trunc((80 * totalMem) / 100));
 
-        let ram = (await this.database.get('1234', 'ram'))?.value ? (await this.database.get('1234', 'ram'))?.value : { ramMin: "1", ramMax: "2" };
+        let ram = ramDatabase ? ramDatabase : { ramMin: "2", ramMax: "4" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
 
         let minSpan = document.querySelector(".slider-touch-left span");
@@ -72,6 +77,39 @@ class Settings {
             minSpan.setAttribute("value", `${min} Go`);
             maxSpan.setAttribute("value", `${max} Go`);
             this.database.update({ uuid: "1234", ramMin: `${min}`, ramMax: `${max}` }, 'ram')
+        });
+    }
+
+    async initJavaPath() {
+        let javaDatabase = await this.database.get('1234', 'java-path');
+        let javaPath = javaDatabase ? javaDatabase.value.path : null;
+        document.querySelector("#info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${this.config.dataDirectory}/runtime`;
+
+        let path = document.querySelector(".path");
+        path.value = javaPath;
+        let file = document.querySelector(".path-file");
+
+        document.querySelector(".path-button").addEventListener("click", async() => {
+            file.value = "";
+            file.click();
+            await new Promise((resolve) => {
+                let interval;
+                interval = setInterval(() => {
+                    if (file.value != "") resolve(clearInterval(interval));
+                }, 100);
+            });
+
+            if (file.value.replace(".exe", "").endsWith("java") || file.value.replace(".exe", "").endsWith("javaw")) {
+                this.database.update({ uuid: "1234", path: file.value }, 'java-path');
+                path.value = file.value.replace(/\\/g, "/");
+            } else alert("Le nom du fichier doit être java ou javaw");
+
+        });
+
+        document.querySelector(".path-button-reset").addEventListener("click", () => {
+            path.value = "";
+            file.value = "";
+            this.database.update({ uuid: "1234", path: null }, 'java-path');
         });
     }
 
@@ -102,8 +140,12 @@ class Settings {
             this.database.add({ uuid: "1234" }, 'accounts-selected')
         }
 
-        if (!(await this.database.getAll('java')).length) {
-            this.database.add({ uuid: "1234" }, 'java')
+        if (!(await this.database.getAll('java-path')).length) {
+            this.database.add({ uuid: "1234", path: null }, 'java-path')
+        }
+
+        if (!(await this.database.getAll('java-args')).length) {
+            this.database.add({ uuid: "1234", args: null }, 'java-args')
         }
 
         if (!(await this.database.getAll('launcher')).length) {
