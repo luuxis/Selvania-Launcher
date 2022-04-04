@@ -54,7 +54,7 @@ class Settings {
     }
 
     async initRam() {
-        let ramDatabase = await this.database.get('1234', 'ram').value;
+        let ramDatabase = (await this.database.get('1234', 'ram'))?.value;
         let totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
         let freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
 
@@ -81,25 +81,26 @@ class Settings {
     }
 
     async initJavaPath() {
-        let javaDatabase = await this.database.get('1234', 'java-path');
-        let javaPath = javaDatabase ? javaDatabase.value.path : null;
+        let javaDatabase = (await this.database.get('1234', 'java-path'))?.value?.path;
+        let javaPath = javaDatabase ? javaDatabase : 'Utiliser la version de java livrer avec le launcher';
         document.querySelector("#info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${this.config.dataDirectory}/runtime`;
 
+        console.log(javaDatabase);
         let path = document.querySelector(".path");
         path.value = javaPath;
         let file = document.querySelector(".path-file");
 
         document.querySelector(".path-button").addEventListener("click", async() => {
-            file.value = "";
+            file.value = '';
             file.click();
             await new Promise((resolve) => {
                 let interval;
                 interval = setInterval(() => {
-                    if (file.value != "") resolve(clearInterval(interval));
+                    if (file.value != '') resolve(clearInterval(interval));
                 }, 100);
             });
 
-            if (file.value.replace(".exe", "").endsWith("java") || file.value.replace(".exe", "").endsWith("javaw")) {
+            if (file.value.replace(".exe", '').endsWith("java") || file.value.replace(".exe", '').endsWith("javaw")) {
                 this.database.update({ uuid: "1234", path: file.value }, 'java-path');
                 path.value = file.value.replace(/\\/g, "/");
             } else alert("Le nom du fichier doit être java ou javaw");
@@ -107,8 +108,8 @@ class Settings {
         });
 
         document.querySelector(".path-button-reset").addEventListener("click", () => {
-            path.value = "";
-            file.value = "";
+            path.value = 'Utiliser la version de java livrer avec le launcher';
+            file.value = '';
             this.database.update({ uuid: "1234", path: null }, 'java-path');
         });
     }
@@ -145,7 +146,7 @@ class Settings {
         }
 
         if (!(await this.database.getAll('java-args')).length) {
-            this.database.add({ uuid: "1234", args: null }, 'java-args')
+            this.database.add({ uuid: "1234", args: [] }, 'java-args')
         }
 
         if (!(await this.database.getAll('launcher')).length) {
