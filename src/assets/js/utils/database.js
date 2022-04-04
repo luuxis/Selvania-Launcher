@@ -1,7 +1,7 @@
 class database {
     async init() {
         this.db = await new Promise((resolve) => {
-            let request = indexedDB.open('database', 1);
+            let request = indexedDB.open('database', 2);
 
             request.onupgradeneeded = (event) => {
                 let db = event.target.result;
@@ -14,8 +14,12 @@ class database {
                     db.createObjectStore('accounts-selected', { keyPath: "key" });
                 }
 
-                if (!db.objectStoreNames.contains('java')) {
-                    db.createObjectStore('java', { keyPath: "key" });
+                if (!db.objectStoreNames.contains('java-path')) {
+                    db.createObjectStore('java-path', { keyPath: "key" });
+                }
+
+                if (!db.objectStoreNames.contains('java-args')) {
+                    db.createObjectStore('java-args', { keyPath: "key" });
                 }
 
                 if (!db.objectStoreNames.contains('launcher')) {
