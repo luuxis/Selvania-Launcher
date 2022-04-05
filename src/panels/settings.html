@@ -8,9 +8,11 @@
     </div>
 
     <div class="tabs-settings-content active-tab-content">
-        <div class="center-align">
-            <button class="add-account">Ajouter un compte</button>
-            <div class="accounts"></div>
+        <div class="center-page">
+            <div class="center-align">
+                <button class="add-account">Ajouter un compte</button>
+                <div class="accounts"></div>
+            </div>
         </div>
     </div>
 
@@ -49,22 +51,37 @@
             <div class="title-settings">Emplacement de Java.</div>
             <div class="java-settings">
                 <div class="information">
-                    Le launcher utilise une version embarquée de Java.<br> Cette version est disponible dans le répertoire <span id="info-path"></span>.<br> Toutefois, vous pouvez spécifier votre propre exécutable.
+                    Le launcher utilise une version embarquée de Java.<br> Cette version est disponible dans le répertoire <span class="info-path"></span>.<br> Toutefois, vous pouvez spécifier votre propre exécutable.
                 </div>
-                <input type="text" value="" class="path" disabled/>
+                <input type="text" class="path" disabled/>
                 <button class="path-button">Changer</button>
-                <button class="path-button-reset">reset</button>
+                <button class="path-button-reset">Reset</button>
                 <input type="file" class="path-file" accept="application/octet-stream" />
             </div>
+
             <div class="title-settings">Paramètres des arguments java.</div>
-            <div class="java-settings"></div>
+            <div class="java-settings">
+                <div class="information">
+                    Les arguments java sont utilisés pour définir les paramètres de votre jeu.
+                </div>
+                <input type="text" class="args-settings" placeholder="Il est déconseillé de modifier ce paramètre." />
+            </div>
+
         </div>
     </div>
 
+    <div class="tabs-settings-content">
+        <div class="center-page">
+            <div class="title-settings">Paramètre de la résolution de minecraft.</div>
+            <div class="java-settings">
+                <div class="information">
+                    Définissez une résolution personnalisée ou choisissez-en une dans la liste en fonction de la taille de votre écran.
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
-    <div class="tabs-settings-content"></div>
-
-    <div class="tabs-settings-content"></div>
+    <div class="tabs-settings-content">
+        <div class="center-page"></div>
+    </div>
 </div>
