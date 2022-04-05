@@ -53,7 +53,7 @@
     height: 80%;
     padding-bottom: 1.5rem;
     border-radius: 20px;
-    background: #121212;
+    background: transparent;
     opacity: 0;
     pointer-events: none;
 }
@@ -88,6 +88,14 @@
 
 .settings-content-scroll::-webkit-scrollbar {
     width: 0;
+}
+
+.center-page {
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 100%;
 }
 
 
@@ -280,7 +288,8 @@
     font: normal normal normal 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 16px;
-    margin: 1% 0;
+    margin: 0 40px;
+    margin-top: 2%;
     color: #F1F1F1F1;
     background-color: #1f1f1f;
     user-select: text;
@@ -290,7 +299,7 @@
 }
 
 .path-button {
-    font: normal normal normal 13px/20px Poppins;
+    font: normal normal bold 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 30px;
     background-color: #00bd7a;
@@ -306,7 +315,7 @@
 }
 
 .path-button-reset {
-    font: normal normal normal 13px/20px Poppins;
+    font: normal normal bold 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 30px;
     background-color: #00bd7a;
@@ -324,4 +333,35 @@
 .path-file {
     display: none;
     pointer-events: none;
+}
+
+.args-settings {
+    min-width: 50%;
+    font: normal normal normal 13px/20px Poppins;
+    border-radius: 18px;
+    padding: 8px 16px;
+    margin: 0 40px;
+    margin-top: 2%;
+    color: #F1F1F1F1;
+    background-color: #1f1f1f;
+    user-select: text;
+    transition: color .2s, background-color .2s;
+    border: none;
+    outline: none;
+}
+
+.args-button {
+    font: normal normal bold 13px/20px Poppins;
+    border-radius: 18px;
+    padding: 8px 30px;
+    background-color: #00bd7a;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color .2s, background-color .2s;
+    border: none;
+    outline: none;
+}
+
+.args-button:hover {
+    background-color: #1f1f1f;
 }

@@ -15,6 +15,7 @@ class Settings {
         this.initAccount();
         this.initRam();
         this.initJavaPath();
+        this.initJavaArgs();
     }
 
     initAccount() {
@@ -82,10 +83,9 @@ class Settings {
 
     async initJavaPath() {
         let javaDatabase = (await this.database.get('1234', 'java-path'))?.value?.path;
-        let javaPath = javaDatabase ? javaDatabase : 'Utiliser la version de java livrer avec le launcher';
-        document.querySelector("#info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${this.config.dataDirectory}/runtime`;
+        let javaPath = javaDatabase ? javaDatabase : 'Utiliser la version de java livre avec le launcher';
+        document.querySelector(".info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${this.config.dataDirectory}/runtime`;
 
-        console.log(javaDatabase);
         let path = document.querySelector(".path");
         path.value = javaPath;
         let file = document.querySelector(".path-file");
@@ -108,9 +108,32 @@ class Settings {
         });
 
         document.querySelector(".path-button-reset").addEventListener("click", () => {
-            path.value = 'Utiliser la version de java livrer avec le launcher';
+            path.value = 'Utiliser la version de java livre avec le launcher';
             file.value = '';
             this.database.update({ uuid: "1234", path: null }, 'java-path');
+        });
+    }
+
+    async initJavaArgs() {
+        let javaArgsDatabase = (await this.database.get('1234', 'java-args'))?.value?.args;
+        let argsInput = document.querySelector(".args-settings");
+
+        if (javaArgsDatabase.length) argsInput.value = javaArgsDatabase.join(' ');
+    
+        document.querySelector('.args-settings').addEventListener('change', () => {
+            let args = [];
+            try {
+                if (argsInput.value.length) {
+                    argsInput = argsInput.value.trim().split(/\s+/)
+                    for(let arg of argsInput) {
+                        if (arg === '') continue;
+                        if (arg === '--server' || arg === '--port') continue;
+                        args.push(arg);
+                    }
+                }
+            } finally {
+                this.database.update({ uuid: "1234", args: args }, 'java-args');
+            }
         });
     }
 
