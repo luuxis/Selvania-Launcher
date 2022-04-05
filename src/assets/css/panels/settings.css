@@ -349,19 +349,3 @@
     border: none;
     outline: none;
 }
-
-.args-button {
-    font: normal normal bold 13px/20px Poppins;
-    border-radius: 18px;
-    padding: 8px 30px;
-    background-color: #00bd7a;
-    cursor: pointer;
-    margin-left: 20px;
-    transition: color .2s, background-color .2s;
-    border: none;
-    outline: none;
-}
-
-.args-button:hover {
-    background-color: #1f1f1f;
-}
