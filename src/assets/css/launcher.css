@@ -2,11 +2,12 @@
 @import "panels/login.css";
 @import "panels/home.css";
 @import "panels/settings.css";
+
 body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000097, #00000097), url("../images/background/wallpaper.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000097, #00000097), url("../images/background/light.jpg") black no-repeat center center scroll;
 }
 
 .dragbar {
