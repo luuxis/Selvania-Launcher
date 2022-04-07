@@ -199,7 +199,7 @@
 
 /*******************************************************************************
  *                                                                             *
- * java settings                                                             *
+ * java settings                                                               *
  *                                                                             *
  ******************************************************************************/
 
@@ -348,4 +348,73 @@
     transition: color .2s, background-color .2s;
     border: none;
     outline: none;
+}
+
+.input-size-content {
+    height: 5rem;
+}
+
+.input-size {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, 0);
+}
+
+.size-cross {
+    margin: 0 10px;
+}
+
+.size-cross:before {
+    font: normal normal bold 20px Icons;
+    content: "\e90e";
+}
+
+
+
+
+
+
+
+.select-wrap {
+    display: inline-flex;
+}
+
+.select-wrap:before {
+    position: absolute;
+    top: 53%;
+    transform: translate(20px, -50%);
+    font-size: 24px;
+    pointer-events: none;
+}
+
+.select-wrap:after {
+    position: relative;
+    top: -5px;
+    content: "\e903";
+    font-family: 'Icons';
+    margin-left: -1.2em;
+    font-size: 24px;
+    pointer-events: none;
+    transform: rotate(180deg);
+    color: var(--icon-unselected);
+    transition: color .2s;
+    pointer-events: none;
+}
+
+.select {
+    width: 146px;
+    height: 32px;
+    background-color: var(--box-button);
+    box-shadow: 0px 2px 1px var(--shadow);
+    border-radius: 16px;
+    margin-left: 10px;
+    padding-left: 16px;
+    font: normal normal normal 12px/18px Poppins;
+    color: var(--text);
+    transition: color .2s, box-shadow .2s;
+    border: none;
+    outline: none;
+    appearance: none;
 }
