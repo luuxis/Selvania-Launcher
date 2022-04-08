@@ -350,6 +350,13 @@
     outline: none;
 }
 
+
+/*******************************************************************************
+ *                                                                             *
+ * resolution settings                                                         *
+ *                                                                             *
+ ******************************************************************************/
+
 .input-size-content {
     height: 5rem;
 }
@@ -371,50 +378,64 @@
     content: "\e90e";
 }
 
-
-
-
-
-
-
-.select-wrap {
-    display: inline-flex;
+.select-box {
+    display: flex;
+    flex-direction: column;
 }
 
-.select-wrap:before {
-    position: absolute;
-    top: 53%;
-    transform: translate(20px, -50%);
-    font-size: 24px;
-    pointer-events: none;
+.options-container {
+    background: #00bd7a;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    order: 1;
 }
 
-.select-wrap:after {
-    position: relative;
-    top: -5px;
-    content: "\e903";
-    font-family: 'Icons';
-    margin-left: -1.2em;
-    font-size: 24px;
-    pointer-events: none;
-    transform: rotate(180deg);
-    color: var(--icon-unselected);
-    transition: color .2s;
-    pointer-events: none;
+.selected {
+    background: #00bd7a;
 }
 
-.select {
-    width: 146px;
-    height: 32px;
-    background-color: var(--box-button);
-    box-shadow: 0px 2px 1px var(--shadow);
-    border-radius: 16px;
-    margin-left: 10px;
-    padding-left: 16px;
-    font: normal normal normal 12px/18px Poppins;
-    color: var(--text);
-    transition: color .2s, box-shadow .2s;
-    border: none;
-    outline: none;
-    appearance: none;
+
+.options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: auto;
+}
+
+.options-container.active+.selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 8px 8px 0;
+}
+
+.options-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+}
+
+.option,
+.selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #414b57;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.radio {
+    display: none;
 }

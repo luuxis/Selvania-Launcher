@@ -16,6 +16,7 @@ class Settings {
         this.initRam();
         this.initJavaPath();
         this.initJavaArgs();
+        this.initResolution();
     }
 
     initAccount() {
@@ -137,6 +138,11 @@ class Settings {
         });
     }
 
+    async initResolution() {
+        let resolutionDatabase = (await this.database.get('1234', 'screen'))?.value?.screen;
+        let resolution = resolutionDatabase ? resolutionDatabase : { width: "auto", height: "auto" };
+    }
+
     initTab() {
         let TabBtn = document.querySelectorAll('.tab-btn');
         let TabContent = document.querySelectorAll('.tabs-settings-content');
@@ -177,15 +183,11 @@ class Settings {
         }
 
         if (!(await this.database.getAll('ram')).length) {
-            this.database.add({
-                uuid: "1234",
-                ramMin: "1",
-                ramMax: "2"
-            }, 'ram')
+            this.database.add({ uuid: "1234", ramMin: "1", ramMax: "2" }, 'ram')
         }
 
         if (!(await this.database.getAll('screen')).length) {
-            this.database.add({ uuid: "1234" }, 'screen')
+            this.database.add({ uuid: "1234", screen: { width: "auto", height: "auto" } }, 'screen')
         }
 
     }
