@@ -369,6 +369,16 @@
     transform: translate(-50%, 0);
 }
 
+.input-settings {
+    text-align: center;
+    background: #1f1f1f;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    width: 100px;
+    color: #F1F1F1F1;
+}
+
 .size-cross {
     margin: 0 10px;
 }
@@ -406,8 +416,8 @@
 
 .select {
     height: 32px;
-    background-color: #818181;
-    box-shadow: 0px 2px 1px #818181;
+    border-radius: 40px;
+    background-color: #00bd7a;
     font: normal normal normal 12px/18px Poppins;
     transition: color .2s, box-shadow .2s;
     border: none;
