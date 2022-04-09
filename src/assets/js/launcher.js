@@ -133,7 +133,7 @@ class Launcher {
                     if (!validate) {
                         this.database.delete(account.uuid, 'accounts');
                         if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
-                        console.error(`[Account] ${account.uuid}: error`);
+                        console.error(`[Account] ${account.uuid}: Token is invalid.`);
                         continue;
                     }
 
