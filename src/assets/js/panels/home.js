@@ -19,15 +19,17 @@ class Home {
     initLaunch() {
         document.querySelector('.play-btn').addEventListener('click', async () => {
             let urlpkg = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url;
-            let uuid = (await this.database.get('1234', 'accounts-selected')).value.selected;
-            let account = (await this.database.get(uuid, 'accounts')).value;
+            let uuid = (await this.database.get('1234', 'accounts-selected')).value;
+            let account = (await this.database.get(uuid.selected, 'accounts')).value;
             let ram = (await this.database.get('1234', 'ram')).value;
+            let javaPath = (await this.database.get('1234', 'java-path')).value;
+            let javaArgs = (await this.database.get('1234', 'java-args')).value;
+            let Resolution = (await this.database.get('1234', 'screen')).value;
 
             let playBtn = document.querySelector('.play-btn');
             let info = document.querySelector(".text-download")
             let progressBar = document.querySelector(".progress-bar")
-            let logcontent= document.querySelector(".log-content")
-
+            let logcontent = document.querySelector(".log-content")
 
             let opts = {
                 url: this.config.game_url === "" || this.config.game_url === undefined ? `${urlpkg}/files` : this.config.game_url,
@@ -36,7 +38,12 @@ class Home {
                 version: this.config.game_version,
                 detached: false,
                 java: this.config.java,
-                args: [],
+                javapath: javaPath.path,
+                args: [...javaArgs.args, ...this.config.game_args],
+                screen: {
+                    width: Resolution.screen.width,
+                    height: Resolution.screen.height
+                },
                 custom: this.config.custom,
                 verify: this.config.verify,
                 ignored: this.config.ignored,
@@ -62,6 +69,10 @@ class Home {
             })
         
             launch.on('check', (e) => {
+                progressBar.style.display = "block"
+                document.querySelector(".text-download").innerHTML = `Vérification ${((DL / totDL) * 100).toFixed(0)}%`
+                progressBar.value = DL;
+                progressBar.max = totDL;
         
             })
         
