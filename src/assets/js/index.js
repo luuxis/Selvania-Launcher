@@ -5,7 +5,7 @@ import { config } from './utils.js';
 const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
-const manifestUrl = url + "/launcher/package.json";
+const manifestUrl = url + "/launcher/version.json";
 
 let win = nw.Window.get();
 let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
