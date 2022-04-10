@@ -1,0 +1,14 @@
+{
+  "version": "1.0.1",
+  "packages": {
+    "win64": {
+      "url": "https://launcher.selvania.fr/launcher/launcher-update/Selvania-Launcher-win.zip"
+    },
+    "mac64": {
+      "url": "https://launcher.selvania.fr/launcher/launcher-update/Selvania-Launcher-mac.zip"
+    },
+    "linux64": {
+      "url": "https://launcher.selvania.fr/launcher/launcher-update/Selvania-Launcher-linux.zip"
+    }
+  }
+}
