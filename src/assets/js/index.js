@@ -44,7 +44,7 @@ class Splash {
     async maintenanceCheck() {
         nw.App.clearCache();
         if (Dev) return this.startLauncher();
-        config.config().then(res => {
+        config.GetConfig().then(res => {
             if (res.maintenance) return this.shutdown(res.maintenance_message);
             else this.checkUpdate();
         }).catch(err => {
