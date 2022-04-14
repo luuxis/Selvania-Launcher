@@ -39,7 +39,7 @@ class Home {
                 detached: false,
                 java: this.config.java,
                 javapath: javaPath.path,
-                args: [...javaArgs.args, ...this.config.game_args],
+                // args: [...javaArgs.args, ...this.config.game_args],
                 // screen: {
                 //     width: Resolution.screen.width,
                 //     height: Resolution.screen.height
