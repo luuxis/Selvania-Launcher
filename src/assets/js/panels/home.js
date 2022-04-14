@@ -40,10 +40,10 @@ class Home {
                 java: this.config.java,
                 javapath: javaPath.path,
                 args: [...javaArgs.args, ...this.config.game_args],
-                screen: {
-                    width: Resolution.screen.width,
-                    height: Resolution.screen.height
-                },
+                // screen: {
+                //     width: Resolution.screen.width,
+                //     height: Resolution.screen.height
+                // },
                 custom: this.config.custom,
                 verify: this.config.verify,
                 ignored: this.config.ignored,
