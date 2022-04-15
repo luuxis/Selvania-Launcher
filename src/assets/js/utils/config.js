@@ -4,7 +4,7 @@ const convert = require('xml-js');
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 
 let config = `${url}/launcher/config-launcher/config.json`;
-let news = `${url}/launcher/news-launcher`;
+let news = `${url}/launcher/news-launcher/rss.php`;
 
 class Config {
     GetConfig() {
