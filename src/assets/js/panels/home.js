@@ -9,11 +9,25 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${
 
 class Home {
     static id = "home";
-    async init(config) {
+    async init(config, news) {
         this.config = config
+        this.news = news
         this.database = await new database().init();
+        this.initNews();
         this.initLaunch();
         this.initBtn();
+    }
+
+    initNews() {
+        document.querySelector('.news-bar').innerHTML = `
+            <div class="news-title">
+                <h3>${this.news[0].title}</h3>
+                <p>${this.news[0].date}</p>
+                </div>
+                <div class="news-content">
+                    <p>${this.news[0].content}</p>
+                    </div>
+                `;
     }
 
     initLaunch() {

@@ -19,6 +19,7 @@ class Launcher {
         console.log("Initializing Launcher...");
         if (process.platform == "win32") this.initFrame();
         this.config = await config.GetConfig().then(res => res);
+        this.news = await config.GetNews().then(res => res);
         this.database = await new database().init();
         this.createPanels(Login, Home, Settings);
         this.getaccounts();
@@ -73,7 +74,7 @@ class Launcher {
             div.classList.add("panel", panel.id)
             div.innerHTML = fs.readFileSync(`src/panels/${panel.id}.html`, "utf8");
             panelsElem.appendChild(div);
-            new panel().init(this.config);
+            new panel().init(this.config, this.news);
         }
     }
 
