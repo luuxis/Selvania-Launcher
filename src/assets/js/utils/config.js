@@ -18,28 +18,31 @@ class Config {
     }
 
     async GetNews() {
-        let rss = await fetch(news).then(res => res.text());
-        let rssparse = JSON.parse(convert.xml2json(rss, { compact: true }));
-        let data = [];
-        if (rssparse.rss.channel.item.length) {
-            for (let i of rssparse.rss.channel.item) {
+        let rss = await fetch(news);
+        if (rss.status === 200) {
+            let rssparse = JSON.parse(convert.xml2json(await rss.text(), { compact: true }));
+            let data = [];
+            if (rssparse?.rss?.channel?.item?.length) {
+                for (let i of rssparse.rss.channel.item) {
+                    let item = {}
+                    item.title = i.title._text;
+                    item.content = i.content._text;
+                    item.author = i.author._text;
+                    item.publish_date = i.publish_date._text;
+                    data.push(item);
+                }
+            } else {
                 let item = {}
-                item.title = i.title._text;
-                item.content = i.content._text;
-                item.author = i.author._text;
-                item.publish_date = i.publish_date._text;
+                item.title = rssparse?.rss?.channel?.item?.title?._text;
+                item.content = rssparse?.rss?.channel?.item?.content?._text;
+                item.author = rssparse?.rss?.channel?.item?.author?._text;
+                item.publish_date = rssparse?.rss?.channel?.item?.publish_date?._text;
                 data.push(item);
             }
-        } else {
-            let item = {}
-            item.title = rssparse.rss.channel.item.title._text;
-            item.content = rssparse.rss.channel.item.content._text;
-            item.author = rssparse.rss.channel.item.author._text;
-            item.publish_date = rssparse.rss.channel.item.publish_date._text;
-            data.push(item);
-
+            return data;
+        } else {    
+            return false;
         }
-        return data;
     }
 }
 
