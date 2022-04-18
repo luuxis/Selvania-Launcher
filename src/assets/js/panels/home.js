@@ -22,6 +22,7 @@ class Home {
         let news = document.querySelector('.news-list');
         if (this.news) {
             for(let News of this.news) {
+                let date = this.getdate(News.publish_date)
                 let blockNews = document.createElement('div');
                 blockNews.classList.add('news-block');
                 blockNews.innerHTML = `
@@ -31,8 +32,8 @@ class Home {
                         <div class="title">${News.title}</div>
                     </div>
                     <div class="date">
-                        <div class="day"></div>
-                        <div class="month"></div>
+                        <div class="day">${date.day}</div>
+                        <div class="month">${date.month}</div>
                     </div>
                 </div>
                 <div class="news-content">
@@ -134,5 +135,15 @@ class Home {
             changePanel('settings');
         });
     }
+
+    getdate(e) {
+        let date = new Date(e)
+        let year = date.getFullYear()
+        let month = date.getMonth()
+        let day = date.getDate()
+        let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        return { year: year, month: allMonth[month], day: day}
+    }
+    
 }
 export default Home;
