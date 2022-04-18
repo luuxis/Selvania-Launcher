@@ -1,6 +1,6 @@
 <p align="center"><img src="../src/assets/images/icon.png" width="65%" height="65%" alt="icon-launcher"></p>
 
-<h1 align="center">Saphyrium</h1>
+<h1 align="center">Saphyrium Launcher</h1>
 
 [<p align="center">
 <img src="https://img.shields.io/badge/build-pre--alpha-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Selvania-Launcher/releases) 
