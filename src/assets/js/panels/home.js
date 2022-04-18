@@ -19,19 +19,21 @@ class Home {
     }
 
     initNews() {
-        document.querySelector('.news-bar').innerHTML = `
+        if (this.news) {
+            document.querySelector('.news-bar').innerHTML = `
             <div class="news-title">
                 <h3>${this.news[0].title}</h3>
-                <p>${this.news[0].date}</p>
+                <p>${this.news[0].publish_date}</p>
                 </div>
                 <div class="news-content">
-                    <p>${this.news[0].content}</p>
+                    <p>${this.news[0].content.replace(/\n/g, '</br>')}</p>
                     </div>
                 `;
+        }
     }
 
     initLaunch() {
-        document.querySelector('.play-btn').addEventListener('click', async () => {
+        document.querySelector('.play-btn').addEventListener('click', async() => {
             let urlpkg = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url;
             let uuid = (await this.database.get('1234', 'accounts-selected')).value;
             let account = (await this.database.get(uuid.selected, 'accounts')).value;
@@ -77,25 +79,25 @@ class Home {
                 progressBar.value = DL;
                 progressBar.max = totDL;
             })
-        
+
             launch.on('speed', (speed) => {
                 console.log(`${(speed / 1067008).toFixed(2)} Mb/s`)
             })
-        
+
             launch.on('check', (e) => {
                 progressBar.style.display = "block"
                 document.querySelector(".text-download").innerHTML = `Vérification ${((DL / totDL) * 100).toFixed(0)}%`
                 progressBar.value = DL;
                 progressBar.max = totDL;
-        
+
             })
-        
+
             launch.on('data', (e) => {
                 new logger('Minecraft', '#36b030', logcontent);
                 info.innerHTML = `Demarrage en cours...`
                 console.log(e);
             })
-        
+
             launch.on('close', () => {
                 progressBar.style.display = "none"
                 info.style.display = "none"
@@ -110,7 +112,7 @@ class Home {
     initBtn() {
         document.querySelector('.settings-btn').addEventListener('click', () => {
             changePanel('settings');
-        });            
+        });
     }
 }
 export default Home;
