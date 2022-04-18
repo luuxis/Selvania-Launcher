@@ -19,16 +19,29 @@ class Home {
     }
 
     initNews() {
+        let news = document.querySelector('.news-list');
         if (this.news) {
-            document.querySelector('.news-bar').innerHTML = `
-            <div class="news-title">
-                <h3>${this.news[0].title}</h3>
-                <p>${this.news[0].publish_date}</p>
+            for(let News of this.news) {
+                let blockNews = document.createElement('div');
+                blockNews.classList.add('news-block');
+                blockNews.innerHTML = `
+                <div class="news-header">
+                    <div class="header-text">
+                        <img class="avatar" src="assets/images/icon.png">
+                        <div class="title">${News.title}</div>
+                    </div>
+                    <div class="date">
+                        <div class="day"></div>
+                        <div class="month"></div>
+                    </div>
                 </div>
                 <div class="news-content">
-                    <p>${this.news[0].content.replace(/\n/g, '</br>')}</p>
+                    <div class="bbWrapper">
+                        <p>${News.content.replace(/\n/g, '</br>')}</p>
                     </div>
-                `;
+                </div>`
+                news.appendChild(blockNews);
+            }
         }
     }
 
@@ -41,11 +54,21 @@ class Home {
             let javaPath = (await this.database.get('1234', 'java-path')).value;
             let javaArgs = (await this.database.get('1234', 'java-args')).value;
             let Resolution = (await this.database.get('1234', 'screen')).value;
+            let screen;
 
             let playBtn = document.querySelector('.play-btn');
             let info = document.querySelector(".text-download")
             let progressBar = document.querySelector(".progress-bar")
             let logcontent = document.querySelector(".log-content")
+
+            if (Resolution.screen.width == '<auto>') {
+                screen = false
+            } else {
+                screen = {
+                    width: Resolution.screen.width,
+                    height: Resolution.screen.height
+                }
+            }
 
             let opts = {
                 url: this.config.game_url === "" || this.config.game_url === undefined ? `${urlpkg}/files` : this.config.game_url,
@@ -55,11 +78,8 @@ class Home {
                 detached: false,
                 java: this.config.java,
                 javapath: javaPath.path,
-                // args: [...javaArgs.args, ...this.config.game_args],
-                // screen: {
-                //     width: Resolution.screen.width,
-                //     height: Resolution.screen.height
-                // },
+                args: [...javaArgs.args, ...this.config.game_args],
+                screen,
                 custom: this.config.custom,
                 verify: this.config.verify,
                 ignored: this.config.ignored,
