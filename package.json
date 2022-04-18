@@ -1,12 +1,12 @@
 {
-    "name": "Selvania-Launcher",
-    "version": "3.0.0-beta.1",
-    "productName": "Selvania Launcher",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "Saphyrium Launcher",
+    "version": "1.3.0",
+    "productName": "Saphyrium Launcher",
+    "description": "Saphyrium Launcher",
     "main": "src/index.html",
-    "author": "Luuxis",
+    "author": "Knipe",
     "window": {
-        "title": "Selvania update",
+        "title": "Saphyrium MàJ",
         "width": 400,
         "height": 500,
         "frame": false,
@@ -18,7 +18,7 @@
         "node": "16.x.x"
     },
     "chromium-args": "--enable-logging --v=1",
-    "url": "http://launcher.selvania.fr",
+    "url": "http://saphyrium-launcher.alwaysdata.net",
     "user": false,
     "webkit": {
         "plugin": true
@@ -34,11 +34,16 @@
     },
     "license": "CC0",
     "build": {
-        "appId": "Selvania Launcher",
+        "appId": "Saphyrium Launcher",
         "nwVersion": "0.60.0",
         "packed": true,
-        "args": ["--user-data-dir=./AppData/launcher data"],
-        "targets": ["zip", "nsis7z"],
+        "args": [
+            "--user-data-dir=./AppData/launcher data"
+        ],
+        "targets": [
+            "zip",
+            "nsis7z"
+        ],
         "strippedProperties": [
             "description",
             "engines",
@@ -60,7 +65,7 @@
         "overriddenProperties": {
             "main": "app/index.html",
             "window": {
-                "title": "Selvania update",
+                "title": "Saphyrium MàJ",
                 "width": 400,
                 "height": 500,
                 "frame": false,
@@ -71,16 +76,16 @@
         },
         "outputPattern": "${NAME}-${PLATFORM}-${ARCH}",
         "win": {
-            "productName": "Selvania Launcher",
-            "companyName": "Selvania Launcher",
+            "productName": "Saphyrium Launcher",
+            "companyName": "Saphyrium",
             "copyright": "copyright",
             "icon": "src/assets/images/icon.ico"
         },
         "mac": {
-            "displayName": "Selvania-Launcher",
+            "displayName": "Saphyrium Launcher",
             "copyright": "copyright",
             "plistStrings": {
-                "CFBundleIdentifier": "Selvania-Launcher"
+                "CFBundleIdentifier": "Saphyrium Launcher"
             }
         },
         "nsis": {
@@ -90,7 +95,9 @@
         }
     },
     "nodemonConfig": {
-        "ignore": ["app/*"],
+        "ignore": [
+            "app/*"
+        ],
         "ext": "js,html,css"
     },
     "devDependencies": {
@@ -99,12 +106,12 @@
         "nwjs-build": "^1.2.0"
     },
     "dependencies": {
-        "minecraft-java-core": "^1.3.6",
+        "minecraft-java-core": "^1.3.1",
         "node-fetch": "^2.6.7",
-        "nw-autoupdater-luuxis": "^1.1.6"
+        "nw-autoupdater-luuxis": "^1.1.4"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
+        "url": "git+https://github.com/Luuxis/Selvania-Launcher"
     }
 }
