@@ -119,7 +119,7 @@ class Settings {
         let javaArgsDatabase = (await this.database.get('1234', 'java-args'))?.value?.args;
         let argsInput = document.querySelector(".args-settings");
 
-        if (javaArgsDatabase.length) argsInput.value = javaArgsDatabase.join(' ');
+        if (javaArgsDatabase?.length) argsInput.value = javaArgsDatabase.join(' ');
     
         document.querySelector('.args-settings').addEventListener('change', () => {
             let args = [];
