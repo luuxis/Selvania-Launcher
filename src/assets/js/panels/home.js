@@ -139,10 +139,10 @@ class Home {
     getdate(e) {
         let date = new Date(e)
         let year = date.getFullYear()
-        let month = date.getMonth()
+        let month = date.getMonth() + 1
         let day = date.getDate()
         let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
-        return { year: year, month: allMonth[month], day: day}
+        return { year: year, month: allMonth[month - 1], day: day}
     }
     
 }

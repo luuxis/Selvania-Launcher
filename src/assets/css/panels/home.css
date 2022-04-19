@@ -79,7 +79,8 @@
     transform: translate(-50%, -50%);
 }
 
-.text-download, .progress-bar {
+.text-download,
+.progress-bar {
     display: none;
 }
 
@@ -101,3 +102,120 @@
     background-color: #00bd7a;
     border-radius: 10px;
 }
+
+.body-home {
+    display: flex;
+    height: 78vh;
+    margin: 3rem 2rem;
+}
+
+.news-list {
+    position: relative;
+    transition: opacity .5s;
+    opacity: .3;
+    overflow: auto;
+    width: 100%;
+}
+
+.news-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.news-list:hover {
+    transition: opacity .5s;
+    opacity: 1;
+}
+
+.news-block {
+    margin-bottom: 1rem;
+}
+
+.news-header {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 87px;
+    background-color: #292929;
+    border-radius: 10px 10px 0px 0px;
+    transition: color .2s, filter .2s;
+}
+
+.avatar {
+    position: absolute;
+    border-radius: 24px;
+    width: 48px;
+    height: 48px;
+    top: 19px;
+    left: 19px;
+    background-color: #242424;
+    transition: color .2s;
+}
+
+.title {
+    position: absolute;
+    font: normal normal bold 27px/40px Poppins;
+    letter-spacing: 0px;
+    color: #E1E1E1;
+    display: flex;
+    position: absolute;
+    text-decoration: none;
+    max-width: calc(100% - 158px);
+    font-weight: 600;
+    font-size: 18px;
+    top: 50%;
+    left: 88px;
+    transform: translate(0, -50%);
+    overflow: hidden;
+    line-height: 25px;
+    align-items: center;
+    height: 3em;
+    transition: color .2s;
+}
+
+
+.date {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #E1E1E1;
+    width: 75px;
+    text-align: center;
+    font-weight: 900;
+    font-family: Poppins;
+    transition: color .2s;
+}
+
+.day {
+    font-size: 28px;
+    margin-bottom: -10px;
+    display: block;
+}
+
+.month {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.news-content {
+    position: relative;
+    width: 100%;
+}
+
+.bbWrapper {
+    position: relative;
+    padding: 20px;
+    background-color: #1f1f1f;
+    font-family: Poppins;
+    font-size: 13px !important;
+    color: #E1E1E1;
+    text-decoration: none;
+    border-radius: 0px 0px 10px 10px;
+    transition: color .2s;
+}
+
+/* .player-list {
+    position: relative;
+    width: 100%;
+    background: red;
+} */
