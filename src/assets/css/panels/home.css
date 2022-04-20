@@ -111,8 +111,6 @@
 
 .news-list {
     position: relative;
-    transition: opacity .5s;
-    opacity: .3;
     overflow: auto;
     width: 100%;
 }
@@ -121,13 +119,19 @@
     width: 0;
 }
 
-.news-list:hover {
-    transition: opacity .5s;
+.news-block {
+    margin-bottom: 1rem;
+    transition: opacity 1s;
+    opacity: .2;
+}
+
+.news-block:hover {
+    transition: opacity 1s;
     opacity: 1;
 }
 
-.news-block {
-    margin-bottom: 1rem;
+.opacity-1 {
+    opacity: 1;
 }
 
 .news-header {
@@ -139,17 +143,6 @@
     background-color: #292929;
     border-radius: 10px 10px 0px 0px;
     transition: color .2s, filter .2s;
-}
-
-.avatar {
-    position: absolute;
-    border-radius: 24px;
-    width: 48px;
-    height: 48px;
-    top: 19px;
-    left: 19px;
-    background-color: #242424;
-    transition: color .2s;
 }
 
 .title {
@@ -164,7 +157,7 @@
     font-weight: 600;
     font-size: 18px;
     top: 50%;
-    left: 88px;
+    left: 30px;
     transform: translate(0, -50%);
     overflow: hidden;
     line-height: 25px;
@@ -172,7 +165,6 @@
     height: 3em;
     transition: color .2s;
 }
-
 
 .date {
     position: absolute;
@@ -214,8 +206,20 @@
     transition: color .2s;
 }
 
-/* .player-list {
+.news-author {
+    text-align: end;
+    margin: 0;
+    color: #F1F1F1;
+}
+
+.news-author span {
+    font-style: italic;
+}
+
+.player-list {
     position: relative;
-    width: 100%;
-    background: red;
-} */
+    width: 65vh;
+    margin-left: 2rem;
+    border-radius: 10px;
+    background: #292929;
+}
