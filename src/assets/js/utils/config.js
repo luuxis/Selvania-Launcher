@@ -31,7 +31,7 @@ class Config {
                     item.publish_date = i.publish_date._text;
                     data.push(item);
                 }
-            } else {
+            } else if (rssparse?.rss?.channel?.item) {
                 let item = {}
                 item.title = rssparse?.rss?.channel?.item?.title?._text;
                 item.content = rssparse?.rss?.channel?.item?.content?._text;
