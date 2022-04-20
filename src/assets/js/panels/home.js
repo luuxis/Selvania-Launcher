@@ -11,7 +11,7 @@ class Home {
     static id = "home";
     async init(config, news) {
         this.config = config
-        this.news = news
+        this.news = await news
         this.database = await new database().init();
         this.initNews();
         this.initLaunch();
@@ -176,6 +176,5 @@ class Home {
         let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
         return { year: year, month: allMonth[month - 1], day: day }
     }
-
 }
 export default Home;
