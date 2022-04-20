@@ -21,28 +21,60 @@ class Home {
     initNews() {
         let news = document.querySelector('.news-list');
         if (this.news) {
-            for(let News of this.news) {
-                let date = this.getdate(News.publish_date)
+            if (!this.news.length) {
                 let blockNews = document.createElement('div');
-                blockNews.classList.add('news-block');
+                blockNews.classList.add('news-block', 'opacity-1');
                 blockNews.innerHTML = `
+                    <div class="news-header">
+                        <div class="header-text">
+                            <div class="title">Aucun news n'ai actuellement disponible.</div>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="bbWrapper">
+                            <p>Vous pourrez suivre ici toutes les news relative au serveur.</p>
+                        </div>
+                    </div>`
+                news.appendChild(blockNews);
+            } else {
+                for (let News of this.news) {
+                    let date = this.getdate(News.publish_date)
+                    let blockNews = document.createElement('div');
+                    blockNews.classList.add('news-block');
+                    blockNews.innerHTML = `
+                        <div class="news-header">
+                            <div class="header-text">
+                                <div class="title">${News.title}</div>
+                            </div>
+                            <div class="date">
+                                <div class="day">${date.day}</div>
+                                <div class="month">${date.month}</div>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <div class="bbWrapper">
+                                <p>${News.content.replace(/\n/g, '</br>')}</p>
+                                <p class="news-author">Auteur,<span> ${News.author}</span></p>
+                            </div>
+                        </div>`
+                    news.appendChild(blockNews);
+                }
+            }
+        } else {
+            let blockNews = document.createElement('div');
+            blockNews.classList.add('news-block', 'opacity-1');
+            blockNews.innerHTML = `
                 <div class="news-header">
                     <div class="header-text">
-                        <img class="avatar" src="assets/images/icon.png">
-                        <div class="title">${News.title}</div>
-                    </div>
-                    <div class="date">
-                        <div class="day">${date.day}</div>
-                        <div class="month">${date.month}</div>
+                        <div class="title">Error.</div>
                     </div>
                 </div>
                 <div class="news-content">
                     <div class="bbWrapper">
-                        <p>${News.content.replace(/\n/g, '</br>')}</p>
+                        <p>Impossible de contacter le serveur. Merci de vérifier votre configuration.</p>
                     </div>
                 </div>`
-                news.appendChild(blockNews);
-            }
+            news.appendChild(blockNews);
         }
     }
 
@@ -142,8 +174,8 @@ class Home {
         let month = date.getMonth() + 1
         let day = date.getDate()
         let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
-        return { year: year, month: allMonth[month - 1], day: day}
+        return { year: year, month: allMonth[month - 1], day: day }
     }
-    
+
 }
 export default Home;
