@@ -17,6 +17,7 @@ class Settings {
         this.initJavaPath();
         this.initJavaArgs();
         this.initResolution();
+        this.initLauncherSettings();
     }
 
     initAccount() {
@@ -157,6 +158,10 @@ class Settings {
             height.value = resolution[1];
             this.database.update({ uuid: "1234", screen: { width: resolution[0], height: resolution[1] } }, 'screen');
         });
+    }
+
+    async initLauncherSettings() {
+
     }
 
     initTab() {
