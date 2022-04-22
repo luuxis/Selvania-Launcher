@@ -133,6 +133,12 @@
     text-align: start;
 }
 
+.account:hover {
+    background: #006e47;
+    box-shadow: 0 0 5px #006e47;
+    border: 4px solid #006e47;
+}
+
 .account-image {
     position: absolute;
     border-radius: 31px;
@@ -372,12 +378,13 @@
     border: none;
     outline: none;
     border-radius: 40px;
+    font-size: 25px;
     width: 100px;
     color: #F1F1F1F1;
 }
 
 .size-cross {
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .size-cross:before {
@@ -387,6 +394,7 @@
 
 .select-wrap {
     display: inline-flex;
+    margin-left: 10px;
 }
 
 .select-wrap:before {
@@ -399,7 +407,7 @@
 
 .select-wrap:after {
     position: relative;
-    top: -5px;
+    top: -6px;
     content: "\e903";
     font-family: 'Icons';
     margin-left: -1.2em;
@@ -412,7 +420,6 @@
 }
 
 .select {
-    height: 32px;
     border-radius: 40px;
     background-color: #00bd7a;
     font: normal normal normal 12px/18px Poppins;
