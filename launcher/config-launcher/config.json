@@ -9,5 +9,5 @@
   "java": true,
   "game_args": [],
   "dataDirectory": ".minecraft",
-  "ignored": ["config.json"]
+  "ignored": ["options.txt"]
 }
