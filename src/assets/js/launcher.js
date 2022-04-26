@@ -171,14 +171,11 @@ class Launcher {
             if (!(await this.database.get('1234', 'accounts-selected')).value.selected) {
                 let uuid = (await this.database.getAll('accounts'))[0]?.value?.uuid
                 if (uuid) {
-                    this.database.update({
-                        uuid: "1234",
-                        selected: uuid
-                    }, 'accounts-selected')
+                    this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected')
                     accountSelect(uuid)
                 }
             }
-    
+
             if ((await this.database.getAll('accounts')).length == 0) {
                 changePanel("login");
                 document.querySelector(".preload-content").style.display = "none";

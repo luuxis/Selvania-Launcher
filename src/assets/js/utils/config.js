@@ -19,10 +19,16 @@ class Config {
     async GetNews() {
         let rss = await fetch(news);
         if (rss.status === 200) {
-            return rss.json();
-        } else {    
+            try {
+                let news = await rss.json();
+                return news;
+            } catch (error) {
+                return false;
+            }
+        } else {
             return false;
         }
+
     }
 }
 
