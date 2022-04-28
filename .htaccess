@@ -1,2 +1,3 @@
+RewriteEngine On
+RewriteRule ^(launcher/news-launcher/config.ini) - [F,L,NC]
 Options +Indexes
-
