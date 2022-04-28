@@ -122,7 +122,7 @@
 .news-block {
     margin-bottom: 1rem;
     transition: opacity 1s;
-    opacity: .2;
+    opacity: .4;
 }
 
 .news-block:hover {
