@@ -99,7 +99,7 @@
         "nwjs-build": "^1.2.0"
     },
     "dependencies": {
-        "minecraft-java-core": "^1.3.6",
+        "minecraft-java-core": "^1.3.7",
         "node-fetch": "^2.6.7",
         "nw-autoupdater-luuxis": "^1.1.6"
     },
