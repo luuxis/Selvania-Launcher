@@ -161,7 +161,32 @@ class Settings {
     }
 
     async initLauncherSettings() {
+        let launcherDatabase = (await this.database.get('1234', 'launcher'))?.value;
+        let settingsLauncher
 
+        if(launcherDatabase) {
+            settingsLauncher = {
+                uuid: "1234",
+                launcher: {
+                }
+            }    
+        }
+
+        let openLauncher = document.querySelector(".launcher-open");
+        let closeLauncher = document.querySelector(".launcher-close");
+
+        closeLauncher.addEventListener("click", () => {
+            if(closeLauncher.checked) {
+                openLauncher.checked = false;
+                console.log(settingsLauncher)
+            }
+        })
+
+        openLauncher.addEventListener("click", () => {
+            if(openLauncher.checked) {
+                closeLauncher.checked = false;
+            }
+        })
     }
 
     initTab() {
