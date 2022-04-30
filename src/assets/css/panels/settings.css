@@ -428,3 +428,48 @@
     outline: none;
     appearance: none;
 }
+
+
+/*******************************************************************************
+ *                                                                             *
+ * launcher settings                                                         *
+ *                                                                             *
+ ******************************************************************************/
+ .checkbox-settings {
+    display: none;
+}
+
+.checkbox-settings+label {
+    display: inline;
+    position: relative;
+    top: 2px;
+    margin-right: 24px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    transition: background-color .2s;
+    padding: 0px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.checkround {
+    position: absolute;
+    z-index: 2;
+    border-radius: 7px;
+    transition: all .2s;
+    background-color: #FFFFFF;
+}
+
+.checkbox-settings:checked+label {
+    background-color: #00bd7a;
+}
+
+.checkround {
+    border-radius: 3px;
+}
+
+.checkbox-settings+label {
+    display: inline-block;
+    margin-right: 8px;
+}
