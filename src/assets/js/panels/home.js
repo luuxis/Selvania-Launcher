@@ -4,6 +4,7 @@ import { logger, database, changePanel } from '../utils.js';
 
 const { launch } = require('minecraft-java-core');
 const pkg = nw.global.manifest.__nwjs_manifest;
+const win = nw.Window.get();
 
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
 
@@ -148,11 +149,17 @@ class Home {
 
             launch.on('data', (e) => {
                 new logger('Minecraft', '#36b030', logcontent);
+                if(launcherSettings.launcher.close === 'close-launcher') win.hide();
                 info.innerHTML = `Demarrage en cours...`
                 console.log(e);
             })
 
             launch.on('close', () => {
+                if(launcherSettings.launcher.close === 'close-launcher') {
+                    win.show();
+                    win.focus();
+                    win.setShowInTaskbar(true);
+                }
                 progressBar.style.display = "none"
                 info.style.display = "none"
                 playBtn.style.display = "block"
