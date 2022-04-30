@@ -87,6 +87,7 @@ class Home {
             let javaPath = (await this.database.get('1234', 'java-path')).value;
             let javaArgs = (await this.database.get('1234', 'java-args')).value;
             let Resolution = (await this.database.get('1234', 'screen')).value;
+            let launcherSettings = (await this.database.get('1234', 'launcher')).value;
             let screen;
 
             let playBtn = document.querySelector('.play-btn');
@@ -108,7 +109,7 @@ class Home {
                 authenticator: account,
                 path: `${dataDirectory}/${this.config.dataDirectory}`,
                 version: this.config.game_version,
-                detached: false,
+                detached: launcherSettings.launcher.close === 'close-all' ? false : true,
                 java: this.config.java,
                 javapath: javaPath.path,
                 args: [...javaArgs.args, ...this.config.game_args],
