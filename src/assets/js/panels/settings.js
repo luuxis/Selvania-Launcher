@@ -248,7 +248,12 @@ class Settings {
         }
 
         if (!(await this.database.getAll('launcher')).length) {
-            this.database.add({ uuid: "1234" }, 'launcher')
+            this.database.add({
+                uuid: "1234",
+                launcher: {
+                    close: 'close-launcher'
+                }
+            }, 'launcher')
         }
 
         if (!(await this.database.getAll('ram')).length) {
