@@ -79,7 +79,7 @@ class Splash {
 
     startLauncher() {
         this.setStatus(`Démarrage du launcher`);
-        nw.Window.open("src/launcher.html", {
+        nw.Window.open('./src/launcher.html', {
             "title": pkg.productName,
             "width": 1280,
             "height": 720,
@@ -89,7 +89,7 @@ class Splash {
             "position": "center",
             "icon": "src/assets/images/icon.png"
         });
-        win.close();
+        sleep(150).then(() => win.close());
     }
 
     shutdown(text) {
