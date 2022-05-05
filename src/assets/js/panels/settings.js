@@ -141,7 +141,7 @@ class Settings {
 
     async initResolution() {
         let resolutionDatabase = (await this.database.get('1234', 'screen'))?.value?.screen;
-        let resolution = resolutionDatabase ? resolutionDatabase : { width: "<auto>", height: "<auto>" };
+        let resolution = resolutionDatabase ? resolutionDatabase : { width: "1280", height: "720" };
         
         let width = document.querySelector(".width-size");
         width.value = resolution.width;
@@ -261,7 +261,7 @@ class Settings {
         }
 
         if (!(await this.database.getAll('screen')).length) {
-            this.database.add({ uuid: "1234", screen: { width: "<auto>", height: "<auto>" } }, 'screen')
+            this.database.add({ uuid: "1234", screen: { width: "1280", height: "720" } }, 'screen')
         }
     }
 }
