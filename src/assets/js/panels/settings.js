@@ -112,7 +112,7 @@ class Settings {
         document.querySelector(".path-button-reset").addEventListener("click", () => {
             path.value = 'Utiliser la version de java livre avec le launcher';
             file.value = '';
-            this.database.update({ uuid: "1234", path: null }, 'java-path');
+            this.database.update({ uuid: "1234", path: false }, 'java-path');
         });
     }
 
@@ -240,7 +240,7 @@ class Settings {
         }
 
         if (!(await this.database.getAll('java-path')).length) {
-            this.database.add({ uuid: "1234", path: null }, 'java-path')
+            this.database.add({ uuid: "1234", path: false }, 'java-path')
         }
 
         if (!(await this.database.getAll('java-args')).length) {
