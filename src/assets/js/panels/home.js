@@ -150,6 +150,7 @@ class Home {
             launch.on('data', (e) => {
                 new logger('Minecraft', '#36b030', logcontent);
                 if(launcherSettings.launcher.close === 'close-launcher') win.hide();
+                progressBar.style.display = "none"
                 info.innerHTML = `Demarrage en cours...`
                 console.log(e);
             })
