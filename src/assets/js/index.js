@@ -88,8 +88,9 @@ class Splash {
             "frame": (process.platform == "win32") ? false : true,
             "position": "center",
             "icon": "src/assets/images/icon.png"
+        }, (e) => {
+            win.close();
         });
-        sleep(1000).then(() => win.close());
     }
 
     shutdown(text) {
