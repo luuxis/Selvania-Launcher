@@ -89,7 +89,7 @@ class Splash {
             "position": "center",
             "icon": "src/assets/images/icon.png"
         });
-        sleep(150).then(() => win.close());
+        sleep(1000).then(() => win.close());
     }
 
     shutdown(text) {
