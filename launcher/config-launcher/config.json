@@ -8,6 +8,6 @@
   "verify": false,
   "java": true,
   "game_args": [],
-  "dataDirectory": ".minecraft",
+  "dataDirectory": "minecraft",
   "ignored": ["crash-reports", "logs", "resourcepacks", "resources", "saves", "shaderpacks", "options.txt", "optionsof.txt"]
 }
