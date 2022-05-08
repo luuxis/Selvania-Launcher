@@ -142,7 +142,6 @@ class Home {
 
             launch.on('check', (e) => {
                 progressBar.style.display = "block"
-                win.setProgressBar(0);
                 document.querySelector(".text-download").innerHTML = `Vérification ${((DL / totDL) * 100).toFixed(0)}%`
                 progressBar.value = DL;
                 progressBar.max = totDL;
@@ -153,6 +152,7 @@ class Home {
                 new logger('Minecraft', '#36b030', logcontent);
                 if(launcherSettings.launcher.close === 'close-launcher') win.hide();
                 progressBar.style.display = "none"
+                win.setProgressBar(0);
                 info.innerHTML = `Demarrage en cours...`
                 console.log(e);
             })
