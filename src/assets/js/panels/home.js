@@ -79,7 +79,7 @@ class Home {
         }
     }
 
-    initLaunch() {
+    async initLaunch() {
         document.querySelector('.play-btn').addEventListener('click', async() => {
             let urlpkg = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url;
             let uuid = (await this.database.get('1234', 'accounts-selected')).value;
@@ -131,6 +131,7 @@ class Home {
             launch.on('progress', (DL, totDL) => {
                 progressBar.style.display = "block"
                 document.querySelector(".text-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
+                win.setProgressBar(DL / totDL);
                 progressBar.value = DL;
                 progressBar.max = totDL;
             })
@@ -141,6 +142,7 @@ class Home {
 
             launch.on('check', (e) => {
                 progressBar.style.display = "block"
+                win.setProgressBar(0);
                 document.querySelector(".text-download").innerHTML = `Vérification ${((DL / totDL) * 100).toFixed(0)}%`
                 progressBar.value = DL;
                 progressBar.max = totDL;
