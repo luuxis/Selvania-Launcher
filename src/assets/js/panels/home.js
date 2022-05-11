@@ -1,6 +1,6 @@
 'use strict';
 
-import { logger, database, changePanel } from '../utils.js';
+import { logger, database, changePanel, status } from '../utils.js';
 
 const { launch } = require('minecraft-java-core');
 const pkg = nw.global.manifest.__nwjs_manifest;
@@ -16,6 +16,7 @@ class Home {
         this.database = await new database().init();
         this.initNews();
         this.initLaunch();
+        this.initStatusServer();
         this.initBtn();
     }
 
@@ -171,6 +172,21 @@ class Home {
                 console.log('Close');
             })
         })
+    }
+
+    async initStatusServer() {
+        let nameServer = document.querySelector('.server-text .name');
+        let serverMs = document.querySelector('.server-text .desc');
+        let playersConnected = document.querySelector('.etat-text .text');
+        let online = document.querySelector(".etat-text .online");
+        let serverPing = await new status(this.config.status.ip, this.config.status.port).getStatus();
+
+        if (!serverPing.error) {
+            nameServer.textContent = this.config.dataDirectory;
+            serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
+            online.classList.toggle("off");
+            playersConnected.textContent = serverPing.players;
+        } 
     }
 
     initBtn() {

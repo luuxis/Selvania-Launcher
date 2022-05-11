@@ -10,6 +10,11 @@ body {
     background: linear-gradient(#00000097, #00000097), url("../images/background/light.jpg") black no-repeat center center scroll;
 }
 
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
 .dragbar {
     position: fixed;
     background: #00000080;

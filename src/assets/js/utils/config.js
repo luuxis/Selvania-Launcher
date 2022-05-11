@@ -28,7 +28,6 @@ class Config {
         } else {
             return false;
         }
-
     }
 }
 
