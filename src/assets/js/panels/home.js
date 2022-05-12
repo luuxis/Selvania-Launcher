@@ -186,7 +186,10 @@ class Home {
             serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.players;
-        } 
+        } else {
+            nameServer.textContent = 'Serveur indisponible';
+            serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
+        }
     }
 
     initBtn() {
