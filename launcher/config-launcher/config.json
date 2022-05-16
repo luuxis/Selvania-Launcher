@@ -11,6 +11,7 @@
     "dataDirectory": "minecraft",
     "ignored": ["crash-reports", "logs", "resourcepacks", "resources", "saves", "shaderpacks", "options.txt", "optionsof.txt"],
     "status": {
+        "nameServer": "le nom de votre server",
         "ip": "127.0.0.1",
         "port": 25565
     }
