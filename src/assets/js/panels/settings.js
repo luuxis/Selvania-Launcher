@@ -86,7 +86,7 @@ class Settings {
     async initJavaPath() {
         let javaDatabase = (await this.database.get('1234', 'java-path'))?.value?.path;
         let javaPath = javaDatabase ? javaDatabase : 'Utiliser la version de java livre avec le launcher';
-        document.querySelector(".info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${this.config.dataDirectory}/runtime`;
+        document.querySelector(".info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
         let path = document.querySelector(".path");
         path.value = javaPath;
