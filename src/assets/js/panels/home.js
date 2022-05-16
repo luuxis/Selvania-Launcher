@@ -182,11 +182,11 @@ class Home {
         let serverPing = await new status(this.config.status.ip, this.config.status.port).getStatus();
 
         if (!serverPing.error) {
-            nameServer.textContent = this.config.dataDirectory;
+            nameServer.textContent = this.config.status.nameServer;
             serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.players;
-        } else {
+        } else if (serverPing.error) {
             nameServer.textContent = 'Serveur indisponible';
             serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
         }

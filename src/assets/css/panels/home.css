@@ -219,7 +219,7 @@
 .info-list {
     position: relative;
     width: 65vh;
-    padding: 1rem;
+    padding-left: 1rem;
     background: none;
 }
 
