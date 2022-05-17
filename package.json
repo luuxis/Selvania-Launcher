@@ -35,7 +35,7 @@
     "license": "CC0",
     "build": {
         "appId": "Selvania Launcher",
-        "nwVersion": "0.64.0",
+        "nwVersion": "0.64.1",
         "packed": false,
         "args": ["--user-data-dir=./AppData/launcher data"],
         "targets": ["zip", "nsis7z"],
