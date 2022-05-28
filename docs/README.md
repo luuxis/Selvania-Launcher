@@ -16,7 +16,7 @@
 
 ```console
 > git clone https://github.com/luuxis/Selvania-Launcher.git
-> cd Uzurion-Launcher
+> cd Selvania-Launcher
 (si linux) > sudo apt install -y libatomic1
 > npm install
 ```
