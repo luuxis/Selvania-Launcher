@@ -1,8 +1,9 @@
 'use strict';
 
-import { logger, database, changePanel, status } from '../utils.js';
+import { logger, database, changePanel } from '../utils.js';
 
-const { launch } = require('minecraft-java-core');
+const { Launch, Status } = require('minecraft-java-core');
+const launch = new Launch();
 const pkg = nw.global.manifest.__nwjs_manifest;
 const win = nw.Window.get();
 
@@ -127,7 +128,7 @@ class Home {
 
             playBtn.style.display = "none"
             info.style.display = "block"
-            launch.launch(opts);
+            launch.Launch(opts);
 
             launch.on('progress', (DL, totDL) => {
                 progressBar.style.display = "block"
@@ -179,7 +180,7 @@ class Home {
         let serverMs = document.querySelector('.server-text .desc');
         let playersConnected = document.querySelector('.etat-text .text');
         let online = document.querySelector(".etat-text .online");
-        let serverPing = await new status(this.config.status.ip, this.config.status.port).getStatus();
+        let serverPing = await new Status(this.config.status.ip, this.config.status.port).getStatus();
 
         if (!serverPing.error) {
             nameServer.textContent = this.config.status.nameServer;

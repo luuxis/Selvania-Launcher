@@ -2,7 +2,7 @@
 
 // libs 
 const fs = require('fs');
-const { microsoft, mojang } = require('minecraft-java-core');
+const { Microsoft, Mojang } = require('minecraft-java-core');
 
 import { config, logger, changePanel, database, addAccount, accountSelect } from './utils.js';
 import Login from './panels/login.js';
@@ -88,7 +88,7 @@ class Launcher {
             for (let account of accounts) {
                 account = account.value;
                 if (account.meta.type === 'Xbox') {
-                    let refresh = await new microsoft(this.config.client_id).refresh(account);
+                    let refresh = await new Microsoft(this.config.client_id).refresh(account);
                     let refresh_accounts;
                     let refresh_profile;
 
@@ -130,7 +130,7 @@ class Launcher {
                         continue;
                     }
 
-                    let validate = await mojang.validate(account);
+                    let validate = await Mojang.validate(account);
                     if (!validate) {
                         this.database.delete(account.uuid, 'accounts');
                         if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
@@ -138,7 +138,7 @@ class Launcher {
                         continue;
                     }
 
-                    let refresh = await mojang.refresh(account);
+                    let refresh = await Mojang.refresh(account);
                     let refresh_accounts;
 
                     if (refresh.error) {

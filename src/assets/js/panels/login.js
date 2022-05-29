@@ -1,7 +1,8 @@
 'use strict';
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
-const { microsoft, mojang } = require('minecraft-java-core');
+
+const { Microsoft, Mojang } = require('minecraft-java-core');
 
 class Login {
     static id = "login";
@@ -44,7 +45,7 @@ class Login {
             microsoftBtn.disabled = true;
             mojangBtn.disabled = true;
             cancelBtn.disabled = true;
-            new microsoft(this.config.client_id).getAuth().then(account_connect => {
+            new Microsoft(this.config.client_id).getAuth().then(account_connect => {
                 if (!account_connect) {
                     microsoftBtn.disabled = false;
                     mojangBtn.disabled = false;
@@ -135,7 +136,7 @@ class Login {
                 return
             }
 
-            mojang.getAuth(mailInput.value, passwordInput.value).then(account_connect => {
+            Mojang.getAuth(mailInput.value, passwordInput.value).then(account_connect => {
                 let account = {
                     access_token: account_connect.access_token,
                     client_token: account_connect.client_token,
@@ -207,7 +208,7 @@ class Login {
                 return
             }
 
-            mojang.getAuth(mailInput.value, passwordInput.value).then(async account_connect => {
+            Mojang.getAuth(mailInput.value, passwordInput.value).then(async account_connect => {
                 let account = {
                     access_token: account_connect.access_token,
                     client_token: account_connect.client_token,
