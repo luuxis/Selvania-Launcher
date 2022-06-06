@@ -35,7 +35,7 @@
     "license": "CC0",
     "build": {
         "appId": "Selvania Launcher",
-        "nwVersion": "0.64.1",
+        "nwVersion": "0.65.0",
         "packed": false,
         "args": ["--user-data-dir=./AppData/launcher data"],
         "targets": ["zip", "nsis7z"],
@@ -99,12 +99,12 @@
         "nwjs-build": "^1.2.0"
     },
     "dependencies": {
-        "minecraft-java-core": "^2.0.0-alpha.2",
+        "minecraft-java-core": "^2.0.0-beta.1",
         "node-fetch": "^2.6.7",
         "nw-autoupdater-luuxis": "^1.1.7"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Uzurion-Launcher.git"
+        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
     }
 }
