@@ -35,7 +35,7 @@
     "license": "CC0",
     "build": {
         "appId": "Selvania Launcher",
-        "nwVersion": "0.65.0",
+        "nwVersion": "0.62.0",
         "packed": false,
         "args": ["--user-data-dir=./AppData/launcher data"],
         "targets": ["zip", "nsis7z"],
@@ -99,7 +99,7 @@
         "nwjs-build": "^1.2.0"
     },
     "dependencies": {
-        "minecraft-java-core": "^2.0.0-beta.1",
+        "minecraft-java-core": "^2.0.0-beta.3",
         "node-fetch": "^2.6.7",
         "nw-autoupdater-luuxis": "^1.1.7"
     },
