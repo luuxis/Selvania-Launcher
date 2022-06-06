@@ -186,7 +186,7 @@ class Home {
             nameServer.textContent = this.config.status.nameServer;
             serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
             online.classList.toggle("off");
-            playersConnected.textContent = serverPing.players;
+            playersConnected.textContent = serverPing.playersConnect;
         } else if (serverPing.error) {
             nameServer.textContent = 'Serveur indisponible';
             serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
