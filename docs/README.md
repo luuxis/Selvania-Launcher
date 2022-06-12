@@ -65,6 +65,12 @@
 
 ---
 
+**conditions d'utilisation**
+- pour utiliser le code vous devez faire un fork du projet
+- pour utiliser le code votre code doit tout le temps être public
+
+---
+
 [<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
 ---
 
