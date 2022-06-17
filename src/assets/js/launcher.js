@@ -88,6 +88,7 @@ class Launcher {
             for (let account of accounts) {
                 account = account.value;
                 if (account.meta.type === 'Xbox') {
+                    console.log(`Initializing Xbox account ${account.name}...`);
                     let refresh = await new Microsoft(this.config.client_id).refresh(account);
                     let refresh_accounts;
                     let refresh_profile;
@@ -125,6 +126,7 @@ class Launcher {
                     if (account.uuid === selectaccount) accountSelect(refresh.uuid)
                 } else if (account.meta.type === 'Mojang') {
                     if (account.meta.offline) {
+                    console.log(`Initializing Crack account ${account.name}...`);
                         addAccount(account);
                         if (account.uuid === selectaccount) accountSelect(account.uuid)
                         continue;
@@ -139,6 +141,7 @@ class Launcher {
                     }
 
                     let refresh = await Mojang.refresh(account);
+                    console.log(`Initializing Mojang account ${account.name}...`);
                     let refresh_accounts;
 
                     if (refresh.error) {
