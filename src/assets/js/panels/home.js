@@ -77,7 +77,7 @@ class Home {
                         <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
                     </div>
                 </div>`
-            news.appendChild(blockNews);
+            // news.appendChild(blockNews);
         }
     }
 
