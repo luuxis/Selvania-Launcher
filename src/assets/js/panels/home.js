@@ -117,7 +117,7 @@ class Home {
                 javapath: javaPath.path,
                 args: [...javaArgs.args, ...this.config.game_args],
                 screen,
-                custom: this.config.custom,
+                modde: this.config.modde,
                 verify: this.config.verify,
                 ignored: this.config.ignored,
                 memory: {
