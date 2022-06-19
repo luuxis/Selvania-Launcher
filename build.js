@@ -73,7 +73,7 @@ let configBuild = {
 }
 
 builder.build({
-    targets: (process.argv[2] != null && Platform[process.argv[2]] != null ? Platform[process.argv[2]] : getCurrentPlatform()).createTarget(),
+    // targets: (process.argv[2] != null && Platform[process.argv[2]] != null ? Platform[process.argv[2]] : getCurrentPlatform()).createTarget(),
     config: configBuild
 }).then(() => {
     console.log('le build est terminé')
