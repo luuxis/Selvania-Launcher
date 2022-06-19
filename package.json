@@ -1,107 +1,37 @@
 {
     "name": "Selvania-Launcher",
-    "version": "3.0.0-pre.2",
-    "productName": "Selvania Launcher",
+    "preductname": "Selvania Launcher",
+    "version": "1.0.0",
     "description": "Launcher Mincraft custom (crack, premium)",
-    "main": "src/index.html",
+    "main": "src/app.js",
     "author": "Luuxis",
-    "window": {
-        "title": "Selvania update",
-        "width": 400,
-        "height": 500,
-        "frame": false,
-        "resizable": false,
-        "position": "center",
-        "icon": "src/assets/images/icon.png"
-    },
+    "url": "http://launcher.selvania.fr",
     "engines": {
         "node": "16.x.x"
     },
-    "chromium-args": "--enable-logging --v=1",
-    "url": "http://launcher.selvania.fr",
-    "user": false,
-    "webkit": {
-        "plugin": true
-    },
     "scripts": {
-        "start": "run --64 --mirror https://dl.nwjs.io/ .",
-        "build:win": "npm run obf && build --tasks win-x64 --mirror https://dl.nwjs.io/ .",
-        "build:mac": "npm run obf && build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
-        "build:linux": "npm run obf && build --tasks linux-x64 --mirror https://dl.nwjs.io/ .",
-        "build:all": "npm run obf && build --tasks win-x64,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
-        "obf": "node src/assets/js/utils/obfuscate.js --obf=true",
+        "start": "env-cmd electron .",
+        "build": "node build.js",   
+        "build:win": "npm run build -- WINDOWS",
+        "build:mac": "npm run build -- MAC",
+        "build:linux": "npm run build -- LINUX",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
-    "build": {
-        "appId": "Selvania Launcher",
-        "nwVersion": "0.62.0",
-        "packed": false,
-        "args": ["--user-data-dir=./AppData/launcher data"],
-        "targets": ["zip", "nsis7z"],
-        "strippedProperties": [
-            "description",
-            "engines",
-            "scripts",
-            "build",
-            "nodemonConfig",
-            "devDependencies"
-        ],
-        "excludes": [
-            ".github/**",
-            "AppData/**",
-            "docs/**",
-            "node-v*/**",
-            "src/**",
-            ".gitignore",
-            "package-lock.json",
-            "tool.bat"
-        ],
-        "overriddenProperties": {
-            "main": "app/index.html",
-            "window": {
-                "title": "Selvania update",
-                "width": 400,
-                "height": 500,
-                "frame": false,
-                "resizable": false,
-                "position": "center",
-                "icon": "app/assets/images/icon.png"
-            }
-        },
-        "outputPattern": "${NAME}-${PLATFORM}-${ARCH}",
-        "win": {
-            "productName": "Selvania Launcher",
-            "companyName": "Selvania Launcher",
-            "copyright": "copyright",
-            "icon": "src/assets/images/icon.ico"
-        },
-        "mac": {
-            "displayName": "Selvania-Launcher",
-            "copyright": "copyright",
-            "plistStrings": {
-                "CFBundleIdentifier": "Selvania-Launcher"
-            }
-        },
-        "nsis": {
-            "installDirectory": "$LOCALAPPDATA\\Programs\\${_COMPANYNAME}",
-            "icon": "src/assets/images/icon.ico",
-            "diffUpdaters": false
-        }
-    },
     "nodemonConfig": {
-        "ignore": ["app/*"],
         "ext": "js,html,css"
     },
-    "devDependencies": {
-        "javascript-obfuscator": "^4.0.0",
-        "nodemon": "^2.0.15",
-        "nwjs-build": "^1.2.0"
-    },
     "dependencies": {
+        "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.0.0",
-        "node-fetch": "^2.6.7",
-        "nw-autoupdater-luuxis": "^1.1.7"
+        "node-fetch": "^2.6.7"
+    },
+    "devDependencies": {
+        "electron": "^19.0.4",
+        "electron-builder": "^23.0.3",
+        "env-cmd": "^10.1.0",
+        "javascript-obfuscator": "^4.0.0",
+        "nodemon": "^2.0.16"
     },
     "repository": {
         "type": "git",

@@ -1,14 +1,9 @@
 'use strict';
-const AutoUpdater = require("nw-autoupdater-luuxis");
-const pkg = nw.global.manifest.__nwjs_manifest;
+const { ipcRenderer } = require('electron');
 import { config } from './utils.js';
-const updater = new AutoUpdater(pkg, { strategy: "ScriptSwap" });
 
-let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
-const manifestUrl = url + "/launcher/version.json";
+let dev = process.env.NODE_ENV === 'dev';
 
-let win = nw.Window.get();
-let Dev = (window.navigator.plugins.namedItem('Native Client') !== null);
 
 class Splash {
     constructor() {
@@ -23,7 +18,8 @@ class Splash {
     async startAnimation() {
         let splashes = [
             { "message": "Je... vie...", "author": "Luuxis" },
-            { "message": "Salut je suis du code.", "author": "Luuxis" }
+            { "message": "Salut je suis du code.", "author": "Luuxis" },
+            { "message": "Linux n' ai pas un os, mais un kernel.", "author": "Luuxis" }
         ];
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
@@ -42,55 +38,40 @@ class Splash {
     }
 
     async maintenanceCheck() {
-        nw.App.clearCache();
-        if (Dev) return this.startLauncher();
+        if (dev) return this.startLauncher();
         config.GetConfig().then(res => {
             if (res.maintenance) return this.shutdown(res.maintenance_message);
             else this.checkUpdate();
-        }).catch(err => {
-            console.log("impossible de charger le config.json");
-            console.log(err);
+        }).catch(e => {
+            console.error(e);
             return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
         })
     }
 
     async checkUpdate() {
-        const manifest = await fetch(manifestUrl).then(res => res.json());
-        const update = await updater.checkNewVersion(manifest);
-        if (!update) return this.startLauncher();
+        this.setStatus(`recherche de mise à jour...`);
+        ipcRenderer.send('update-app');
 
-        updater.on("download", (dlSize, totSize) => {
-            this.setProgress(dlSize, totSize);
-        });
-        updater.on("install", (dlSize, totSize) => {
-            this.setProgress(dlSize, totSize);
-        });
+        ipcRenderer.on('updateAvailable', () => {
+            this.setStatus(`Mise à jour disponible !`);
+            this.toggleProgress();
+        })
 
-        this.toggleProgress();
-        this.setStatus(`Téléchargement de la mise à jour`);
-        const file = await updater.download(manifest);
-        this.setStatus(`Décompression de la mise à jour`);
-        await updater.unpack(file);
-        this.toggleProgress();
-        this.setStatus(`Redémarrage`);
-        await updater.restartToSwap();
+        ipcRenderer.on('download-progress', (event, progress) => {
+            console.log(progress);
+            this.setProgress(progress.transferred, progress.total);
+        })
+
+        ipcRenderer.on('update-not-available', () => {
+            this.startLauncher();
+        })
     }
 
 
     startLauncher() {
         this.setStatus(`Démarrage du launcher`);
-        nw.Window.open('./src/launcher.html', {
-            "title": pkg.productName,
-            "width": 1280,
-            "height": 720,
-            "min_width": 980,
-            "min_height": 552,
-            "frame": (process.platform == "win32") ? false : true,
-            "position": "center",
-            "icon": "src/assets/images/icon.png"
-        }, () => {
-            win.close();
-        });
+        ipcRenderer.send('main-window-open');
+        ipcRenderer.send('update-window-close');
     }
 
     shutdown(text) {
@@ -98,7 +79,7 @@ class Splash {
         let i = 4;
         setInterval(() => {
             this.setStatus(`${text}<br>Arrêt dans ${i--}s`);
-            if (i < 0) win.close();
+            if (i < 0) ipcRenderer.send('update-window-close');
         }, 1000);
     }
 
@@ -116,8 +97,13 @@ class Splash {
     }
 }
 
-new Splash();
-
 function sleep(ms) {
-    return new Promise((r) => { setTimeout(r, ms) });
+    return new Promise(r => setTimeout(r, ms));
 }
+
+document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123) {
+        ipcRenderer.send("update-window-dev-tools");
+    }
+})
+new Splash();

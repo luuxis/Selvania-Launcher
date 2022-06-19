@@ -1,8 +1,8 @@
 'use strict';
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
-
-const { Microsoft, Mojang } = require('minecraft-java-core');
+const { Mojang } = require('minecraft-java-core');
+const { ipcRenderer } = require('electron');
 
 class Login {
     static id = "login";
@@ -45,7 +45,7 @@ class Login {
             microsoftBtn.disabled = true;
             mojangBtn.disabled = true;
             cancelBtn.disabled = true;
-            new Microsoft(this.config.client_id).getAuth().then(account_connect => {
+            ipcRenderer.invoke('Microsoft-window', this.config.client_id).then(account_connect => {
                 if (!account_connect) {
                     microsoftBtn.disabled = false;
                     mojangBtn.disabled = false;
@@ -88,7 +88,8 @@ class Login {
                 microsoftBtn.disabled = false;
                 mojangBtn.disabled = false;
                 cancelBtn.disabled = false;
-            })
+
+            });
         })
     }
 
