@@ -1,5 +1,8 @@
 # module du helios launcher
-name: ci
+name: Launher Build
+on:
+  push:
+    branches: [ master ]
 
 on: push
 
