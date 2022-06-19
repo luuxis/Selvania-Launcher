@@ -65,11 +65,11 @@ let configBuild = {
             arch: ["x64"]
         }]
     },
-    publish: {
-        provider: "generic",
-        url: `${url}/launcher/update-launcher`,
-        updaterCacheDirName: "${productName}-updaterer"
-    }
+    // publish: {
+    //     provider: "generic",
+    //     url: `${url}/launcher/update-launcher`,
+    //     updaterCacheDirName: "${productName}-updaterer"
+    // }
 }
 
 builder.build({
