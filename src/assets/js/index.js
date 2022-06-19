@@ -58,7 +58,6 @@ class Splash {
         })
 
         ipcRenderer.on('download-progress', (event, progress) => {
-            console.log(progress);
             this.setProgress(progress.transferred, progress.total);
         })
 

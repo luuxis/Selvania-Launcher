@@ -32,7 +32,11 @@ let configBuild = {
         }, {
             target: "zip",
             arch: ["x64"]
-        }]
+        }],
+    },
+    nsis: {
+        oneClick: false,
+        allowToChangeInstallationDirectory: false
     },
     mac: {
         icon: "./src/assets/images/icon.icns",
