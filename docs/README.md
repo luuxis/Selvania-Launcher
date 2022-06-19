@@ -16,7 +16,7 @@
 
 ```console
 > git clone https://github.com/luuxis/Selvania-Launcher.git
-> cd Selvania-Launcher
+> cd Uzurion-Launcher
 (si linux) > sudo apt install -y libatomic1
 > npm install
 ```
@@ -62,12 +62,6 @@
 **<p align="center">Configurer votre launcher.</p>**
 
 - [Doc ici](./wiki.md).
-
----
-
-**conditions d'utilisation**
-- pour utiliser le code vous devez faire un fork du projet
-- pour utiliser le code votre code doit tout le temps être public
 
 ---
 
