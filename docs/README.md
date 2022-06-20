@@ -3,8 +3,8 @@
 <h1 align="center">Selvania Launcher</h1>
 
 [<p align="center">
-<img src="https://img.shields.io/badge/build-bêta-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Selvania-Launcher/releases) 
-[<img src="https://img.shields.io/badge/version-V3.0.0--pre.1-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Selvania-Launcher/releases) 
+<img src="https://img.shields.io/badge/build-Stable-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Selvania-Launcher/releases) 
+[<img src="https://img.shields.io/badge/version-1.0.0-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Selvania-Launcher/releases) 
 [<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=social&logo=appveyor" alt="stark">](https://github.com/luuxis/Selvania-Launcher/releases)
 <img src="https://img.shields.io/github/languages/code-size/luuxis/Selvania-Launcher?style=social&logo=appveyor" alt="size">
 </p>
@@ -17,7 +17,6 @@
 ```console
 > git clone https://github.com/luuxis/Selvania-Launcher.git
 > cd Selvania-Launcher
-(si linux) > sudo apt install -y libatomic1
 > npm install
 ```
 ---
@@ -36,7 +35,6 @@
 | Windows  | `npm run build:win`   |
 | macOS    | `npm run build:mac`   |
 | Linux    | `npm run build:linux` |
-| All    | `npm run build:all` |
 
 ---
 
@@ -56,7 +54,7 @@
 
 - Authentification crack.
 
-- Accepte toutes versions de Minecraft 1.0 > 1.18.x (Forge, Fabric etc).
+- Accepte toutes versions de Minecraft 1.0 > 1.19.x (Forge, Fabric etc).
 
 ---
 **<p align="center">Configurer votre launcher.</p>**
