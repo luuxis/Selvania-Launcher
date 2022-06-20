@@ -1,7 +1,7 @@
 {
     "name": "Selvania-Launcher",
     "preductname": "Selvania Launcher",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
@@ -11,10 +11,7 @@
     },
     "scripts": {
         "start": "env-cmd electron .",
-        "build": "node build.js",   
-        "build:win": "npm run build -- WINDOWS",
-        "build:mac": "npm run build -- MAC",
-        "build:linux": "npm run build -- LINUX",
+        "build": "node build.js",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
