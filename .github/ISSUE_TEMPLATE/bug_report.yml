@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
      value: |
-      Un grand merci d'avance pour votre aidie. Néanmoins, nous avons besoin d'un certain nombre d'informations, pour nous aider.
+      Un grand merci d'avance pour votre aide. Néanmoins, nous avons besoin d'un certain nombre d'informations, pour nous aider.
   - type: checkboxes
     attributes:
       label: "Liste des vérifications à faire avant de valider l'ouverture du signalement de bug"
