@@ -83,6 +83,7 @@ class Login {
                 microsoftBtn.disabled = false;
                 mojangBtn.disabled = false;
                 cancelBtn.disabled = false;
+                cancelBtn.style.display = "none";
             }).catch(err => {
                 console.log(err)
                 microsoftBtn.disabled = false;
@@ -162,6 +163,7 @@ class Login {
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
                 passwordInput.disabled = false;
+                loginBtn.style.display = "none";
             }).catch(err => {
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
@@ -209,6 +211,15 @@ class Login {
                 return
             }
 
+            if (mailInput.value.length < 3) {
+                infoLogin.innerHTML = "Votre nom d'utilisateur doit avoir au moins 3 caractères"
+                cancelMojangBtn.disabled = false;
+                loginBtn.disabled = false;
+                mailInput.disabled = false;
+                passwordInput.disabled = false;
+                return
+            }
+
             Mojang.getAuth(mailInput.value, passwordInput.value).then(async account_connect => {
                 let account = {
                     access_token: account_connect.access_token,
@@ -234,6 +245,7 @@ class Login {
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
                 passwordInput.disabled = false;
+                loginBtn.style.display = "none";
             }).catch(err => {
                 console.log(err)
                 cancelMojangBtn.disabled = false;
