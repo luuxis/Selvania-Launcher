@@ -9,8 +9,7 @@ import { config, logger, changePanel, database, addAccount, accountSelect } from
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
-
-let dev = (process.env.NODE_ENV == 'dev');
+import skin from './panels/panelSkin.js';
 
 class Launcher {
     async init() {
@@ -20,7 +19,7 @@ class Launcher {
         this.config = await config.GetConfig().then(res => res);
         this.news = await config.GetNews().then(res => res);
         this.database = await new database().init();
-        this.createPanels(Login, Home, Settings);
+        this.createPanels(Login, Home, skin, Settings);
         this.getaccounts();
     }
 

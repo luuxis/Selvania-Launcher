@@ -7,7 +7,8 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000097, #00000097), url("../images/background/light.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
+
 }
 
 img {
@@ -150,4 +151,18 @@ img {
     opacity: 1;
     z-index: 1;
     pointer-events: all;
+}
+
+.rotation {
+    animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
 }
