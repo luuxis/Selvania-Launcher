@@ -69,7 +69,7 @@ class Login {
                 let profile = {
                     uuid: account_connect.uuid,
                     skins: account_connect.profile.skins,
-                    cape: account_connect.profile.cape
+                    capes: account_connect.profile.capes
                 }
 
                 this.database.add(account, 'accounts')
