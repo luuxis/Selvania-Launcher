@@ -24,10 +24,9 @@
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
-        "electron": "^19.0.4",
+        "electron": "^19.0.7",
         "electron-builder": "^23.0.3",
         "env-cmd": "^10.1.0",
-        "javascript-obfuscator": "^4.0.0",
         "nodemon": "^2.0.16"
     },
     "repository": {
