@@ -165,10 +165,12 @@ class Login {
 
                 cancelMojangBtn.disabled = false;
                 cancelMojangBtn.click();
+                mailInput.value = "";
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
                 passwordInput.disabled = false;
-                loginBtn.style.display = "none";
+                loginBtn.style.display = "block";
+                infoLogin.innerHTML = "&nbsp;";
             }).catch(err => {
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
@@ -247,10 +249,12 @@ class Login {
 
                 cancelMojangBtn.disabled = false;
                 cancelMojangBtn.click();
+                mailInput.value = "";
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
                 passwordInput.disabled = false;
-                loginBtn.style.display = "none";
+                loginBtn.style.display = "block";
+                infoLogin.innerHTML = "&nbsp;";
             }).catch(err => {
                 console.log(err)
                 cancelMojangBtn.disabled = false;

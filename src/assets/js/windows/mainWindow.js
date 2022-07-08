@@ -8,21 +8,21 @@ const electron = require("electron");
 const path = require("path");
 const os = require("os");
 const pkg = require("../../../../package.json");
-let updateWindow = undefined;
+let mainWindow = undefined;
 
 function getWindow() {
-    return updateWindow;
+    return mainWindow;
 }
 
 function destroyWindow() {
-    if (!updateWindow) return;
-    updateWindow.close();
-    updateWindow = undefined;
+    if (!mainWindow) return;
+    mainWindow.close();
+    mainWindow = undefined;
 }
 
 function createWindow() {
     destroyWindow();
-    updateWindow = new electron.BrowserWindow({
+    mainWindow = new electron.BrowserWindow({
         title: pkg.preductname,
         width: 1280,
         height: 720,
@@ -39,12 +39,11 @@ function createWindow() {
         },
     });
     electron.Menu.setApplicationMenu(null);
-    updateWindow.setMenuBarVisibility(false);
-    updateWindow.loadFile(path.join(electron.app.getAppPath(), 'src', 'launcher.html'));
-    updateWindow.webContents.openDevTools()
-    updateWindow.once('ready-to-show', () => {
-        if (updateWindow) {
-            updateWindow.show();
+    mainWindow.setMenuBarVisibility(false);
+    mainWindow.loadFile(path.join(electron.app.getAppPath(), 'src', 'launcher.html'));
+    mainWindow.once('ready-to-show', () => {
+        if (mainWindow) {
+            mainWindow.show();
         }
     });
 }

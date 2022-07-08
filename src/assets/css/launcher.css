@@ -3,12 +3,15 @@
 @import "panels/home.css";
 @import "panels/settings.css";
 
+* {
+    outline: none;
+}
+
 body {
     margin: 0;
     padding: 0;
     user-select: none;
     background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
-
 }
 
 img {
