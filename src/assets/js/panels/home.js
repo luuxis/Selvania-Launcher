@@ -46,7 +46,7 @@ class Home {
                 news.appendChild(blockNews);
             } else {
                 for (let News of this.news) {
-                    let date = this.getdate(News.publish_date)
+                    let date = await this.getdate(News.publish_date)
                     let blockNews = document.createElement('div');
                     blockNews.classList.add('news-block');
                     blockNews.innerHTML = `
@@ -198,7 +198,7 @@ class Home {
         });
     }
 
-    getdate(e) {
+    async getdate(e) {
         let date = new Date(e)
         let year = date.getFullYear()
         let month = date.getMonth() + 1
