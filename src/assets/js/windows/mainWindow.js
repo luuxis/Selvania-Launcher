@@ -41,6 +41,7 @@ function createWindow() {
     electron.Menu.setApplicationMenu(null);
     updateWindow.setMenuBarVisibility(false);
     updateWindow.loadFile(path.join(electron.app.getAppPath(), 'src', 'launcher.html'));
+    updateWindow.webContents.openDevTools()
     updateWindow.once('ready-to-show', () => {
         if (updateWindow) {
             updateWindow.show();

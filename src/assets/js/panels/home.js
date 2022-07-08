@@ -26,7 +26,7 @@ class Home {
         this.initBtn();
     }
 
-    initNews() {
+    async initNews() {
         let news = document.querySelector('.news-list');
         if (this.news) {
             if (!this.news.length) {
