@@ -12,6 +12,12 @@
 
 ---
 
+**conditions d'utilisation**
+- Pour utiliser le code, vous devez faire un fork du projet.
+- Pour utiliser le code, votre code doit tout le temps être public.
+
+---
+
 **Cloner et installer les dépendances**
 
 ```console
@@ -60,12 +66,6 @@
 **<p align="center">Configurer votre launcher.</p>**
 
 - [Doc ici](./wiki.md).
-
----
-
-**conditions d'utilisation**
-- pour utiliser le code vous devez faire un fork du projet
-- pour utiliser le code votre code doit tout le temps être public
 
 ---
 
