@@ -18,8 +18,10 @@ let configBuild = {
         }],
     },
     nsis: {
-        oneClick: false,
-        allowToChangeInstallationDirectory: false
+        oneClick: true,
+        allowToChangeInstallationDirectory: false,
+        createDesktopShortcut: true,
+        runAfterFinish: true
     },
     mac: {
         icon: "./src/assets/images/icon.icns",
