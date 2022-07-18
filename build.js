@@ -3,7 +3,6 @@ const { preductname } = require('./package.json')
 
 
 builder.build({
-    publish: 'never',
     config: {
         generateUpdatesFilesForAllChannels: true,
         appId: preductname,
