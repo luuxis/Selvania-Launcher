@@ -74,8 +74,8 @@ class Splash {
 
     startLauncher() {
         this.setStatus(`Démarrage du launcher`);
-        ipcRenderer.send('main-window-open');
-        ipcRenderer.send('update-window-close');
+        // ipcRenderer.send('main-window-open');
+        // ipcRenderer.send('update-window-close');
     }
 
     shutdown(text) {
