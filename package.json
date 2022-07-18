@@ -1,7 +1,7 @@
 {
     "name": "Selvania-Launcher",
     "preductname": "Selvania Launcher",
-    "version": "1.0.3-alpha",
+    "version": "1.0.3-alpha.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
@@ -10,7 +10,7 @@
         "node": "16.x.x"
     },
     "scripts": {
-        "start": "env-cmd electron .",
+        "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js",
         "dev": "nodemon --exec npm start"
     },
@@ -24,9 +24,9 @@
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
+        "cross-env": "^7.0.3",
         "electron": "^19.0.7",
         "electron-builder": "^23.0.3",
-        "env-cmd": "^10.1.0",
         "nodemon": "^2.0.16"
     },
     "repository": {
