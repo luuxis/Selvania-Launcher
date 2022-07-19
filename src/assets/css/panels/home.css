@@ -38,6 +38,7 @@
     border: none;
     border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    cursor: pointer
 }
 
 .settings-btn:hover {
@@ -70,6 +71,20 @@
     color: #121212;
     margin: 15px 0;
     box-shadow: 0 0 5px #1d5dbc;
+    cursor: pointer;
+}
+
+.play-btn:hover {
+    top: 10px;
+    width: 160px;
+    height: 37px;
+    border-radius: 20px;
+    border: none;
+    background: #0b3f94 ;
+    font: normal normal bold 20px/25px Poppins;
+    color: #121212;
+    margin: 15px 0;
+    box-shadow: 0 0 5px #0b3f94;
 }
 
 .download-content {
