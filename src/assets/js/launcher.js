@@ -4,18 +4,25 @@
  */
 
 'use strict';
+// import panel
+import Login from './panels/login.js';
 
-import { logger } from './utils.js';
+// import modules
+import { logger, config } from './utils.js';
 
 // libs 
 const { ipcRenderer } = require('electron');
+const fs = require('fs');
 
 
 class Launcher {
     async init() {
         this.initLog();
         console.log("Initializing Launcher...");
+        this.initBackground();
         if (process.platform == "win32") this.initFrame();
+        this.config = await config.GetConfig().then(res => res);
+        this.createPanels(Login);
     }
 
     initLog() {
@@ -25,6 +32,15 @@ class Launcher {
             }
         })
         new logger('Launcher', '#7289da')
+    }
+
+    async initBackground() {
+        let isDarkTheme = await ipcRenderer.invoke("is-dark-theme").then(res => res);
+        let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/${isDarkTheme ? 'dark' : 'light'}`);
+        let background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+        document.body.className = isDarkTheme ? 'dark' : 'light';
+        document.body.style.backgroundImage = `url(./assets/images/background/${isDarkTheme ? 'dark' : 'light'}/${background})`;
+        document.body.style.backgroundSize = "cover";
     }
 
     initFrame() {
@@ -49,6 +65,18 @@ class Launcher {
         document.querySelector("#close").addEventListener("click", () => {
             ipcRenderer.send("main-window-close");
         })
+    }
+
+    createPanels(...panels) {
+        let panelsElem = document.querySelector(".panels")
+        for (let panel of panels) {
+            console.log(`Initializing ${panel.name} Panel...`);
+            let div = document.createElement("div");
+            div.classList.add("panel", panel.id)
+            div.innerHTML = fs.readFileSync(`${__dirname}/panels/${panel.id}.html`, "utf8");
+            panelsElem.appendChild(div);
+            new panel().init(this.config);
+        }
     }
 }
 
