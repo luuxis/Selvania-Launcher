@@ -1,20 +1,23 @@
-@import url(./font.css);
+@import url('./font.css');
+@import url('./theme.css');
+@import url('./panels/login.css');
 
-* {
-    outline: none;
-}
 
 body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
+    color: var(--color);
+    font-family: Poppins;
+    font-weight: bold;
 }
 
 img {
     -webkit-user-drag: none;
     user-select: none;
 }
+
+* { outline: none; }
 
 .dragbar {
     position: fixed;

@@ -3,7 +3,7 @@
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
  */
 
-const { app, ipcMain } = require('electron');
+const { app, ipcMain, nativeTheme } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
 
@@ -13,7 +13,6 @@ const fs = require('fs');
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
-let data
 let dev = process.env.NODE_ENV === 'dev';
 
 if (dev) {
@@ -28,7 +27,7 @@ if (!gotTheLock) {
     app.quit();
 } else {
     app.whenReady().then(() => {
-        UpdateWindow.createWindow();
+        MainWindow.createWindow();
     });
 }
 
@@ -54,6 +53,10 @@ ipcMain.on('main-window-show', () => MainWindow.getWindow().show())
 
 ipcMain.handle('Microsoft-window', async(event, client_id) => {
     return await new Microsoft(client_id).getAuth();
+})
+
+ipcMain.handle('is-dark-theme', () => {
+    return nativeTheme.shouldUseDarkColors;
 })
 
 app.on('window-all-closed', () => {
