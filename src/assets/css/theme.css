@@ -1,9 +1,13 @@
 .dark {
     --color: #F5F5F5;
     --background: #292929;
+    --btn-background: #26BB74;
+    --btn-color: #292929;
 }
 
 .light {
     --color: #292929;
     --background: #F5F5F5;
+    --btn-background: #26BB74;
+    --btn-color: #F5F5F5;
 }

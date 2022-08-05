@@ -4,4 +4,42 @@
     top: 50%;
     transform: translate(-50%, -50%);
     background: var(--background);
+    padding: 20px;
+}
+
+.login-text {
+
+}
+
+.login-options {
+    display: flex;
+    justify-content: center;
+}
+
+.microsoft {
+    border: none;
+    background: var(--btn-background);
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    color: var(--btn-color);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.offline {
+    border: none;
+    background: var(--btn-background);
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    color: var(--btn-color);
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+    display: none;
+}
+
+.cancel {
+
 }
