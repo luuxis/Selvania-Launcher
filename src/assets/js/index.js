@@ -5,7 +5,7 @@
 
 'use strict';
 const { ipcRenderer } = require('electron');
-// import { config } from './utils.js';
+import { config } from './utils.js';
 
 let dev = process.env.NODE_ENV === 'dev';
 
@@ -62,13 +62,13 @@ class Splash {
     }
 
     async maintenanceCheck() {
-        // config.GetConfig().then(res => {
-        //     if (res.maintenance) return this.shutdown(res.maintenance_message);
+        config.GetConfig().then(res => {
+            if (res.maintenance) return this.shutdown(res.maintenance_message);
             this.startLauncher();
-        // }).catch(e => {
-        //     console.error(e);
-        //     return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
-        // })
+        }).catch(e => {
+            console.error(e);
+            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+        })
     }
 
     startLauncher() {

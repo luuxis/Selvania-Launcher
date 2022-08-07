@@ -37,14 +37,20 @@ class Launcher {
 
     async initBackground() {
         let isDarkTheme = await ipcRenderer.invoke('is-dark-theme').then(res => res);
+        let background
         let body = document.body;
         body.className = isDarkTheme ? 'dark' : 'light';
-        if (fs.existsSync(`${__dirname}/assets/images/background/${isDarkTheme ? 'dark' : 'light'}`)) {
+        if(fs.existsSync(`${__dirname}/assets/images/background/easterEgg`) && Math.random() < 0.01) {
+            let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/easterEgg`);
+            let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+            background = `url(./assets/images/background/easterEgg/${Background})`;
+        } else if (fs.existsSync(`${__dirname}/assets/images/background/${isDarkTheme ? 'dark' : 'light'}`)) {
             let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/${isDarkTheme ? 'dark' : 'light'}`);
-            let background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-            body.style.backgroundImage = `url(./assets/images/background/${isDarkTheme ? 'dark' : 'light'}/${background})`;
-            body.style.backgroundSize = 'cover';
+            let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+            background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/${isDarkTheme ? 'dark' : 'light'}/${Background})`;
         }
+        body.style.backgroundImage = background
+        body.style.backgroundSize = 'cover';
     }
 
     initFrame() {
