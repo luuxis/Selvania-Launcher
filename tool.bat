@@ -1,5 +1,5 @@
 @echo off
-set ver=16.15.1
+set ver=16.16.0
 set arch=64
 set appdata=%CD%\AppData
 
