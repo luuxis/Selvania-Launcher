@@ -36,11 +36,7 @@
 
 **Création du build**
 
-| Platform    | Command              |
-| ----------- | -------------------- |
-| Windows  | `npm run build:win`   |
-| macOS    | `npm run build:mac`   |
-| Linux    | `npm run build:linux` |
+Voir discord en bas
 
 ---
 
