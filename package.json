@@ -14,7 +14,7 @@
         "build": "node build.js",
         "dev": "nodemon --exec npm start"
     },
-    "license": "CC0",
+    "license": "CCANC",
     "nodemonConfig": {
         "ext": "js,html,css"
     },
