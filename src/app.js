@@ -17,7 +17,7 @@ let dev = process.env.NODE_ENV === 'dev';
 
 if (dev) {
     let appPath = path.resolve('./AppData/Launcher').replace(/\\/g, '/');
-    if(!fs.existsSync(appPath)) fs.mkdirSync(appPath, { recursive: true });
+    if (!fs.existsSync(appPath)) fs.mkdirSync(appPath, { recursive: true });
     app.setPath('userData', appPath);
 }
 
@@ -65,9 +65,34 @@ app.on('window-all-closed', () => {
 
 autoUpdater.autoDownload = false;
 
-ipcMain.on('update-app', () => {
-    autoUpdater.checkForUpdates();
+ipcMain.handle('update-app',() => {
+    return new Promise(async(resolve, reject) => {
+        autoUpdater.checkForUpdates().then(() => {
+            resolve();
+        }).catch(error => {
+            resolve({
+                error: true,
+                message: error
+            })
+        })
+    })
 })
+
+// ipcMain.on('update-app', async() => {
+//     autoUpdater.checkForUpdates()
+// })
+
+
+// ipcMain.handle('update-error', async() => {
+//     return new Promise((resolve, reject) => {
+//         await autoUpdater.on('update-error', error => {
+//             return resolve({
+//                 error: true,
+//                 message: error
+//             })
+//         })
+//     })
+// })
 
 autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
