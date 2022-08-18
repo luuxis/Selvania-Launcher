@@ -27,7 +27,7 @@ if (!gotTheLock) {
     app.quit();
 } else {
     app.whenReady().then(() => {
-        MainWindow.createWindow();
+        UpdateWindow.createWindow();
     });
 }
 
@@ -73,6 +73,10 @@ autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
     if (updateWindow) updateWindow.webContents.send('updateAvailable');
 });
+
+ipcMain.on('start-update', () => {
+    autoUpdater.downloadUpdate();
+})
 
 autoUpdater.on('update-not-available', () => {
     const updateWindow = UpdateWindow.getWindow();
