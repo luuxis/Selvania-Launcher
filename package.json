@@ -19,15 +19,15 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^5.0.1",
-        "minecraft-java-core": "^2.1.1",
+        "electron-updater": "^5.2.1",
+        "minecraft-java-core": "^2.2.1-alpha.2",
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^19.0.7",
-        "electron-builder": "^23.0.3",
-        "nodemon": "^2.0.16"
+        "electron": "^20.0.3",
+        "electron-builder": "^23.3.3",
+        "nodemon": "^2.0.19"
     },
     "repository": {
         "type": "git",
