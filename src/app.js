@@ -78,22 +78,6 @@ ipcMain.handle('update-app',() => {
     })
 })
 
-// ipcMain.on('update-app', async() => {
-//     autoUpdater.checkForUpdates()
-// })
-
-
-// ipcMain.handle('update-error', async() => {
-//     return new Promise((resolve, reject) => {
-//         await autoUpdater.on('update-error', error => {
-//             return resolve({
-//                 error: true,
-//                 message: error
-//             })
-//         })
-//     })
-// })
-
 autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
     if (updateWindow) updateWindow.webContents.send('updateAvailable');
