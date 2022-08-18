@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "electron-updater": "^5.2.1",
-        "minecraft-java-core": "^2.2.1-alpha.2",
+        "minecraft-java-core": "^2.2.1-alpha.3",
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
