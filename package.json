@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.0.0-alpha.1",
+    "name": "Soupax-Launcher",
+    "preductname": "Soupax Launcher",
+    "version": "2.0.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Soupax_",
+    "url": "http://soupaxlauncher.go.yo.fr",
     "engines": {
         "node": "16.x.x"
     },
