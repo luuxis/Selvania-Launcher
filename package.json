@@ -1,6 +1,6 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "Harmonia-Launcher",
+    "preductname": "Harmonia Launcher",
     "version": "1.0.2",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/SHADOWYT3/Mineral--Launcher.git"
     }
 }
