@@ -1,7 +1,7 @@
 {
     "name": "Harmonia-Launcher",
     "preductname": "Harmonia Launcher",
-    "version": "1.0xg",
+    "version": "1.0.3",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
@@ -19,6 +19,7 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "electron-releases": "^3.1137.0",
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.1.1",
         "node-fetch": "^2.6.7"
