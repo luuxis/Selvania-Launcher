@@ -1,10 +1,10 @@
 {
     "name": "Harmonia-Launcher",
-    "preductname": "Harmonia Launcher",
+    "preductname": "Harmonia-Launcher",
     "version": "1.0.4",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
+    "author": "SHADOWYT",
     "url": "http://82.165.183.222/",
     "engines": {
         "node": "16.x.x"
