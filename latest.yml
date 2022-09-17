@@ -1,0 +1,8 @@
+version: 1.0.5
+files:
+  - url: Harmonia-Launcher-win.exe
+    sha512: QZIRKQj9AQsZgqFIJWztkl0xEzHiZOR5XEqEcHPS91zwf2bvo2A03Lgsq15FdHtCEX3SzAEEpBAGtdKB7kn+ag==
+    size: 71337585
+path: Harmonia-Launcher-win.exe
+sha512: QZIRKQj9AQsZgqFIJWztkl0xEzHiZOR5XEqEcHPS91zwf2bvo2A03Lgsq15FdHtCEX3SzAEEpBAGtdKB7kn+ag==
+releaseDate: '2022-09-16T14:15:13.169Z'
