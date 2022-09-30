@@ -25,7 +25,7 @@ class Splash {
             { "message": "Je... vie...", "author": "Luuxis" },
             { "message": "Salut je suis du code.", "author": "Luuxis" },
             { "message": "Linux n' ai pas un os, mais un kernel.", "author": "Luuxis" }
-        ];
+        ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
         this.splashAuthor.children[0].textContent = "@" + splash.author;
@@ -39,18 +39,7 @@ class Splash {
         this.splashAuthor.classList.add("opacity");
         this.message.classList.add("opacity");
         await sleep(1000);
-        this.maintenanceCheck();
-    }
-
-    async maintenanceCheck() {
-        if (dev) return this.startLauncher();
-        config.GetConfig().then(res => {
-            if (res.maintenance) return this.shutdown(res.maintenance_message);
-            else this.checkUpdate();
-        }).catch(e => {
-            console.error(e);
-            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
-        })
+        this.checkUpdate();
     }
 
     async checkUpdate() {
@@ -79,7 +68,15 @@ class Splash {
         })
     }
 
-
+    async maintenanceCheck() {
+        config.GetConfig().then(res => {
+            if (res.maintenance) return this.shutdown(res.maintenance_message);
+            this.startLauncher();
+        }).catch(e => {
+            console.error(e);
+            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+        })
+    }
 
     startLauncher() {
         this.setStatus(`Démarrage du launcher`);
