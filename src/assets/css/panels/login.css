@@ -1,0 +1,124 @@
+.login-card {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    background: #121212;
+    padding: 20px;
+    font: normal normal bold 19px/29px Poppins;
+    color: #E1E1E1;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.login-type {
+    display: grid;
+    padding: 0 7%;
+}
+
+.login-type-btn {
+    border-radius: 15px;
+    border: none;
+    margin: 2% 0;
+    height: 2em;
+    background-color: #00bd7a;
+    box-shadow: 0 0 5px #00bd7a;
+    color: #121212;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+}
+
+.login-type-btn:hover {
+    background-color: #006e47;
+    box-shadow: 0 0 5px #006e47;
+}
+
+.login-type-btn:disabled {
+    background-color: #00bd7a;
+    box-shadow: 0 0 5px #00bd7a;
+    cursor: default;
+}
+
+.login-type-btn:disabled:hover {
+    background-color: #00bd7a;
+    box-shadow: 0 0 5px #00bd7a;
+}
+
+.login-card-mojang {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    background: #121212;
+    padding: 0 20px;
+    font: normal normal bold 19px/29px Poppins;
+    color: #E1E1E1;
+    border-radius: 15px;
+    display: none;
+}
+
+.card-body {
+    margin: 10%;
+}
+
+.login-card-mojang-input {
+    text-align: center;
+    display: grid;
+}
+
+.login-mojang-input {
+    font-family: 'Poppins';
+    letter-spacing: 2px;
+    color: #fff;
+    border: solid 0px rgba(0, 0, 0, 0);
+    border-radius: 30px;
+    background-color: #373737;
+    padding: 0.375rem 0.75rem;
+}
+
+.loginDisclaimerText {
+    text-align: center;
+    font-size: 0.5em;
+}
+
+.btn-option-login {
+    width: 100%;
+    display: grid;
+    text-align: center;
+}
+
+.login-btn {
+    border-radius: 15px;
+    border: none;
+    margin: 2% 0;
+    height: 2em;
+    background-color: #00bd7a;
+    box-shadow: 0 0 5px #00bd7a;
+    color: #121212;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #006e47;
+    box-shadow: 0 0 5px #006e47;
+}
+
+.cancel {
+    border: none;
+    background-color: #ffffff00;
+    color: #F1F1F1;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    color: #373737;
+}
+
+.cancel:hover:disabled {
+    color: #F1F1F1;
+    cursor: default;
+}
