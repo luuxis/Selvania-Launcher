@@ -67,6 +67,7 @@ class Login {
                     user_properties: account_connect.user_properties,
                     meta: {
                         type: account_connect.meta.type,
+                        xuid: account_connect.meta.xuid,
                         demo: account_connect.meta.demo
                     }
                 }
