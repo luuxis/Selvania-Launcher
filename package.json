@@ -1,20 +1,17 @@
 {
     "name": "Saphyrium-Launcher",
-    "preductname": "Saphyrium Launcher",
+    "preductname": "Saphyrium-Launcher",
     "version": "1.0.0",
-    "description": "Launcher officiel du serveur Minecraft PvP/Faction Saphyrium",
+    "description": "Launcher officiel du serveur minecraft PvP/Faction modd Saphyrium",
     "main": "src/app.js",
     "author": "Knipe",
-    "url": "http://mbenkhemishome.ddns.net:8008",
+    "url": "http://192.168.1.81",
     "engines": {
         "node": "16.x.x"
     },
     "scripts": {
-        "start": "env-cmd electron .",
+        "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js",
-        "build:win": "npm run build -- WINDOWS",
-        "build:mac": "npm run build -- MAC",
-        "build:linux": "npm run build -- LINUX",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -23,18 +20,17 @@
     },
     "dependencies": {
         "electron-updater": "^5.0.1",
-        "minecraft-java-core": "^2.0.0",
+        "minecraft-java-core": "^2.4.1",
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
-        "electron": "^20.0.1",
-        "electron-builder": "^5.5.0",
-        "env-cmd": "^10.1.0",
-        "javascript-obfuscator": "^4.0.0",
+        "cross-env": "^7.0.3",
+        "electron": "^20.0.0",
+        "electron-builder": "^23.0.3",
         "nodemon": "^2.0.16"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Yoda354/Saphyrium-Launcher-V2.git"
+        "url": "git+https://github.com/Yoda354/Saphyrium-Launcher.git"
     }
 }

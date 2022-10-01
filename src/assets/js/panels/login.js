@@ -1,60 +1,12 @@
+/**
+ * @author Luuxis
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
+ */
+
 'use strict';
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
-const { Mojang, AZauth } = require('minecraft-java-core');
-
-const AzLogin = new AZauth("https://saphyrium-pvp.alwaysdata.net");
-
-AzLogin.getAuth(mailInput.value, passwordInput.value).then(account_connect => {
-                let account = {
-                    access_token: account_connect.access_token,
-                    client_token: account_connect.client_token,
-                    uuid: account_connect.uuid,
-                    name: account_connect.name,
-                    user_properties: account_connect.user_properties,
-                    meta: {
-                        type: account_connect.meta.type,
-                        offline: true
-                    }
-                }
-
-                // Mojang.getAuth(mailInput.value, passwordInput.value).then(account_connect => {
-                //     let account = {
-                //         access_token: account_connect.access_token,
-                //         client_token: account_connect.client_token,
-                //         uuid: account_connect.uuid,
-                //         name: account_connect.name,
-                //         user_properties: account_connect.user_properties,
-                //         meta: {
-                //             type: account_connect.meta.type,
-                //             offline: account_connect.meta.offline
-                //         }
-                //     }
-
-                this.database.add(account, 'accounts')
-                this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
-
-                addAccount(account)
-                accountSelect(account.uuid)
-                changePanel("home");
-
-                cancelMojangBtn.disabled = false;
-                cancelMojangBtn.click();
-                mailInput.value = "";
-                loginBtn.disabled = false;
-                mailInput.disabled = false;
-                passwordInput.disabled = false;
-                loginBtn.style.display = "block";
-                infoLogin.innerHTML = "&nbsp;";
-            }).catch(err => {
-                console.log(err);
-                cancelMojangBtn.disabled = false;
-                loginBtn.disabled = false;
-                mailInput.disabled = false;
-                passwordInput.disabled = false;
-                infoLogin.innerHTML = 'Adresse E-mail ou mot de passe invalide'
-            })
-        })
+const { Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 
 class Login {
@@ -115,14 +67,15 @@ class Login {
                     user_properties: account_connect.user_properties,
                     meta: {
                         type: account_connect.meta.type,
+                        xuid: account_connect.meta.xuid,
                         demo: account_connect.meta.demo
                     }
                 }
 
                 let profile = {
                     uuid: account_connect.uuid,
-                    skins: account_connect.profile.skins,
-                    cape: account_connect.profile.cape
+                    skins: account_connect.profile.skins || [],
+                    capes: account_connect.profile.capes || []
                 }
 
                 this.database.add(account, 'accounts')
@@ -136,6 +89,7 @@ class Login {
                 microsoftBtn.disabled = false;
                 mojangBtn.disabled = false;
                 cancelBtn.disabled = false;
+                cancelBtn.style.display = "none";
             }).catch(err => {
                 console.log(err)
                 microsoftBtn.disabled = false;
@@ -212,9 +166,12 @@ class Login {
 
                 cancelMojangBtn.disabled = false;
                 cancelMojangBtn.click();
+                mailInput.value = "";
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
                 passwordInput.disabled = false;
+                loginBtn.style.display = "block";
+                infoLogin.innerHTML = "&nbsp;";
             }).catch(err => {
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
@@ -262,6 +219,15 @@ class Login {
                 return
             }
 
+            if (mailInput.value.length < 3) {
+                infoLogin.innerHTML = "Votre nom d'utilisateur doit avoir au moins 3 caractères"
+                cancelMojangBtn.disabled = false;
+                loginBtn.disabled = false;
+                mailInput.disabled = false;
+                passwordInput.disabled = false;
+                return
+            }
+
             Mojang.getAuth(mailInput.value, passwordInput.value).then(async account_connect => {
                 let account = {
                     access_token: account_connect.access_token,
@@ -284,9 +250,12 @@ class Login {
 
                 cancelMojangBtn.disabled = false;
                 cancelMojangBtn.click();
+                mailInput.value = "";
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
                 passwordInput.disabled = false;
+                loginBtn.style.display = "block";
+                infoLogin.innerHTML = "&nbsp;";
             }).catch(err => {
                 console.log(err)
                 cancelMojangBtn.disabled = false;

@@ -1,3 +1,8 @@
+/**
+ * @author Luuxis
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
+ */
+
 'use strict';
 
 import { logger, database, changePanel } from '../utils.js';
@@ -21,7 +26,7 @@ class Home {
         this.initBtn();
     }
 
-    initNews() {
+    async initNews() {
         let news = document.querySelector('.news-list');
         if (this.news) {
             if (!this.news.length) {
@@ -41,7 +46,7 @@ class Home {
                 news.appendChild(blockNews);
             } else {
                 for (let News of this.news) {
-                    let date = this.getdate(News.publish_date)
+                    let date = await this.getdate(News.publish_date)
                     let blockNews = document.createElement('div');
                     blockNews.classList.add('news-block');
                     blockNews.innerHTML = `
@@ -132,6 +137,7 @@ class Home {
             launch.on('progress', (DL, totDL) => {
                 progressBar.style.display = "block"
                 document.querySelector(".text-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
+                ipcRenderer.send('main-window-progress', {DL, totDL})
                 progressBar.value = DL;
                 progressBar.max = totDL;
             })
@@ -192,7 +198,7 @@ class Home {
         });
     }
 
-    getdate(e) {
+    async getdate(e) {
         let date = new Date(e)
         let year = date.getFullYear()
         let month = date.getMonth() + 1

@@ -24,10 +24,6 @@ cls
 :launch
 echo node:   start nodejs
 echo start:  start launcher
-echo win:    build launcher windows
-echo mac:    build launcher MACos
-echo linux:  build launcher linux
-echo all:    build launcher all platform
 set /P c=enter your choice: 
 if /I "%c%" EQU "node"  cls && cmd
 if /I "%c%" EQU "start" cls && npm install && npm start

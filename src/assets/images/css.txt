@@ -1,2 +1,0 @@
-Bleu clair:	#1d5dbc 
-Bleu foncé:	#0b3f94
