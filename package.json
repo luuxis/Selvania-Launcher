@@ -2,7 +2,7 @@
     "name": "Saphyrium-Launcher",
     "preductname": "Saphyrium-Launcher",
     "version": "1.0.0",
-    "description": "Launcher officiel du serveur minecraft PvP/Faction modd Saphyrium",
+    "description": "Launcher officiel du serveur minecraft PvP/Faction moddé Saphyrium",
     "main": "src/app.js",
     "author": "Knipe",
     "url": "http://192.168.1.81",
