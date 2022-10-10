@@ -15,30 +15,30 @@
     width: 160px;
     height: 37px;
     margin: auto 30px;
-    background: #00bd7a;
-    border: 4px solid #00bd7a;
+    background: #6d00d3;
+    border: 4px solid #6d00d3;
     font: normal normal bold 20px/25px Poppins;
     cursor: pointer;
-    box-shadow: 0 0 5px #00bd7a;
+    box-shadow: 0 0 5px #6d00d3;
     outline: none;
 }
 
 .tab-btn-css:hover {
-    background: #006e47;
-    box-shadow: 0 0 5px #006e47;
-    border: 4px solid #006e47;
+    background: #6d00d3;
+    box-shadow: 0 0 5px #6d00d3;
+    border: 4px solid #6d00d3;
 }
 
 .active-tab-btn {
-    background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    background: #6d00d3;
+    border: 4px solid #263dbd;
+    box-shadow: 0 0 5px #263dbd;
 }
 
 .active-tab-btn:hover {
-    background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    background: #6d00d3;
+    border: 4px solid #263dbd;
+    box-shadow: 0 0 5px #263dbd;
 }
 
 .tabs-settings-content {
@@ -122,9 +122,9 @@
 
 .account {
     display: inline-block;
-    background: #00bd7a;
-    box-shadow: 0 0 5px #006e47;
-    border: 4px solid #00bd7a;
+    background: #6d00d3;
+    box-shadow: 0 0 5px #6d00d3;
+    border: 4px solid #6d00d3;
     font: normal normal bold 30px/40px Poppins;
     width: 500px;
     height: 100px;
@@ -134,9 +134,9 @@
 }
 
 .account:hover {
-    background: #006e47;
-    box-shadow: 0 0 5px #006e47;
-    border: 4px solid #006e47;
+    background: #6d00d3;
+    box-shadow: 0 0 5px #6d00d3;
+    border: 4px solid #6d00d3;
 }
 
 .account-image {
@@ -188,15 +188,15 @@
 }
 
 .active-account {
-    background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    background: #6d00d3;
+    border: 4px solid #263dbd;
+    box-shadow: 0 0 5px #263dbd;
 }
 
 .active-account:hover {
-    background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    background: #6d00d3;
+    border: 4px solid #263dbd;
+    box-shadow: 0 0 5px #263dbd;
 }
 
 
@@ -238,7 +238,7 @@
     width: 20px;
     height: 10px;
     background: #F1F1F1;
-    border: 4px solid #00bd7a;
+    border: 4px solid #6d00d3;
     transition: background-color .2s, border .2s;
     border-radius: 18px;
     cursor: pointer;
@@ -247,7 +247,7 @@
 .slider-touch-left span:after,
 .slider-touch-right span:after {
     content: attr(value);
-    color: #00bd7a;
+    color: #6d00d3;
     font: normal normal bold 12px/18px Poppins;
     white-space: nowrap;
     pointer-events: none;
@@ -275,7 +275,7 @@
     display: block;
     height: 100%;
     width: 0%;
-    background: #00bd7a;
+    background: #6d00d3;
     transition: background-color .2s;
 }
 
@@ -305,7 +305,7 @@
     font: normal normal bold 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 30px;
-    background-color: #00bd7a;
+    background-color: #6d00d3;
     cursor: pointer;
     margin-left: 20px;
     transition: color .2s, background-color .2s;
@@ -321,7 +321,7 @@
     font: normal normal bold 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 30px;
-    background-color: #00bd7a;
+    background-color: #6d00d3;
     cursor: pointer;
     margin-left: 20px;
     transition: color .2s, background-color .2s;
@@ -421,7 +421,7 @@
 
 .select {
     border-radius: 40px;
-    background-color: #00bd7a;
+    background-color: #6d00d3;
     font: normal normal normal 12px/18px Poppins;
     transition: color .2s, box-shadow .2s;
     border: none;
@@ -462,7 +462,7 @@
 }
 
 .checkbox-settings:checked+label {
-    background-color: #00bd7a;
+    background-color: #6d00d3;
 }
 
 .checkround {
@@ -472,4 +472,10 @@
 .checkbox-settings+label {
     display: inline-block;
     margin-right: 8px;
+}
+
+p {
+    color: #F0F0F0;
+    font-weight: bold;
+    font-family: 'Segoe UI', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Geneva, Verdana, sans-serif;
 }

@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.5",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "astra-launcher",
+    "preductname": "Astra Launcher",
+    "version": "3.0.0",
+    "description": "Launcher pour Astra Faction",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Chifou",
+    "url": "http://185.214.110.58/",
     "engines": {
         "node": "16.x.x"
     },
@@ -20,17 +20,17 @@
     },
     "dependencies": {
         "electron-updater": "^5.0.1",
-        "minecraft-java-core": "^2.4.1",
+        "minecraft-java-core": "^2.",
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^20.0.0",
+        "electron": "^19.0.7",
         "electron-builder": "^23.0.3",
         "nodemon": "^2.0.16"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/Dev-AstraNetwork/Astra-Launcher.git"
     }
 }
