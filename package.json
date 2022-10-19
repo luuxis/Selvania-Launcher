@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.5",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "OmniMC-Launcher",
+    "preductname": "OmniMC Launcher",
+    "version": "1.0.0",
+    "description": "OmniMC Launcher",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "OmniversalMC",
+    "url": "https://omnimc-pvp.maltospeak.com",
     "engines": {
         "node": "16.x.x"
     },
@@ -19,6 +19,7 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "custom-discord-rpc": "^1.0.5",
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.4.1",
         "node-fetch": "^2.6.7"
@@ -31,6 +32,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/Omni-Industries/OmniMC-Launcher"
     }
 }
