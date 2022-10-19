@@ -23,7 +23,7 @@ builder.build({
             oneClick: true,
             allowToChangeInstallationDirectory: false,
             createDesktopShortcut: true,
-            runAfterFinish: true
+            runAfterFinish: false
         },
         mac: {
             icon: "./src/assets/images/icon.icns",
