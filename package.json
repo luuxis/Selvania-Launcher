@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "OmniMC Launcher",
     "main": "src/app.js",
-    "author": "OmniversalMC",
+    "author": "OmniMC",
     "url": "https://omnimc-pvp.maltospeak.com",
     "engines": {
         "node": "16.x.x"
