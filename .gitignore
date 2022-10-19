@@ -1,0 +1,7 @@
+# Generated
+node_modules
+app
+test
+dist
+node-v*
+AppData

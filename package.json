@@ -1,0 +1,37 @@
+{
+    "name": "OmniMC-Launcher",
+    "preductname": "OmniMC Launcher",
+    "version": "1.0.0",
+    "description": "OmniMC Launcher",
+    "main": "src/app.js",
+    "author": "OmniMC",
+    "url": "https://omnimc-pvp.maltospeak.com",
+    "engines": {
+        "node": "16.x.x"
+    },
+    "scripts": {
+        "start": "cross-env-shell NODE_ENV=dev electron .",
+        "build": "node build.js",
+        "dev": "nodemon --exec npm start"
+    },
+    "license": "CC0",
+    "nodemonConfig": {
+        "ext": "js,html,css"
+    },
+    "dependencies": {
+        "custom-discord-rpc": "^1.0.5",
+        "electron-updater": "^5.0.1",
+        "minecraft-java-core": "^2.4.1",
+        "node-fetch": "^2.6.7"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "electron": "^20.0.0",
+        "electron-builder": "^23.0.3",
+        "nodemon": "^2.0.16"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Omni-Industries/OmniMC-Launcher"
+    }
+}

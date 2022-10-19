@@ -1,0 +1,48 @@
+/* Poppins */
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Poppins Regular'), local('Poppins-Regular'), url('../fonts/Poppins-Regular.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Poppins Bold'), local('Poppins-Bold'), url('../fonts/Poppins-Bold.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Icons';
+    src: url('../fonts/Icons.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before, [class^="icon-"]:after, [class*=" icon-"]:after, .select-wrap:after {
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon-close:before { font-family: "Icons"; content: "\e90e"; }
+.icon-minimize:before { font-family: "Icons"; content: "\e90b"; }
+.icon-maximize:before { font-family: "Icons"; content: "\e90c"; }
+.icon-restore-down:before { font-family: "Icons"; content: "\e90d"; }
+.icon-account-add:before { font-family: "Icons"; content: "\e901"; }
+.icon-account-delete:before { font-family: "Icons"; content: "\e902"; }
+.icon-settings:before { font-family: "Icons"; content: "\e909"; }
+.icon-monitor:before { font-family: "Icons"; content: "\e90a"; }

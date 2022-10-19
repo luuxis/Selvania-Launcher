@@ -1,0 +1,110 @@
+@import "font.css";
+body {
+    background-color: #000000;
+    font-family: "Poppins";
+    letter-spacing: 0px;
+    -webkit-app-region: drag;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.splash {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 140px;
+    height: 140px;
+    transition: opacity .3s, top 1.5s;
+    opacity: 0;
+}
+
+.splash.opacity {
+    opacity: 1;
+}
+
+.splash.translate {
+    top: 129px;
+}
+
+.splash-message {
+    position: absolute;
+    top: 289px;
+    left: 0px;
+    width: 400px;
+    font: normal normal bold 19px/29px Poppins;
+    text-align: center;
+    letter-spacing: 0px;
+    transition: opacity 1.5s;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+}
+
+.splash-message.opacity {
+    opacity: 1;
+}
+
+.splash-author {
+    position: absolute;
+    top: 326px;
+    left: 0px;
+    width: 400px;
+    text-align: center;
+    transition: opacity 1.5s;
+    font: normal normal normal 9px/13px Poppins;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+}
+
+.splash-author .author {
+    font: normal normal bold 9px/13px Poppins;
+}
+
+.splash-author.opacity {
+    opacity: 1;
+}
+
+.message {
+    position: absolute;
+    top: 347px;
+    left: 0px;
+    width: 400px;
+    text-align: center;
+    transition: opacity 1.5s;
+    font: normal normal bold 18px/27px Poppins;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+}
+
+.message.opacity {
+    opacity: 1;
+}
+
+progress {
+    position: absolute;
+    top: 410px;
+    left: 106px;
+    width: 189px;
+    height: 10px;
+    appearance: none;
+    transition: opacity .2s;
+    opacity: 0;
+}
+
+progress.show {
+    opacity: 1;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+}
