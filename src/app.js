@@ -13,6 +13,8 @@ const fs = require('fs');
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
+const rpc = require("./rpc/rpc")
+
 let data
 let dev = process.env.NODE_ENV === 'dev';
 
@@ -26,9 +28,11 @@ const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
     app.quit();
+    rpc.destroy()
 } else {
     app.whenReady().then(() => {
         UpdateWindow.createWindow();
+        rpc.startRPC()
     });
 }
 
@@ -58,6 +62,7 @@ ipcMain.handle('Microsoft-window', async(event, client_id) => {
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
+    rpc.destroy()
 });
 
 
