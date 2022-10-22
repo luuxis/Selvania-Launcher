@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.2",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "lostmodded",
+    "preductname": "LostModded",
+    "version": "1.0.6",
+    "description": "Launcher Mincraft for Lost Modded",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Agent_040147",
+    "url": "http://launcher.lostsouls.fr",
     "engines": {
         "node": "16.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/ChatNoir-040147/LostModded-Launcher.git"
     }
 }
