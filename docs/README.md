@@ -1,78 +1,117 @@
-<p align="center"><img src="../src/assets/images/icon.png" width="65%" height="65%" alt="icon-launcher"></p>
+<p align="center"><img src="../src/assets/images/icon.png" alt="icon-launcher"></p>
 
-<h1 align="center">Selvania Launcher</h1>
+<h1 align="center">CraftLaunch</h1>
 
-[<p align="center">
-<img src="https://img.shields.io/badge/build-Stable-orange.svg?style=social&logo=appveyor" alt="build">](https://github.com/luuxis/Selvania-Launcher/releases) 
-[<img src="https://img.shields.io/badge/version-1.0.2-orange.svg?style=social&logo=appveyor" alt="downloads">](https://github.com/luuxis/Selvania-Launcher/releases) 
-[<img src="https://img.shields.io/badge/plateforme-win,%20mac,%20linux-blue.svg?style=social&logo=appveyor" alt="stark">](https://github.com/luuxis/Selvania-Launcher/releases)
-<img src="https://img.shields.io/github/languages/code-size/luuxis/Selvania-Launcher?style=social&logo=appveyor" alt="size">
-</p>
+#### [<p align="center">]() *(Un launcher minecraft performant et puissant basé sur electron)*
+[<p align="center">]()
+![GitHub all releases](https://img.shields.io/github/downloads/luuxis/Selvania-Launcher/total?style=for-the-badge)
+![Discord](https://img.shields.io/discord/819729377650278420?style=for-the-badge)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/luuxis/Selvania-Launcher?style=for-the-badge)
+[<p align="center">]()
+![GitHub forks](https://img.shields.io/github/forks/luuxis/Selvania-Launcher?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/luuxis/Selvania-Launcher?style=for-the-badge)
 
+#### *<p align="center">Do you speak english 🇬🇧/🇺🇸 ? You can find the readme and the documentation translated into English [Here](/README_EN-US.md).</p>*
+
+---
+### **<ins><p align="center">Conditions d'utilisation :</p>**
+- Pour utiliser le code vous devez faire un fork du projet
+- Pour utiliser le code votre code doit tout le temps être public
 
 ---
 
-**conditions d'utilisation**
-- Pour utiliser le code, vous devez faire un fork du projet.
-- Pour utiliser le code, votre code doit tout le temps être public.
+### **<ins><p align="center">Screenshots :</p>**
+
+<img src="images/3.png" alt="screenshot3"><p align="center"> *Page principale*
+
+&nbsp;
+
+<img src="images/4.png" alt="screenshot4"><p align="center"> *Page de gestion des skins*
+
+&nbsp;
+<img src="images/5.png" alt="screenshot5"><p align="center"> *Page de gestion des comptes*
+
+&nbsp;
+<img src="images/1.png" alt="screenshot8"><p align="center"> *Page de connexion*
 
 ---
 
-**Cloner et installer les dépendances**
+### **<ins><p align="center">Fonctionnalitées du launcher :</p>**
 
-```console
-> git clone https://github.com/luuxis/Selvania-Launcher.git
-> cd Selvania-Launcher
-> npm install
-```
----
+- ✅ Mise à jour automatiques via github.
 
-**Lancer l'application**
+- 🔴 Option pour mettre le launcher en maintenance.
 
-```console
-> npm start
-```
----
+- 🔒 Authentification Microsoft.
 
-**Création du build**
+- 🏴‍☠️ Authentification Crack.
 
-| Platform    | Command              |
-| ----------- | -------------------- |
-| Windows  | `npm run build:win`   |
-| macOS    | `npm run build:mac`   |
-| Linux    | `npm run build:linux` |
+- ⛏️ Supporte toutes versions de Minecraft 1.0 > 1.19.x (Forge, Fabric etc).
 
----
+- 📦 Supporte les version moddées Forge et Fabric (Pas les MCP)
+ 
+- 📰 Fil d'actualité intégré nativement au launcher.
 
-**<p align="center">Fonctionnalité du launcher.</p>**
+- 🚹 Gestionnaire de skins.
 
-- Mise à jour automatique.
+- ⚙️ Gestion intuitive des paramètres, y compris un panneau de configuration Java.
 
-- Maintenance launcher.
+- 🟢 Statut serveur complet.
 
-- Maintenance message custom.
+    - Opérationnel ou hors ligne.
+    
+    - Nombres de joueurs connectés.
 
-- Statut serveur complet.
+- ☕ Installation de Java automatique.
 
-- Authentification mojang.
+    - Si vous avez installé une version incompatible de Java, nous installerons la bonne pour vous.
+    
+    - Vous n'avez pas besoin d'avoir Java installé pour exécuter le launcher.
 
-- Authentification Microsoft.
+Ce n'est pas une liste exhaustive. Installez le launcher pour voir tout ce qu'il peut faire !
 
-- Authentification crack.
-
-- Accepte toutes versions de Minecraft 1.0 > 1.19.x (Forge, Fabric etc).
-
----
-**<p align="center">Configurer votre launcher.</p>**
-
-- [Doc ici](./wiki.md).
+Vous aimez le projet ? Laissez une étoile ⭐ sur le repo !
 
 ---
 
-[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner4" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
+### **<ins><p align="center">Vous avez besoin d'aide pour faire votre propre launcher ? :</p>**
+
+- Voici le [Wiki](./wiki.md) spécialement rédigé pour vous guider pas à pas dans la création de votre launcher.
+
+---
+### **<ins><p align="center">Téléchargement :</p>**
+
+Vous pouvez télécharger le launcher à partir des [Releases GitHub](https://github.com/luuxis/Selvania-Launcher/releases).
+
+Plateformes supportées :
+
+- Windows 
+- Linux
+- MacOS
+
+Si vous téléchargez à partir des Releases, sélectionnez le programme d'installation de votre système.
+
+ Plateforme | Fichier |
+| -------- | ---- |
+| Windows x64 | `Selvania-Launcher-win-x64.exe ` |
+| macOS x64 | `Selvania-Launcher-mac-x64.dmg` |
+| macOS arm64 | `Selvania-Launcher-mac-arm64.dmg` |
+| Linux x64 | `Selvania-Launcher-linux-x86_64.AppImage` |
+
 ---
 
-[releases]: https://github.com/luuxis/Selvania-Launcher/releases 'releases'
-[build]: https://github.com/luuxis/Selvania-Launcher/releases 'build'
+<br>
 
+Si vous aimez ce projet et que vous voulez aider à le développer, vous pouvez nous faire un don sur [Paypal](https://www.paypal.me/luuxiss).
 
+Si vous avez des questions, un problème ou des suggestions n'hésitez pas à rejoindre notre discord :
+
+<br>
+
+[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner2" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
+---
+
+<br>
+<br>
+
+[<p align="center">]() *Readme réalisé par [@Fefe_du_973](https://github.com/Fefedu973)*  </p>

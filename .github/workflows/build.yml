@@ -31,7 +31,5 @@ jobs:
         shell: bash
 
       - name: Build
-        env:
-          GH_TOKEN: ${{ secrets.github_token }}
         run: npm run build
         shell: bash
