@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.5",
+    "name": "CraftOut-Launcher",
+    "preductname": "CraftOut Launcher",
+    "version": "1.0.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Swy'",
+    "url": "http://craftout.byethost6.com/",
     "engines": {
         "node": "16.x.x"
     },
@@ -25,12 +25,12 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^20.0.0",
-        "electron-builder": "^23.0.3",
+        "electron": "^21.2.2",
+        "electron-builder": "^23.6.0",
         "nodemon": "^2.0.16"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/xZeyTV/CraftOut.git"
     }
 }
