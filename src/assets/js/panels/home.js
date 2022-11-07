@@ -119,7 +119,6 @@ class Home {
                 detached: launcherSettings.launcher.close === 'close-all' ? false : true,
                 java: this.config.java,
                 javapath: javaPath.path,
-                args: [...javaArgs.args, ...this.config.game_args],
                 screen,
                 modde: this.config.modde,
                 verify: this.config.verify,
