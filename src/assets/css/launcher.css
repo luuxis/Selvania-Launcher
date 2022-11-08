@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#0000002e, #00000038), url("../images/background/light.jpg") rgba(0, 0, 0, 0.451) no-repeat center center scroll;
 }
 
 img {

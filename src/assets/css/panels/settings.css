@@ -11,30 +11,33 @@
 }
 
 .tab-btn-css {
-    border-radius: 23px;
+    border-radius: 20px;
     width: 160px;
     height: 37px;
     margin: auto 30px;
     background: #F1F1F1;
-    border: 4px solid #F1F1F1;
     font: normal normal bold 20px/25px Poppins;
     cursor: pointer;
     outline: none;
+    transition: all 0.5s;
 }
 
 .tab-btn-css:hover {
-    background: #bdbdbd;
-    border: 4px solid #bdbdbd;
+    background: #adadad;
+    border-radius: 10px;
+    transition: all 0.5s;
 }
 
 .active-tab-btn {
-    background: #888888;
-    border: 4px solid #888888;
+    background: #adadad;
+    border-radius: 20px;
+    transition: all 0.5s;
 }
 
 .active-tab-btn:hover {
-    background: #bdbdbd;
-    border: 4px solid #bdbdbd;
+    background: #adadad;
+    border-radius: 10px;
+    transition: all 0.5s;
 }
 
 .tabs-settings-content {
@@ -102,12 +105,19 @@
     width: 80%;
     height: 10%;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     font: normal normal bold 30px/40px Poppins;
     color: #0b0b0b;
     background-color: #F1F1F1;
     margin: 20px 0;
     margin-bottom: 10px;
+    transition: all 0.5s;
+}
+
+.add-account:hover {
+    border-radius: 10px;
+    background-color: #adadad;
+    transition: all 0.5s;
 }
 
 .accounts {
@@ -118,26 +128,22 @@
 .account {
     display: inline-block;
     background: #F1F1F1;
-    border: 4px solid #F1F1F1;
     font: normal normal bold 30px/40px Poppins;
     width: 500px;
     height: 100px;
     margin: 1% 2%;
-    border-radius: 100px;
+    border-radius: 20px;
     text-align: start;
-}
-
-.account:hover {
-    background: #bdbdbd;
-    border: 4px solid #bdbdbd;
+    transition: all 0.5s;
 }
 
 .account-image {
     position: absolute;
-    border-radius: 31px;
+    border-radius: 20px;
     height: 70px;
     margin: 15px 20px;
     pointer-events: none;
+    transition: all 0.5s;
 }
 
 .account-name {
@@ -168,9 +174,16 @@
     background: #ff0000;
     width: 65px;
     height: 65px;
-    border-radius: 100%;
+    border-radius: 20px;
     cursor: pointer;
     text-align: center;
+    transition: all 0.5s;
+}
+
+.account-delete:hover {
+    border-radius: 10px;
+    background: #ad0000;
+    transition: all 0.5s;
 }
 
 .icon-account-delete-btn {
@@ -181,12 +194,10 @@
 
 .active-account {
     background: rgb(0, 81, 255);
-    border: 4px solid rgb(0, 81, 255);
 }
 
 .active-account:hover {
     background: rgb(0, 65, 205);
-    border: 4px solid rgb(0, 65, 205);
 }
 
 
@@ -293,34 +304,38 @@
 
 .path-button {
     font: normal normal bold 13px/20px Poppins;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 8px 30px;
     background-color: #F1F1F1;
     cursor: pointer;
     margin-left: 20px;
-    transition: color .2s, background-color .2s;
     border: none;
     outline: none;
+    transition: all 0.5s;
 }
 
 .path-button:hover {
-    background-color: #1f1f1f;
+    background-color: #adadad;
+    border-radius: 10px;
+    transition: all 0.5s;
 }
 
 .path-button-reset {
     font: normal normal bold 13px/20px Poppins;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 8px 30px;
     background-color: #F1F1F1;
     cursor: pointer;
     margin-left: 20px;
-    transition: color .2s, background-color .2s;
     border: none;
     outline: none;
+    transition: all 0.5s;
 }
 
 .path-button-reset:hover {
-    background-color: #1f1f1f;
+    background-color: #adadad;
+    border-radius: 10px;
+    transition: all 0.5s;
 }
 
 .path-file {

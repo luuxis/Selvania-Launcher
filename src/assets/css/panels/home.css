@@ -35,13 +35,14 @@
     text-align: center;
     height: 50px;
     border: none;
-    border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    border-radius: 20px;
+    transition: all 0.5s;
 }
 
 .settings-btn:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    border-radius: 10px;
+    background-color: #adadad;
+    transition: all 0.5s;
 }
 
 .icon-settings:before {
@@ -64,11 +65,21 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    color: #F1F1F1;
+    background-color: #F1F1F1;
     font: normal normal bold 20px/25px Poppins;
     color: #0d0d0d;
     margin: 15px 0;
+    transition: all 0.5s;
 }
+
+.play-btn:hover {
+    border-radius: 10px;
+    background-color: #adadad;
+    transition: all 0.5s;
+}
+
+
+
 
 .download-content {
     position: absolute;
