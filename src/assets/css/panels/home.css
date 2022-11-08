@@ -64,11 +64,10 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #00bd7a;
+    color: #F1F1F1;
     font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    color: #0d0d0d;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
 }
 
 .download-content {
@@ -98,7 +97,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #00bd7a;
+    background-color: rgb(0, 81, 255);
     border-radius: 10px;
 }
 
@@ -265,11 +264,11 @@
 }
 
 .green {
-    color: #1AC707;
+    color: rgb(0, 255, 0);
 }
 
 .red {
-    color: #FF0409;
+    color: rgb(255, 0, 0);
 }
 
 .etat-text {
