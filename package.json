@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.5",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "Metropia-Launcher",
+    "preductname": "Metropia Launcher",
+    "version": "2.0.0",
+    "description": "Launcher Minecraft pour Metropia",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Epyii, based on source code of Luuxis",
+    "url": "https://metropia.mtxserv.com/new_launcher/",
     "engines": {
         "node": "16.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/J4thgit/metropia-launcher.git"
     }
 }
