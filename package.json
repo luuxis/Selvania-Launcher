@@ -4,7 +4,7 @@
     "version": "1.0.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Swy'",
+    "author": "Luuxis",
     "url": "http://craftout.epizy.com/",
     "engines": {
         "node": "16.x.x"
