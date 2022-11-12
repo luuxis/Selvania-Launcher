@@ -135,7 +135,7 @@ class Home {
 
             launch.on('progress', (DL, totDL) => {
                 progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
+                document.querySelector(".text-download").innerHTML = `Download ${((DL / totDL) * 100).toFixed(0)}%`
                 ipcRenderer.send('main-window-progress', {DL, totDL})
                 progressBar.value = DL;
                 progressBar.max = totDL;
@@ -147,7 +147,7 @@ class Home {
 
             launch.on('check', (e) => {
                 progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Vérification ${((DL / totDL) * 100).toFixed(0)}%`
+                document.querySelector(".text-download").innerHTML = `Verifing files ${((DL / totDL) * 100).toFixed(0)}%`
                 progressBar.value = DL;
                 progressBar.max = totDL;
 

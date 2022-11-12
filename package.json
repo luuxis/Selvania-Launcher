@@ -5,7 +5,7 @@
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
-    "url": "http://craftout.epizy.com/",
+    "url": "http://82.66.79.44:8080/",
     "engines": {
         "node": "16.x.x"
     },
