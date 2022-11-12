@@ -1,7 +1,7 @@
 {
     "name": "CraftOut-Launcher",
     "preductname": "CraftOut Launcher",
-    "version": "1.0.3",
+    "version": "1.0.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
