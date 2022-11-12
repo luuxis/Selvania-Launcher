@@ -1,0 +1,8 @@
+version: 1.0.1
+files:
+  - url: CraftOut-Launcher-win-x64.exe
+    sha512: eABd8wZclaO+TE2qhl0BXxrsThj6rNLCp2TApIc2ZGrQBzOIT40LTw6wkI2aU2gIqnlnb2V+GLTn1f2f2w5P7Q==
+    size: 90961759
+path: CraftOut-Launcher-win-x64.exe
+sha512: eABd8wZclaO+TE2qhl0BXxrsThj6rNLCp2TApIc2ZGrQBzOIT40LTw6wkI2aU2gIqnlnb2V+GLTn1f2f2w5P7Q==
+releaseDate: '2022-11-12T17:47:12.117Z'
