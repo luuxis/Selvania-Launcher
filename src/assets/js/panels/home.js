@@ -117,6 +117,7 @@ class Home {
                 path: `${dataDirectory}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
                 version: this.config.game_version,
                 detached: launcherSettings.launcher.close === 'close-all' ? false : true,
+                downloadFileMultiple: 10,
                 java: this.config.java,
                 javapath: javaPath.path,
                 args: [...javaArgs.args, ...this.config.game_args],
