@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "Alone-Launcher",
+    "preductname": "Alone Launcher",
     "version": "1.0.5",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "description": "Launcher Alone",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Azakii",
+    "url": "http://discord.alwaysdata.net/www",
     "engines": {
         "node": "^16.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/AzakiiDev/AloneLauncher.git"
     }
 }

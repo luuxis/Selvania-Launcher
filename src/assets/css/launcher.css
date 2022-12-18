@@ -21,7 +21,6 @@ img {
 
 .dragbar {
     position: fixed;
-    background: #00000080;
     top: 0px;
     left: 0px;
     width: 100%;

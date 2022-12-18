@@ -31,47 +31,11 @@ img {
     top: 129px;
 }
 
-.splash-message {
-    position: absolute;
-    top: 289px;
-    left: 0px;
-    width: 400px;
-    font: normal normal bold 19px/29px Poppins;
-    text-align: center;
-    letter-spacing: 0px;
-    transition: opacity 1.5s;
-    color: rgb(255, 255, 255);
-    opacity: 0;
-}
-
-.splash-message.opacity {
-    opacity: 1;
-}
-
-.splash-author {
-    position: absolute;
-    top: 326px;
-    left: 0px;
-    width: 400px;
-    text-align: center;
-    transition: opacity 1.5s;
-    font: normal normal normal 9px/13px Poppins;
-    color: rgb(255, 255, 255);
-    opacity: 0;
-}
-
-.splash-author .author {
-    font: normal normal bold 9px/13px Poppins;
-}
-
-.splash-author.opacity {
-    opacity: 1;
-}
 
 .message {
     position: absolute;
     top: 347px;
-    left: 0px;
+    left: 380px;
     width: 400px;
     text-align: center;
     transition: opacity 1.5s;
@@ -108,3 +72,4 @@ progress::-webkit-progress-value {
     background-color: rgb(255, 0, 0);
     border-radius: 10px;
 }
+
