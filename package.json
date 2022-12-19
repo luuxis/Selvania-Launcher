@@ -1,11 +1,11 @@
 {
     "name": "Apocalipcraft-Launcher",
     "preductname": "Apocalipcraft Launcher",
-    "version": "1.0.2",
+    "version": "1.0.8",
     "description": "Launcher Mincraft por HypnoStudios",
     "main": "src/app.js",
     "author": "HypnoStudios",
-    "url": "http://apocalipcraft.rf.gd/",
+    "url": "http://apocalipcraft.rf.gd",
     "engines": {
         "node": "^16.x.x"
     },
@@ -19,9 +19,12 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "discord-rpc": "^4.0.1",
         "electron-updater": "^5.0.1",
+        "env-cmd": "^10.1.0",
         "minecraft-java-core": "^2.5.1",
-        "node-fetch": "^2.6.7"
+        "node-fetch": "^2.6.7",
+        "shell": "^0.9.4"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",

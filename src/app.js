@@ -19,8 +19,8 @@ const clientId = '976202706823831593';
                 url: `https://discord.io/apocalipcraft`,
             },
             {
-                label: `Youtube HypnoStudios`,
-                url: `https://www.youtube.com/channel/UC5uKqUqfw-EfDZCRA88u5Mg`,
+                label: `HypnoStudios`,
+                url: `http://hypnostudios.rf.gd/`,
             }
         ]
     });
