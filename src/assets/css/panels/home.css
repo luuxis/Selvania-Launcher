@@ -54,7 +54,7 @@
     transform: translate(-50%);
     height: 100%;
     color: #F1F1F1;
-    font: normal normal bold 19px/29px Poppins;
+    font: normal normal bold 19px/29px Minecrafter;
     text-align: center;
 }
 
@@ -64,11 +64,11 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #00bd7a;
+    background: #e0c57b;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+    box-shadow: 0 0 5px #e5cb82;
 }
 
 .download-content {
@@ -148,7 +148,7 @@
     position: absolute;
     font: normal normal bold 27px/40px Poppins;
     letter-spacing: 0px;
-    color: #E1E1E1;
+    color: #dd7373;
     display: flex;
     position: absolute;
     text-decoration: none;
@@ -169,7 +169,7 @@
     position: absolute;
     top: 15px;
     right: 20px;
-    color: #E1E1E1;
+    color: #94ee4a;
     width: 75px;
     text-align: center;
     font-weight: 900;
@@ -208,7 +208,7 @@
 .news-author {
     text-align: end;
     margin: 0;
-    color: #F1F1F1;
+    color: #ff0000;
 }
 
 .news-author span {
@@ -226,7 +226,7 @@
     position: relative;
     width: 100%;
     height: 75px;
-    background-color: #292929;
+    background-color: #d3c336;
     border-radius: 10px;
     transition: opacity 1s;
     opacity: .4;
@@ -248,7 +248,7 @@
 .name {
     position: absolute;
     font: normal normal bold 17px/25px Poppins;
-    color: #E1E1E1;
+    color: #000000;
     top: 17px;
     left: 70px;
     transition: color .2s;
@@ -257,7 +257,7 @@
 .desc {
     position: absolute;
     font: normal normal normal 11px/17px Poppins;
-    color: #E1E1E1;
+    color: #000000;
     transition: all .2s;
     top: 40px;
     left: 70px;

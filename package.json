@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.5",
+    "name": "Vox-Launcher",
+    "preductname": "Vox Launcher",
+    "version": "1.0.3",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Vowxky",
+    "url": "https://voxstudiosarchives.000webhostapp.com",
     "engines": {
         "node": "^16.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/vowxky/Vox-Game-Studio-Launcher.git"
     }
 }

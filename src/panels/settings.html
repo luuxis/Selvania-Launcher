@@ -1,30 +1,30 @@
 <div class="settings-content">
     <div class="tabs-settings-btn">
-        <button class="tab-btn-css tab-btn active-tab-btn default-tab-btn">Comptes</button>
+        <button class="tab-btn-css tab-btn active-tab-btn default-tab-btn">Cuentas</button>
         <button class="tab-btn-css tab-btn">Java</button>
-        <button class="tab-btn-css tab-btn">Résolution</button>
+        <button class="tab-btn-css tab-btn">Resolución</button>
         <button class="tab-btn-css tab-btn">Launcher</button>
-        <button class="tab-btn-css save-tabs-btn">Sauvegarder</button>
+        <button class="tab-btn-css save-tabs-btn">Menu</button>
     </div>
 
     <div class="tabs-settings-content active-tab-content">
         <div class="center-align">
-            <button class="add-account">Ajouter un compte</button>
+            <button class="add-account">Agregar una cuenta</button>
             <div class="accounts"></div>
         </div>
     </div>
 
     <div class="tabs-settings-content">
         <div class="settings-content-scroll">
-            <div class="title-settings">Paramètre de votre RAM.</div>
+            <div class="title-settings">Parámetro de tu RAM.</div>
             <div class="java-settings">
                 <div class="information">
-                    Définition de la RAM alloué à votre jeu, une quantité plus important augmenteras les performances de votre jeu.<br> A noter qu'il faut éviter de mettre une trop grande quantité sinon cela peut provoquer des pertes de performances survos
-                    autres applications.
+                    Definición de la memoria RAM asignada a tu juego, una mayor cantidad aumentará el rendimiento de tu juego.
+                    otras aplicaciones.
                     <br><br>
-                    <b>- RAM Maximale :</b> Indique la quantité totale de RAM allouée à votre jeu. Il est recommandé de ne pas dépasser 50% de la quantité totale de RAM présente sur votre PC afin qu'il puisse fonctionner correctement. Si votre ordinateur
-                    a plus de 8Go de RAM, nous vous recommandons d'allouer 3Go. Si votre ordinateur a 4Go ou moins, n'allouez pas plus de 2Go.<br><br>
-                    <b>- RAM Minimale :</b> Indique la quantité minimale de RAM allouée au démarrage de votre jeu. Il est recommandé de ne pas mettre plus de 3Go pour cette valeur. La valeur typique est de 1Go.
+                    <b>- RAM máxima:</b> Indica la cantidad total de RAM asignada a tu juego. Se recomienda que no excedas el 50% de la cantidad total de RAM presente en tu PC para que funcione correctamente. Si tu computadora
+                    tiene más de 8GB de RAM, recomendamos asignarle 3GB. Si su computadora tiene 4 GB o menos, no asigne más de 2 GB.<br><br>
+                    <b>- RAM mínima:</b> Indica la cantidad mínima de RAM asignada al iniciar tu juego, se recomienda no poner más de 3GB para este valor. El valor típico es de 1 GB.
                 </div>
                 <div class="ram-info">
                     <div class="memory-slider" min="0.5" max="8" step="0.5">
@@ -40,39 +40,38 @@
                     </div>
 
                     <div class="ram-info-block">
-                        <b>Vous possédez un total de <span id="total-ram">0 Go</span> RAM.</b><br>
-                        <b>Vous possédez un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
+                        <b>Tienes un total de <span id="total-ram">0 Gb</span> RAM.</b><br>
+                        <b>Tienes un total de <span id="free-ram">0 Gb</span> RAM disponible.</b>
                     </div>
                 </div>
             </div>
 
-            <div class="title-settings">Emplacement de Java.</div>
+            <div class="title-settings">Ubicación Java.</div>
             <div class="java-settings">
                 <div class="information">
-                    Le launcher utilise une version embarquée de Java.<br> Cette version est disponible dans le répertoire <span class="info-path"></span>.<br> Toutefois, vous pouvez spécifier votre propre exécutable.
-                </div>
+                    El iniciador utiliza una versión integrada de Java.<br> Esta versión está disponible en el directorio <span class="info-path"></span>.<br> Sin embargo, puede especificar su propio ejecutable.                </div>
                 <input type="text" class="path" disabled />
-                <button class="path-button">Changer</button>
-                <button class="path-button-reset">Reset</button>
+                <button class="path-button">Cambiar</button>
+                <button class="path-button-reset">Reseteo</button>
                 <input type="file" class="path-file" accept="application/octet-stream" />
             </div>
 
-            <div class="title-settings">Paramètres des arguments java.</div>
+            <div class="title-settings">Parámetros del argumento java.</div>
             <div class="java-settings">
                 <div class="information">
-                    Les arguments java sont utilisés pour définir les paramètres de votre jeu.
+                    Los argumentos de Java se utilizan para establecer parámetros para su juego.
                 </div>
-                <input type="text" class="args-settings" placeholder="Il est déconseillé de modifier ce paramètre." />
+                <input type="text" class="args-settings" placeholder="No se recomienda modificar este parámetro." />
             </div>
         </div>
     </div>
 
     <div class="tabs-settings-content">
         <div class="center-page">
-            <div class="title-settings">Paramètre de la résolution de minecraft.</div>
+            <div class="title-settings">Configuración de resolución de Minecraft.</div>
             <div class="java-settings">
                 <div class="information">
-                    Définissez une résolution personnalisée ou choisissez-en une dans la liste en fonction de la taille de votre écran.
+                    Establezca una resolución personalizada o elija una de la lista según el tamaño de su pantalla.
                 </div>
                 <div class="input-size-content">
                     <div class="input-size">
@@ -113,17 +112,17 @@
 
     <div class="tabs-settings-content">
         <div class="center-page">
-            <div class="title-settings">Paramètre du launcher.</div>
+            <div class="title-settings">Configuración del launcher.</div>
             <div class="java-settings">
                 <div class="information"></div>
             </div>
 
-            <div class="title-settings">Paramètre après le lancement du jeu.</div>
+            <div class="title-settings">Configuración después de iniciar el juego.</div>
             <div class="java-settings">
                 <div class="information"></div>            
-                <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close"><div class="checkround"></div></label> Fermer le launcher après le lancement du jeu.</br>
-                <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label for="launcher-close-all"><div class="checkround"></div></label> Fermer le jeu si le launcher est fermé.</br>
-                <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open"><div class="checkround"></div></label> Garder le launcher ouvert après le lancement du jeu.
+                <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close"><div class="checkround"></div></label> Cierra el lanzador después de iniciar el juego.</br>
+                <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label for="launcher-close-all"><div class="checkround"></div></label> Cierra el juego si el lanzador está cerrado.</br>
+                <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open"><div class="checkround"></div></label> Mantenga el launcher abierto después de iniciar el juego.
             </div>
         </div>
     </div>
