@@ -1,7 +1,3 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
- */
 
 import config from './utils/config.js';
 import database from './utils/database.js';
@@ -49,5 +45,5 @@ function accountSelect(uuid) {
 }
 
 function headplayer(pseudo) {
-    document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/helm/${pseudo}/100)`;
+    document.querySelector(".player-head").style.backgroundImage = `url(https://cravatar.eu/helmhead/${pseudo}/100)`;
 }

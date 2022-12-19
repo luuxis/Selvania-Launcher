@@ -1,7 +1,40 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
- */
+const clientId = '976202706823831593';
+ const DiscordRPC = require('discord-rpc');
+ const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+ 
+ DiscordRPC.register(clientId);
+
+ async function setActivity() {
+    if (!RPC) return;
+    RPC.setActivity({
+        details: `Apocalipcraft`,
+        state: `Iniciando Tormento Eterno!`,
+        startTimestamp: Date.now(),
+        largeImageKey: 'serverlogo1',
+        largeImageText: `ApocalipcraftUltimate`,
+        instance: false,
+        buttons: [
+            {
+                label: `Discord Apocalipcraft`,
+                url: `https://discord.io/apocalipcraft`,
+            },
+            {
+                label: `Youtube HypnoStudios`,
+                url: `https://www.youtube.com/channel/UC5uKqUqfw-EfDZCRA88u5Mg`,
+            }
+        ]
+    });
+ };
+
+RPC.on('ready', async () => {
+    setActivity();
+
+    setInterval(() => {
+        setActivity();
+    }, 86400 * 1000);
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
 
 const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');

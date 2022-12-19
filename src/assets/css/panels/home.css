@@ -37,6 +37,8 @@
     border: none;
     border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    background: #961616;
+    color: #F1F1F1;
 }
 
 .settings-btn:hover {
@@ -58,17 +60,50 @@
     text-align: center;
 }
 
+.dynmap-btn {
+    background-color: #292929;
+    position: absolute;
+    font: normal normal bold 17px/25px Poppins;
+    color: #ffffff;
+    top: 24px;
+    left: 70px;
+    transition: color .2s;
+    border: #292929;
+}
+
+.web-btn {
+    background-color: #292929;
+    position: absolute;
+    font: normal normal bold 17px/25px Poppins;
+    color: #ffffff;
+    top: 24px;
+    left: 70px;
+    transition: color .2s;
+    border: #292929;
+}
+
+.discord-btn {
+    background-color: #292929;
+    position: absolute;
+    font: normal normal bold 17px/25px Poppins;
+    color: #ffffff;
+    top: 24px;
+    left: 70px;
+    transition: color .2s;
+    border: #292929;
+}
+
 .play-btn {
     top: 10px;
     width: 160px;
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #00bd7a;
+    background: #961616;
     font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    color: #ece2e2;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+    box-shadow: 0 0 5px #961616;
 }
 
 .download-content {
@@ -98,7 +133,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #00bd7a;
+    background-color: #961616;
     border-radius: 10px;
 }
 
@@ -121,7 +156,7 @@
 .news-block {
     margin-bottom: 1rem;
     transition: opacity 1s;
-    opacity: .4;
+    opacity: .8;
 }
 
 .news-block:hover {
@@ -229,7 +264,7 @@
     background-color: #292929;
     border-radius: 10px;
     transition: opacity 1s;
-    opacity: .4;
+    opacity: .8;
 }
 
 .server:hover {
@@ -308,4 +343,76 @@
 
 .online.off {
     background-color: #FF0409;
+}
+
+.dynmap {
+    margin-block: 150px;
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: #292929;
+    border-radius: 10px;
+    transition: opacity 1s;
+    opacity: .8;
+}
+
+.dynmap:hover {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.dynmap-img {
+    position: absolute;
+    width: 42px;
+    height: 45px;
+    top: 15px;
+    left: 15px;
+}
+
+.git {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: #292929;
+    border-radius: 10px;
+    transition: opacity 1s;
+    opacity: .8;
+    margin-block: -140px;
+}
+
+.git:hover {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.git-img {
+    position: absolute;
+    width: 42px;
+    height: 45px;
+    top: 15px;
+    left: 15px;
+}
+
+.web {
+    position: relative;
+    width: 100%;
+    height: 74px;
+    background-color: #292929;
+    border-radius: 10px;
+    transition: opacity 1s;
+    opacity: .8;
+    margin-block: 150px;
+}
+
+.web:hover {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.web-img {
+    position: absolute;
+    width: 42px;
+    height: 45px;
+    top: 15px;
+    left: 15px;
 }

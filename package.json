@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.5",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "Apocalipcraft-Launcher",
+    "preductname": "Apocalipcraft Launcher",
+    "version": "1.0.2",
+    "description": "Launcher Mincraft por HypnoStudios",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "HypnoStudios",
+    "url": "http://apocalipcraft.rf.gd/",
     "engines": {
         "node": "^16.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/Hypnos0110/ApocalipcraftLauncher.git"
     }
 }

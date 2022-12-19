@@ -24,6 +24,9 @@ class Home {
         this.initLaunch();
         this.initStatusServer();
         this.initBtn();
+        this.dynmapbtn()
+        this.discordbtn()
+        this.websitebtn()
     }
 
     async initNews() {
@@ -35,12 +38,12 @@ class Home {
                 blockNews.innerHTML = `
                     <div class="news-header">
                         <div class="header-text">
-                            <div class="title">Aucun news n'ai actuellement disponible.</div>
+                            <div class="title">No hay noticias disponibles Actualmente.</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Vous pourrez suivre ici toutes les news relative au serveur.</p>
+                            <p>Aquí puedes seguir todas las noticias relacionadas con el Servidor.</p>
                         </div>
                     </div>`
                 news.appendChild(blockNews);
@@ -62,7 +65,7 @@ class Home {
                         <div class="news-content">
                             <div class="bbWrapper">
                                 <p>${News.content.replace(/\n/g, '</br>')}</p>
-                                <p class="news-author">Auteur,<span> ${News.author}</span></p>
+                                <p class="news-author">Autor,<span> ${News.author}</span></p>
                             </div>
                         </div>`
                     news.appendChild(blockNews);
@@ -79,12 +82,26 @@ class Home {
                 </div>
                 <div class="news-content">
                     <div class="bbWrapper">
-                        <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
+                        <p>No se puede contactar con el servidor de Noticias.</br>Por favor, compruebe su Configuración.</p>
                     </div>
                 </div>`
             // news.appendChild(blockNews);
         }
     }
+    async dynmapbtn() {
+        document.querySelector('.dynmap').addEventListener('click', async() => {
+            require('electron').shell.openExternal("http://65.108.199.248:47784/")
+        })}
+    
+    async discordbtn() {
+    document.querySelector('.git').addEventListener('click', async() => {
+        require('electron').shell.openExternal("https://discord.io/apocalipcraft")
+    })}
+
+    async websitebtn() {
+        document.querySelector('.web').addEventListener('click', async() => {
+            require('electron').shell.openExternal("http://apocalipcraft.craftingstore.net/")
+        })}
 
     async initLaunch() {
         document.querySelector('.play-btn').addEventListener('click', async() => {
@@ -137,7 +154,7 @@ class Home {
 
             launch.on('progress', (DL, totDL) => {
                 progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Téléchargement ${((DL / totDL) * 100).toFixed(0)}%`
+                document.querySelector(".text-download").innerHTML = `Descargando ${((DL / totDL) * 100).toFixed(0)}%`
                 ipcRenderer.send('main-window-progress', {DL, totDL})
                 progressBar.value = DL;
                 progressBar.max = totDL;
@@ -149,7 +166,7 @@ class Home {
 
             launch.on('check', (e) => {
                 progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Vérification ${((DL / totDL) * 100).toFixed(0)}%`
+                document.querySelector(".text-download").innerHTML = `Verificando.. ${((DL / totDL) * 100).toFixed(0)}%`
                 progressBar.value = DL;
                 progressBar.max = totDL;
 
@@ -159,7 +176,7 @@ class Home {
                 new logger('Minecraft', '#36b030');
                 if(launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
                 progressBar.style.display = "none"
-                info.innerHTML = `Demarrage en cours...`
+                info.innerHTML = `Iniciando...`
                 console.log(e);
             })
 
@@ -168,7 +185,7 @@ class Home {
                 progressBar.style.display = "none"
                 info.style.display = "none"
                 playBtn.style.display = "block"
-                info.innerHTML = `Vérification`
+                info.innerHTML = `Verificando..`
                 new logger('Launcher', '#7289da');
                 console.log('Close');
             })
@@ -184,11 +201,11 @@ class Home {
 
         if (!serverPing.error) {
             nameServer.textContent = this.config.status.nameServer;
-            serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
+            serverMs.innerHTML = `<span class="green">Online</span> - ${serverPing.ms}ms`;
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.playersConnect;
         } else if (serverPing.error) {
-            nameServer.textContent = 'Serveur indisponible';
+            nameServer.textContent = 'Servidor no disponible';
             serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
         }
     }
@@ -204,8 +221,9 @@ class Home {
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
-        let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        let allMonth = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
         return { year: year, month: allMonth[month - 1], day: day }
     }
 }
+
 export default Home;
