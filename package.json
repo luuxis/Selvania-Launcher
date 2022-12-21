@@ -5,7 +5,7 @@
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Vowxky",
-    "url": "http://localhost",
+    "url": "https://voxstudiosarchives.000webhostapp.com",
     "engines": {
         "node": "^16.x.x"
     },
@@ -19,6 +19,7 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "discord-rpc": "^4.0.1",
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.5.1",
         "node-fetch": "^2.6.7"

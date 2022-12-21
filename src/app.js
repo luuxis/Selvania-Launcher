@@ -1,7 +1,42 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
- */
+const clientId = '1040377508400480256';
+ const DiscordRPC = require('discord-rpc');
+ const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+ 
+ DiscordRPC.register(clientId);
+
+ async function setActivity() {
+    if (!RPC) return;
+    RPC.setActivity({
+        details: `--------------------------------`,
+        state: `Jugando a Vox Launcher`,
+        startTimestamp: Date.now(),
+        largeImageKey: 'discord',
+        largeImageText: `discord`,
+        instance: false,
+        buttons: [
+            {
+                label: `Discord Vox Launcher`,
+                url: `https://discord.gg/vuk2Abb9DQ`,
+            },
+            {
+                label: `Youtube Owner`,
+                url: `https://www.youtube.com/channel/UCgRXs28cdhTeudsY19ZkPow`,
+            }
+        ]
+    });
+ };
+
+RPC.on('ready', async () => {
+    setActivity();
+
+    setInterval(() => {
+        setActivity();
+    }, 86400 * 1000);
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
+
+
 
 const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
