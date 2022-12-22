@@ -1,11 +1,11 @@
 {
     "name": "Vox-Launcher",
     "preductname": "Vox Launcher",
-    "version": "1.0.3",
+    "version": "1.0.9",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Vowxky",
-    "url": "http://localhost/",
+    "url": "https://voxstudiosarchives.000webhostapp.com",
     "engines": {
         "node": "^16.x.x"
     },
