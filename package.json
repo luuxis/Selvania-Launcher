@@ -5,7 +5,7 @@
     "description": "Launcher Mincraft por HypnoStudios",
     "main": "src/app.js",
     "author": "HypnoStudios",
-    "url": "http://apocalipcraft.rf.gd",
+    "url": "http://s922434499.onlinehome.mx/apocalipcraft",
     "engines": {
         "node": "^16.x.x"
     },
