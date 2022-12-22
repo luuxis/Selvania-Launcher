@@ -1,7 +1,7 @@
 {
     "name": "Apocalipcraft-Launcher",
     "preductname": "Apocalipcraft Launcher",
-    "version": "1.0.5",
+    "version": "1.0.8",
     "description": "Launcher Mincraft por HypnoStudios",
     "main": "src/app.js",
     "author": "HypnoStudios",
