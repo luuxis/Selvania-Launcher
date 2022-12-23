@@ -123,7 +123,7 @@ class Login {
             loginBtn.disabled = true;
             mailInput.disabled = true;
             passwordInput.disabled = true;
-            infoLogin.innerHTML = "Conexión actual...";
+            infoLogin.innerHTML = "Concectando";
 
 
             if (mailInput.value == "") {
@@ -206,8 +206,8 @@ class Login {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
-            passwordInput.disabled = true;
-            infoLogin.innerHTML = "Conexión actual...";
+            passwordInput.disabled = false;
+            infoLogin.innerHTML = "Conectando...";
 
 
             if (mailInput.value == "") {

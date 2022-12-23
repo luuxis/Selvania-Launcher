@@ -22,7 +22,7 @@ function destroyWindow() {
 function createWindow() {
     destroyWindow();
     updateWindow = new electron.BrowserWindow({
-        title: "Mise à jour",
+        title: "Actualizando...",
         width: 400,
         height: 500,
         resizable: false,
