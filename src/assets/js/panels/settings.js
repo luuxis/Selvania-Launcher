@@ -19,9 +19,6 @@ class Settings {
         this.initTab();
         this.initAccount();
         this.initRam();
-        this.initJavaPath();
-        this.initJavaArgs();
-        this.initResolution();
         this.initLauncherSettings();
     }
 

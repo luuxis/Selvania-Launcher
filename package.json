@@ -7,7 +7,7 @@
     "author": "Luuxis",
     "url": "http://launcher.selvania.fr",
     "engines": {
-        "node": "^16.x.x"
+        "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "electron-updater": "^5.0.1",
-        "minecraft-java-core": "^2.5.1",
+        "minecraft-java-core": "^3.0.1",
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
