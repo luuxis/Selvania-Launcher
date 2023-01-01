@@ -169,12 +169,14 @@ class Home {
             })
 
             launch.on('patch', patch => {
+                console.log(patch);
                 info.innerHTML = `Patch en cours...`
             });
 
             launch.on('data', (e) => {
                 new logger('Minecraft', '#36b030');
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
+                ipcRenderer.send('main-window-progress-reset')
                 progressBar.style.display = "none"
                 info.innerHTML = `Demarrage en cours...`
                 console.log(e);
