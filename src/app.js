@@ -1,4 +1,4 @@
-const clientId = '1040377508400480256';
+const clientId = '1059280926179336192';
  const DiscordRPC = require('discord-rpc');
  const RPC = new DiscordRPC.Client({ transport: 'ipc'});
  
@@ -8,19 +8,19 @@ const clientId = '1040377508400480256';
     if (!RPC) return;
     RPC.setActivity({
         details: `--------------------------------`,
-        state: `Jugando a Vox Launcher`,
+        state: `Jugando a Night Of Red Blood`,
         startTimestamp: Date.now(),
         largeImageKey: 'discord',
         largeImageText: `discord`,
         instance: false,
         buttons: [
             {
-                label: `Discord Vox Launcher`,
+                label: `Discord Vox Game Studios`,
                 url: `https://discord.gg/vuk2Abb9DQ`,
             },
             {
-                label: `Youtube Owner`,
-                url: `https://www.youtube.com/channel/UCgRXs28cdhTeudsY19ZkPow`,
+                label: `Creditos`,
+                url: `https://pastebin.com/34wRMgax`,
             }
         ]
     });

@@ -1,2 +1,23 @@
 # Vox-Game-Studio-Launcher
-Hola! este es mi launcher para mi servidor si quieres saber como crear launchers puedes preguntarme a mi mismo o fijarte en la pagina de selvania launcher
+----------------------------
+CREDITOS HACIA EL LAUNCHER
+----------------------------
+ 
+------------------------
+Encargado en programar
+ 
+vowxky#3532
+------------------------
+ 
+_______________________________________________________________________
+ 
+------------------------
+Ideas y arte 
+ 
+Alza#4442
+Chizu#0233
+🎄TheJustin246🎄#2812
+------------------------
+ 
+Youtube de Vowxky : https://www.youtube.com/channel/UCgRXs28cdhTeudsY19ZkPow
+Twich Del Vowxky : https://www.twitch.tv/vowxky

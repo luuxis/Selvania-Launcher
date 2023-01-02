@@ -64,11 +64,11 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #e0c57b;
+    background: #6e210e;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 0 5px #e5cb82;
+    box-shadow: 0 0 5px #521e11;
 }
 
 .download-content {
@@ -98,7 +98,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #00bd7a;
+    background-color: #5f1212;
     border-radius: 10px;
 }
 
@@ -139,7 +139,7 @@
     left: 0px;
     width: 100%;
     height: 87px;
-    background-color: #292929;
+    background-color: #0f0e0e;
     border-radius: 10px 10px 0px 0px;
     transition: color .2s, filter .2s;
 }
@@ -148,7 +148,7 @@
     position: absolute;
     font: normal normal bold 27px/40px Poppins;
     letter-spacing: 0px;
-    color: #dd7373;
+    color: #c03f7b;
     display: flex;
     position: absolute;
     text-decoration: none;
@@ -208,7 +208,7 @@
 .news-author {
     text-align: end;
     margin: 0;
-    color: #ff0000;
+    color: #413b97;
 }
 
 .news-author span {
@@ -226,7 +226,7 @@
     position: relative;
     width: 100%;
     height: 75px;
-    background-color: #d3c336;
+    background-color: #050505;
     border-radius: 10px;
     transition: opacity 1s;
     opacity: .4;
@@ -248,7 +248,7 @@
 .name {
     position: absolute;
     font: normal normal bold 17px/25px Poppins;
-    color: #000000;
+    color: #721515;
     top: 17px;
     left: 70px;
     transition: color .2s;

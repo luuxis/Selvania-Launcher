@@ -22,9 +22,9 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Bienvenido a Vox Launcher", "author": "Vox Studios" },
-            { "message": "Bienvenido a Vox Launcher", "author": "Vox Studios" },
-            { "message": "Bienvenido a Vox Launcher", "author": "Vox Studios" }
+            { "message": "Bienvenido a Vox Launcher", "author": "Vox Game Studios" },
+            { "message": "Bienvenido a Vox Launcher", "author": "Vox Game Studios" },
+            { "message": "Bienvenido a Vox Launcher", "author": "Vox Game Studios" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
