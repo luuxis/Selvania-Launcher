@@ -1,11 +1,11 @@
 {
     "name": "Selvania-Launcher",
     "preductname": "Selvania Launcher",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "url": "http://craftdium.ml/launcherSelvania",
     "engines": {
         "node": "^18.x.x"
     },

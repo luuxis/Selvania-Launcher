@@ -166,6 +166,11 @@ class Launcher {
                     if (account.uuid === selectaccount) this.database.update({ uuid: "1234" }, 'accounts-selected')
                 }
             }
+
+
+
+
+            
             if (!(await this.database.get('1234', 'accounts-selected')).value.selected) {
                 let uuid = (await this.database.getAll('accounts'))[0]?.value?.uuid
                 if (uuid) {
