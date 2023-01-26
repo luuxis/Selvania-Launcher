@@ -13,6 +13,11 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          
       - name: Check for update
         id: updatecheck
         uses: EndBug/version-check@v2
@@ -22,12 +27,6 @@ jobs:
       - name: Check out Git repository
         if: steps.updatecheck.outputs.changed == 'true'
         uses: actions/checkout@v1
-
-      - name: Set up Node
-        if: steps.updatecheck.outputs.changed == 'true'
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
 
       - name: Set up Python
         if: steps.updatecheck.outputs.changed == 'true'
