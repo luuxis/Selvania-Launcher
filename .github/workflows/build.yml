@@ -13,6 +13,9 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -23,10 +26,6 @@ jobs:
         uses: EndBug/version-check@v2
         with:
           diff-search: true
-
-      - name: Check out Git repository
-        if: steps.updatecheck.outputs.changed == 'true'
-        uses: actions/checkout@v1
 
       - name: Set up Python
         if: steps.updatecheck.outputs.changed == 'true'
