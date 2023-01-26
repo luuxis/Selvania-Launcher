@@ -13,24 +13,35 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
+      - name: Check for update
+        id: updatecheck
+        uses: EndBug/version-check@v2
+        with:
+          - diff-search: true
+
       - name: Check out Git repository
+        if: steps.updatecheck.outputs.changed == 'true'
         uses: actions/checkout@v1
 
       - name: Set up Node
+        if: steps.updatecheck.outputs.changed == 'true'
         uses: actions/setup-node@v1
         with:
           node-version: 16
 
       - name: Set up Python
+        if: steps.updatecheck.outputs.changed == 'true'
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
 
       - name: Install Dependencies
+        if: steps.updatecheck.outputs.changed == 'true'
         run: npm ci
         shell: bash
 
       - name: Build
+        if: steps.updatecheck.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.github_token }}
         run: npm run build
