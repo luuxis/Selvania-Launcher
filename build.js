@@ -12,6 +12,10 @@ builder.build({
         directories: { "output": "dist" },
         compression: 'maximum',
         asar: true,
+        publish: [{
+            provider: "github",
+            releaseType: 'release',
+        }],
         win: {
             icon: "./src/assets/images/icon.ico",
             target: [{
