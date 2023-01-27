@@ -15,18 +15,41 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+
       - name: Check for update
         id: updatecheck
         uses: EndBug/version-check@v2
         with:
           diff-search: true
+
       - name: Stop process if no release
         if: steps.updatecheck.outputs.changed == 'false'
         uses: andymckay/cancel-action@0.3
-      
 
-  release:
-    needs: [check-update]
+
+  create-release:
+    needs: check-update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get version
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.version }}
+          release_name: release ${{ env.version }}
+          draft: false
+          prerelease: ${{ contains(env.version, 'beta') || contains(env.version, 'alpha') }}
+
+  build-launcher:
+    needs: create-release
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -38,12 +61,12 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18.x
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
 
