@@ -144,7 +144,7 @@ class Login {
                 return
             }
 
-            let account_connect = Mojang.login(mailInput.value, passwordInput.value)
+            let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
 
             if(account_connect == null || account_connect.error) {
                 console.log(err)
@@ -232,7 +232,7 @@ class Login {
                 return
             }
 
-            let account_connect = Mojang.login(mailInput.value, passwordInput.value)
+            let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
 
             if(account_connect == null || account_connect.error) {
                 console.log(err)
