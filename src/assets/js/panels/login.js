@@ -100,7 +100,7 @@ class Login {
         })
     }
 
-    loginMojang() {
+    async loginMojang() {
         let mailInput = document.querySelector('.Mail')
         let passwordInput = document.querySelector('.Password')
         let cancelMojangBtn = document.querySelector('.cancel-mojang')
@@ -118,7 +118,7 @@ class Login {
             document.querySelector(".login-card-mojang").style.display = "none";
         })
 
-        loginBtn.addEventListener("click", () => {
+        loginBtn.addEventListener("click", async () => {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
@@ -146,7 +146,7 @@ class Login {
 
             let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
 
-            if(account_connect == null || account_connect.error) {
+            if (account_connect == null || account_connect.error) {
                 console.log(err)
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
@@ -186,7 +186,7 @@ class Login {
         })
     }
 
-    loginOffline() {
+    async loginOffline() {
         let mailInput = document.querySelector('.Mail')
         let passwordInput = document.querySelector('.Password')
         let cancelMojangBtn = document.querySelector('.cancel-mojang')
@@ -206,7 +206,7 @@ class Login {
             document.querySelector(".login-card-mojang").style.display = "none";
         })
 
-        loginBtn.addEventListener("click", () => {
+        loginBtn.addEventListener("click", async () => {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
@@ -234,7 +234,7 @@ class Login {
 
             let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
 
-            if(account_connect == null || account_connect.error) {
+            if (account_connect == null || account_connect.error) {
                 console.log(err)
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
