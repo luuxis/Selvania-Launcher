@@ -118,7 +118,7 @@ class Login {
             document.querySelector(".login-card-mojang").style.display = "none";
         })
 
-        loginBtn.addEventListener("click", () => {
+        loginBtn.addEventListener("click", async () => {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
@@ -206,7 +206,7 @@ class Login {
             document.querySelector(".login-card-mojang").style.display = "none";
         })
 
-        loginBtn.addEventListener("click", () => {
+        loginBtn.addEventListener("click", async () => {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
