@@ -55,10 +55,6 @@ class Settings {
             }
         })
 
-        document.querySelector('.add-account').addEventListener('click', () => {
-            document.querySelector(".cancel-login").style.display = "contents";
-            changePanel("login");
-        })
     }
 
     async initRam() {

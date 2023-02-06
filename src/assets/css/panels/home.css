@@ -20,7 +20,6 @@
 
 .player-head {
     margin: auto 30px;
-    background-image: url("../../images/default/setve.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,34 +31,25 @@
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
 }
 
-.player-head:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
-}
-
 .settings-btn {
     position: absolute;
-    top: 10px;
-    right: 30px;
+    top: -16.2px;
+    left: 9.5%;
     text-align: center;
-    height: 50px;
-    border: none;
-    border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    height: 61px;
+    background-color: transparent;
+    width: 78px;
 }
 
 .settings-btn:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    background-color: #29292985;
 }
 
-.icon-settings:before {
-    font-size: 40px;
-}
 
 .play-element {
     position: absolute;
-    left: 50%;
+    left: 32.1%;
+    top: -41%;
     transform: translate(-50%);
     height: 100%;
     color: #F1F1F1;
@@ -68,21 +58,22 @@
 }
 
 .play-btn {
-    top: 10px;
-    width: 160px;
-    height: 37px;
-    border-radius: 20px;
+    top: 500px;
+    width: 268px;
+    height: 60px;
     border: none;
-    background: #00bd7a;
-    font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    background: transparent;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
 }
+
+.play-btn:hover{
+    background-color: #29292985;
+}
+
 
 .download-content {
     position: absolute;
-    top: 50%;
+    top: -75%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

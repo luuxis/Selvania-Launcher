@@ -17,6 +17,7 @@ const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${
 class Home {
     static id = "home";
     async init(config, news) {
+
         this.config = config
         this.news = await news
         this.database = await new database().init();

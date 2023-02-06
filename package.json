@@ -1,11 +1,11 @@
 {
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
-    "url": "http://discord.alwaysdata.net/www",
+    "url": "https://alonedayz.wstr.fr/launcher",
     "engines": {
         "node": "^16.x.x"
     },
