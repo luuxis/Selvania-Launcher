@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "ceriumlauncher",
+    "preductname": "Cérium Launcher",
     "version": "1.2.0",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "description": "Launcher de Cérium (premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://craftdium.ml/launcherSelvania",
+    "author": "hohotutecalme",
+    "url": "http://185.142.55.88:25569/",
     "engines": {
         "node": "^18.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/HOHOTUTECALME/Selvania-Launcher.git"
     }
 }
