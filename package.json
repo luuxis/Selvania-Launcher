@@ -1,7 +1,7 @@
 {
     "name": "ceriumlauncher",
     "preductname": "Cérium Launcher",
-    "version": "1.2.0",
+    "version": "1.0.0",
     "description": "Launcher de Cérium (premium)",
     "main": "src/app.js",
     "author": "hohotutecalme",
