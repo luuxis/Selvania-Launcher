@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Launcher de Cérium (premium)",
     "main": "src/app.js",
-    "author": "hohotutecalme",
+    "author": "hohotutecalme!",
     "url": "http://185.142.55.88:25569/",
     "engines": {
         "node": "^18.x.x"
