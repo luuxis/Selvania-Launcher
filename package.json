@@ -1,7 +1,7 @@
 {
     "name": "Ares-Client",
     "preductname": "Ares Client",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
