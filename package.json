@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.2.0",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "Ares-Client",
+    "preductname": "Ares Client",
+    "version": "1.2.2",
+    "description": "Launcher Ares !",
     "main": "src/app.js",
     "author": "Luuxis",
-    "url": "http://craftdium.ml/launcherSelvania",
+    "url": "http://ares.tekerekmutfak.com",
     "engines": {
         "node": "^18.x.x"
     },
@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/devlopement-ares/Selvania-Launcher.git"
     }
 }
