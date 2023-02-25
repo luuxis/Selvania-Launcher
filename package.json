@@ -31,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/koops61/Lotchi-Launcher.git"
+        "url": "git+https://github.com/koops61/Lotchi-Launcher.git"
     }
 }
