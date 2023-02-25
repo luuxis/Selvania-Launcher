@@ -1,7 +1,7 @@
 {
     "name": "Lotchi-Launcher",
     "preductname": "Lotchi Launcher",
-    "version": "1.2.2",
+    "version": "1.2.0",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "kanis",
