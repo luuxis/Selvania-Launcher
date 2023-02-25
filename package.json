@@ -4,7 +4,7 @@
     "version": "1.2.0",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
+    "author": "kanis",
     "url": "http://lotchi-world.ddns.net/lotchicraft/",
     "engines": {
         "node": "^18.x.x"
