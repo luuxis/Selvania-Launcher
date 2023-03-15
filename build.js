@@ -7,7 +7,6 @@ builder.build({
         appId: preductname,
         productName: preductname,
         artifactName: "${productName}-${os}-${arch}.${ext}",
-        extraMetadata: { main: 'app/app.js' },
         files: ["app/**/*", "package.json", "LICENSE.md"],
         directories: { "output": "dist" },
         compression: 'maximum',
