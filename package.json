@@ -5,7 +5,7 @@
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
-    "url": "https://alonedayz.wstr.fr/launcher",
+    "url": "https://alonedayz.com/launcher",
     "engines": {
         "node": "^16.x.x"
     },
