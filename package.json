@@ -1,11 +1,11 @@
 {
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
-    "url": "https://alonedayz.com/launcher",
+    "url": "https://dl.alonedayz.com/launcher",
     "engines": {
         "node": "^16.x.x"
     },
