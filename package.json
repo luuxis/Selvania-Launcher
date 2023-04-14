@@ -1,6 +1,6 @@
 {
     "name": "Launcher-Celestial",
-    "preductname": "Celestial Pixelmon",
+    "preductname": "Celestial Pixelmon 1.0.0",
     "version": "1.0.0",
     "description": "Launcher Oficial - Celestial Pixelmon",
     "main": "src/app.js",
