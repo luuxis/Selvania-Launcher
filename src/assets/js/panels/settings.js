@@ -49,6 +49,11 @@ class Settings {
                     }, 'accounts-selected');
                     accountSelect(uuid);
                 }
+                if(document.getElementsByClassName('account').length !== 3) {
+                  const buttonAdd = document.getElementsByClassName('add-account')[0]
+                  buttonAdd.disabled = false;
+                  buttonAdd.classList.remove('button-add-disabled');
+                }
             }
         });
         document.querySelector('.add-account').addEventListener('click', () => {
