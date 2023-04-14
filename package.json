@@ -25,8 +25,8 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^20.0.0",
-        "electron-builder": "^23.0.3",
+        "electron": "^24.1.1",
+        "electron-builder": "^24.2.1",
         "javascript-obfuscator": "^4.0.2",
         "nodemon": "^2.0.16"
     },
