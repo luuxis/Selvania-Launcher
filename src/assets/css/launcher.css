@@ -56,6 +56,10 @@ img {
     cursor: pointer;
 }
 
+.button-add-disabled {
+  opacity: 50%;
+}
+
 .icon-close:hover {
     background: #e21212;
 }
