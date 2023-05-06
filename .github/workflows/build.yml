@@ -1,4 +1,3 @@
-# module du helios launcher
 name: Launcher Build
 on:
   push:
