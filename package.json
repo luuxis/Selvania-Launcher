@@ -19,19 +19,22 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "axios": "^1.4.0",
+        "cheerio": "^1.0.0-rc.12",
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^3.4.3",
+        "mysql": "^2.18.1",
         "node-fetch": "^2.6.7"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^20.0.0",
-        "electron-builder": "^23.0.3",
+        "electron": "^24.1.3",
+        "electron-builder": "^24.3.0",
         "javascript-obfuscator": "^4.0.2",
         "nodemon": "^2.0.16"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Azerty-Merlin/PhenixBleu-Launcher-electron.git"
+        "url": "git+https://github.com/Azerty-Merlin/Selvania-Launcher.git"
     }
 }

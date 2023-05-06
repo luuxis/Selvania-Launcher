@@ -55,14 +55,14 @@ class Home {
                                 <div class="title">${News.title}</div>
                             </div>
                             <div class="date">
-                                <div class="day">${date.day}</div>
-                                <div class="month">${date.month}</div>
+                                <div class="day" style="display: none;"></div>
+                                <div class="month" style="display: none;"></div>
                             </div>
                         </div>
                         <div class="news-content">
                             <div class="bbWrapper">
                                 <p>${News.content.replace(/\n/g, '</br>')}</p>
-                                <p class="news-author">Auteur,<span> ${News.author}</span></p>
+                                <p class="news-author">Auteur,<span> ${News.author}<br> ${News.publish_date}</span></p>
                             </div>
                         </div>`
                     news.appendChild(blockNews);
@@ -82,7 +82,7 @@ class Home {
                         <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
                     </div>
                 </div>`
-            // news.appendChild(blockNews);
+             news.appendChild(blockNews);
         }
     }
 

@@ -5,18 +5,21 @@
 
 'use strict';
 
-import { database, changePanel, addAccount, accountSelect } from '../utils.js';
+import { database, changePanel, addAccount, accountSelect, logger } from '../utils.js';
 const { Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
+const axios = require('axios').default;;
 
 class Login {
     static id = "login";
+    
     async init(config) {
         this.config = config
         this.database = await new database().init();
         if (this.config.online) this.getOnline()
         else this.getOffline()
     }
+    
 
     getOnline() {
         console.log(`Initializing microsoft Panel...`)
@@ -185,16 +188,16 @@ class Login {
             infoLogin.innerHTML = "&nbsp;";
         })
     }
-
+    
     async loginOffline() {
+
         let mailInput = document.querySelector('.Mail')
         let passwordInput = document.querySelector('.Password')
         let cancelMojangBtn = document.querySelector('.cancel-mojang')
         let infoLogin = document.querySelector('.info-login')
         let loginBtn = document.querySelector(".login-btn")
         let mojangBtn = document.querySelector('.mojang')
-
-        mojangBtn.innerHTML = "Offline"
+        mojangBtn.innerHTML = "Connexion";
 
         mojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "none";
@@ -207,10 +210,13 @@ class Login {
         })
 
         loginBtn.addEventListener("click", async () => {
+           let password = (await axios.get('http://54.154.229.228/catégorie/minecraft/serveur/conexion/json.php?email='+ mailInput.value +'&password=' + passwordInput.value + '&type=password')).data
+            let pseudo = (await axios.get('http://54.154.229.228/catégorie/minecraft/serveur/conexion/json.php?email='+ mailInput.value +'&password=' + passwordInput.value+ '&type=pseudo')).data;
             cancelMojangBtn.disabled = true;
-            loginBtn.disabled = true;
+            loginBtn.disabled = true; 
             mailInput.disabled = true;
             passwordInput.disabled = true;
+ 
             infoLogin.innerHTML = "Connexion en cours...";
 
 
@@ -231,10 +237,40 @@ class Login {
                 passwordInput.disabled = false;
                 return
             }
-
-            let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
-
-            if (account_connect == null || account_connect.error) {
+            if (passwordInput.value == "") {
+                infoLogin.innerHTML = "Entrez votre mot de passe"
+                cancelMojangBtn.disabled = false;
+                loginBtn.disabled = false;
+                mailInput.disabled = false;
+                passwordInput.disabled = false;
+                return
+            }
+        
+        if (pseudo = ""){
+            console.log(err) 
+                cancelMojangBtn.disabled = false;
+                loginBtn.disabled = false;
+                mailInput.disabled = false;
+                passwordInput.disabled = false; 
+                infoLogin.innerHTML = 'Adresse E-mail ou mot de passe invalide'
+                return
+        }
+         password = (await axios.get('http://54.154.229.228/catégorie/minecraft/serveur/conexion/json.php?email='+ mailInput.value +'&password=' + passwordInput.value + '&type=password')).data
+         
+        if (password != "") {
+            infoLogin.innerHTML = "Adresse E-mail ou mot de passe invalide"
+            cancelMojangBtn.disabled = false;
+            loginBtn.disabled = false;
+            mailInput.disabled = false;
+            passwordInput.disabled = false;
+            return
+        }
+        pseudo = (await axios.get('http://54.154.229.228/catégorie/minecraft/serveur/conexion/json.php?email='+ mailInput.value +'&password=' + passwordInput.value+ '&type=pseudo')).data;
+        let account_connect = await Mojang.login(pseudo, password)
+     
+           
+          
+           if (account_connect == null || account_connect.error) {
                 console.log(err)
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
