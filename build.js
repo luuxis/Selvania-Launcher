@@ -29,7 +29,7 @@ builder.build({
             runAfterFinish: true
         },
         mac: {
-            icon: "./src/assets/images/icon.png",
+            icon: "./src/assets/images/icon.icns",
             category: "public.app-category.games",
             target: [{
                 target: "dmg",
