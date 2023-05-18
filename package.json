@@ -1,7 +1,7 @@
 {
     "name": "Launcher-Celestial",
     "preductname": "Celestial Pixelmon",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "description": "Launcher Oficial - Celestial Pixelmon",
     "main": "src/app.js",
     "author": "Hayzera",

@@ -91,7 +91,7 @@ class Home {
             let informationDiv = document.createElement('div');
             let p = document.createElement('p');
             p.innerHTML = `Caso o download trave em alguma porcentagem 
-              por muito tempo,</br> feche o launcher e abra novamente`;
+              por muito tempo, feche o launcher e abra novamente`;
               informationDiv.classList.add('messageDownload');
             let newsList = document.querySelector('.news-list');
             newsList.innerHTML = ''
