@@ -220,7 +220,7 @@ class Home {
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.playersConnect;
         } else if (serverPing.error) {
-            nameServer.textContent = 'Serveur indisponible';
+            nameServer.textContent = 'Em manuntenção';
             serverMs.innerHTML = `<span class="red">Offline</span>`;
         }
     }

@@ -21,6 +21,7 @@
     border: none;
     border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    cursor: pointer;
 }
 
 .player-head:hover {
@@ -37,6 +38,7 @@
     border: none;
     border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    cursor: pointer;
 }
 
 .settings-btn:hover {
@@ -64,11 +66,16 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #00bd7a;
+    background: #9b5de5;
     font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    color: #F7F0F8;
+    cursor: pointer;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+  }
+  
+  .play-btn:hover {
+    background: #FF499d;
+    box-shadow: 0 0 8px #FF499d;
 }
 
 .download-content {
@@ -98,7 +105,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #00bd7a;
+    background-color: #9b5de5;
     border-radius: 10px;
 }
 
