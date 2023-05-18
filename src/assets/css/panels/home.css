@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 .bottom-bar-home {
     position: fixed;
     bottom: 0;
@@ -10,16 +12,20 @@
 }
 
 .player-head {
-    margin: auto 30px;
+    z-index: 1;
+    /* margin: auto 30px; */
     background-image: url("../../images/default/setve.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
-    width: 50px;
-    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    width: 75px;
+    height: 200px;
+    margin-left: 35px;
+    margin-bottom: 5px;
     border: none;
-    border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
     cursor: pointer;
 }
@@ -119,6 +125,10 @@
     position: relative;
     overflow: auto;
     width: 100%;
+}
+
+.news-list iframe {
+   width: 100%; height: 100%; border: none;
 }
 
 .news-list::-webkit-scrollbar {
@@ -231,18 +241,32 @@
 
 .messageDownload {
   align-items: center;
-  background-color: #292929;
-  border-radius: 10px;
-  color: #D8D8D8;
+  background-color: #F0F0F0;
+  border-radius: 50px 50px 50px 0px;
+  color: #1c1c1c;
   font: normal normal bold 15px/18px Poppins;
   justify-content: center;
   min-width: 40%;
-  opacity: .9;
-  position: relative;
-  top: 80%;
-  padding: 10px;
-  /* height: 75px; */
+  /* opacity: .7; */
+  position: absolute;
+  left: 82px;
+  bottom: 9%;
+  padding-right: 16px;
+  padding-left: 16px;
+  animation-name: fadeIn;
+  animation-duration: 1s;
 }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      bottom: 11%;
+    }
+    100% {
+       opacity: 1;
+       bottom: 9%;
+    }
+  }
 
 .server {
     position: relative;
@@ -330,4 +354,149 @@
 
 .online.off {
     background-color: #FF0409;
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper{
+    background: transparent;
+    text-align: center
+}
+
+.wrapper .icon{
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  display: inline-block;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+@media screen and (max-width: 845px) {
+.wrapper .icon{
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 22px;
+  display: inline-block;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 700px) {
+.wrapper .icon{
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 5px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 22px;
+  display: inline-block;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  line-height: 1.5;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .discord:hover,
+.wrapper .discord:hover .tooltip,
+.wrapper .discord:hover .tooltip::before {
+  background-color: #7289DA;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+}
+
+.wrapper .tiktok:hover,
+.wrapper .tiktok:hover .tooltip,
+.wrapper .tiktok:hover .tooltip::before {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background-color: #de463b;
+  color: #ffffff;
 }

@@ -90,8 +90,7 @@ class Home {
         document.querySelector('.play-btn').addEventListener('click', async () => {
             let informationDiv = document.createElement('div');
             let p = document.createElement('p');
-            p.innerHTML = `Caso o download trave em alguma porcentagem 
-              por muito tempo, feche o launcher e abra novamente`;
+            p.innerHTML = `Caso seu download trave, reinicie o launcher!`;
               informationDiv.classList.add('messageDownload');
             let newsList = document.querySelector('.news-list');
             newsList.innerHTML = ''

@@ -55,5 +55,5 @@ function accountSelect(uuid) {
 }
 
 function headplayer(pseudo) {
-    document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/helm/${pseudo}/100)`;
+    document.querySelector(".player-head").style.backgroundImage = `url(https://mc-heads.net/body/${pseudo})`;
 }
