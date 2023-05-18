@@ -223,16 +223,18 @@
 }
 
 .messageDownload {
-  justify-content: center;
-  position: relative;
-  width: 33%;
-  padding: 10px;
-  /* height: 75px; */
+  align-items: center;
   background-color: #292929;
   border-radius: 10px;
-  align-items: center;
+  color: #D8D8D8;
+  font: normal normal bold 15px/18px Poppins;
+  justify-content: center;
+  min-width: 40%;
   opacity: .9;
-  color: red;
+  position: relative;
+  top: 90%;
+  padding: 10px;
+  /* height: 75px; */
 }
 
 .server {
