@@ -1,6 +1,6 @@
 <p align="center"><img src="../src/assets/images/icon.png" alt="icon-launcher"></p>
 
-<h1 align="center">CraftLaunch</h1>
+<h1 align="center">Bem vindo ao launcher do Celestial Pixelmon</h1>
 
 #### [<p align="center">]() *(Un launcher minecraft performant et puissant basé sur electron)*
 [<p align="center">]()
