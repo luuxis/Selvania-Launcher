@@ -222,6 +222,19 @@
     background: none;
 }
 
+.messageDownload {
+  justify-content: center;
+  position: relative;
+  width: 33%;
+  padding: 10px;
+  /* height: 75px; */
+  background-color: #292929;
+  border-radius: 10px;
+  align-items: center;
+  opacity: .9;
+  color: red;
+}
+
 .server {
     position: relative;
     width: 100%;

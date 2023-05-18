@@ -176,13 +176,13 @@ class Settings {
         }
 
         let closeLauncher = document.getElementById("launcher-close");
-        let closeAll = document.getElementById("launcher-close-all");
+        // let closeAll = document.getElementById("launcher-close-all");
         let openLauncher = document.getElementById("launcher-open");
 
         if(settingsLauncher.launcher.close === 'close-launcher') {
             closeLauncher.checked = true;
-        } else if(settingsLauncher.launcher.close === 'close-all') {
-            closeAll.checked = true;
+        // } else if(settingsLauncher.launcher.close === 'close-all') {
+        //     closeAll.checked = true;
         } else if(settingsLauncher.launcher.close === 'open-launcher') {
             openLauncher.checked = true;
         }
@@ -190,27 +190,27 @@ class Settings {
         closeLauncher.addEventListener("change", () => {
             if(closeLauncher.checked) {
                 openLauncher.checked = false;
-                closeAll.checked = false;
+                // closeAll.checked = false;
             }
            if(!closeLauncher.checked) closeLauncher.checked = true;
             settingsLauncher.launcher.close = 'close-launcher';
             this.database.update(settingsLauncher, 'launcher');
         })
 
-        closeAll.addEventListener("change", () => {
-            if(closeAll.checked) {
-                closeLauncher.checked = false;
-                openLauncher.checked = false;
-            }
-            if(!closeAll.checked) closeAll.checked = true;
-            settingsLauncher.launcher.close = 'close-all';
-            this.database.update(settingsLauncher, 'launcher');
-        })
+        // closeAll.addEventListener("change", () => {
+        //     if(closeAll.checked) {
+        //         closeLauncher.checked = false;
+        //         openLauncher.checked = false;
+        //     }
+        //     if(!closeAll.checked) closeAll.checked = true;
+        //     settingsLauncher.launcher.close = 'close-all';
+        //     this.database.update(settingsLauncher, 'launcher');
+        // })
 
         openLauncher.addEventListener("change", () => {
             if(openLauncher.checked) {
                 closeLauncher.checked = false;
-                closeAll.checked = false;
+                // closeAll.checked = false;
             }
             if(!openLauncher.checked) openLauncher.checked = true;
             settingsLauncher.launcher.close = 'open-launcher';
