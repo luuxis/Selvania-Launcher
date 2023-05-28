@@ -25,17 +25,12 @@
 ### **<ins><p align="center">Screenshots :</p>**
 
 <img src="images/3.png" alt="screenshot3"><p align="center"> *Page principale*
-
 &nbsp;
-
 <img src="images/4.png" alt="screenshot4"><p align="center"> *Page de gestion des skins*
-
 &nbsp;
 <img src="images/5.png" alt="screenshot5"><p align="center"> *Page de gestion des comptes*
-
 &nbsp;
 <img src="images/1.png" alt="screenshot8"><p align="center"> *Page de connexion*
-
 ---
 
 ### **<ins><p align="center">Fonctionnalitées du launcher :</p>**
@@ -61,7 +56,7 @@
 - 🟢 Statut serveur complet.
 
     - Opérationnel ou hors ligne.
-    
+
     - Nombres de joueurs connectés.
 
 - ☕ Installation de Java automatique.
