@@ -109,11 +109,19 @@ Si vous aimez ce projet et que vous voulez aider à le développer, vous pouvez 
 Si vous avez des questions, un problème ou des suggestions n'hésitez pas à rejoindre notre discord :
 
 <br>
-
-[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner2" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
+ 
+ 
+[![discord]([https://discordapp.com/api/guilds/211524927831015424/embed.png?style=banner3](https://discordapp.com/api/guilds/819729377650278420/embed.png?style=bannhttps://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner2er2))][discord]
 ---
-
 <br>
 <br>
 
 [<p align="center">]() *Readme réalisé par [@Fefe_du_973](https://github.com/Fefedu973)*  </p>
+ 
+ 
+
+---
+
+[discord]: http://discord.luuxis.fr 'Discord'
+
+
