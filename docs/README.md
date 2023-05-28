@@ -110,7 +110,7 @@ Si vous avez des questions, un problème ou des suggestions n'hésitez pas à re
 
 <br>
 
-[<p align="center"> ![discord](https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner2)][discord]</p>
+[<p align="center"> ![discord](https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner2)][discord]
 <br>
 <br>
 
@@ -119,5 +119,3 @@ Si vous avez des questions, un problème ou des suggestions n'hésitez pas à re
 ---
 
 [discord]: http://discord.luuxis.fr 'Discord'
-
-
