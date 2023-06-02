@@ -65,11 +65,7 @@ class Login {
                     name: account_connect.name,
                     refresh_token: account_connect.refresh_token,
                     user_properties: account_connect.user_properties,
-                    meta: {
-                        type: account_connect.meta.type,
-                        xuid: account_connect.meta.xuid,
-                        demo: account_connect.meta.demo
-                    }
+                    meta: account_connect.meta
                 }
 
                 let profile = {
