@@ -1,7 +1,7 @@
 {
   "name": "Phénix",
   "preductname": "Phénix Launcher",
-  "version": "1.10.0",
+  "version": "1.3.0",
   "description": "Launcher officiel de Phénix",
   "main": "src/app.js",
   "author": "Xertien",
