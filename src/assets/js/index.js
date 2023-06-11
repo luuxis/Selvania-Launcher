@@ -22,7 +22,7 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Codigo Traducido", "author": "xToNySaNx" },
+            { "message": "Codigo Traducido Por", "author": "xToNySaNx" },
             { "message": "Codigo Original.", "author": "Luuxis" },
        
         ]
@@ -85,7 +85,7 @@ class Splash {
     }
 
     shutdown(text) {
-        this.setStatus(`${text}<br>Parar en 5s`);
+        this.setStatus(`${text}<br>Parar en 6s`);
         let i = 4;
         setInterval(() => {
             this.setStatus(`${text}<br>Parar en ${i--}s`);
