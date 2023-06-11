@@ -18,7 +18,7 @@ import Settings from './panels/settings.js';
 class Launcher {
     async init() {
         this.initLog();
-        console.log("Initializing Launcher...");
+        console.log("Iniciando Launcher...");
         if (process.platform == "win32") this.initFrame();
         this.config = await config.GetConfig().then(res => res);
         this.news = await config.GetNews().then(res => res);
@@ -102,11 +102,17 @@ class Launcher {
                         name: refresh.name,
                         refresh_token: refresh.refresh_token,
                         user_properties: refresh.user_properties,
-                        meta: refresh.meta
+                        meta: {
+                            type: refresh.meta.type,
+                            xuid: refresh.meta.xuid,
+                            demo: refresh.meta.demo
+                        }
                     }
 
                     refresh_profile = {
-                        uuid: refresh.uuid
+                        uuid: refresh.uuid,
+                        skins: refresh.profile.skins || [],
+                        capes: refresh.profile.capes || [],
                     }
 
                     this.database.update(refresh_accounts, 'accounts');
