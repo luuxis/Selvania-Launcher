@@ -11,7 +11,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/luuxis/Selvania-Launcher?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/luuxis/Selvania-Launcher?style=for-the-badge)
 
-#### *<p align="center">Do you speak english 🇬🇧/🇺🇸 ? You can find the readme and the documentation translated into English [Here](/README_EN-US.md).</p>*
+#### *<p align="center">Do you speak english 🇬🇧/🇺🇸 ? You can find the readme and the documentation translated into English [Here](/docs/README_EN-US.md).</p>*
 
 ---
 ### **<ins><p align="center">Conditions d'utilisation :</p>**
