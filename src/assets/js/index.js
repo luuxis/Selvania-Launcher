@@ -24,6 +24,7 @@ class Splash {
         let splashes = [
             { "message": "Je vois quelque chose en direction de.. RC", "author": "Explorateur" },+
             { "message": "Et si ce n'était qu'un projet...", "author": "Explorateur" },
+            { "message": "Je le vois ! Oui ! C'est le Royaume !", "author": "Explorateur" },
             { "message": "Et si RoyalCreep's...", "author": "Inconnu" },
             { "message": "RoyalCreep's est née en 2013...", "author": "Inconnu" }
         ]
@@ -75,7 +76,7 @@ class Splash {
             this.startLauncher();
         }).catch(e => {
             console.error(e);
-            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+            return this.shutdown("La connexion au Royaume a échoué,<br>veuillez réessayer ultérieurement.");
         })
     }
 
@@ -86,8 +87,8 @@ class Splash {
     }
 
     shutdown(text) {
-        this.setStatus(`${text}<br>Arrêt dans 5s`);
-        let i = 4;
+        this.setStatus(`${text}<br>Arrêt dans 8s`);
+        let i = 7;
         setInterval(() => {
             this.setStatus(`${text}<br>Arrêt dans ${i--}s`);
             if (i < 0) ipcRenderer.send('update-window-close');
