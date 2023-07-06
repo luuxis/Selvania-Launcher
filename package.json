@@ -1,11 +1,11 @@
 {
     "name": "royal-launcher",
     "preductname": "RoyalCreep's Launcher",
-    "version": "1.3.6",
+    "version": "1.3.7",
     "description": "Launcher Minecraft pour le serveur RoyalCreep's",
     "main": "src/app.js",
     "author": "AuthenTiiq",
-    "url": "https://launcher.royalcreeps.fr",
+    "url": "https://data.royalcreeps.fr/launcher/r22launcher",
     "engines": {
         "node": "^18.x.x"
     },
