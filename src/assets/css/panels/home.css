@@ -19,13 +19,13 @@
     width: 50px;
     height: 50px;
     border: none;
-    border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    border-radius: 10px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .player-head:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1.1);
 }
 
 .settings-btn {
@@ -36,12 +36,12 @@
     height: 50px;
     border: none;
     border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .settings-btn:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1.1);
 }
 
 .icon-settings:before {
@@ -69,6 +69,12 @@
     color: #121212;
     margin: 15px 0;
     box-shadow: 0 0 5px #00bd7a;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.play-btn:hover {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1.1);
 }
 
 .download-content {
@@ -228,13 +234,14 @@
     height: 75px;
     background-color: #292929;
     border-radius: 10px;
-    transition: opacity 1s;
-    opacity: .4;
+    transition: opacity 1s, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: .9;
 }
 
 .server:hover {
-    transition: opacity 1s;
+    transition: opacity 1s, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 1;
+    transform: scale(1.1);
 }
 
 .server-img {
