@@ -39,7 +39,11 @@ class Index {
                     category: "public.app-category.games",
                     target: [{
                         target: "dmg",
-                        arch: ["x64", "arm64"]
+                        arch: ["x64"]
+                    },
+                    {
+                        target: "dmg",
+                        arch: ["arm64"]
                     }]
                 },
                 linux: {
