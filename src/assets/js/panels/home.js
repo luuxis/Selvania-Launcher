@@ -23,6 +23,7 @@ class Home {
         this.initNews();
         this.initLaunch();
         this.initStatusServer();
+        this.initPlayerData();
         this.initBtn();
     }
 
@@ -215,6 +216,28 @@ class Home {
             serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
         }
     }
+
+
+    // Info user
+
+    async initPlayerData() {
+
+        // Recuperation de la fac du joueur
+        let facApiResult;
+        fetch('https://data.royalcreeps.fr/facuuid.php?fdf9f45e-5fcc-4374-b683-026b0ea07594')
+        .then(response => {
+            return response.json();
+          }).then(data => {
+            facApiResult = data;
+            console.log(facApiResult);
+
+            
+            let playerFac = document.querySelector('.player-info-box .factionPlayer');
+            playerFac.innerHTML = `Faction : ${facApiResult}`;
+            console.log(facApiResult)
+          });
+    }
+
 
     initBtn() {
         document.querySelector('.settings-btn').addEventListener('click', () => {
