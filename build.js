@@ -17,10 +17,6 @@ class Index {
                 directories: { "output": "dist" },
                 compression: 'maximum',
                 asar: true,
-                publish: [{
-                    provider: "github",
-                    releaseType: 'release',
-                }],
                 win: {
                     icon: "./src/assets/images/icon.ico",
                     target: [{
@@ -39,11 +35,7 @@ class Index {
                     category: "public.app-category.games",
                     target: [{
                         target: "dmg",
-                        arch: ["x64"]
-                    },
-                    {
-                        target: "dmg",
-                        arch: ["arm64"]
+                        arch: ["x64", "arm64"]
                     }]
                 },
                 linux: {
