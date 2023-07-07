@@ -29,16 +29,8 @@
 }
 
 .active-tab-btn {
-    background: #006e47;
-    border: 2px solid #bd5d26;
-    box-shadow: 0 0 3px #bd5d26;
+    /* background: #006e47; */
     transform: scale(1.1);
-}
-
-.active-tab-btn:hover {
-    background: #006e47;
-    border: 0px solid #bd5d26;
-    box-shadow: 0 0 0px #bd5d26;
 }
 
 .tabs-settings-content {
@@ -200,14 +192,14 @@
 
 .active-account {
     background: #006e47;
-    border: 2px solid #bd5d26;
-    box-shadow: 0 0 3px #bd5d26;
+    border: 2px solid #ef9f3d;
+    box-shadow: 0 0 3px #ef9f3d;
 }
 
 .active-account:hover {
     background: #006e47;
-    border: 2px solid #bd5d26;
-    box-shadow: 0 0 3px #bd5d26;
+    border: 2px solid #ef9f3d;
+    box-shadow: 0 0 3px #ef9f3d;
 }
 
 
