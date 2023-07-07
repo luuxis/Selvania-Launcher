@@ -1,6 +1,6 @@
 {
-    "name": "royal-launcher",
-    "preductname": "RoyalCreep's Launcher",
+    "name": "royalcreeps-launcher",
+    "preductname": "RoyalCreeps Launcher",
     "version": "1.3.10",
     "description": "Launcher Minecraft pour le serveur RoyalCreep's",
     "main": "src/app.js",

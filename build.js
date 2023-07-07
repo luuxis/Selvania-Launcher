@@ -3,15 +3,15 @@ const nodeFetch = require('node-fetch')
 const fs = require("fs");
 const png2icons = require('png2icons');
 const Jimp = require('jimp');
-const { name } = require('./package.json')
+const { preductname } = require('./package.json')
 
 class Index {
     async build() {
         builder.build({
             config: {
                 generateUpdatesFilesForAllChannels: false,
-                appId: name,
-                productName: name,
+                appId: preductname,
+                productName: preductname,
                 artifactName: "${productName}-${os}-${arch}.${ext}",
                 files: ["src/**/*", "package.json", "LICENSE.md"],
                 directories: { "output": "dist" },
