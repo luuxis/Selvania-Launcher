@@ -17,10 +17,10 @@ class Index {
                 directories: { "output": "dist" },
                 compression: 'maximum',
                 asar: true,
-                publish: [{
-                    provider: "github",
-                    releaseType: 'draft',
-                }],
+                // publish: [{
+                //     provider: "github",
+                //     releaseType: 'draft',
+                // }],
                 win: {
                     icon: "./src/assets/images/icon.ico",
                     target: [{
