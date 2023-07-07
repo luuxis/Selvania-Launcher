@@ -61,4 +61,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Compiled Launcher
-          path: build/libs
+          path: dist/
