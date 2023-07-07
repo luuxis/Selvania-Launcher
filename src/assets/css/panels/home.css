@@ -11,7 +11,7 @@
 
 .player-head {
     margin: auto 30px;
-    background-image: url("../../images/default/setve.png");
+    background-image: url("../../images/default/steve.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,7 +24,6 @@
 }
 
 .player-head:hover {
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform: scale(1.1);
 }
 
@@ -40,8 +39,8 @@
 }
 
 .settings-btn:hover {
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform: scale(1.1);
+    cursor: hand
 }
 
 .icon-settings:before {
@@ -62,9 +61,9 @@
     top: 10px;
     width: 160px;
     height: 37px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
-    background: #00bd7a;
+    background: #049c50;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
@@ -73,8 +72,9 @@
 }
 
 .play-btn:hover {
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform: scale(1.1);
+    cursor: hand
+    
 }
 
 .download-content {
