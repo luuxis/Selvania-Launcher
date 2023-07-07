@@ -60,5 +60,13 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Compiled Launcher
-          path: dist/
+          name: All Royal Build launcher
+          path: |
+            dist/RoyalCreep's Launcher-win-x64.exe
+            dist/RoyalCreep's Launcher-win-x64.exe.blockmap
+            dist/RoyalCreep's Launcher-mac-x64.dmg
+            dist/RoyalCreep's Launcher-mac-x64.dmg.blockmap
+            dist/RoyalCreep's Launcher-mac-arm64.dmg
+            dist/RoyalCreep's Launcher-mac-arm64.dmg.blockmap
+            dist/RoyalCreep's Launcher-linux-x86_64.AppImage
+            dist/RoyalCreep's Launcher-linux-x64.tar.gz
