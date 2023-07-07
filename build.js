@@ -19,7 +19,7 @@ class Index {
                 asar: true,
                 publish: [{
                     provider: "github",
-                    releaseType: 'release',
+                    releaseType: 'draft',
                 }],
                 win: {
                     icon: "./src/assets/images/icon.ico",
