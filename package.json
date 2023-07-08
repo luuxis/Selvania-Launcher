@@ -24,7 +24,8 @@
         "jimp": "^0.22.8",
         "minecraft-java-core": "^3.5.7",
         "node-fetch": "^2.6.7",
-        "png2icons": "^2.0.1"
+        "png2icons": "^2.0.1",
+        "discord-rpc": "^4.0.1"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
