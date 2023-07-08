@@ -13,6 +13,42 @@ const fs = require('fs');
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
+const clientId = "1046811813217566850";
+const DiscordRPC = require('discord-rpc');
+const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+
+DiscordRPC.register(clientId);
+
+async function setActivity() {
+    if (!RPC) return;
+    RPC.setActivity({
+        details: `Dans le lanceur`,
+        state: `royalcreeps.fr`,
+        startTimestamp: Date.now(),
+        largeImageKey: 'royallargeico',
+        largeImageText: `RoyalCreeps`,
+        smallImageKey: `minecraft`,
+        smallImageText: `Joue à Minecraft`,
+        instance: false,
+        buttons: [
+            {
+                label: `Rejoindre`,
+                url: `https://royalcreeps.fr/launcher`
+            }
+        ]
+    });
+}
+
+RPC.on('ready', async () => {
+    setActivity();
+
+    setInterval(() => {
+        setActivity();
+    });
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
+
 let data
 let dev = process.env.NODE_ENV === 'dev';
 
