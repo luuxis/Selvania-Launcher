@@ -14,6 +14,42 @@ const pkg = require('../package.json');
 
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
 
+const clientId = "1046811813217566850";
+const DiscordRPC = require('discord-rpc');
+const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+
+DiscordRPC.register(clientId);
+
+async function setActivity() {
+    if (!RPC) return;
+    RPC.setActivity({
+        details: `Dans le lanceur`,
+        state: `royalcreeps.fr`,
+        startTimestamp: Date.now(),
+        largeImageKey: 'royallargeico',
+        largeImageText: `RoyalCreeps`,
+        smallImageKey: `minecraft`,
+        smallImageText: `Joue à Minecraft`,
+        instance: false,
+        buttons: [
+            {
+                label: `Rejoindre`,
+                url: `https://royalcreeps.fr/launcher`
+            }
+        ]
+    });
+}
+
+RPC.on('ready', async () => {
+    setActivity();
+
+    setInterval(() => {
+        setActivity();
+    }, 15 * 1000);
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
+
 class Home {
     static id = "home";
     async init(config, news) {
