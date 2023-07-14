@@ -14,6 +14,42 @@ const pkg = require('../package.json');
 
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
 
+const clientId = "1046811813217566850";
+const DiscordRPC = require('discord-rpc');
+const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+
+DiscordRPC.register(clientId);
+
+async function setActivity() {
+    if (!RPC) return;
+    RPC.setActivity({
+        details: `Dans le lanceur`,
+        state: `royalcreeps.fr`,
+        startTimestamp: Date.now(),
+        largeImageKey: 'royallargeico',
+        largeImageText: `RoyalCreeps`,
+        smallImageKey: `minecraft`,
+        smallImageText: `Joue à Minecraft`,
+        instance: false,
+        buttons: [
+            {
+                label: `Rejoindre`,
+                url: `https://royalcreeps.fr/launcher`
+            }
+        ]
+    });
+}
+
+RPC.on('ready', async () => {
+    setActivity();
+
+    setInterval(() => {
+        setActivity();
+    }, 15 * 1000);
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
+
 class Home {
     static id = "home";
     async init(config, news) {
@@ -23,6 +59,7 @@ class Home {
         this.initNews();
         this.initLaunch();
         this.initStatusServer();
+        this.initPlayerData();
         this.initBtn();
     }
 
@@ -207,7 +244,7 @@ class Home {
 
         if (!serverPing.error) {
             nameServer.textContent = this.config.status.nameServer;
-            serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
+            serverMs.innerHTML = `<span class="green">En ligne</span>`; // - ${serverPing.ms}ms
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.playersConnect;
         } else if (serverPing.error) {
@@ -215,6 +252,28 @@ class Home {
             serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
         }
     }
+
+
+    // Info user
+
+    async initPlayerData() {
+
+        // Recuperation de la fac du joueur
+        let facApiResult;
+        fetch('https://data.royalcreeps.fr/facuuid.php?fdf9f45e-5fcc-4374-b683-026b0ea07594')
+        .then(response => {
+            return response.json();
+          }).then(data => {
+            facApiResult = data;
+            console.log(facApiResult);
+
+            
+            let playerFac = document.querySelector('.player-info-box .factionPlayer');
+            playerFac.innerHTML = `Faction : ${facApiResult}`;
+            console.log(facApiResult)
+          });
+    }
+
 
     initBtn() {
         document.querySelector('.settings-btn').addEventListener('click', () => {

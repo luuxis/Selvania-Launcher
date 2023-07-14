@@ -316,3 +316,34 @@
 .online.off {
     background-color: #FF0409;
 }
+
+.player-info-box {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: #292929;
+    border-radius: 10px;
+    transition: opacity 1s, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: .9;
+}
+
+.player-info-box:hover {
+    transform: scale(1.1);
+}
+
+.player-info {
+    position: absolute;
+    color: #E1E1E1;
+    top: 10px;
+    left: 19px;
+    font: normal normal bold 15px/21px Poppins;
+}
+
+.factionPlayer {
+    position: absolute;
+    font: normal normal 15px/21px Poppins;
+    color: #E1E1E1;
+    top: 40px;
+    left: 20px;
+    transition: color .2s;
+}
