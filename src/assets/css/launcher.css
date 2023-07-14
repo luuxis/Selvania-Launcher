@@ -12,7 +12,7 @@ body {
     padding: 0;
     user-select: none;
     background: linear-gradient(#00000066, #00000066), url("../images/background/royal.jpg") black no-repeat center center scroll;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 
 img {
