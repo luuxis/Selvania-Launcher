@@ -57,7 +57,7 @@ ipcMain.handle('Microsoft-window', async(event, client_id) => {
 })
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+    if (process.platform == 'darwin') app.quit();
 });
 
 
@@ -98,3 +98,4 @@ autoUpdater.on('download-progress', (progress) => {
     const updateWindow = UpdateWindow.getWindow();
     if (updateWindow) updateWindow.webContents.send('download-progress', progress);
 })
+
