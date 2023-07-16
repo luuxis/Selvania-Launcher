@@ -57,7 +57,7 @@ ipcMain.handle('Microsoft-window', async(event, client_id) => {
 })
 
 app.on('window-all-closed', () => {
-    if (process.platform == 'darwin') app.quit();
+    app.quit();
 });
 
 
