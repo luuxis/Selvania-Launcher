@@ -56,7 +56,7 @@ class Splash {
         })
 
         ipcRenderer.on('updateAvailable', () => {
-            this.setStatus(`Mise à jour disponible !`);
+            this.setStatus(`Mise à jour disponible ! <br>MacOS : royalcreeps.fr/launcher <br>`);
             this.toggleProgress();
             ipcRenderer.send('start-update');
         })
