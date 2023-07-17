@@ -56,6 +56,14 @@ ipcMain.handle('Microsoft-window', async(event, client_id) => {
     return await new Microsoft(client_id).getAuth();
 })
 
+app.on('activate', () => {
+    // On macOS it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (MainWindow === null && UpdateWindow === null) {
+        UpdateWindow.createWindow()
+    }
+})
+
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
