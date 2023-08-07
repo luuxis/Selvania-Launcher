@@ -9,7 +9,7 @@ class Index {
     async build() {
         builder.build({
             config: {
-                generateUpdatesFilesForAllChannels: false,
+                generateUpdatesFilesForAllChannels: true,
                 appId: preductname,
                 productName: preductname,
                 artifactName: "${productName}-${os}-${arch}.${ext}",
