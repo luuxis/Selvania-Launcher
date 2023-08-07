@@ -176,9 +176,9 @@ class Settings {
         let openLauncher = document.getElementById("launcher-open");
 
         if(settingsLauncher.launcher.close === 'close-launcher') {
-            closeLauncher.checked = true;
+            closeLauncher.checked = false;
         } else if(settingsLauncher.launcher.close === 'close-all') {
-            closeAll.checked = true;
+            closeAll.checked = false;
         } else if(settingsLauncher.launcher.close === 'open-launcher') {
             openLauncher.checked = true;
         }
@@ -188,7 +188,7 @@ class Settings {
                 openLauncher.checked = false;
                 closeAll.checked = false;
             }
-           if(!closeLauncher.checked) closeLauncher.checked = true;
+           if(!closeLauncher.checked) closeLauncher.checked = false;
             settingsLauncher.launcher.close = 'close-launcher';
             this.database.update(settingsLauncher, 'launcher');
         })
@@ -198,7 +198,7 @@ class Settings {
                 closeLauncher.checked = false;
                 openLauncher.checked = false;
             }
-            if(!closeAll.checked) closeAll.checked = true;
+            if(!closeAll.checked) closeAll.checked = false;
             settingsLauncher.launcher.close = 'close-all';
             this.database.update(settingsLauncher, 'launcher');
         })

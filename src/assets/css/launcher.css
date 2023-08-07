@@ -11,7 +11,12 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
+    background: url("../images/background/light.jpg") black no-repeat center center scroll;
+}
+
+.frame {
+    background: url("../images/background/light.jpg") black no-repeat center center scroll;
+    border-radius: 100;
 }
 
 img {
@@ -19,16 +24,31 @@ img {
     user-select: none;
 }
 
-.dragbar {
-    position: fixed;
-    background: #00000080;
-    top: 0px;
-    left: 0px;
+#frameContentWin {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: 26px;
     -webkit-app-region: drag;
-    z-index: 11;
-    display: none;
+}
+
+#frameTitleDock {
+    position: absolute;
+    top: 50%;
+    right: 825%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins';
+    white-space: nowrap;
+    color: white;
+    -webkit-app-region: drag;
+}
+
+#frameTitleText {
+    font-size: 14px;
+    font-family: 'Poppins';
+    letter-spacing: 0.5px;
+    color: white;
 }
 
 .frame {
@@ -57,13 +77,13 @@ img {
 }
 
 .icon-close:hover {
-    background: #e21212;
+    font-weight: 700;
 }
 
 .icon-minimize:hover,
 .icon-restore-down:hover,
 .icon-maximize:hover {
-    background-color: #0000009d;
+    font-weight: 700;
 }
 
 .icon-close:before,
@@ -76,6 +96,7 @@ img {
     width: 14px;
     height: 14px;
     font-size: 14px;
+    font-weight: 600;
     color: #f8f9f9;
 }
 
