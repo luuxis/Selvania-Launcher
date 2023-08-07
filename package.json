@@ -1,7 +1,7 @@
 {
     "name": "MDK-Launcher",
-    "preductname": "MDK-Launcher",
-    "version": "1.3.3",
+    "preductname": "MDK Launcher",
+    "version": "1.3.4",
     "description": "Launcher de MDK Game Team",
     "main": "src/app.js",
     "author": "MDKTeam",
@@ -11,7 +11,7 @@
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "build": "node build.js",
+        "build": "node build.js --build",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
