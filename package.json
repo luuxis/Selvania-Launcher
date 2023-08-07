@@ -4,14 +4,14 @@
     "version": "1.3.1",
     "description": "Launcher de MDK Game Team",
     "main": "src/app.js",
-    "author": "2022 - 2023 MDK Game Team",
+    "author": "MDK",
     "url": "http://n3.boxmine.xyz:3120/",
     "engines": {
         "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "build": "node build.js --build",
+        "build": "node build.js --obf=true",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
