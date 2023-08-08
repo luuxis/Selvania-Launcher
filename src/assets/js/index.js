@@ -22,9 +22,9 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Nutrias Trabajando...", "author": "MDK Game Team" },
+            { "message": "mdk-team.tebex.io", "author": "MDK Game Team" },
             { "message": "Discord.io/mdkgt", "author": "Unete a nuestro discord" },
-            { "message": "Entrenando a las Nutrias", "author": "Eon" }
+            { "message": "tiktok.com/@team_mdk", "author": "MDK Game Team" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
