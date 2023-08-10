@@ -1,7 +1,7 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.3.0",
+    "name": "FrontierCraft",
+    "preductname": "FrontierCraft-Launcher",
+    "version": "1.0.0",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
