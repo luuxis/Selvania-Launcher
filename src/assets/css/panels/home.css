@@ -21,6 +21,7 @@
     border: none;
     border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    cursor: pointer;
 }
 
 .player-head:hover {
@@ -37,6 +38,7 @@
     border: none;
     border-radius: 15px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    cursor: pointer;
 }
 
 .settings-btn:hover {
@@ -46,6 +48,7 @@
 
 .icon-settings:before {
     font-size: 40px;
+    cursor: pointer;
 }
 
 .play-element {
@@ -64,11 +67,18 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #00bd7a;
+    background: #2287ff;
     font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    color: #F1F1F1;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+    box-shadow: 0 0 5px #1a69c9;
+    cursor: pointer;
+    transition: transform 0.7s ease;
+}
+
+.play-btn:hover {
+    transition: transform 0.7s ease;
+    transform: scale(1.2);
 }
 
 .download-content {
@@ -98,7 +108,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #00bd7a;
+    background-color: #2287ff;
     border-radius: 10px;
 }
 
@@ -229,7 +239,7 @@
     background-color: #292929;
     border-radius: 10px;
     transition: opacity 1s;
-    opacity: .4;
+    opacity: .5;
 }
 
 .server:hover {

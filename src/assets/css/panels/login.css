@@ -27,11 +27,14 @@
     color: #F1F1F1;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+    transition: transform 0.7s ease;
 }
 
 .login-type-btn:hover {
     background-color: #1a69c9;
     box-shadow: 0 0 5px #1a69c9;
+    transition: transform 0.7s ease;
+    transform: scale(1.1);
 }
 
 .login-type-btn:disabled {
@@ -99,11 +102,14 @@
     color: #F1F1F1;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+    transition: transform 0.7s ease;
 }
 
 .login-btn:hover {
     background-color: #1a69c9;
     box-shadow: 0 0 5px #1a69c9;
+    transition: transform 0.7s ease;
+    transform: scale(1.1);
 }
 
 .cancel {
@@ -112,10 +118,12 @@
     color: #F1F1F1;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+    transition: color 0.7s ease;
 }
 
 .cancel:hover {
     color: #f1f1f19f;
+    transition: color 0.7s ease;
 }
 
 .cancel:hover:disabled {

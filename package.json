@@ -1,10 +1,10 @@
 {
     "name": "alytopia-launcher",
     "preductname": "AlyLauncher",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "Launcher officiel de AlyTopia",
     "main": "src/app.js",
-    "author": "Saurfort, 1234Erwan",
+    "author": "Luuxis, Saurfort, 1234Erwan",
     "url": "http://launcher.alytopia.fr/",
     "engines": {
         "node": "^18.x.x"
@@ -22,7 +22,7 @@
     "dependencies": {
         "electron-updater": "^5.0.1",
         "jimp": "^0.22.8",
-        "minecraft-java-core": "^3.5.0",
+        "minecraft-java-core": "^3.6.0",
         "node-fetch": "^2.6.7",
         "png2icons": "^2.0.1"
     },
