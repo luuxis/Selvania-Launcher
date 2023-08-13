@@ -20,13 +20,6 @@
     height: 50px;
     border: none;
     border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
-    cursor: pointer;
-}
-
-.player-head:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
 }
 
 .settings-btn {
@@ -36,14 +29,14 @@
     text-align: center;
     height: 50px;
     border: none;
-    border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    border-radius: 2rem;
+    transition: transform 0.7s ease;
     cursor: pointer;
 }
 
 .settings-btn:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    transition: transform 0.7s ease;
+    transform: scale(1.1);
 }
 
 .icon-settings:before {
