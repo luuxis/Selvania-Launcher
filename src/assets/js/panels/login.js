@@ -8,6 +8,7 @@
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
 const { Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
+const error = document.getElementById("error");
 
 class Login {
     static id = "login";
@@ -45,6 +46,7 @@ class Login {
         let microsoftBtn = document.querySelector('.microsoft')
         let mojangBtn = document.querySelector('.mojang')
         let cancelBtn = document.querySelector('.cancel-login')
+        let errorMessage = document.querySelector('.error-message')
 
         microsoftBtn.addEventListener("click", () => {
             microsoftBtn.disabled = true;
@@ -87,7 +89,9 @@ class Login {
                 cancelBtn.disabled = false;
                 cancelBtn.style.display = "none";
             }).catch(err => {
-                console.log(err)
+                console.log(err);
+                console.log('Votre compte Microsoft n\'a probablement pas de version valide de Minecraft.');
+                errorMessage.innerHTML = "Nous craignons que votre compte Microsoft n'ai pas de version valide de Minecraft.";
                 microsoftBtn.disabled = false;
                 mojangBtn.disabled = false;
                 cancelBtn.disabled = false;

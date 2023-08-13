@@ -23,8 +23,22 @@ class Launcher {
         this.config = await config.GetConfig().then(res => res);
         this.news = await config.GetNews().then(res => res);
         this.database = await new database().init();
+        this.getBackground(2);
         this.createPanels(Login, Home, Settings);
         this.getaccounts();
+    }
+
+    getBackground(max) {
+        let background = document.getElementById('background');
+        let bg = Math.floor(Math.random() * max);
+        
+        if(bg == 0) {
+            background.classList.add('bg-a');
+        } else if(bg == 1) {
+            background.classList.add('bg-b');
+        } else {
+            background.classList.add('bg-a');
+        }
     }
 
     initLog() {

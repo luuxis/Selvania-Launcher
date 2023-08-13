@@ -12,6 +12,10 @@
     text-align: center;
 }
 
+.error-message {
+    color: red;
+}
+
 .login-type {
     display: grid;
     padding: 0 7%;
