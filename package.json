@@ -1,7 +1,7 @@
 {
     "name": "alytopia-launcher",
     "preductname": "AlyLauncher",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "Launcher officiel de AlyTopia",
     "main": "src/app.js",
     "author": "Luuxis, Saurfort, 1234Erwan",

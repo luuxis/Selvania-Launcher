@@ -5,7 +5,7 @@
 
 'use strict';
 
-import { database, changePanel, addAccount, accountSelect } from '../utils.js';
+import { database, changePanel, addAccount, accountSelect, playerName } from '../utils.js';
 const { Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 const error = document.getElementById("error");
@@ -21,13 +21,14 @@ class Login {
 
     getOnline() {
         console.log(`Initializing microsoft Panel...`)
-        console.log(`Initializing mojang Panel...`)
+        document.querySelector('.mojang').remove();
+        /*console.log(`Initializing mojang Panel...`)
         this.loginMicrosoft();
         this.loginMojang();
         document.querySelector('.cancel-login').addEventListener("click", () => {
             document.querySelector(".cancel-login").style.display = "none";
             changePanel("settings");
-        })
+        })*/
     }
 
     getOffline() {
@@ -81,6 +82,7 @@ class Login {
                 this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
 
                 addAccount(account)
+                playerName(account.name);
                 accountSelect(account.uuid)
                 changePanel("home");
 
@@ -172,6 +174,7 @@ class Login {
             this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
 
             addAccount(account)
+            playerName(account.name);
             accountSelect(account.uuid)
             changePanel("home");
 
@@ -194,7 +197,7 @@ class Login {
         let loginBtn = document.querySelector(".login-btn")
         let mojangBtn = document.querySelector('.mojang')
 
-        mojangBtn.innerHTML = "Offline"
+        mojangBtn.innerHTML = "<i class=\"fa-solid fa-power-off\"></i> Offline"
 
         mojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "none";
@@ -260,6 +263,7 @@ class Login {
             this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
 
             addAccount(account)
+            playerName(account.name);
             accountSelect(account.uuid)
             changePanel("home");
 

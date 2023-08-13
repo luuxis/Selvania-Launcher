@@ -9,6 +9,10 @@
     display: flex;
 }
 
+.player-info {
+    display: inline-flex;
+}
+
 .player-head {
     margin: auto 30px;
     background-image: url("../../images/default/setve.png");
@@ -20,6 +24,13 @@
     height: 50px;
     border: none;
     border-radius: 15px;
+}
+
+p.player-name {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #F1F1F1;
+    font: normal normal bold 19px/29px Poppins;
 }
 
 .settings-btn {

@@ -15,7 +15,8 @@ export {
     changePanel as changePanel,
     addAccount as addAccount,
     slider as Slider,
-    accountSelect as accountSelect
+    accountSelect as accountSelect,
+    playerName as playerName
 }
 
 function changePanel(id) {
@@ -50,4 +51,8 @@ function accountSelect(uuid) {
 
 function headplayer(pseudo) {
     document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/helm/${pseudo}/100)`;
+}
+
+function playerName(pseudo) {
+    document.querySelector(".player-name").innerHTML = `${pseudo}`;
 }
