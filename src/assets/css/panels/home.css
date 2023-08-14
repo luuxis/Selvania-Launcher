@@ -5,7 +5,6 @@
     height: 70px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
-    background: #00000080;
     display: flex;
 }
 
@@ -68,7 +67,20 @@
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+    box-shadow: 0 0 5px #6b1d72;
+}
+
+.play-btn:hover {
+    top: 10px;
+    width: 160px;
+    height: 37px;
+    border-radius: 20px;
+    border: none;
+    background: #c2c2c2;
+    font: normal normal bold 20px/25px Poppins;
+    color: #121212;
+    margin: 15px 0;
+    box-shadow: 0 0 5px #818181;
 }
 
 .download-content {

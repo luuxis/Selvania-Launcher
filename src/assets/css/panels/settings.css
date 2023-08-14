@@ -24,15 +24,15 @@
 }
 
 .tab-btn-css:hover {
-    background: #006e47;
-    box-shadow: 0 0 5px #006e47;
-    border: 4px solid #006e47;
+    background: #ffffff;
+    box-shadow: 0 0 5px #797979;
+    border: 4px solid #c2c2c2;
 }
 
 .active-tab-btn {
-    background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    background: #d8d8d8;
+    border: 4px solid #bc6dc7;
+    box-shadow: 0 0 5px #a7a7a7;
 }
 
 .active-tab-btn:hover {

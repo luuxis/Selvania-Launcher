@@ -30,6 +30,7 @@
         "cross-env": "^7.0.3",
         "electron": "^20.0.0",
         "electron-builder": "^23.0.3",
+        "electron-tooltip": "^1.1.5",
         "nodemon": "^2.0.16"
     },
     "repository": {

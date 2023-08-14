@@ -22,16 +22,16 @@
     border: none;
     margin: 2% 0;
     height: 2em;
-    background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
+    background-color: #8f24aa;
+    box-shadow: 0 0 5px #6b1d72;
     color: #121212;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
 }
 
 .login-type-btn:hover {
-    background-color: #006e47;
-    box-shadow: 0 0 5px #006e47;
+    background-color: #c2c2c2;
+    box-shadow: 0 0 5px #818181;
 }
 
 .login-type-btn:disabled {
@@ -102,8 +102,8 @@
 }
 
 .login-btn:hover {
-    background-color: #006e47;
-    box-shadow: 0 0 5px #006e47;
+    background-color: #c2c2c2;
+    box-shadow: 0 0 5px #818181;
 }
 
 .cancel {
