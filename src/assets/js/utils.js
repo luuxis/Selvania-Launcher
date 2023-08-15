@@ -47,6 +47,7 @@ function accountSelect(uuid) {
     if (activeAccount) activeAccount.classList.toggle('active-account');
     account.classList.add('active-account');
     headplayer(pseudo);
+    playerName(pseudo);
 }
 
 function headplayer(pseudo) {

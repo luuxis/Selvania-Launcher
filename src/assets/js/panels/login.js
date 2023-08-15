@@ -22,13 +22,13 @@ class Login {
     getOnline() {
         console.log(`Initializing microsoft Panel...`)
         document.querySelector('.mojang').remove();
-        /*console.log(`Initializing mojang Panel...`)
+        //console.log(`Initializing mojang Panel...`)
         this.loginMicrosoft();
-        this.loginMojang();
+        //this.loginMojang();
         document.querySelector('.cancel-login').addEventListener("click", () => {
             document.querySelector(".cancel-login").style.display = "none";
             changePanel("settings");
-        })*/
+        })
     }
 
     getOffline() {
@@ -82,7 +82,7 @@ class Login {
                 this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
 
                 addAccount(account)
-                playerName(account.name);
+                //playerName(account.name);
                 accountSelect(account.uuid)
                 changePanel("home");
 
@@ -174,7 +174,7 @@ class Login {
             this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
 
             addAccount(account)
-            playerName(account.name);
+            //playerName(account.name);
             accountSelect(account.uuid)
             changePanel("home");
 
@@ -263,7 +263,7 @@ class Login {
             this.database.update({ uuid: "1234", selected: account.uuid }, 'accounts-selected');
 
             addAccount(account)
-            playerName(account.name);
+            //playerName(account.name);
             accountSelect(account.uuid)
             changePanel("home");
 

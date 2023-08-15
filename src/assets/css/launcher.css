@@ -14,12 +14,20 @@ body {
     /*background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;*/
 }
 
-.bg-a {
+.bg-1 {
     background: linear-gradient(#00000066, #00000066), url("../images/background/a.jpg") black no-repeat center center scroll;
 }
 
-.bg-b {
+.bg-2 {
     background: linear-gradient(#00000066, #00000066), url("../images/background/b.jpg") black no-repeat center center scroll;
+}
+
+.bg-3 {
+    background: linear-gradient(#00000066, #00000066), url("../images/background/c.jpg") black no-repeat center center scroll;
+}
+
+.bg-4 {
+    background: linear-gradient(#00000066, #00000066), url("../images/background/d.jpg") black no-repeat center center scroll;
 }
 
 img {

@@ -23,22 +23,36 @@ class Launcher {
         this.config = await config.GetConfig().then(res => res);
         this.news = await config.GetNews().then(res => res);
         this.database = await new database().init();
-        this.getBackground(2);
+        this.getBackground(4);
         this.createPanels(Login, Home, Settings);
         this.getaccounts();
     }
 
     getBackground(max) {
-        let background = document.getElementById('background');
-        let bg = Math.floor(Math.random() * max);
+        /*let bg = Math.floor(Math.random() * max);
+        console.log('Chargement du background ' . bg);
         
-        if(bg == 0) {
+        if(bg == 1) {
             background.classList.add('bg-a');
-        } else if(bg == 1) {
+        } else if(bg == 2) {
             background.classList.add('bg-b');
+        } else if(bg == 3) {
+            background.classList.add('bg-c');
+        } else if(bg == 4) {
+            background.classList.add('bg-d');
         } else {
-            background.classList.add('bg-a');
-        }
+            background.classList.add('bg-d');
+        }*/
+
+        let htmlBackground = document.getElementById('background');
+        let backgrounds = [
+            {"bg": "bg-1"},
+            {"bg": "bg-2"},
+            {"bg": "bg-3"},
+            {"bg": "bg-4"}
+        ]
+        let background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+        htmlBackground.classList.add(background.bg);
     }
 
     initLog() {
