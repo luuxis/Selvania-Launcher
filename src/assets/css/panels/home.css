@@ -41,12 +41,12 @@ p.player-name {
     height: 50px;
     border: none;
     border-radius: 2rem;
-    transition: transform 0.7s ease;
+    transition: all 0.7s ease;
     cursor: pointer;
 }
 
 .settings-btn:hover {
-    transition: transform 0.7s ease;
+    transition: all 0.7s ease;
     transform: scale(1.1);
 }
 
@@ -77,12 +77,13 @@ p.player-name {
     margin: 15px 0;
     box-shadow: 0 0 5px #1a69c9;
     cursor: pointer;
-    transition: transform 0.7s ease;
+    transition: all 0.7s ease;
 }
 
 .play-btn:hover {
-    transition: transform 0.7s ease;
-    transform: scale(1.2);
+    transition: all 0.7s ease;
+    transform: scale(1.1);
+    border-radius: 8px;
 }
 
 .download-content {
@@ -242,13 +243,14 @@ p.player-name {
     height: 75px;
     background-color: #292929;
     border-radius: 10px;
-    transition: opacity 1s;
+    transition: all 1s;
     opacity: .5;
 }
 
 .server:hover {
-    transition: opacity 1s;
+    transition: all 1s ease;
     opacity: 1;
+    border-radius: 2px;
 }
 
 .server-img {
