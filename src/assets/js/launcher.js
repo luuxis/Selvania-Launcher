@@ -18,7 +18,7 @@ import Settings from './panels/settings.js';
 class Launcher {
     async init() {
         this.initLog();
-        console.log("Initializing Launcher...");
+        console.log("Cargando archivos del launcher...");
         if (process.platform == "win32") this.initFrame();
         this.config = await config.GetConfig().then(res => res);
         this.news = await config.GetNews().then(res => res);

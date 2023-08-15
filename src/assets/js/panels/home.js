@@ -152,7 +152,7 @@ class Home {
 
             launch.on('check', (progress, size) => {
                 progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Comprobando archivos ${((progress / size) * 100).toFixed(0)}%`
+                document.querySelector(".text-download").innerHTML = `Validando archivos ${((progress / size) * 100).toFixed(0)}%`
                 progressBar.value = progress;
                 progressBar.max = size;
             });
@@ -170,7 +170,7 @@ class Home {
 
             launch.on('patch', patch => {
                 console.log(patch);
-                info.innerHTML = `Abriendo Cliente...`
+                info.innerHTML = `Abriendo cliente...`
             });
 
             launch.on('data', (e) => {
@@ -187,7 +187,7 @@ class Home {
                 progressBar.style.display = "none"
                 info.style.display = "none"
                 playBtn.style.display = "block"
-                info.innerHTML = `Vérification`
+                info.innerHTML = `Verificando`
                 new logger('Launcher', '#7289da');
                 console.log('Close');
             });
