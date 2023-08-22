@@ -35,7 +35,7 @@
 - ⛏️ Supporte toutes versions de Minecraft 1.0 > latest.
 
 - 📦 Supporte les version moddées Forge, NeoForge, LegacyFabric, FabricMC et Quilt
- 
+
 - 📰 Fil d'actualité intégré nativement au launcher.
 
 - ⚙️ Gestion intuitive des paramètres, y compris un panneau de configuration Java.
