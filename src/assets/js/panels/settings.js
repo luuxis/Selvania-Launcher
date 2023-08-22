@@ -27,21 +27,22 @@ class Settings {
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
-            if (e.path[0].classList.contains('account')) {
+            if (e.target.classList.contains('account')) {
+                console.log(uuid);
                 accountSelect(uuid);
                 this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
             }
 
             if (e.target.classList.contains("account-delete")) {
-                this.database.delete(e.path[1].id, 'accounts');
+                this.database.delete(e.target.parentElement.id, 'accounts');
 
-                document.querySelector('.accounts').removeChild(e.path[1])
+                document.querySelector('.accounts').removeChild(e.target.parentElement)
                 if (!document.querySelector('.accounts').children.length) {
                     changePanel("login");
                     return
                 }
 
-                if (e.path[1].id === selectedaccount.value.selected) {
+                if (uuid === selectedaccount.value.selected) {
                     let uuid = (await this.database.getAll('accounts'))[0].value.uuid
                     this.database.update({
                         uuid: "1234",
