@@ -66,9 +66,12 @@
     border: none;
     background: #00bd7a;
     font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    color: #111111;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+}
+
+.play-btn:hover {
+    cursor: pointer;
 }
 
 .download-content {
@@ -121,7 +124,7 @@
 .news-block {
     margin-bottom: 1rem;
     transition: opacity 1s;
-    opacity: .4;
+    opacity: .9;
 }
 
 .news-block:hover {
@@ -229,7 +232,7 @@
     background-color: #292929;
     border-radius: 10px;
     transition: opacity 1s;
-    opacity: .4;
+    opacity: .9;
 }
 
 .server:hover {
@@ -308,4 +311,8 @@
 
 .online.off {
     background-color: #FF0409;
+}
+
+.settings-btn.icon-settings {
+    cursor: pointer;
 }

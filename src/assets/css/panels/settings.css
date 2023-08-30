@@ -19,26 +19,33 @@
     border: 4px solid #00bd7a;
     font: normal normal bold 20px/25px Poppins;
     cursor: pointer;
-    box-shadow: 0 0 5px #00bd7a;
     outline: none;
 }
 
 .tab-btn-css:hover {
     background: #006e47;
-    box-shadow: 0 0 5px #006e47;
     border: 4px solid #006e47;
+}
+
+.save-tabs-btn {
+    background: #ffffff;
+    border: 4px solid #ffffff;
+}
+
+.save-tabs-btn:hover {
+    background: #cfcfcf;
+    border: 4px solid #cfcfcf;
+    cursor: pointer;
 }
 
 .active-tab-btn {
     background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    border: 4px solid #ffffff;
 }
 
 .active-tab-btn:hover {
     background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    border: 4px solid #ffffff;
 }
 
 .tabs-settings-content {
@@ -110,9 +117,9 @@
     font: normal normal bold 30px/40px Poppins;
     color: #D1D1D1;
     background-color: #303030;
-    box-shadow: 1px 2px 5px #585858;
     margin: 20px 0;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .accounts {
@@ -123,7 +130,6 @@
 .account {
     display: inline-block;
     background: #00bd7a;
-    box-shadow: 0 0 5px #006e47;
     border: 4px solid #00bd7a;
     font: normal normal bold 30px/40px Poppins;
     width: 500px;
@@ -135,7 +141,6 @@
 
 .account:hover {
     background: #006e47;
-    box-shadow: 0 0 5px #006e47;
     border: 4px solid #006e47;
 }
 
@@ -173,7 +178,6 @@
     color: #f73434;
     font-size: 50px;
     background: #353535c7;
-    box-shadow: 0 0 5px #353535c7;
     width: 65px;
     height: 65px;
     border-radius: 100%;
@@ -189,14 +193,12 @@
 
 .active-account {
     background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    border: 4px solid #ffffff;
 }
 
 .active-account:hover {
     background: #006e47;
-    border: 4px solid #bd5d26;
-    box-shadow: 0 0 5px #bd5d26;
+    border: 4px solid #ffffff;
 }
 
 

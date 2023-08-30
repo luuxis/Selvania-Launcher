@@ -62,7 +62,7 @@ class Home {
                         <div class="news-content">
                             <div class="bbWrapper">
                                 <p>${News.content.replace(/\n/g, '</br>')}</p>
-                                <p class="news-author">Auteur,<span> ${News.author}</span></p>
+                                <p class="news-author"><span> ${News.author}</span></p>
                             </div>
                         </div>`
                     news.appendChild(blockNews);

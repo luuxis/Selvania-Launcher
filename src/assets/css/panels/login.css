@@ -6,7 +6,7 @@
     width: 35%;
     background: #121212;
     padding: 20px;
-    font: normal normal bold 19px/29px Poppins;
+    font: normal normal 19px/29px Poppins;
     color: #E1E1E1;
     border-radius: 15px;
     text-align: center;
@@ -23,7 +23,6 @@
     margin: 2% 0;
     height: 2em;
     background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
     color: #121212;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
@@ -31,18 +30,15 @@
 
 .login-type-btn:hover {
     background-color: #006e47;
-    box-shadow: 0 0 5px #006e47;
 }
 
 .login-type-btn:disabled {
     background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
     cursor: default;
 }
 
 .login-type-btn:disabled:hover {
     background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
 }
 
 .login-card-mojang {
@@ -66,6 +62,10 @@
 .login-card-mojang-input {
     text-align: center;
     display: grid;
+}
+
+.username-info {
+    margin-bottom: 3px;
 }
 
 .login-mojang-input {
@@ -95,7 +95,6 @@
     margin: 2% 0;
     height: 2em;
     background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
     color: #121212;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
@@ -121,4 +120,12 @@
 .cancel:hover:disabled {
     color: #F1F1F1;
     cursor: default;
+}
+
+.microsoft.login-type-btn {
+    display: none;
+}
+
+.password-reset {
+    display: none;
 }

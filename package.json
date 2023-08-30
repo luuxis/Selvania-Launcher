@@ -1,18 +1,18 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.3.2",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "Venstone-Launcher",
+    "preductname": "Venstone Launcher",
+    "version": "0.0.0",
+    "description": "Launcher officiel pour le serveur Venstone",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
+    "author": "Limeen",
+    "url": "https://venstone.000webhostapp.com/launcher-data/",
     "engines": {
         "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
+        "icon": "node build.js --icon=https://venstone.ddns.net/assets/images/testservmc4.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -34,6 +34,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/Limeen/Lego-Launcher.git"
     }
 }
