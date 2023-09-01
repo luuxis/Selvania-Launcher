@@ -65,7 +65,18 @@
 }
 
 .username-info {
-    margin-bottom: 3px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+}
+
+.card-body {
+    margin: 4%
+}
+
+.cancel.cancel-mojang {
+    margin-top: 30px;
+    padding-top: 0px;
+    font: normal normal 19px/29px Poppins;
 }
 
 .login-mojang-input {

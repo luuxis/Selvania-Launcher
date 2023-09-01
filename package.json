@@ -1,7 +1,7 @@
 {
     "name": "Venstone-Launcher",
     "preductname": "Venstone Launcher",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Launcher officiel pour le serveur Venstone",
     "main": "src/app.js",
     "author": "Limeen",
@@ -12,7 +12,7 @@
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://venstone.ddns.net/assets/images/testservmc4.png",
+        "icon": "node build.js --icon=https://venstone.ezua.com/assets/images/testservmc4.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",

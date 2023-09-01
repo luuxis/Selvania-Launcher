@@ -35,7 +35,7 @@ class Home {
                 blockNews.innerHTML = `
                     <div class="news-header">
                         <div class="header-text">
-                            <div class="title">Aucun news n'ai actuellement disponible.</div>
+                            <div class="title">Aucune news n'est actuellement disponible.</div>
                         </div>
                     </div>
                     <div class="news-content">
