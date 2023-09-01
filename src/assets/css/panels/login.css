@@ -69,6 +69,17 @@
     padding-bottom: 6px;
 }
 
+.Mail.login-mojang-input {
+    border-radius: 8px;
+    margin-bottom: 4px;
+    height: 3em;
+    font-size: 16px;
+}
+
+.error-mail {
+    display: none;
+}
+
 .card-body {
     margin: 4%
 }
@@ -101,31 +112,51 @@
 }
 
 .login-btn {
-    border-radius: 15px;
+    border-radius: 8px;
     border: none;
     margin: 2% 0;
-    height: 2em;
-    background-color: #00bd7a;
-    color: #121212;
+    height: 1.9em;
+    background-color: #2379ee;
+    color: #e4e4e4;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 
 .login-btn:hover {
-    background-color: #006e47;
-    box-shadow: 0 0 5px #006e47;
+    background-color: #0d51ad;
+    transition-duration: 0.4s;
+}
+
+.mojang.login-type-btn {
+    border-radius: 8px;
+    border: none;
+    margin: 2% 0;
+    height: 1.9em;
+    background-color: #2379ee;
+    color: #e4e4e4;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.mojang.login-type-btn:hover {
+    background-color: #0d51ad;
+    transition-duration: 0.4s;
 }
 
 .cancel {
     border: none;
     background-color: #ffffff00;
-    color: #F1F1F1;
+    color: #a0a0a0;
     font: normal normal bold 19px/29px Poppins;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 
 .cancel:hover {
-    color: #373737;
+    color: #ffffff;
+    transition-duration: 0.4s;
 }
 
 .cancel:hover:disabled {
