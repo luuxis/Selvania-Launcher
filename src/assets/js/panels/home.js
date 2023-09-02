@@ -178,7 +178,7 @@ class Home {
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
                 ipcRenderer.send('main-window-progress-reset')
                 progressBar.style.display = "none"
-                info.innerHTML = `Demarrage en cours...`
+                info.innerHTML = `Demarrage...`
                 console.log(e);
             })
 
@@ -187,7 +187,7 @@ class Home {
                 progressBar.style.display = "none"
                 info.style.display = "none"
                 playBtn.style.display = "block"
-                info.innerHTML = `Vérification`
+                info.innerHTML = `Vérification...`
                 new logger('Launcher', '#7289da');
                 console.log('Close');
             });

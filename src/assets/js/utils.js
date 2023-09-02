@@ -50,4 +50,5 @@ function accountSelect(uuid) {
 
 function headplayer(pseudo) {
     document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/helm/${pseudo}/100)`;
+    document.getElementById("player-username").innerHTML = `${pseudo}`;
 }

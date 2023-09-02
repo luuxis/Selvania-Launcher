@@ -248,7 +248,7 @@ class Login {
                 user_properties: account_connect.user_properties,
                 meta: {
                     type: account_connect.meta.type,
-                    offline: account_connect.meta.offline
+                    online: account_connect.meta.online
                 }
             }
 

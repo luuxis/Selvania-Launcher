@@ -11,7 +11,7 @@
 
 .player-head {
     margin: auto 30px;
-    background-image: url("../../images/default/setve.png");
+    background-image: url("../../images/default/steve.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,6 +26,14 @@
 .player-head:hover {
     border-radius: 5px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+}
+
+.player-username {
+    margin: auto -16px;
+    color: #ffffff;
+    font: normal normal 19px/29px Poppins;
+    float: left;
+    margin-top: 23px;
 }
 
 .settings-btn {
