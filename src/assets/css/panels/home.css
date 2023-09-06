@@ -253,10 +253,11 @@
 
 .server-img {
     position: absolute;
-    width: 42px;
+    width: 45px;
     height: 45px;
     top: 15px;
     left: 15px;
+    margin-top: 1px;
 }
 
 .name {
@@ -326,4 +327,28 @@
 
 .settings-btn.icon-settings {
     cursor: pointer;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: #292929;
+    border-radius: 10px;
+    transition: opacity 1s;
+    opacity: .9;
+    margin-top: 8px;
+}
+
+.box:hover {
+    transition: opacity 1s;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.text {
+    position: absolute;
+    font: normal normal bold 17px/25px Poppins;
+    color: #E1E1E1;
+    transition: color .2s;
 }
