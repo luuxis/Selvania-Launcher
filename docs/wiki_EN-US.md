@@ -20,7 +20,7 @@ ___
 
 ### 1.2 Fork the project:
 
-To begin you must make a fork of the project to do this go [here](https://github.com/luuxis/Selvania-Launcher).
+To begin you must make a fork of the project to do this go [here](https://github.com/luuxis/Noback-Launcher).
 
 - Then click on "Fork" :
 
@@ -339,7 +339,7 @@ phpinfo( );
 ___
 ### 3.3. Setting up the launcher backend
 
-Now that the web server is installed and functional, we must now install the launcher backend. To do this, go to the [the web branch of the project](https://github.com/luuxis/Selvania-Launcher/tree/WEB-Folder). 
+Now that the web server is installed and functional, we must now install the launcher backend. To do this, go to the [the web branch of the project](https://github.com/luuxis/Noback-Launcher/tree/WEB-Folder). 
 
 - Click on the "Code" button and on "Download ZIP".
 - Once the zip file is downloaded, extract the zip file.
