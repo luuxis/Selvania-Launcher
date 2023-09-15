@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
     "version": "2.0.6",
@@ -6,12 +7,22 @@
     "main": "src/app.js",
     "author": "Azakii",
     "url": "https://dl.alonedayz.com/launcher",
+=======
+    "name": "Selvania-Launcher",
+    "preductname": "Selvania Launcher",
+    "version": "1.3.3",
+    "description": "Launcher Mincraft custom (crack, premium)",
+    "main": "src/app.js",
+    "author": "Luuxis",
+    "url": "http://launcher.luuxis.fr/launcherSelvania",
+>>>>>>> 1e5889b16f241cc5c805e60dfd2894900d8c735b
     "engines": {
-        "node": "^16.x.x"
+        "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "build": "node build.js",
+        "build": "node build.js --build",
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -19,15 +30,17 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^5.0.1",
-        "minecraft-java-core": "^2.5.1",
-        "node-fetch": "^2.6.7"
+        "electron-updater": "^6.1.1",
+        "minecraft-java-core": "^3.6.2",
+        "node-fetch": "^2.6.13"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^20.0.0",
-        "electron-builder": "^23.0.3",
-        "nodemon": "^2.0.16"
+        "electron": "^26.0.0",
+        "electron-builder": "^24.6.3",
+        "jimp": "^0.22.10",
+        "nodemon": "^3.0.1",
+        "png2icons": "^2.0.1"
     },
     "repository": {
         "type": "git",

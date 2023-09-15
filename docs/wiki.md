@@ -403,6 +403,8 @@ Vous pouvez modifier les paramètres soulignés:
 - "author" : auteur du jeu
 - url : lien du github (⚠️ Obligatoire pour l'auto update)
 
+**une fois cela fait penser à faire `npm install` dans la console pour mettre à jour le projet**
+
 Voici la procédure à suivre pour récupérer le tag le plus élevé du projet GitHub :
 
 - Se rendre sur le projet GitHub
