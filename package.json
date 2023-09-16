@@ -1,11 +1,11 @@
 {
-    "name": "Noback-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "Noback Launcher",
+    "preductname": "Noback Launcher",
     "version": "1.0.0",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
+    "author": "zquw",
+    "url": "https://noback123insanowasazquw.000webhostapp.com/Selvania-Launcher-WEB-Folder",
     "engines": {
         "node": "^18.x.x"
     },
