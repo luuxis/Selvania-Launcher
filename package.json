@@ -12,7 +12,7 @@
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png", 
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -20,7 +20,7 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^6.1.1",
+        "electron-updater": "^6.1.4",
         "minecraft-java-core": "^3.6.2",
         "node-fetch": "^2.6.13"
     },
@@ -34,6 +34,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Lautyxdd52/Noback-Launcher.git"
+        "url": "git+https://github.com/Lautyxdd52/Noback_Launcher.git"
     }
 }
