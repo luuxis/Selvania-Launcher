@@ -1,7 +1,7 @@
 {
     "name": "Nood-Launcher",
     "preductname": "Nood Launcher",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Launcher by NoodStudios",
     "main": "src/app.js",
     "author": "DylexDMC",
@@ -34,6 +34,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/DylexDMC/Selvania-Launcher.git"
+        "url": "git+https://github.com/DylexDMC/Nood-Launcher.git"
     }
 }
