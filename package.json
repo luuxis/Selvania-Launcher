@@ -1,6 +1,6 @@
 {
     "name": "Nood-Launcher",
-    "preductname": "Nood Launch",
+    "preductname": "Nood Launcher",
     "version": "1.0.1",
     "description": "Launcher by NoodStudios",
     "main": "src/app.js",
