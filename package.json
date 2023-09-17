@@ -1,8 +1,8 @@
 {
     "name": "Nood-Launcher",
-    "preductname": "Nood Launch",
+    "preductname": "Nood Launcher",
     "version": "1.3.3",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "description": "Launcher by NoodStudios",
     "main": "src/app.js",
     "author": "DylexDMC",
     "url": "https://noodlaunch.alwaysdata.net/apenestudiosfolde/",
