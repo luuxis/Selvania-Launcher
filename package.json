@@ -1,11 +1,11 @@
 {
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
-    "version": "1.0.5",
+    "version": "2.0.6",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
-    "url": "https://alonedayz.wstr.fr/launcher",
+    "url": "https://dl.alonedayz.com/launcher",
     "engines": {
         "node": "^16.x.x"
     },
@@ -19,7 +19,6 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "canvas": "^2.11.0",
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.5.1",
         "node-fetch": "^2.6.7"
@@ -32,6 +31,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/AzakiiDev/AloneLauncher.git"
     }
 }
