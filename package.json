@@ -1,7 +1,7 @@
 {
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
-    "version": "2.0.9",
+    "version": "3.5.0",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",

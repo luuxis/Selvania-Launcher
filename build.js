@@ -34,24 +34,6 @@ class Index {
                     createDesktopShortcut: true,
                     runAfterFinish: true
                 },
-                mac: {
-                    icon: "./src/assets/images/icon.icns",
-                    category: "public.app-category.games",
-                    target: [{
-                        target: "dmg",
-                        arch: ["x64", "arm64"]
-                    }]
-                },
-                linux: {
-                    icon: "./src/assets/images/icon.png",
-                    target: [{
-                        target: "AppImage",
-                        arch: ["x64"]
-                    }, {
-                        target: "tar.gz",
-                        arch: ["x64"]
-                    }]
-                }
             }
         }).then(() => {
             console.log('le build est terminé')
