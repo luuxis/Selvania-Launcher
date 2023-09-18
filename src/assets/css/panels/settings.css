@@ -194,7 +194,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 35ch;
+    max-width: 17ch;
     pointer-events: none;
 }
 

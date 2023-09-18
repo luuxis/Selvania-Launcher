@@ -19,6 +19,9 @@ class Settings {
         this.initTab();
         this.initAccount();
         this.initRam();
+        this.initJavaPath();
+        this.initJavaArgs();
+        this.initResolution();
         this.initLauncherSettings();
     }
 
@@ -27,22 +30,21 @@ class Settings {
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
-            if (e.target.classList.contains('account')) {
-                console.log(uuid);
+            if (e.path[0].classList.contains('account')) {
                 accountSelect(uuid);
                 this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
             }
 
             if (e.target.classList.contains("account-delete")) {
-                this.database.delete(e.target.parentElement.id, 'accounts');
+                this.database.delete(e.path[1].id, 'accounts');
 
-                document.querySelector('.accounts').removeChild(e.target.parentElement)
+                document.querySelector('.accounts').removeChild(e.path[1])
                 if (!document.querySelector('.accounts').children.length) {
                     changePanel("login");
                     return
                 }
 
-                if (uuid === selectedaccount.value.selected) {
+                if (e.path[1].id === selectedaccount.value.selected) {
                     let uuid = (await this.database.getAll('accounts'))[0].value.uuid
                     this.database.update({
                         uuid: "1234",
@@ -66,7 +68,7 @@ class Settings {
         let sliderDiv = document.querySelector(".memory-slider");
         sliderDiv.setAttribute("max", Math.trunc((80 * totalMem) / 100));
 
-        let ram = ramDatabase ? ramDatabase : { ramMin: "2", ramMax: "4" };
+        let ram = ramDatabase ? ramDatabase : { ramMin: "1", ramMax: "2" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
 
         let minSpan = document.querySelector(".slider-touch-left span");
@@ -256,7 +258,7 @@ class Settings {
         }
 
         if (!(await this.database.getAll('ram')).length) {
-            this.database.add({ uuid: "1234", ramMin: "2", ramMax: "4" }, 'ram')
+            this.database.add({ uuid: "1234", ramMin: "1", ramMax: "2" }, 'ram')
         }
 
         if (!(await this.database.getAll('screen')).length) {

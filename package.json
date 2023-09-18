@@ -1,11 +1,11 @@
 {
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
-    "version": "2.1.1",
+    "version": "2.0.9",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
-    "url": "https://dl.alonedayz.com/launcher",
+    "url": "https://dl.alonedayz.com/",
     "engines": {
         "node": "^16.x.x"
     },
@@ -21,8 +21,7 @@
     "dependencies": {
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.5.1",
-        "node-fetch": "^2.6.7",
-        "png2icons": "^2.0.1"
+        "node-fetch": "^2.6.7"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
