@@ -1,7 +1,7 @@
 const builder = require('electron-builder')
 const nodeFetch = require('node-fetch')
 const fs = require("fs");
-const png2icons = require('png2icons');
+const png2icons = require('png2icons'); 
 const Jimp = require('jimp');
 const { preductname } = require('./package.json')
 

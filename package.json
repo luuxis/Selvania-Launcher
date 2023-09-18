@@ -1,7 +1,7 @@
 {
     "name": "Alone-Launcher",
     "preductname": "Alone Launcher",
-    "version": "2.0.9",
+    "version": "2.1.1",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
@@ -21,7 +21,8 @@
     "dependencies": {
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.5.1",
-        "node-fetch": "^2.6.7"
+        "node-fetch": "^2.6.7",
+        "png2icons": "^2.0.1"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
