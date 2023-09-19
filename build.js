@@ -1,7 +1,6 @@
 const builder = require('electron-builder')
 const nodeFetch = require('node-fetch')
 const fs = require("fs");
-const png2icons = require('png2icons'); 
 const Jimp = require('jimp');
 const { preductname } = require('./package.json')
 
@@ -65,9 +64,9 @@ class Index {
             Buffer = await Buffer.buffer()
             const image = await Jimp.read(Buffer);
             Buffer = await image.resize(256, 256).getBufferAsync(Jimp.MIME_PNG)
-            fs.writeFileSync("src/assets/images/icon.icns", png2icons.createICNS(Buffer, png2icons.BILINEAR, 0));
-            fs.writeFileSync("src/assets/images/icon.ico", png2icons.createICO(Buffer, png2icons.HERMITE, 0, false));
-            fs.writeFileSync("src/assets/images/icon.png", Buffer);
+            //fs.writeFileSync("src/assets/images/icon.icns", png2icons.createICNS(Buffer, png2icons.BILINEAR, 0));
+            //fs.writeFileSync("src/assets/images/icon.ico", png2icons.createICO(Buffer, png2icons.HERMITE, 0, false));
+            //fs.writeFileSync("src/assets/images/icon.png", Buffer);
         } else {
             console.log('connection error')
         }
