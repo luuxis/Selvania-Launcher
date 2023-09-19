@@ -1,7 +1,7 @@
 {
     "name": "Alone-Launcher",
     "preductname": "AloneLauncher",
-    "version": "2.0.9",
+    "version": "2.8.0",
     "description": "Launcher Alone",
     "main": "src/app.js",
     "author": "Azakii",
@@ -27,8 +27,7 @@
         "cross-env": "^7.0.3",
         "electron": "^20.0.0",
         "electron-builder": "^23.0.3",
-        "nodemon": "^2.0.16",
-        "png2icons": "^2.0.1"
+        "nodemon": "^2.0.16"
     },
     "repository": {
         "type": "git",
