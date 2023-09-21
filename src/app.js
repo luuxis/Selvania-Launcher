@@ -13,8 +13,37 @@ const fs = require('fs');
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
+// RCP para zquw
+const clientId = '1154471489958051971';
+const DiscordRPC = require('discord-rpc');
+const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+DiscordRPC.register(clientId);
+
+async function setActivity(details) {
+    if (!RPC) return;
+    RPC.setActivity({
+        details: details,
+        startTimestamp: startTime, // Utiliza el tiempo de inicio registrado
+        largeImageKey: 'hsrenderab',
+        instance: true,
+    });
+}
+
+RPC.on('ready', async () => {
+    setActivity('Jugando a Hardcore Style', );
+
+    setInterval(() => {
+        // Mantén el mismo tiempo de inicio registrado anteriormente
+        setActivity('Jugando a Hardcore Style');
+    }, 86400 * 1000);
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
+//
+
 let data
 let dev = process.env.NODE_ENV === 'dev';
+let startTime = Date.now();
 
 if (dev) {
     let appPath = path.resolve('./AppData/Launcher').replace(/\\/g, '/');

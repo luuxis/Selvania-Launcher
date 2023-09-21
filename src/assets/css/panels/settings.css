@@ -166,6 +166,8 @@
     overflow: hidden;
     max-width: 29ch;
     pointer-events: none;
+
+    visibility: hidden;
 }
 
 .account-delete {

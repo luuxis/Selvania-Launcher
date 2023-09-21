@@ -64,11 +64,20 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #31081b;
+    background: #470c28;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 0 5px #31081b;
+    box-shadow: 0 0 5px #530f2f;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    background: #31081b;
+    color: #121212c0;
+    box-shadow: 0 0 8px #31081b;
+    cursor: pointer;
 }
 
 .download-content {
@@ -220,29 +229,6 @@
     width: 65vh;
     padding-left: 1rem;
     background: none;
-}
-
-.server {
-    position: relative;
-    width: 100%;
-    height: 75px;
-    background-color: #292929;
-    border-radius: 10px;
-    transition: opacity 1s;
-    opacity: .4;
-}
-
-.server:hover {
-    transition: opacity 1s;
-    opacity: 1;
-}
-
-.server-img {
-    position: absolute;
-    width: 42px;
-    height: 45px;
-    top: 15px;
-    left: 15px;
 }
 
 .name {
