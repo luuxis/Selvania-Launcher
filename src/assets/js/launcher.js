@@ -29,21 +29,6 @@ class Launcher {
     }
 
     getBackground() {
-        /*let bg = Math.floor(Math.random() * max);
-        console.log('Chargement du background ' . bg);
-        
-        if(bg == 1) {
-            background.classList.add('bg-a');
-        } else if(bg == 2) {
-            background.classList.add('bg-b');
-        } else if(bg == 3) {
-            background.classList.add('bg-c');
-        } else if(bg == 4) {
-            background.classList.add('bg-d');
-        } else {
-            background.classList.add('bg-d');
-        }*/
-
         let htmlBackground = document.getElementById('background');
         let backgrounds = [
             {"bg": "bg-1"},
