@@ -5,7 +5,7 @@
     "description": "Launcher officiel de AlyTopia",
     "main": "src/app.js",
     "author": "Luuxis, Saurfort, 1234Erwan",
-    "url": "http://launcher.alytopia.fr/dev/",
+    "url": "http://launcher.alytopia.fr/official/",
     "engines": {
         "node": "^18.x.x"
     },
