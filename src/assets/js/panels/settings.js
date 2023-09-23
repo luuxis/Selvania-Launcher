@@ -24,6 +24,7 @@ class Settings {
 
     initAccount() {
         document.querySelector('.accounts').addEventListener('click', async(e) => {
+            let account_type = e.target.connexion_type;
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
 

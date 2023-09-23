@@ -76,6 +76,10 @@
     display: grid;
 }
 
+.login-mojang-none {
+    display: none;
+}
+
 .login-mojang-input {
     font-family: 'Poppins';
     letter-spacing: 2px;

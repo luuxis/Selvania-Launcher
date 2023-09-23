@@ -20,11 +20,13 @@ class Login {
     }
 
     getOnline() {
-        console.log(`Initializing microsoft Panel...`)
-        document.querySelector('.mojang').remove();
-        //console.log(`Initializing mojang Panel...`)
+        let mojangID = document.getElementById('mojang');
+        mojangID.classList.add("login-mojang-none");
+        console.log(`Initializing microsoft Panel...`);
+        //document.querySelector('.mojang').remove();
+        //console.log(`Initializing mojang Panel...`);
         this.loginMicrosoft();
-        //this.loginMojang();
+        this.loginMojang();
         document.querySelector('.cancel-login').addEventListener("click", () => {
             document.querySelector(".cancel-login").style.display = "none";
             changePanel("settings");
@@ -62,6 +64,7 @@ class Login {
                 }
 
                 let account = {
+                    connexion_type: 'premium',
                     access_token: account_connect.access_token,
                     client_token: account_connect.client_token,
                     uuid: account_connect.uuid,
@@ -109,6 +112,8 @@ class Login {
         let infoLogin = document.querySelector('.info-login')
         let loginBtn = document.querySelector(".login-btn")
         let mojangBtn = document.querySelector('.mojang')
+
+        mojangBtn.innerHTML = "";
 
         mojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "none";
@@ -159,6 +164,7 @@ class Login {
             }
 
             let account = {
+                connexion_type: 'mojang',
                 access_token: account_connect.access_token,
                 client_token: account_connect.client_token,
                 uuid: account_connect.uuid,
@@ -248,6 +254,7 @@ class Login {
             }
 
             let account = {
+                connexion_type: 'crack',
                 access_token: account_connect.access_token,
                 client_token: account_connect.client_token,
                 uuid: account_connect.uuid,
