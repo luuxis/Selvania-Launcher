@@ -15,19 +15,31 @@ body {
 }
 
 .bg-1 {
-    background: linear-gradient(#00000066, #00000066), url("../images/background/a.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000066, #00000066), url("../images/background/1.jpg") black no-repeat center center scroll;
 }
 
 .bg-2 {
-    background: linear-gradient(#00000066, #00000066), url("../images/background/b.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000066, #00000066), url("../images/background/2.jpg") black no-repeat center center scroll;
 }
 
 .bg-3 {
-    background: linear-gradient(#00000066, #00000066), url("../images/background/c.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000066, #00000066), url("../images/background/3.jpg") black no-repeat center center scroll;
 }
 
 .bg-4 {
-    background: linear-gradient(#00000066, #00000066), url("../images/background/d.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000066, #00000066), url("../images/background/4.jpg") black no-repeat center center scroll;
+}
+
+.bg-5 {
+    background: linear-gradient(#00000066, #00000066), url("../images/background/5.jpg") black no-repeat center center scroll;
+}
+
+.bg-6 {
+    background: linear-gradient(#00000066, #00000066), url("../images/background/6.jpg") black no-repeat center center scroll;
+}
+
+.bg-7 {
+    background: linear-gradient(#00000066, #00000066), url("../images/background/7.jpg") black no-repeat center center scroll;
 }
 
 img {
