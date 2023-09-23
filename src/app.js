@@ -25,7 +25,7 @@ async function setActivity(details) {
         details: details,
         startTimestamp: startTime, // Utiliza el tiempo de inicio registrado
         largeImageKey: 'hsrenderab',
-        instance: true,
+        instance: false,
     });
 }
 
