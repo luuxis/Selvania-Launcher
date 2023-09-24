@@ -15,28 +15,28 @@
     width: 160px;
     height: 37px;
     margin: auto 30px;
-    background: #380d32;
-    border: 4px solid #380d32;
+    background: #17364e;
+    border: 4px solid #17364e;
     font: normal normal bold 20px/25px Poppins;
     cursor: pointer;
-    box-shadow: 0 0 5px #380d32;
+    box-shadow: 0 0 5px #17364e;
     outline: none;
 }
 
 .tab-btn-css:hover {
-    background: #380d32;
-    box-shadow: 0 0 5px #380d32;
-    border: 4px solid #380d32;
+    background: #17364e;
+    box-shadow: 0 0 5px #17364e;
+    border: 4px solid #17364e;
 }
 
 .active-tab-btn {
-    background: #380d32;
+    background: #17364e;
     border: 4px solid #2b1155;
     box-shadow: 0 0 5px #2b1155;
 }
 
 .active-tab-btn:hover {
-    background: #380d32;
+    background: #17364e;
     border: 4px solid #2b1155;
     box-shadow: 0 0 5px #2b1155
 }
@@ -122,9 +122,9 @@
 
 .account {
     display: inline-block;
-    background: #380d32;
-    box-shadow: 0 0 5px #380d32;
-    border: 4px solid #380d32;
+    background: #17364e;
+    box-shadow: 0 0 5px #17364e;
+    border: 4px solid #17364e;
     font: normal normal bold 30px/40px Poppins;
     width: 500px;
     height: 100px;
@@ -134,9 +134,9 @@
 }
 
 .account:hover {
-    background: #380d32;
-    box-shadow: 0 0 5px #380d32;
-    border: 4px solid #380d32;
+    background: #17364e;
+    box-shadow: 0 0 5px #17364e;
+    border: 4px solid #17364e;
 }
 
 .account-image {
@@ -190,13 +190,13 @@
 }
 
 .active-account {
-    background: #380c32;
+    background: #17364e;
     border: 4px solid #1c0c5f;
     box-shadow: 0 0 5px #16053f;
 }
 
 .active-account:hover {
-    background: #380832;
+    background: #17364e;
     border: 4px solid #150d44;
     box-shadow: 0 0 5px #160c38;
 }
@@ -240,7 +240,7 @@
     width: 20px;
     height: 10px;
     background: #F1F1F1;
-    border: 4px solid #38155f;
+    border: 4px solid #17364e;
     transition: background-color .2s, border .2s;
     border-radius: 18px;
     cursor: pointer;
@@ -277,7 +277,7 @@
     display: block;
     height: 100%;
     width: 0%;
-    background: #381747;
+    background: #17364e;
     transition: background-color .2s;
 }
 
@@ -307,7 +307,7 @@
     font: normal normal bold 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 30px;
-    background-color: #38123d;
+    background-color: #17364e;
     cursor: pointer;
     margin-left: 20px;
     transition: color .2s, background-color .2s;
@@ -323,7 +323,7 @@
     font: normal normal bold 13px/20px Poppins;
     border-radius: 18px;
     padding: 8px 30px;
-    background-color: #380e44;
+    background-color: #17364e;
     cursor: pointer;
     margin-left: 20px;
     transition: color .2s, background-color .2s;
@@ -423,7 +423,7 @@
 
 .select {
     border-radius: 40px;
-    background-color: #381042;
+    background-color: #17364e;
     font: normal normal normal 12px/18px Poppins;
     transition: color .2s, box-shadow .2s;
     border: none;
@@ -464,7 +464,7 @@
 }
 
 .checkbox-settings:checked+label {
-    background-color: #380f2c;
+    background-color: #17364e;
 }
 
 .checkround {

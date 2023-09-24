@@ -64,19 +64,19 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #470c28;
+    background: #17364e;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 0 5px #530f2f;
+    box-shadow: 0 0 5px #17364e;
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
 .play-btn:hover {
     transform: scale(1.1);
-    background: #31081b;
+    background: #0f2434;
     color: #121212c0;
-    box-shadow: 0 0 8px #31081b;
+    box-shadow: 0 0 8px #0f2434;
     cursor: pointer;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #380e32;
+    background-color: #17364e;
     border-radius: 10px;
 }
 
