@@ -20,6 +20,7 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "electron-store": "^8.1.0",
         "electron-updater": "^6.1.4",
         "minecraft-java-core": "^3.6.2",
         "node-fetch": "^2.6.13"

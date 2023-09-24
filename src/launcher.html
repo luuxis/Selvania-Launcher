@@ -1,9 +1,16 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="assets/css/launcher.css">
     </head>
     <body class="hide">
+        <!-- Video de fondo -->
+        <button id="muteButton">Silenciar sonido</button>
+        <video autoplay loop id="background-video">
+            <source src="../src/assets/images/background/wasa.mp4" type="video/mp4">
+        </video>
+
         <div class="dragbar"></div>
         <div class="frame">
             <div id="minimize" class="button-frame icon-minimize"></div>
@@ -25,5 +32,48 @@
 
         <div class="panels"></div>
         <script src="assets/js/launcher.js" type="module"></script>
+        <script>
+// Importa la biblioteca electron-store
+const Store = require('electron-store');
+
+const store = new Store();
+
+const isMuted = store.get('isMuted', false);
+
+const video = document.getElementById("background-video");
+
+function toggleMute() {
+    if (video.muted) {
+        video.muted = false;
+        muteButton.innerText = "Silenciar sonido";
+        store.set('isMuted', false);
+    } else {
+        video.muted = true;
+        muteButton.innerText = "Desilenciar sonido";
+        store.set('isMuted', true); 
+    }
+}
+
+if (isMuted) {
+    video.muted = true;
+    muteButton.innerText = "Desilenciar sonido";
+} else {
+    video.muted = false;
+    muteButton.innerText = "Silenciar sonido";
+}
+
+muteButton.addEventListener("click", toggleMute);
+        </script>
+
+        <style>
+            #background-video {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+                z-index: -1;
+            }
+        </style>
     </body>
 </html>

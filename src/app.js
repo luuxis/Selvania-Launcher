@@ -4,8 +4,11 @@
  */
 
 const { app, ipcMain } = require('electron');
+const Store = require('electron-store');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
+
+const store = new Store();
 
 const path = require('path');
 const fs = require('fs');
@@ -59,6 +62,11 @@ ipcMain.handle('Microsoft-window', async(event, client_id) => {
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
+
+ipcMain.on('electron-store-get-data', (event, key) => {
+    const data = store.get(key);
+    event.returnValue = data; // Enviar los datos de vuelta al proceso de renderizado
+  });
 
 
 autoUpdater.autoDownload = false;
