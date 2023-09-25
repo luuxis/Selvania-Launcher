@@ -1,18 +1,18 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.3.3",
+    "name": "Enena-Launcher",
+    "preductname": "Enena Launcher",
+    "version": "1.0.0",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
+    "author": "ElFancyMC",
+    "url": "https://enena.wstr.fr",
     "engines": {
         "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
+        "icon": "node build.js --icon=https://media.discordapp.net/attachments/1115845524755591229/1147601578216403125/minecraft.png?width=1369&height=342",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -20,6 +20,7 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "discord-rpc": "^4.0.1",
         "electron-updater": "^6.1.1",
         "minecraft-java-core": "^3.6.2",
         "node-fetch": "^2.6.13"
@@ -28,12 +29,12 @@
         "cross-env": "^7.0.3",
         "electron": "^26.0.0",
         "electron-builder": "^24.6.3",
-        "jimp": "^0.22.10",
+        "jimp": "^0.3.5",
         "nodemon": "^3.0.1",
         "png2icons": "^2.0.1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/elfancymc/Enena-Launcher.git"
     }
 }
