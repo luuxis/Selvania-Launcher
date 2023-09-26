@@ -1,7 +1,7 @@
 {
     "name": "Enena-Launcher",
     "preductname": "Enena Launcher",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "ElFancyMC",
