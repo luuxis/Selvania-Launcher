@@ -114,7 +114,7 @@ class Launcher {
                     addAccount(refresh_accounts);
                     if (account.uuid === selectaccount) accountSelect(refresh.uuid)
                 } else if (account.meta.type === 'Mojang') {
-                    if (account.meta.offline) {
+                    if (!account.meta.online) {
                     console.log(`Initializing Crack account ${account.name}...`);
                         addAccount(account);
                         if (account.uuid === selectaccount) accountSelect(account.uuid)
