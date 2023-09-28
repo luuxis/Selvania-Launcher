@@ -6,15 +6,14 @@
     </head>
     <body class="hide">
         <!-- Video de fondo -->
-        <button id="muteButton">Silenciar sonido</button>
+        <button id="muteButton">Mute</button>
         <video autoplay loop id="background-video">
-            <source src="../src/assets/images/background/www.mp4" type="video/mp4">
+            <source src="../src/assets/images/background/333.mp4" type="video/mp4">
         </video>
 
         <div class="dragbar"></div>
         <div class="frame">
             <div id="minimize" class="button-frame icon-minimize"></div>
-            <div id="maximize" class="button-frame icon-maximize"></div>
             <div id="close" class="button-frame icon-close"></div>
         </div>
 
@@ -45,21 +44,21 @@ const video = document.getElementById("background-video");
 function toggleMute() {
     if (video.muted) {
         video.muted = false;
-        muteButton.innerText = "Silenciar sonido";
+        muteButton.innerText = "Mute";
         store.set('isMuted', false);
     } else {
         video.muted = true;
-        muteButton.innerText = "Desilenciar sonido";
+        muteButton.innerText = "Unmute";
         store.set('isMuted', true); 
     }
 }
 
 if (isMuted) {
     video.muted = true;
-    muteButton.innerText = "Desilenciar sonido";
+    muteButton.innerText = "Unmute";
 } else {
     video.muted = false;
-    muteButton.innerText = "Silenciar sonido";
+    muteButton.innerText = "Mute";
 }
 
 muteButton.addEventListener("click", toggleMute);

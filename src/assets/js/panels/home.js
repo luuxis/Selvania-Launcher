@@ -7,6 +7,10 @@
 
 import { logger, database, changePanel } from '../utils.js';
 
+const Store = require('electron-store');
+
+const store = new Store();
+
 const { Launch, Status } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 const launch = new Launch();
@@ -173,6 +177,12 @@ class Home {
             });
 
             launch.on('data', (e) => {
+
+                const video = document.getElementById("background-video");
+
+                video.muted = true;
+                muteButton.innerText = "Unmute";
+
                 new logger('Minecraft', '#36b030');
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
                 ipcRenderer.send('main-window-progress-reset')
