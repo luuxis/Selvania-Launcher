@@ -135,7 +135,7 @@
 .news-block {
     margin-bottom: 1rem;
     transition: opacity 1s;
-    opacity: .9;
+    opacity: 1;
 }
 
 .news-block:hover {
@@ -243,12 +243,15 @@
     background-color: #292929;
     border-radius: 10px;
     transition: opacity 1s;
-    opacity: .9;
+    opacity: 1;
+    transition-duration: 0.5s;
 }
 
 .server:hover {
     transition: opacity 1s;
     opacity: 1;
+    background-color: #353535;
+    transition-duration: 0.5s;
 }
 
 .server-img {
@@ -336,14 +339,17 @@
     background-color: #292929;
     border-radius: 10px;
     transition: opacity 1s;
-    opacity: .9;
+    opacity: 1;
     margin-top: 8px;
+    transition-duration: 0.5s;
 }
 
 .box:hover {
     transition: opacity 1s;
     opacity: 1;
     cursor: pointer;
+    background-color: #353535;
+    transition-duration: 0.5s;
 }
 
 .text {
@@ -351,4 +357,13 @@
     font: normal normal bold 17px/25px Poppins;
     color: #E1E1E1;
     transition: color .2s;
+}
+
+.venstone-logo-home {
+    transition-duration: 0.5s;
+}
+
+.venstone-logo-home:hover {
+    filter: drop-shadow(0 0 2rem #c3cbd1);
+    transition-duration: 0.5s;
 }
