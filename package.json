@@ -1,7 +1,7 @@
 {
     "name": "Venstone-Launcher",
     "preductname": "Venstone Launcher",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "Launcher officiel pour le serveur Venstone",
     "main": "src/app.js",
     "author": "Limeen",
