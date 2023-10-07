@@ -30,13 +30,15 @@ function addAccount(data) {
     div.classList.add("account");
     div.id = data.uuid;
     div.innerHTML = `
-        <img class="account-image" src="https://minotar.net/helm/${data.name}/100">
+    <img class="account-image" src="https://minotar.net/helm/${data.name}/100">
         <div class="account-name">${data.name}</div>
         <div class="account-uuid">${data.uuid}</div>
         <div class="account-delete"><div class="icon-account-delete icon-account-delete-btn"></div></div>
     `
     document.querySelector('.accounts').appendChild(div);
 }
+
+/* ancienne image <img class="account-image" src="https://minotar.net/helm/${data.name}/100">*/
 
 function accountSelect(uuid) {
     let account = document.getElementById(uuid);
@@ -49,6 +51,6 @@ function accountSelect(uuid) {
 }
 
 function headplayer(pseudo) {
-    document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/helm/${pseudo}/100)`;
+    document.querySelector(".player-head").style.backgroundImage = `url(assets/images/default/steve.png)`;
     document.getElementById("player-username").innerHTML = `${pseudo}`;
 }
