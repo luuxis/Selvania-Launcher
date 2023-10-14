@@ -5,7 +5,7 @@
     "description": "Launcher Minecraft pour Metropia",
     "main": "src/app.js",
     "author": "Epyii, based on source code of Luuxis",
-    "url": "https://metropia.mtxserv.com/new_launcher/",
+    "url": "https://metropia.fr/new_launcher/",
     "engines": {
         "node": "16.x.x"
     },
