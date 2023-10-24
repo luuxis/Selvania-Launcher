@@ -9,11 +9,13 @@
 const fs = require('fs');
 const { Microsoft, Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
+const DiscordRPC = require('discord-rpc');
 
 import { config, logger, changePanel, database, addAccount, accountSelect } from './utils.js';
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
+
 
 class Launcher {
     async init() {
@@ -25,6 +27,7 @@ class Launcher {
         this.database = await new database().init();
         this.createPanels(Login, Home, Settings);
         this.getaccounts();
+        this.initDiscordRPC();
     }
 
     initLog() {
@@ -35,6 +38,28 @@ class Launcher {
         })
         new logger('Launcher', '#7289da')
     }
+
+    initDiscordRPC() {
+        if (this.config.rpc_activation === true) {
+        const clientId = "1046811813217566850";
+        const rpc = new DiscordRPC.Client({ transport: 'ipc' });
+        rpc.on('ready', () => {
+            const presence = {
+                details: 'Dans le lanceur',
+                state: 'royalcreeps.fr',
+                largeImageKey: 'royallargeico',
+                largeImageText: 'RoyalCreeps',
+                smallImageKey: 'minecraft',
+                smallImageText: 'Joue à Minecraft',
+                buttons: [
+                    { label: 'Rejoindre', url: 'https://royalcreeps.fr/launcher' }
+                ]
+            };
+            rpc.setActivity(presence);
+        });
+        rpc.login({ clientId: this.config.rpc_id }).catch(console.error);
+    }
+}
 
     initFrame() {
         console.log("Initializing Frame...")
