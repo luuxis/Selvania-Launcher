@@ -7,6 +7,7 @@
     "verify": false,
     "java": true,
     "game_args": [],
+    "jvm_args": [],
     "dataDirectory": "minecraft",
     "ignored": ["crash-reports", "logs", "resourcepacks", "resources", "saves", "shaderpacks", "options.txt", "optionsof.txt"],
     "loader": {
