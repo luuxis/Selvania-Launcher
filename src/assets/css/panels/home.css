@@ -9,7 +9,7 @@
 }
 
 .player-head {
-    margin: auto 30px;
+    margin: -1.69% 35.50%;    
     background-image: url("../../images/default/setve.png");
     background-size: cover;
     background-position: center;
@@ -17,39 +17,60 @@
     background-color: transparent;
     width: 50px;
     height: 50px;
-    border: none;
-    border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
-}
+    border: 2px solid #ffffff;
+    border-radius: 15px 0px 0px 15px;
+ }
 
 .player-head:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    margin: -2% 35.50%;    
+
 }
 
 .settings-btn {
     position: absolute;
-    top: 10px;
-    right: 30px;
+    left: 60.30%;
+    top: -29%;
     text-align: center;
+    width: 50px;
     height: 50px;
-    border: none;
-    border-radius: 15px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    border: 2px solid #ffffff;
+    background: #ffffff2f;
+    color: #ffffff;
+    border-radius: 0px 15px 15px 0px;
 }
 
 .settings-btn:hover {
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    position: absolute;
+    left: 60.30%;
+    top: -34%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ffffff;
+    background: #ffffff2f;
+    color: #ffffff;
+    border-radius: 0px 15px 15px 0px;
 }
 
 .icon-settings:before {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .play-element {
     position: absolute;
     left: 50%;
+    top: -50%;
+    transform: translate(-50%);
+    height: 100%;
+    color: #F1F1F1;
+    font: normal normal bold 19px/29px Poppins;
+    text-align: center;
+}
+
+.play-element:hover {
+    position: absolute;
+    left: 50%;
+    top: -55%;
     transform: translate(-50%);
     height: 100%;
     color: #F1F1F1;
@@ -59,28 +80,26 @@
 
 .play-btn {
     top: 10px;
-    width: 160px;
-    height: 37px;
-    border-radius: 20px;
-    border: none;
-    background: #8f24aa;
-    font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    width: 250px;
+    height: 50px;
+    border: 2px solid #ffffff;
+    background: #ffffff2f;
+    font: normal normal normal 25px/35px Poppins;
+    color: #ffffff;
     margin: 15px 0;
-    box-shadow: 0 0 5px #6b1d72;
+    text-shadow: rgb(255, 255, 255) 1px 0 8px;
 }
 
 .play-btn:hover {
-    top: 10px;
-    width: 160px;
-    height: 37px;
-    border-radius: 20px;
-    border: none;
-    background: #c2c2c2;
-    font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    top: 0px;
+    width: 250px;
+    height: 50px;
+    border: 2px solid #ffffff;
+    background: #ffffff2f;
+    font: normal normal normal 25px/35px Poppins;
+    color: #ffffff;
     margin: 15px 0;
-    box-shadow: 0 0 5px #818181;
+    text-shadow: rgb(255, 255, 255) 1px 0 8px;
 }
 
 .download-content {
@@ -96,12 +115,13 @@
 }
 
 .text-download {
-    font-size: 15px;
+    font: normal normal normal 25px/35px Poppins;
+    text-shadow: rgb(255, 255, 255) 1px 0 8px;
 }
 
 .progress-bar {
     background-color: transparent;
-    height: 10px;
+    height: 30px;
 }
 
 .progress-bar::-webkit-progress-bar {
@@ -110,7 +130,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #9d00bd;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 

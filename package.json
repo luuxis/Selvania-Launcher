@@ -1,11 +1,11 @@
 {
     "name": "MDK-Launcher",
     "preductname": "MDK Launcher",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Launcher de MDK Game Team",
     "main": "src/app.js",
     "author": "MDKTeam",
-    "url": "http://n3.boxmine.xyz:3159/",
+    "url": "http://n3.boxmine.xyz:3159",
     "engines": {
         "node": "^18.x.x"
     },
