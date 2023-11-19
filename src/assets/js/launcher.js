@@ -9,11 +9,13 @@
 const fs = require('fs');
 const { Microsoft, Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
+const DiscordRPC = require('discord-rpc');
 
 import { config, logger, changePanel, database, addAccount, accountSelect } from './utils.js';
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
+
 
 class Launcher {
     async init() {
@@ -25,6 +27,9 @@ class Launcher {
         this.database = await new database().init();
         this.createPanels(Login, Home, Settings);
         this.getaccounts();
+        this.initBackground();
+        this.initDiscordRPC();
+        console.log("Le script JavaScript est exécuté !");
     }
 
     initLog() {
@@ -35,6 +40,66 @@ class Launcher {
         })
         new logger('Launcher', '#7289da')
     }
+
+    async initBackground() {
+        const video = document.getElementById("background-video");
+    
+        const changeSource = (url) => {
+            const video = document.getElementById("background-video");
+            console.log("Changement de la source de la vidéo vers :", url);
+            video.src = url;
+            video.poster = ""; // Réinitialise le poster
+            video.load(); // Charge la nouvelle source
+            video.onloadeddata = () => {
+                // console.log("La vidéo est chargée, en train de jouer...");
+                video.play(); // Lance la lecture une fois la vidéo chargée
+            };
+        };
+        
+    
+        const getVideoUrl = () => {
+            const hour = new Date().getHours();
+            if (hour >= 6 && hour < 18) {
+                return "https://data.royalcreeps.fr/launcher/r22launcher/background/royalcreeps-background-bleu-jour.mov";
+            } else {
+                return "https://data.royalcreeps.fr/launcher/r22launcher/background/royalcreeps-background-bleu-nuit.mov";
+            }
+        };
+    
+        const updateVideo = () => {
+            const currentUrl = video.src;
+            const newUrl = getVideoUrl();
+            if (currentUrl !== newUrl) {
+                changeSource(newUrl);
+            }
+        };
+        
+    
+        updateVideo();
+        setInterval(updateVideo, 60000);
+    }
+
+    initDiscordRPC() {
+        if (this.config.rpc_activation === true) {
+        const clientId = "1046811813217566850";
+        const rpc = new DiscordRPC.Client({ transport: 'ipc' });
+        rpc.on('ready', () => {
+            const presence = {
+                details: 'Dans le lanceur',
+                state: 'royalcreeps.fr',
+                largeImageKey: 'royallargeico',
+                largeImageText: 'RoyalCreeps',
+                smallImageKey: 'minecraft',
+                smallImageText: 'Joue à Minecraft',
+                buttons: [
+                    { label: 'Rejoindre', url: 'https://royalcreeps.fr/launcher' }
+                ]
+            };
+            rpc.setActivity(presence);
+        });
+        rpc.login({ clientId: this.config.rpc_id }).catch(console.error);
+    }
+}
 
     initFrame() {
         console.log("Initializing Frame...")
@@ -71,6 +136,7 @@ class Launcher {
             new panel().init(this.config, this.news);
         }
     }
+
 
     async getaccounts() {
         let accounts = await this.database.getAll('accounts');
