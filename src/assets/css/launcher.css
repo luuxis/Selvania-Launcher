@@ -170,3 +170,26 @@ img {
         transform: rotate(359deg);
     }
 }
+
+
+/* video background */
+#background-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  
+  
+  @media (max-width: 750px) {
+      #background-video { display: none; }
+      body {
+        background: url("assets/images/background/rcflou.jpg") no-repeat;
+        background-size: cover;
+      }
+  }
