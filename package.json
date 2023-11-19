@@ -7,7 +7,7 @@
     "author": "AuthenTiiq",
     "url": "https://data.royalcreeps.fr/launcher/r22launcher",
     "engines": {
-        "node": "^18.x.x"
+        "node": ">18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
@@ -20,17 +20,17 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^6.1.1",
+        "electron-updater": "^6.1.4",
         "jimp": "^0.22.10",
-        "minecraft-java-core": "^3.7.3",
-        "node-fetch": "^2.6.13",
+        "minecraft-java-core": "^3.8.1",
+        "node-fetch": "^2.7.0",
         "png2icons": "^2.0.1",
         "discord-rpc": "^4.0.1"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^22.3.13",
-        "electron-builder": "^24.6.3",
+        "electron": "^27.0.4",
+        "electron-builder": "^24.6.4",
         "nodemon": "^3.0.1"
     },
     "repository": {
