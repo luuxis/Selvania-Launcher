@@ -32,7 +32,7 @@ class Launcher {
         console.log("Le script JavaScript est exécuté !");
 
         var audio = document.getElementById("bgAudio");
-        audio.volume = 0.1;
+        audio.volume = 0.07;
     }
 
     initLog() {
