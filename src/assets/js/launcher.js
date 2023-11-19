@@ -30,6 +30,9 @@ class Launcher {
         this.initBackground();
         this.initDiscordRPC();
         console.log("Le script JavaScript est exécuté !");
+
+        var audio = document.getElementById("bgAudio");
+        audio.volume = 0.1;
     }
 
     initLog() {
