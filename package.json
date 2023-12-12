@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.3.4",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "DraconiumMC-Launcher",
+    "preductname": "DraconiumMC Launcher",
+    "version": "0.0.1",
+    "description": "Launcher Mincraft pour le serv DraconiumMC",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
+    "author": "FrozerYTB",
+    "url": "https://www.draconium-mc.fr/launcher",
     "engines": {
         "node": ">18.x.x"
     },
