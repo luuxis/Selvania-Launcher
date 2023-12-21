@@ -1,6 +1,6 @@
 {
-    "name": "EiONA-Launcher",
-    "preductname": "EiONA Launcher",
+    "name": "litium-launcher",
+    "preductname": "Litium Launcher",
     "version": "1.1.0",
     "description": "Launcher Oficial de EiONA Studios (configurado por Ekliptic)",
     "main": "src/app.js",
@@ -35,6 +35,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/EklipticStudios/EiONA-Launcher.git"
+        "url": "git+https://github.com/Soylamango/Litium-Launcher/tree/master.git"
     }
 }
