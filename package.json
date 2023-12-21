@@ -1,18 +1,18 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.3.5",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "EiONA-Launcher",
+    "preductname": "EiONA Launcher",
+    "version": "1.1.0",
+    "description": "Launcher Oficial de EiONA Studios (configurado por Ekliptic)",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
+    "author": "EiONA X SoyRayku",
+    "url": "https://patoaas.000webhostapp.com/datos/",
     "engines": {
-        "node": ">18.x.x"
+        "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/EklipticStudios/Ekliptic-Launcher/master/src/assets/images/icon.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -20,20 +20,21 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^6.1.4",
-        "minecraft-java-core": "^3.8.1",
-        "node-fetch": "^2.7.0"
+        "discord-rpc": "^4.0.1",
+        "electron-updater": "^6.1.1",
+        "minecraft-java-core": "^3.6.2",
+        "node-fetch": "^2.6.13"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^27.0.4",
-        "electron-builder": "^24.6.4",
+        "electron": "^26.0.0",
+        "electron-builder": "^24.6.3",
         "jimp": "^0.22.10",
         "nodemon": "^3.0.1",
         "png2icons": "^2.0.1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/EklipticStudios/EiONA-Launcher.git"
     }
 }
