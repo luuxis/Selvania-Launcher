@@ -57,7 +57,7 @@ img {
     transition: opacity 1.5s;
     font: normal normal normal 9px/13px Poppins;
     color: rgb(255, 255, 255);
-    opacity: 0;
+    opacity: 10;
 }
 
 .splash-author .author {

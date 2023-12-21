@@ -64,12 +64,21 @@
     height: 37px;
     border-radius: 20px;
     border: none;
-    background: #00bd7a;
+    background: #008cff;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 0 5px #00bd7a;
+    box-shadow: 0 0 5px #008cff;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, letter-spacing 0.3s ease-in-out; /* Agrega una transición suave para el cambio de color de fondo, transformación y espaciado de letras */
 }
+
+.play-btn:hover {
+    background-color: #008cff; /* Cambia el color de fondo al pasar el ratón */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar el ratón */
+    transform: scale(1.1); /* Aplica una transformación de escala al pasar el ratón */
+    letter-spacing: 2px; /* Ajusta el espaciado de letras al pasar el ratón */
+}
+
 
 .download-content {
     position: absolute;
@@ -98,7 +107,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #00bd7a;
+    background-color: #008cff;
     border-radius: 10px;
 }
 
