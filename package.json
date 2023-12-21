@@ -2,9 +2,9 @@
     "name": "litium-launcher",
     "preductname": "Litium Launcher",
     "version": "1.1.0",
-    "description": "Launcher Oficial de Litium Studios (configurado por SoyMango)",
+    "description": "Launcher Oficial de Litium Studios | configurado por SoyMango |",
     "main": "src/app.js",
-    "author": "EiONA",
+    "author": "SoyMando x luuxis",
     "url": "https://patoaas.000webhostapp.com/datos/",
     "engines": {
         "node": "^18.x.x"
