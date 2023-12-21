@@ -22,9 +22,9 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Cargando EiONA Launcher", "author": "SoyRayku x EiONA" },
-            { "message": "El Launcher esta cargando...", "author": "SoyRayku x EiONA" },
-            { "message": "Loading EiONA Game Studio", "author": "SoyRayku x EiONA" }
+            { "message": "Cargando Litium Launcher", "author": "SoyRayku x Litium" },
+            { "message": "El Launcher esta cargando...", "author": "SoyRayku x Litium" },
+            { "message": "Loading Universo  Hardcore", "author": "SoyRayku x Litium" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;

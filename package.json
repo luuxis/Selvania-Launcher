@@ -2,9 +2,9 @@
     "name": "litium-launcher",
     "preductname": "Litium Launcher",
     "version": "1.1.0",
-    "description": "Launcher Oficial de EiONA Studios (configurado por Ekliptic)",
+    "description": "Launcher Oficial de Litium Studios (configurado por SoyMango)",
     "main": "src/app.js",
-    "author": "EiONA X SoyRayku",
+    "author": "EiONA",
     "url": "https://patoaas.000webhostapp.com/datos/",
     "engines": {
         "node": "^18.x.x"
@@ -12,7 +12,7 @@
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/EklipticStudios/Ekliptic-Launcher/master/src/assets/images/icon.png",
+        "icon": "node build.js --icon=https://github.com/Soylamango/Litium-Launcher/blob/master/src/assets/images/icon.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",

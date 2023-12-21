@@ -21,7 +21,7 @@ img {
 
 .dragbar {
     position: fixed;
-    background: #00000080;
+    background: #15364d;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -63,7 +63,7 @@ img {
 .icon-minimize:hover,
 .icon-restore-down:hover,
 .icon-maximize:hover {
-    background-color: #0000009d;
+    background-color: rgba(0, 0, 0, 0.616);
 }
 
 .icon-close:before,
