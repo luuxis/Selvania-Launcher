@@ -22,18 +22,18 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "mdk-team.tebex.io", "author": "MDK Game Team" },
+            { "message": "mdkgameteam.carrd.co", "author": "MDK Game Team" },
             { "message": "Discord.io/mdkgt", "author": "Unete a nuestro discord" },
-            { "message": "tiktok.com/@team_mdk", "author": "MDK Game Team" }
+            { "message": "Launcher 1.8v", "author": "Developers MDK" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
-        this.splashAuthor.children[0].textContent = "@" + splash.author;
-        await sleep(100);
+        this.splashAuthor.children[0].textContent = "" + splash.author;
+        await sleep(300);
         document.querySelector("#splash").style.display = "block";
-        await sleep(500);
+        await sleep(700);
         this.splash.classList.add("opacity");
-        await sleep(500);
+        await sleep(400);
         this.splash.classList.add("translate");
         this.splashMessage.classList.add("opacity");
         this.splashAuthor.classList.add("opacity");
@@ -44,7 +44,7 @@ class Splash {
 
     async checkUpdate() {
         if (dev) return this.startLauncher();
-        this.setStatus(`Iniciando Launcher..`);
+        this.setStatus(`Abriendo Launcher..`);
 
         ipcRenderer.invoke('update-app').then(err => {
             if (err.error) {
@@ -54,7 +54,7 @@ class Splash {
         })
 
         ipcRenderer.on('updateAvailable', () => {
-            this.setStatus(`Nueva Version Disponible`);
+            this.setStatus(`Actualizando Launcher...`);
             this.toggleProgress();
             ipcRenderer.send('start-update');
         })
