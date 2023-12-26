@@ -18,9 +18,7 @@ $instance['hypixel'] = array_merge($instance['hypixel'], array(
         'options.txt',
         'optionsof.txt'
     ),
-    "whitelist" => array(
-        'Luuxis'
-    ),
+    "whitelist" => array(),
     "whitelistActive" => false,
     "status" => array(
         "nameServer" => "Hypixel",
@@ -37,37 +35,12 @@ $instance['PokeMoonX'] = array_merge($instance['PokeMoonX'], array(
     ),
     "verify" => false,
     "ignored" => array(),
-    "whitelist" => array(
-        'Luuxis',
-        'jumentdidie',
-        'Xildra'
-    ),
-    "whitelistActive" => true,
+    "whitelist" => array(),
+    "whitelistActive" => false,
     "status" => array(
         "nameServer" => "PokeMoonX",
         "ip" => "178.32.106.234",
         "port" => 25599
-    )
-));
-
-$instance['Luuxis-test'] = array_merge($instance['Luuxis-test'], array(
-    "loadder" => array(
-        "minecraft_version" => "1.20",
-        "loadder_type" => "forge",
-        "loadder_version" => "latest"
-    ),
-    "verify" => false,
-    "ignored" => array(),
-    "whitelist" => array(
-        'Luuxis',
-        'jumentdidie',
-        'Xildra'
-    ),
-    "whitelistActive" => false,
-    "status" => array(
-        "nameServer" => "Hypixel",
-        "ip" => "mc.hypixel.net",
-        "port" => 25565
     )
 ));
 ?>
