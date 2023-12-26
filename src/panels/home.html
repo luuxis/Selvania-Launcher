@@ -1,33 +1,61 @@
-<div class="home-content">
-    <div class="bottom-bar-home">
-        <button class="player-head"></button>
-        <button class="settings-btn icon-settings"></button>
+<div class="container">
+    <div class="status-server">
+        <img class="server-status-icon" src="assets/images/icon.png">
+        <div class="server-status-infos">
+            <div class="server-status-name">Minecraft</div>
+            <div class="server-status-text">operationeel - 0 ms</div>
+        </div>
+        <div class="status-player-count">
+            <div class="player-count">0</div>
+        </div>
+    </div>
 
-        <div class="play-element">
-            <button class="play-btn">Jouer</button>
-            <div class="download-content">
-                <div class="text-download">Connexion...</div>
-                <progress value="0" max="0" class="progress-bar"></progress>
+    <div class="home-bottom">
+        <div class="new-tab">
+            <div class="titre-tab-new">Actualités</div>
+            <div class="news-list content-scroll"></div>
+        </div>
+        <div class="social-tab">
+            <div class="social-list content-scroll">
+                <div data-url="https://discord.gg/e9q7Yr2cuQ" class="social-block">
+                    <div class="icon-discord icon-social"></div>
+                </div>
+
+                <div data-url="https://github.com/luuxis" class="social-block">
+                    <div class="icon-github icon-social"></div>
+                </div>
+
+                <div data-url="https://www.youtube.com/LuuxisHD" class="social-block">
+                    <div class="icon-youtube icon-social"></div>
+                </div>
             </div>
         </div>
     </div>
-    
-    <div class="body-home">
-        <div class="news-list"></div>
-        <div class="info-list">
-            <div class="info-item">
-                <div class="server">
-                    <img class="server-img" src="assets/images/icon.png"/>
-                    <div class="server-text">
-                        <div class="name">Server titre...</div>
-                        <div class="desc"><span class="red">Fermé</span> - 0ms</div>
-                    </div>
-                    <div class="etat-text">
-                        <div class="text">0</div>
-                        <div class="online off"></div>
-                    </div>
-                </div>
+
+    <div class="sidebar">
+        <div class="player-options">
+            <div class="player-head"></div>
+        </div>
+
+        <div class="play-elements">
+            <div class="play-instance">
+                <button class="play-btn">Jouer</button>
+                <div class="instance-select icon-arrow"></div>
             </div>
+            <div class="info-starting-game">
+                <div class="info-starting-game-text">Connexion...</div>
+                <progress value="0" max="0" class="progress-bar"></progress>
+            </div>
+        </div>
+
+        <div class="settings-btn icon-settings"></div>
+    </div>
+
+    <div class="instance-popup">
+        <div class="instances-tab">
+            <div class="close-popup icon-close"></div>
+            <p>Choisissez votre instance...</p>
+            <div class="instances-List"></div>
         </div>
     </div>
 </div>
