@@ -1,7 +1,7 @@
 {
     "name": "MDK-Launcher",
     "preductname": "MDK Launcher",
-    "version": "1.4.5",
+    "version": "1.4.6",
     "description": "Launcher de MDK Game Team",
     "main": "src/app.js",
     "author": "MDKTeam",
