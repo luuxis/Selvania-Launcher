@@ -22,9 +22,9 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "mdkgameteam.carrd.co", "author": "MDK Game Team" },
-            { "message": "Discord.io/mdkgt", "author": "Unete a nuestro discord" },
-            { "message": "Launcher 1.8v", "author": "Developers MDK" }
+            { "message": "Nutrias Trabajando", "author": "MDK Game Team" },
+            { "message": "Reporta los bugs!", "author": "Unete a nuestro discord" },
+            { "message": "Launcher 4.0v", "author": "Developers MDK" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
