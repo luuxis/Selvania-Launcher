@@ -42,6 +42,7 @@ class Login {
             });
 
             ipcRenderer.invoke('Microsoft-window', this.config.client_id).then(async account_connect => {
+                console.log(account_connect)
                 if (account_connect == 'cancel' || !account_connect) {
                     popupLogin.closePopup();
                     return;
@@ -194,6 +195,8 @@ class Login {
     async saveData(connectionData) {
         let configClient = await this.db.readData('configClient');
         let account = await this.db.createData('accounts', connectionData)
+        console.log(connectionData)
+        console.log(account)
         let instanceSelect = configClient.instance_selct
         let instancesList = await config.getInstanceList()
         configClient.account_selected = account.ID;
@@ -216,5 +219,6 @@ class Login {
         await accountSelect(account);
         changePanel('home');
     }
+    
 }
 export default Login;
