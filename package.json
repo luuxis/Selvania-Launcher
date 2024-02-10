@@ -1,7 +1,7 @@
 {
     "name": "Fromagerie-Launcher",
     "preductname": "Fromagerie Launcher",
-    "version": "2.5.2",
+    "version": "2.5.3",
     "description": "Launcher Mincraft pour le serveur Fromagerie",
     "main": "src/app.js",
     "author": {

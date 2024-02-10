@@ -136,7 +136,7 @@ class Settings {
         let ram = config?.java_config?.java_memory ? {
             ramMin: config.java_config.java_memory.min,
             ramMax: config.java_config.java_memory.max
-        } : { ramMin: "6", ramMax: "8" };
+        } : { ramMin: "1", ramMax: "2" };
 
         if (totalMem < ram.ramMin) {
             config.java_config.java_memory = { min: 6, max: 2 };
