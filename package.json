@@ -1,44 +1,41 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.0.0",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "name": "Luxfiro-Cliente",
+    "preductname": "Luxfiro-Cliente",
+    "dataDirectory": "Usuario/AppData/Roaming/.Luxfiro-Cliente/Lucky_block",
+    "version": "1.1.0",
+    "description": "Launcher Oficial de Litium Studios | configurado por SoyMango |",
     "main": "src/app.js",
-    "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "https://github.com/luuxis"
+    "author": "SoyMando x luuxis",
+    "url": "https://patoaas.000webhostapp.com/datos/",
+    "engines": {
+        "node": "^18.x.x"
     },
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
-        "build": "node build.js --obf=false --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
+        "build": "node build.js --build",
+        "icon": "node build.js --icon=https://github.com/Soylamango/Litium-Launcher/blob/master/src/assets/images/icon.png",
+        "dev": "nodemon --exec npm start"
     },
-    "license": "CCANC",
+    "license": "CC0",
     "nodemonConfig": {
-        "ext": "js,html,css",
-        "ignore": "**/test"
+        "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^6.1.4",
-        "minecraft-java-core": "^3.8.1",
-        "node-bdd": "^2.0.3",
-        "node-fetch": "^2.7.0",
-        "xml-js": "^1.6.11"
+        "discord-rpc": "^4.0.1",
+        "electron-updater": "^6.1.1",
+        "minecraft-java-core": "^3.6.2",
+        "node-fetch": "^2.6.13"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^27.0.4",
-        "electron-builder": "^24.6.4",
-        "javascript-obfuscator": "^4.1.0",
+        "electron": "^26.0.0",
+        "electron-builder": "^24.6.3",
         "jimp": "^0.22.10",
         "nodemon": "^3.0.1",
         "png2icons": "^2.0.1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/Soylamango/Luxfiro_Cliente.git"
     }
 }

@@ -1,129 +1,66 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
- */
+'use strict';
 
-import { changePanel, accountSelect, database, Slider, config, setStatus, popup, appdata, setBackground } from '../utils.js'
-const { ipcRenderer } = require('electron');
+import { database, changePanel, accountSelect, Slider } from '../utils.js';
+const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
+
 const os = require('os');
+const fs = require('fs');
 
 class Settings {
     static id = "settings";
     async init(config) {
         this.config = config;
-        this.db = new database();
-        this.navBTN()
-        this.accounts()
-        this.ram()
-        this.javaPath()
-        this.resolution()
-        this.launcher()
+        this.database = await new database().init();
+        this.initSettingsDefault();
+        this.initTab();
+        this.initAccount();
+        this.initRam();
+        this.initJavaPath();
+        this.initJavaArgs();
+        this.initResolution();
+        this.initLauncherSettings();
+        muteonload();
     }
 
-    navBTN() {
-        document.querySelector('.nav-box').addEventListener('click', e => {
-            if (e.target.classList.contains('nav-settings-btn')) {
-                let id = e.target.id
 
-                let activeSettingsBTN = document.querySelector('.active-settings-BTN')
-                let activeContainerSettings = document.querySelector('.active-container-settings')
+    initAccount() {
+        document.querySelector('.accounts').addEventListener('click', async(e) => {
+            let uuid = e.target.id;
+            let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
-                if (id == 'save') {
-                    if (activeSettingsBTN) activeSettingsBTN.classList.toggle('active-settings-BTN');
-                    document.querySelector('#account').classList.add('active-settings-BTN');
+            if (e.path[0].classList.contains('account')) {
+                accountSelect(uuid);
+                this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
+            }
 
-                    if (activeContainerSettings) activeContainerSettings.classList.toggle('active-container-settings');
-                    document.querySelector(`#account-tab`).classList.add('active-container-settings');
-                    return changePanel('home')
+            if (e.target.classList.contains("account-delete")) {
+                this.database.delete(e.path[1].id, 'accounts');
+
+                document.querySelector('.accounts').removeChild(e.path[1])
+                if (!document.querySelector('.accounts').children.length) {
+                    changePanel("login");
+                    return
                 }
 
-                if (activeSettingsBTN) activeSettingsBTN.classList.toggle('active-settings-BTN');
-                e.target.classList.add('active-settings-BTN');
-
-                if (activeContainerSettings) activeContainerSettings.classList.toggle('active-container-settings');
-                document.querySelector(`#${id}-tab`).classList.add('active-container-settings');
+                if (e.path[1].id === selectedaccount.value.selected) {
+                    let uuid = (await this.database.getAll('accounts'))[0].value.uuid
+                    this.database.update({
+                        uuid: "1234",
+                        selected: uuid
+                    }, 'accounts-selected')
+                    accountSelect(uuid)
+                }
             }
+        })
+
+        document.querySelector('.add-account').addEventListener('click', () => {
+            document.querySelector(".cancel-login").style.display = "block";
+            changePanel("login");
         })
     }
 
-    accounts() {
-        document.querySelector('.accounts-list').addEventListener('click', async e => {
-            let popupAccount = new popup()
-            try {
-                let id = e.target.id
-                if (e.target.classList.contains('account')) {
-                    popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
-                        color: 'var(--color)'
-                    })
-
-                    if (id == 'add') {
-                        document.querySelector('.cancel-home').style.display = 'inline'
-                        return changePanel('login')
-                    }
-
-                    let account = await this.db.readData('accounts', id);
-                    let configClient = await this.setInstance(account);
-                    await accountSelect(account);
-                    configClient.account_selected = account.ID;
-                    return await this.db.updateData('configClient', configClient);
-                }
-
-                if (e.target.classList.contains("delete-profile")) {
-                    popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
-                        color: 'var(--color)'
-                    })
-                    await this.db.deleteData('accounts', id);
-                    let deleteProfile = document.getElementById(`${id}`);
-                    let accountListElement = document.querySelector('.accounts-list');
-                    accountListElement.removeChild(deleteProfile);
-
-                    if (accountListElement.children.length == 1) return changePanel('login');
-
-                    let configClient = await this.db.readData('configClient');
-
-                    if (configClient.account_selected == id) {
-                        let allAccounts = await this.db.readAllData('accounts');
-                        configClient.account_selected = allAccounts[0].ID
-                        accountSelect(allAccounts[0]);
-                        let newInstanceSelect = await this.setInstance(allAccounts[0]);
-                        configClient.instance_selct = newInstanceSelect.instance_selct
-                        return await this.db.updateData('configClient', configClient);
-                    }
-                }
-            } catch (err) {
-                console.error(err)
-            } finally {
-                popupAccount.closePopup();
-            }
-        })
-    }
-
-    async setInstance(auth) {
-        let configClient = await this.db.readData('configClient')
-        let instanceSelect = configClient.instance_selct
-        let instancesList = await config.getInstanceList()
-
-        for (let instance of instancesList) {
-            if (instance.whitelistActive) {
-                let whitelist = instance.whitelist.find(whitelist => whitelist == auth.name)
-                if (whitelist !== auth.name) {
-                    if (instance.name == instanceSelect) {
-                        let newInstanceSelect = instancesList.find(i => i.whitelistActive == false)
-                        configClient.instance_selct = newInstanceSelect.name
-                        await setStatus(newInstanceSelect.status)
-                    }
-                }
-            }
-        }
-        return configClient
-    }
-
-    async ram() {
-        let config = await this.db.readData('configClient');
+    async initRam() {
+        let ramDatabase = (await this.database.get('1234', 'ram'))?.value;
         let totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
         let freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
 
@@ -133,17 +70,7 @@ class Settings {
         let sliderDiv = document.querySelector(".memory-slider");
         sliderDiv.setAttribute("max", Math.trunc((80 * totalMem) / 100));
 
-        let ram = config?.java_config?.java_memory ? {
-            ramMin: config.java_config.java_memory.min,
-            ramMax: config.java_config.java_memory.max
-        } : { ramMin: "1", ramMax: "2" };
-
-        if (totalMem < ram.ramMin) {
-            config.java_config.java_memory = { min: 1, max: 2 };
-            this.db.updateData('configClient', config);
-            ram = { ramMin: "1", ramMax: "2" }
-        };
-
+        let ram = ramDatabase ? ramDatabase : { ramMin: "1", ramMax: "2" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
 
         let minSpan = document.querySelector(".slider-touch-left span");
@@ -152,176 +79,249 @@ class Settings {
         minSpan.setAttribute("value", `${ram.ramMin} Go`);
         maxSpan.setAttribute("value", `${ram.ramMax} Go`);
 
-        slider.on("change", async (min, max) => {
-            let config = await this.db.readData('configClient');
+        slider.on("change", (min, max) => {
             minSpan.setAttribute("value", `${min} Go`);
             maxSpan.setAttribute("value", `${max} Go`);
-            config.java_config.java_memory = { min: min, max: max };
-            this.db.updateData('configClient', config);
+            this.database.update({ uuid: "1234", ramMin: `${min}`, ramMax: `${max}` }, 'ram')
         });
     }
 
-    async javaPath() {
-        let javaPathText = document.querySelector(".java-path-txt")
-        javaPathText.textContent = `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
+    async initJavaPath() {
+        let javaDatabase = (await this.database.get('1234', 'java-path'))?.value?.path;
+        let javaPath = javaDatabase ? javaDatabase : 'Utiliser la version de java livre avec le launcher';
+        document.querySelector(".info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
-        let configClient = await this.db.readData('configClient')
-        let javaPath = configClient?.java_config?.java_path || 'Utiliser la version de java livre avec le launcher';
-        let javaPathInputTxt = document.querySelector(".java-path-input-text");
-        let javaPathInputFile = document.querySelector(".java-path-input-file");
-        javaPathInputTxt.value = javaPath;
+        let path = document.querySelector(".path");
+        path.value = javaPath;
+        let file = document.querySelector(".path-file");
 
-        document.querySelector(".java-path-set").addEventListener("click", async () => {
-            javaPathInputFile.value = '';
-            javaPathInputFile.click();
+        document.querySelector(".path-button").addEventListener("click", async() => {
+            file.value = '';
+            file.click();
             await new Promise((resolve) => {
                 let interval;
                 interval = setInterval(() => {
-                    if (javaPathInputFile.value != '') resolve(clearInterval(interval));
+                    if (file.value != '') resolve(clearInterval(interval));
                 }, 100);
             });
 
-            if (javaPathInputFile.value.replace(".exe", '').endsWith("java") || javaPathInputFile.value.replace(".exe", '').endsWith("javaw")) {
-                let configClient = await this.db.readData('configClient')
-                let file = javaPathInputFile.files[0].path;
-                javaPathInputTxt.value = file;
-                configClient.java_config.java_path = file
-                await this.db.updateData('configClient', configClient);
+            if (file.value.replace(".exe", '').endsWith("java") || file.value.replace(".exe", '').endsWith("javaw")) {
+                this.database.update({ uuid: "1234", path: file.value }, 'java-path');
+                path.value = file.value.replace(/\\/g, "/");
             } else alert("Le nom du fichier doit être java ou javaw");
+
         });
 
-        document.querySelector(".java-path-reset").addEventListener("click", async () => {
-            let configClient = await this.db.readData('configClient')
-            javaPathInputTxt.value = 'Utiliser la version de java livre avec le launcher';
-            configClient.java_config.java_path = null
-            await this.db.updateData('configClient', configClient);
+        document.querySelector(".path-button-reset").addEventListener("click", () => {
+            path.value = 'Utiliser la version de java livre avec le launcher';
+            file.value = '';
+            this.database.update({ uuid: "1234", path: false }, 'java-path');
         });
     }
 
-    async resolution() {
-        let configClient = await this.db.readData('configClient')
-        let resolution = configClient?.game_config?.screen_size || { width: 1920, height: 1080 };
+    async initJavaArgs() {
+        let javaArgsDatabase = (await this.database.get('1234', 'java-args'))?.value?.args;
+        let argsInput = document.querySelector(".args-settings");
 
+        if (javaArgsDatabase?.length) argsInput.value = javaArgsDatabase.join(' ');
+    
+        document.querySelector('.args-settings').addEventListener('change', () => {
+            let args = [];
+            try {
+                if (argsInput.value.length) {
+                    argsInput = argsInput.value.trim().split(/\s+/)
+                    for(let arg of argsInput) {
+                        if (arg === '') continue;
+                        args.push(arg);
+                    }
+                }
+            } finally {
+                this.database.update({ uuid: "1234", args: args }, 'java-args');
+            }
+        });
+    }
+
+    async initResolution() {
+        let resolutionDatabase = (await this.database.get('1234', 'screen'))?.value?.screen;
+        let resolution = resolutionDatabase ? resolutionDatabase : { width: "1280", height: "720", fullscreen: false };
+
+        let fullscreen = document.getElementById("fullscreen");
+        fullscreen.checked = resolution.fullscreen;
+        
         let width = document.querySelector(".width-size");
-        let height = document.querySelector(".height-size");
-        let resolutionReset = document.querySelector(".size-reset");
-
         width.value = resolution.width;
+        
+        let height = document.querySelector(".height-size");
         height.value = resolution.height;
+    
+        let select = document.getElementById("select");
+        select.addEventListener("change", (event) => {
+            let resolution = select.options[select.options.selectedIndex].value.split(" x ");
+            select.options.selectedIndex = 0;
+            
+            width.value = resolution[0];
+            height.value = resolution[1];
+            this.database.update({ uuid: "1234", screen: { width: resolution[0], height: resolution[1] } }, 'screen');
+        });
 
-        width.addEventListener("change", async () => {
-            let configClient = await this.db.readData('configClient')
-            configClient.game_config.screen_size.width = width.value;
-            await this.db.updateData('configClient', configClient);
+        let widthElement = document.querySelector(".width-size");
+        let heightElement = document.querySelector(".height-size");
+
+        widthElement.addEventListener("change", () => {
+            this.database.update({ uuid: "1234", screen: { width: widthElement.value, height: heightElement.value } }, 'screen');
+        }
+        );
+
+        heightElement.addEventListener("change", () => {
+            this.database.update({ uuid: "1234", screen: { width: widthElement.value, height: heightElement.value } }, 'screen');
+        }
+        );
+
+        fullscreen.addEventListener("change", () => {
+            this.database.update({ uuid: "1234", screen: { width: widthElement.value, height: heightElement.value, fullscreen: fullscreen.checked } }, 'screen');
+            if (fullscreen.checked) {
+                let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
+                options = options.replace(/fullscreen:false/g, 'fullscreen:true');
+                fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
+            } else {
+                let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
+                options = options.replace(/fullscreen:true/g, 'fullscreen:false');
+                fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
+            }
+        }
+        );
+
+        if (resolution.fullscreen) {
+            let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
+            options = options.replace(/fullscreen:false/g, 'fullscreen:true');
+            fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
+        } else {
+            let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
+            options = options.replace(/fullscreen:true/g, 'fullscreen:false');
+            fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
+        }
+
+    }
+
+    async initLauncherSettings() {
+        let launcherDatabase = (await this.database.get('1234', 'launcher'))?.value;
+        let settingsLauncher = {
+            uuid: "1234",
+            launcher: {
+                close: launcherDatabase?.launcher?.close || 'close-launcher',
+                autoConnect: launcherDatabase?.launcher?.autoConnect || false,
+            }
+        }
+
+        let autoConnect = document.getElementById("auto-connect");
+        autoConnect.checked = settingsLauncher.launcher.autoConnect;
+
+        autoConnect.addEventListener("change", () => {
+            settingsLauncher.launcher.autoConnect = autoConnect.checked;
+            this.database.update(settingsLauncher, 'launcher');
         })
 
-        height.addEventListener("change", async () => {
-            let configClient = await this.db.readData('configClient')
-            configClient.game_config.screen_size.height = height.value;
-            await this.db.updateData('configClient', configClient);
+        let closeLauncher = document.getElementById("launcher-close");
+        let closeAll = document.getElementById("launcher-close-all");
+        let openLauncher = document.getElementById("launcher-open");
+
+        if(settingsLauncher.launcher.close === 'close-launcher') {
+            closeLauncher.checked = true;
+        } else if(settingsLauncher.launcher.close === 'close-all') {
+            closeAll.checked = true;
+        } else if(settingsLauncher.launcher.close === 'open-launcher') {
+            openLauncher.checked = true;
+        }
+
+        closeLauncher.addEventListener("change", () => {
+            if(closeLauncher.checked) {
+                openLauncher.checked = false;
+                closeAll.checked = false;
+            }
+           if(!closeLauncher.checked) closeLauncher.checked = true;
+            settingsLauncher.launcher.close = 'close-launcher';
+            this.database.update(settingsLauncher, 'launcher');
         })
 
-        resolutionReset.addEventListener("click", async () => {
-            let configClient = await this.db.readData('configClient')
-            configClient.game_config.screen_size = { width: '854', height: '480' };
-            width.value = '854';
-            height.value = '480';
-            await this.db.updateData('configClient', configClient);
+        closeAll.addEventListener("change", () => {
+            if(closeAll.checked) {
+                closeLauncher.checked = false;
+                openLauncher.checked = false;
+            }
+            if(!closeAll.checked) closeAll.checked = true;
+            settingsLauncher.launcher.close = 'close-all';
+            this.database.update(settingsLauncher, 'launcher');
+        })
+
+        openLauncher.addEventListener("change", () => {
+            if(openLauncher.checked) {
+                closeLauncher.checked = false;
+                closeAll.checked = false;
+            }
+            if(!openLauncher.checked) openLauncher.checked = true;
+            settingsLauncher.launcher.close = 'open-launcher';
+            this.database.update(settingsLauncher, 'launcher');
         })
     }
 
-    async launcher() {
-        let configClient = await this.db.readData('configClient');
+    initTab() {
+        let TabBtn = document.querySelectorAll('.tab-btn');
+        let TabContent = document.querySelectorAll('.tabs-settings-content');
 
-        let maxDownloadFiles = configClient?.launcher_config?.download_multi || 5;
-        let maxDownloadFilesInput = document.querySelector(".max-files");
-        let maxDownloadFilesReset = document.querySelector(".max-files-reset");
-        maxDownloadFilesInput.value = maxDownloadFiles;
+        for (let i = 0; i < TabBtn.length; i++) {
+            TabBtn[i].addEventListener('click', () => {
+                if (TabBtn[i].classList.contains('save-tabs-btn')) return
+                for (let j = 0; j < TabBtn.length; j++) {
+                    TabContent[j].classList.remove('active-tab-content');
+                    TabBtn[j].classList.remove('active-tab-btn');
+                }
+                //add animation delay
+                TabContent[i].classList.add('transition');
+                setTimeout(() => {
+                    TabContent[i].classList.remove('transition');
+                    TabContent[i].classList.add('active-tab-content');
+                    TabBtn[i].classList.add('active-tab-btn');
+                }, 500);
 
-        maxDownloadFilesInput.addEventListener("change", async () => {
-            let configClient = await this.db.readData('configClient')
-            configClient.launcher_config.download_multi = maxDownloadFilesInput.value;
-            await this.db.updateData('configClient', configClient);
-        })
-
-        maxDownloadFilesReset.addEventListener("click", async () => {
-            let configClient = await this.db.readData('configClient')
-            maxDownloadFilesInput.value = 5
-            configClient.launcher_config.download_multi = 5;
-            await this.db.updateData('configClient', configClient);
-        })
-
-        let themeBox = document.querySelector(".theme-box");
-        let theme = configClient?.launcher_config?.theme || "auto";
-
-        if (theme == "auto") {
-            document.querySelector('.theme-btn-auto').classList.add('active-theme');
-        } else if (theme == "dark") {
-            document.querySelector('.theme-btn-sombre').classList.add('active-theme');
-        } else if (theme == "light") {
-            document.querySelector('.theme-btn-clair').classList.add('active-theme');
+            });
         }
 
-        themeBox.addEventListener("click", async e => {
-            if (e.target.classList.contains('theme-btn')) {
-                let activeTheme = document.querySelector('.active-theme');
-                if (e.target.classList.contains('active-theme')) return
-                activeTheme?.classList.remove('active-theme');
-
-                if (e.target.classList.contains('theme-btn-auto')) {
-                    setBackground();
-                    theme = "auto";
-                    e.target.classList.add('active-theme');
-                } else if (e.target.classList.contains('theme-btn-sombre')) {
-                    setBackground(true);
-                    theme = "dark";
-                    e.target.classList.add('active-theme');
-                } else if (e.target.classList.contains('theme-btn-clair')) {
-                    setBackground(false);
-                    theme = "light";
-                    e.target.classList.add('active-theme');
-                }
-
-                let configClient = await this.db.readData('configClient')
-                configClient.launcher_config.theme = theme;
-                await this.db.updateData('configClient', configClient);
-            }
+        document.querySelector('.save-tabs-btn').addEventListener('click', () => {
+            document.querySelector('.default-tab-btn').click();
+            changePanel("home");
         })
+    }
 
-        let closeBox = document.querySelector(".close-box");
-        let closeLauncher = configClient?.launcher_config?.closeLauncher || "close-launcher";
-
-        if (closeLauncher == "close-launcher") {
-            document.querySelector('.close-launcher').classList.add('active-close');
-        } else if (closeLauncher == "close-all") {
-            document.querySelector('.close-all').classList.add('active-close');
-        } else if (closeLauncher == "close-none") {
-            document.querySelector('.close-none').classList.add('active-close');
+    async initSettingsDefault() {
+        if (!(await this.database.getAll('accounts-selected')).length) {
+            this.database.add({ uuid: "1234" }, 'accounts-selected')
         }
 
-        closeBox.addEventListener("click", async e => {
-            if (e.target.classList.contains('close-btn')) {
-                let activeClose = document.querySelector('.active-close');
-                if (e.target.classList.contains('active-close')) return
-                activeClose?.classList.toggle('active-close');
+        if (!(await this.database.getAll('java-path')).length) {
+            this.database.add({ uuid: "1234", path: false }, 'java-path')
+        }
 
-                let configClient = await this.db.readData('configClient')
+        if (!(await this.database.getAll('java-args')).length) {
+            this.database.add({ uuid: "1234", args: [] }, 'java-args')
+        }
 
-                if (e.target.classList.contains('close-launcher')) {
-                    e.target.classList.toggle('active-close');
-                    configClient.launcher_config.closeLauncher = "close-launcher";
-                    await this.db.updateData('configClient', configClient);
-                } else if (e.target.classList.contains('close-all')) {
-                    e.target.classList.toggle('active-close');
-                    configClient.launcher_config.closeLauncher = "close-all";
-                    await this.db.updateData('configClient', configClient);
-                } else if (e.target.classList.contains('close-none')) {
-                    e.target.classList.toggle('active-close');
-                    configClient.launcher_config.closeLauncher = "close-none";
-                    await this.db.updateData('configClient', configClient);
+        if (!(await this.database.getAll('launcher')).length) {
+            this.database.add({
+                uuid: "1234",
+                launcher: {
+                    close: 'close-launcher',
+                    autoConnect: false,
                 }
-            }
-        })
+            }, 'launcher')
+        }
+
+        if (!(await this.database.getAll('ram')).length) {
+            this.database.add({ uuid: "1234", ramMin: "1", ramMax: "2" }, 'ram')
+        }
+
+        if (!(await this.database.getAll('screen')).length) {
+            this.database.add({ uuid: "1234", screen: { width: "1280", height: "720", fullscreen: false } }, 'screen')
+        }
     }
 }
 export default Settings;

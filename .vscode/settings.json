@@ -4,7 +4,7 @@
         "**/node_modules": true,
         "**/package-lock.json": true,
         "**/dist": true,
-        "**/app": true,
         "**/.gitignore": true
-    }
+    },
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

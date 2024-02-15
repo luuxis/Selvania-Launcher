@@ -1,5 +1,5 @@
 /**
- * @author Luuxis
+ * @author MenakiVT
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
@@ -23,6 +23,8 @@ if (dev) {
     app.setPath('userData', appPath);
     app.setPath('appData', appdata)
 }
+
+const gotTheLock = app.requestSingleInstanceLock();
 
 if (!app.requestSingleInstanceLock()) app.quit();
 else app.whenReady().then(() => {
@@ -49,14 +51,6 @@ ipcMain.on('update-window-progress-load', () => UpdateWindow.getWindow().setProg
 ipcMain.handle('path-user-data', () => app.getPath('userData'))
 ipcMain.handle('appData', e => app.getPath('appData'))
 
-ipcMain.on('main-window-maximize', () => {
-    if (MainWindow.getWindow().isMaximized()) {
-        MainWindow.getWindow().unmaximize();
-    } else {
-        MainWindow.getWindow().maximize();
-    }
-})
-
 ipcMain.on('main-window-hide', () => MainWindow.getWindow().hide())
 ipcMain.on('main-window-show', () => MainWindow.getWindow().show())
 
@@ -71,6 +65,89 @@ ipcMain.handle('is-dark-theme', (_, theme) => {
 })
 
 app.on('window-all-closed', () => app.quit());
+
+const rpc = require('discord-rpc');
+let client = new rpc.Client({ transport: 'ipc' });
+const pkg = require('../package.json');
+
+let startedAppTime = Date.now();
+
+ipcMain.on('new-status-discord', async () => {
+    client.login({ clientId: '1207516304857235546' });
+    client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+            pid: process.pid,
+            activity: {
+                details: 'By: Luxfiro Studios',
+                state: 'En el Menú principal',
+                assets: {
+                    large_image: 'logo1',
+                    large_text: 'Luxfiro Studios',
+                },
+                buttons: [
+                    { label: 'Boton', url: "https://discord.gg/96kRQPbb" },
+                ],
+                instance: false,
+                timestamps: {
+                    start: startedAppTime
+                }
+            },
+        });
+    });
+});
+
+
+ipcMain.on('new-status-discord-jugando', async (event, status) => {
+    console.log(status)
+    if(client) await client.destroy();
+    client.login({ clientId: '1207516304857235546' });
+    client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+            pid: process.pid,
+            activity: {
+                details: 'By: Luxfiro Cliente',
+                state: 'Jugando',
+                assets: {
+                    large_image: 'logo1',
+                    large_text: 'Luxfiro Studios',
+                },
+                buttons: [
+                    { label: 'Boton', url: "https://discord.gg/96kRQPbb" },
+                ],
+                instance: false,
+                timestamps: {
+                    start: startedAppTime
+                }
+            },
+        });
+    });
+});
+
+ipcMain.on('delete-and-new-status-discord', async () => {
+    if(client) client.destroy();
+    client = new rpc.Client({ transport: 'ipc' });
+    client.login({ clientId: '1207516304857235546' });
+    client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+            pid: process.pid,
+            activity: {
+                details: 'By: Luxfiro Studios',
+                state: 'En el Menú principal',
+                assets: {
+                    large_image: 'logo1',
+                    large_text: 'Luxfiro Studios',
+                },
+                buttons: [
+                    { label: 'Boton', url: "https://discord.gg/96kRQPbb" },
+                ],
+                instance: false,
+                timestamps: {
+                    start: startedAppTime
+                }
+            },
+        });
+    });
+});
 
 autoUpdater.autoDownload = false;
 

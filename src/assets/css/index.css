@@ -1,8 +1,6 @@
 @import "font.css";
-@import 'theme.css';
-
 body {
-    background-color: var(--background);
+    background-color: hsla(0, 0%, 0%, 0.055);
     font-family: "Poppins";
     letter-spacing: 0px;
     -webkit-app-region: drag;
@@ -42,7 +40,7 @@ img {
     text-align: center;
     letter-spacing: 0px;
     transition: opacity 1.5s;
-    color: var(--color);
+    color: rgb(255, 255, 255);
     opacity: 0;
 }
 
@@ -58,7 +56,7 @@ img {
     text-align: center;
     transition: opacity 1.5s;
     font: normal normal normal 9px/13px Poppins;
-    color: var(--color);
+    color: rgb(255, 255, 255);
     opacity: 0;
 }
 
@@ -78,7 +76,7 @@ img {
     text-align: center;
     transition: opacity 1.5s;
     font: normal normal bold 18px/27px Poppins;
-    color: var(--color);
+    color: rgb(255, 255, 255);
     opacity: 0;
 }
 
@@ -86,7 +84,7 @@ img {
     opacity: 1;
 }
 
-.progress {
+progress {
     position: absolute;
     top: 410px;
     left: 106px;
@@ -97,17 +95,16 @@ img {
     opacity: 0;
 }
 
-.show {
+progress.show {
     opacity: 1;
 }
 
-.progress::-webkit-progress-bar {
-    background-color: var(--background);
-    border: solid 1px var(--element-color);
+progress::-webkit-progress-bar {
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 
-.progress::-webkit-progress-value {
-    background-color: var(--element-color);
+progress::-webkit-progress-value {
+    background-color: rgb(255, 0, 0);
     border-radius: 10px;
 }

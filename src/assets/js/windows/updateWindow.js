@@ -1,13 +1,12 @@
 /**
  * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
  */
 
 "use strict";
-const { app, BrowserWindow, Menu } = require("electron");
+const electron = require("electron");
 const path = require("path");
 const os = require("os");
-let dev = process.env.DEV_TOOL === 'open';
 let updateWindow = undefined;
 
 function getWindow() {
@@ -22,12 +21,13 @@ function destroyWindow() {
 
 function createWindow() {
     destroyWindow();
-    updateWindow = new BrowserWindow({
+    updateWindow = new electron.BrowserWindow({
         title: "Mise à jour",
         width: 400,
         height: 500,
         resizable: false,
         icon: `./src/assets/images/icon.${os.platform() === "win32" ? "ico" : "png"}`,
+        transparent: os.platform() === 'win32',
         frame: false,
         show: false,
         webPreferences: {
@@ -35,12 +35,11 @@ function createWindow() {
             nodeIntegration: true
         },
     });
-    Menu.setApplicationMenu(null);
+    electron.Menu.setApplicationMenu(null);
     updateWindow.setMenuBarVisibility(false);
-    updateWindow.loadFile(path.join(`${app.getAppPath()}/src/index.html`));
+    updateWindow.loadFile(path.join(electron.app.getAppPath(), 'src', 'index.html'));
     updateWindow.once('ready-to-show', () => {
         if (updateWindow) {
-            if (dev) updateWindow.webContents.openDevTools({ mode: 'detach' })
             updateWindow.show();
         }
     });

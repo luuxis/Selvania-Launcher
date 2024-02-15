@@ -1,50 +1,193 @@
-.login .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.login-tabs {
+.login-card {
     position: absolute;
-    padding: 15px;
-    background: var(--background);
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    background: rgba(18, 18, 18, 0.5);
+    padding: 20px;
+    font: normal normal bold 19px/29px Poppins;
+    color: #E1E1E1;
     border-radius: 15px;
     text-align: center;
-    min-width: 40%;
+    backdrop-filter: blur(30px);
 }
 
-.login-home,
-.login-offline,
-.login-AZauth,
-.login-AZauth-A2F {
+.login-type {
+    display: grid;
+    padding: 0 7%;
+}
+
+.login-type-btn {
+    border-radius: 15px;
+    border: none;
+    margin: 2% 0;
+    height: 2em;
+    background: rgb(119, 0, 255);
+    background: radial-gradient(circle, rgba(119, 0, 255) 0%, rgba(119, 0, 255) 100%);
+    color: #121212;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.login-type-btn:hover {
+    box-shadow: 0 0 15px #8038a1;
+    transform: scale(1.05);
+}
+
+.login-type-btn:disabled {
+    background-color: #7800bd;
+    box-shadow: 0 0 5px #7800bd;
+    cursor: default;
+}
+
+.login-type-btn:disabled:hover {
+    background-color: #7800bd;
+    box-shadow: 0 0 5px #7800bd;
+}
+
+.login-card-mojang {
+    display: none;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    background: rgba(18, 18, 18, 0.5);
+    padding: 20px;
+    font: normal normal bold 19px/29px Poppins;
+    color: #E1E1E1;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(30px);
+}
+
+
+.login-card-mojang-input {
+    text-align: center;
+    display: grid;
+    padding-bottom: 10px;
+}
+
+.login-card-mojang-input2 {
+    text-align: center;
+    display: grid;
     display: none;
 }
 
-.login-text {
-    font-size: 1.3rem;
+.login-mojang-input {
+    font-family: 'Poppins';
+    letter-spacing: 2px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    background-color: #1f1f1f;
+    padding: 0.375rem 0.75rem;
+    margin: 0;
+    height: 2.8em;
 }
 
-.connect,
-.cancel {
-    background: none;
-    color: var(--color);
-    border: solid 4px var(--element-color);
-    border-radius: 10px;
-    padding: 0.3rem 4rem;
-    font-size: inherit;
-    font-weight: bold;
-    margin: 15px 10px;
-}
-
-.input-login .email,
-.input-login .password,
-.A2F {
-    color: var(--color);
-    background: none;
-    border: solid 2px var(--element-color);
+.login-mojang-input2 {
+    font-family: 'Poppins';
+    letter-spacing: 2px;
+    color: #fff;
+    border: solid 0px rgba(0, 0, 0, 0);
     border-radius: 30px;
-    width: 50%;
-    padding: 0.4rem 1rem;
-    margin-top: 10px;
+    background-color: #373737;
+    padding: 0.375rem 0.75rem;
+    display: none;
+}
+
+.loginDisclaimerText {
+    text-align: center;
+    font-size: 0.5em;
+}
+
+.btn-option-login {
+    width: 100%;
+    display: grid;
+    text-align: center;
+}
+
+.login-btn {
+    border-radius: 15px;
+    border: none;
+    margin: 2% 0;
+    height: 2em;
+    background: rgb(119, 0, 255);
+    background: radial-gradient(circle, rgba(119, 0, 255) 0%, rgba(119, 0, 255) 100%);
+    color: #121212;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.login-btn:hover {
+    box-shadow: 0 0 15px #7800bd;
+    transform: scale(1.05);
+}
+
+.cancel {
+    border: 3px solid rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0);
+    color: #F1F1F1;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+    display: block;
+    border-radius: 15px;
+    width: auto;
+    margin: auto;
+    margin-top: 2%;
+    padding-top: 0;
+    transition: 0.2s ease-out;
+    height: 45px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+    padding: 0px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: rgb(0, 0, 0);
+}
+.cancel span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.2s;
+}
+
+.cancel span:after{
+    color: red;
+    content: '\0078';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.2s;
+    font-weight: bold;
+}
+.cancel:hover span{
+    padding-right: 25px;
+}
+.cancel:hover span:after{
+    opacity: 1;
+    right: 0;
+}
+.cancel:hover:disabled {
+    color: #F1F1F1;
+    cursor: default;
+}
+
+.logo {
+    position: absolute;
+    top: 15%;
+    margin-top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20%; /* Adjust the height as needed */
+    text-align: center;
 }
