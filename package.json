@@ -1,9 +1,8 @@
 {
-    "name": "luxfiro-cliente",
-    "preductname": "Luxfiro-Cliente",
-    "dataDirectory": "Usuario/AppData/Roaming/.Luxfiro-Cliente/Lucky_block",
+    "name": "Luxfiro-launcher",
+    "preductname": "Luxfiro Launcher",
     "version": "1.1.0",
-    "description": "Launcher Oficial de Litium Studios | configurado por SoyMango |",
+    "description": "Cliente Litium Comunidad | configurado por SoyMango |",
     "main": "src/app.js",
     "author": "SoyMando x luuxis",
     "url": "https://patoaas.000webhostapp.com/datos/",
@@ -36,6 +35,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Soylamango/Luxfiro-Cliente.git"
+        "url": "git+https://github.com/Soylamango/Litium-Launcher/tree/master.git"
     }
 }

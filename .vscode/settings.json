@@ -5,6 +5,5 @@
         "**/package-lock.json": true,
         "**/dist": true,
         "**/.gitignore": true
-    },
-    "CodeGPT.apiKey": "CodeGPT Plus Beta"
+    }
 }

@@ -6,7 +6,6 @@
 'use strict';
 const { ipcRenderer } = require('electron');
 import { config } from './utils.js';
-const { ipcMain, BrowserWindow } = require('electron');
 
 let dev = process.env.NODE_ENV === 'dev';
 
@@ -23,13 +22,13 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Cargando Luxfiro Cliente", "author": "" },
-            { "message": "El Launcher esta cargando...", "author": "" },
-            { "message": "Starting Server...", "author": "" }
+            { "message": "Cargando Litium Launcher", "author": "SoyRayku x Litium" },
+            { "message": "El Launcher esta cargando...", "author": "SoyRayku x Litium" },
+            { "message": "Loading Universo  Hardcore", "author": "SoyRayku x Litium" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
-        this.splashAuthor.children[0].textContent = "" + splash.author;
+        this.splashAuthor.children[0].textContent = "@" + splash.author;
         await sleep(100);
         document.querySelector("#splash").style.display = "block";
         await sleep(500);
