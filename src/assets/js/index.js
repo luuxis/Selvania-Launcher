@@ -23,13 +23,13 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Cargando SG Launcher", "author": "SoyRayku x SG" },
-            { "message": "El Launcher esta cargando...", "author": "SoyRayku x SG" },
-            { "message": "Starting Server...", "author": "SoyRayku x SG" }
+            { "message": "Cargando Luxfiro Cliente", "author": "" },
+            { "message": "El Launcher esta cargando...", "author": "" },
+            { "message": "Starting Server...", "author": "" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
-        this.splashAuthor.children[0].textContent = "@" + splash.author;
+        this.splashAuthor.children[0].textContent = "" + splash.author;
         await sleep(100);
         document.querySelector("#splash").style.display = "block";
         await sleep(500);
