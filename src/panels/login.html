@@ -1,50 +1,34 @@
-<div class="container">
-    <div class="login-home login-tabs">
-        <div class="login-text">Veuillez vous identifier afin de jouer.</div>
+<img src="assets/images/launcher_logo.png" alt="logo" class="logo">
 
-        <div class="login-options">
-            <button class="connect connect-home">Connexion</button>
-            <button class="cancel cancel-home"  style="display: none;">annuler</button>
+<div class="login-content">
+    <div class="login-card">
+        <p>Utiliza tu cuenta de <span class="store">Minecraft</span> para iniciar sesion en el Launcher.</p>
+        <div class="login-type">
+            <button class="mojang login-type-btn">No Premium</button>
+            <button class="microsoft login-type-btn">Premium</button>
         </div>
+        <button class="cancel cancel-login" style="display: block;"><span>Cancelar</span></button>
     </div>
 
-    <div class="login-offline login-tabs">
-        <div class="login-text">Veuillez entrer votre pseudo</div>
+    <div class="login-card-mojang">
+            <small style="display: none" class="info-login">&nbsp;</small>
+            <p>Nombre</p>
+            <div class="login-card-mojang-input"> 
+                <input type="text" class="Mail login-mojang-input" spellcheck="false" placeholder="Ejem. : MenakiVT">
+            </div>
 
-        <div class="input-login">
-            <input type="text" class="email email-offline" placeholder="Pseudo" />
-        </div>
+            <div class="login-card-mojang-input2">
+                <label></label>
+                <input type="password" class="Password login-mojang-input2" spellcheck="false">
+                <small class="error-password">&nbsp;</small>
+            </div>
 
-        <div class="login-options">
-            <button class="connect connect-offline">Connexion</button>
-            <button class="cancel cancel-offline" style="display: none;">annuler</button>
-        </div>
+            <div class="login-options">
+                <div class="btn-option-login">
+                    <button class="login-btn">Conectar</button>
+                    <button style="display: block;" class="cancel cancel-mojang"><span>Cancelar </span></button>
+                </div>
+            </div>
     </div>
 
-    <div class="login-AZauth login-tabs">
-        <div class="login-text">Veuillez vous connecter afin de jouer.</div>
-
-        <div class="input-login">
-            <input type="text" class="email email-AZauth" placeholder="E-mail" />
-            <input type="password" class="password password-AZauth" placeholder="Password" />
-        </div>
-
-        <div class="login-options">
-            <button class="connect connect-AZauth">Connexion</button>
-            <button class="cancel cancel-AZauth" style="display: none;">annuler</button>
-        </div>
-    </div>
-
-    <div class="login-AZauth-A2F login-tabs">
-        <div class="login-text">Veuillez entrer le code de sécurité.</div>
-
-        <div class="input-login">
-            <input type="text" class="A2F A2F-AZauth" placeholder="Code" />
-        </div>
-
-        <div class="login-options">
-            <button class="connect connect-AZauth-A2F">Valider</button>
-            <button class="cancel cancel-AZauth-A2F">annuler</button>
-        </div>
-    </div>
 </div>

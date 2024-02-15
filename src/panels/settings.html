@@ -1,155 +1,163 @@
-<div class="container">
-    <div class="nav-settings">
-        <p>Paramètres</p>
-        <div class="nav-box">
-            <div id="account" class="nav-settings-btn active-settings-BTN">COMPTES</div>
-            <div id="java" class="nav-settings-btn">JAVA</div>
-            <div id="resolution" class="nav-settings-btn">RESOLUTION</div>
-            <div id="launcher" class="nav-settings-btn">LAUNCHER</div>
-            <div id="save" class="nav-settings-btn">ACCUEIL</div>
+<div class="settings-content">
+    <div class="tabs-settings-btn">
+        <button class="tab-btn-css tab-btn active-tab-btn default-tab-btn">cuentas</button>
+        <button class="tab-btn-css tab-btn">Java</button>
+        <button class="tab-btn-css tab-btn">Resolucion</button>
+        <button class="tab-btn-css tab-btn">Launcher</button>
+        <button class="tab-btn-css save-tabs-btn">Inicio</button>
+    </div>
+
+    <div class="tabs-settings-content active-tab-content">
+        <div class="center-align">
+            <div class="title-settings">cuentas</div>
+            <div class="accounts"></div>
+            <button class="add-account">Agregar una cuenta +</button>
         </div>
     </div>
 
-    <div id="account-tab" class="container-settings active-container-settings">
-        <div class="titre-tab">Comptes joueurs</div>
-
-        <div class="accounts-list content-scroll">
-            <div class="account" id="add">
-                <div class="add-profile">
-                    <div class="icon-account-add"></div>
+    <div class="tabs-settings-content">
+        <div class="settings-content-scroll">
+            <div class="title-settings">Parámetro de su RAM.</div>
+            <div class="java-settings">
+                <div class="information">
+                    Definición de la RAM asignada a tu juego, una cantidad mayor aumentará el rendimiento de
+                    tu juego.<br> Ten en cuenta que debes evitar agregar una cantidad demasiado grande, de lo contrario, puede
+                    causar pérdidas de rendimiento en su
+                    otras aplicaciones.
+                    <br><br>
+                    <b>- RAM máxima:</b> Indica la cantidad total de RAM asignada a tu juego. Se recomienda
+                    no exceda el 50% de la cantidad total de RAM presente en su PC para que pueda funcionar
+                    correctamente. Si tu computadora
+                    tiene más de 8GB de RAM, recomendamos asignarle 3GB. Si su computadora tiene 4 GB o menos,
+                    no asigne más de 2 GB.<br><br>
+                    <b>- RAM mínima:</b> Indica la cantidad mínima de RAM asignada al iniciar tu juego.
+                    Se recomienda no poner más de 3GB para este valor. El valor típico es 1 GB.
                 </div>
-                <div class="add-text-profile">Ajouter un compte</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="java-tab" class="container-settings content-scroll">
-        <div class="titre-tab">Paramètre de votre RAM</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                Définition de la RAM alloué à votre jeu, une quantité plus important augmenteras les performances de
-                votre jeu.<br>
-                A noter qu'il faut éviter de mettre une trop grande quantité sinon cela peut provoquer des pertes de
-                performances sur vos autres applications.<br><br>
-                <b>-RAM Maximale:</b> Indique la quantité totale de RAM allouée à votre jeu. Il est recommandé de ne pas
-                dépasser 50% de la quantité totale de RAM présente sur votre PC.<br><br>
-                <b>-RAM Minimale:</b> Indique la quantité minimale de RAM allouée au démarrage de votre jeu. Il est
-                recommandé de ne pas mettre plus de 4Go pour cette valeur.
-            </div>
-            <div class="settings-elements content-evenly">
-                <div class="memory-slider" min="0.5" max="8" step="0.5">
-                    <div class="slider-touch-left">
-                        <span value="0 Go"></span>
+                <div class="ram-info">
+                    <div class="memory-slider" min="0.5" max="8" step="0.5">
+                        <div class="slider-touch-left">
+                            <span value="0 Go"></span>
+                        </div>
+                        <div class="slider-touch-right">
+                            <span value="0 Go"></span>
+                        </div>
+                        <div class="slider-line">
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="slider-touch-right">
-                        <span value="0 Go"></span>
-                    </div>
-                    <div class="slider-line">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="ram-info-block">
-                    <b>Vous possédez un total de <span id="total-ram">0 Go</span> RAM.</b><br>
-                    <b>Vous possédez un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
-                </div>
-            </div>
-        </div>
 
-        <div class="titre-tab">Emplacement de Java</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                Le launcher utilise une version embarquée de Java.<br>
-                Cette version est disponible dans le répertoire :<br><span class="java-path-txt"></span><br>
-                Toutefois, vous pouvez spécifier votre propre exécutable si votre jeu requiert une version de java plus
-                recente.
-            </div>
-            <div class="settings-elements content-evenly">
-                <input type="text" class="java-path-input-text" disabled>
-                <input type="file" class="java-path-input-file" accept="application/octet-stream" />
-                <div class="java-path-box">
-                    <div class="java-path-set java-path-btn">Changer</div>
-                    <div class="java-path-reset java-path-btn">Par defaut</div>
+                    <div class="ram-info-block">
+                        <b>Tienes un total de <span id="total-ram">0 Go</span> RAM.</b><br>
+                        <b>Tienes un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
+                    </div>
                 </div>
+            </div>
+
+            <div class="title-settings">Ubicación de Java.</div>
+            <div class="java-settings">
+                <div class="information">
+                    El iniciador utiliza una versión integrada de Java.<br> Esta versión está disponible en
+                    directorio <span class="info-path"></span>.<br> sin embargo, puede especificar su propio ejecutable.
+                </div>
+                <input type="text" class="path" disabled />
+                <button class="path-button">Changer</button>
+                <button class="path-button-reset">Reset</button>
+                <input type="file" class="path-file" accept="application/octet-stream" />
+            </div>
+
+            <div class="title-settings">Parámetros de argumentos de Java.</div>
+            <div class="java-settings">
+                <div class="information">
+                    Los argumentos de Java se utilizan para establecer parámetros para tu juego.
+                </div>
+                <input type="text" class="args-settings" placeholder="Il est déconseillé de modifier ce paramètre." />
             </div>
         </div>
     </div>
 
-    <div id="resolution-tab" class="container-settings">
-        <div class="titre-tab">Paramètres de resolution Minecraft</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                Définissez une résolution personnalisée afin d'avoir un jeu adapté à votre écran.<br>
-                Par défaut le jeu démarre en 854 X 480,<br>vous pouvez modifier cette valeur pour un confort de jeu
-                optimal. La résolution idéale est de 1280 X 720.
-            </div>
-            <div class="settings-elements content-center">
-                <div class="input-size-element">
-                    <input type="number" class="width-size input-resolution">
-                    <div class="size-cross"></div>
-                    <input type="number" class="height-size input-resolution">
+    <div class="tabs-settings-content">
+        <div class="center-page">
+            <div class="title-settings">Configuración de resolución de Minecraft.</div>
+            <div class="java-settings">
+                <div class="information">
+                    Establezca una resolución personalizada o elija una de la lista según el tamaño
+                    de tu pantalla.
                 </div>
-                <div class="size-reset size-btn">Par defaut</div>
+                <div class="input-size-content">
+                    <div class="input-size">
+                        <input type="text" class="width-size input-settings">
+                        <div class="size-cross"></div>
+                        <input type="text" class="height-size input-settings">
+                        <div class="select-wrap icon-monitor">
+                            <select id="select" style="cursor:pointer" class="select">
+                                <option disabled selected value style="display: none">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <optgroup label="Ratio 4:3">
+                                    <option value="640 x 480">640 x 480</option>
+                                    <option value="800 x 600">800 x 600</option>
+                                    <option value="1024 x 768">1024 x 768</option>
+                                    <option value="1280 x 960">1280 x 960</option>
+                                    <option value="1280 x 1024">1280 x 1024</option>
+                                </optgroup>
+                                <optgroup label="Ratio 16:9">
+                                    <option value="854 x 480">854 x 480</option>
+                                    <option value="1280 x 720">1280 x 720</option>
+                                    <option value="1360 x 768">1360 x 768</option>
+                                    <option value="1600 x 900">1600 x 900</option>
+                                    <option value="1920 x 1080">1920 x 1080</option>
+                                </optgroup>
+                                <optgroup label="Ratio 16:10">
+                                    <option value="1280 x 768">1280 x 768</option>
+                                    <option value="1280 x 800">1280 x 800</option>
+                                    <option value="1440 x 900">1440 x 900</option>
+                                    <option value="1600 x 1024">1600 x 1024</option>
+                                    <option value="1680 x 1050">1680 x 1050</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-settings">Configuración de pantalla completa</div>
+            <div class="java-settings information">
+                Inicie el juego en pantalla completa:
+                <input type="checkbox" class="checkbox-settings" id="fullscreen"><label for="fullscreen">
+                    <div class="checkround"></div>
+                </label>
             </div>
         </div>
     </div>
 
-    <div id="launcher-tab" class="container-settings content-scroll">
-        <div class="titre-tab">Paramètre de téléchargement</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                Ce paramètre détermine le nombre maximum de fichiers pouvant être téléchargés simultanément lors de la
-                mise à jour ou du téléchargement de ressources.<br><br>
-
-                Veuillez noter que la modification de ce paramètre peut affecter les performances de
-                téléchargement.<br>
-                Il est recommandé de ne pas dépasser les limites recommandées par défaut,<br>
-                sauf si vous rencontrez des problèmes spécifiques de connectivité.
+    <div class="tabs-settings-content">
+        <div class="center-page">
+            <div class="title-settings">Configuración después de iniciar el juego.</div>
+            <div class="java-settings information">
+                <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close">
+                    <div class="checkround"></div>
+                </label> Cierra el iniciador después de iniciar el juego.</br>
+                <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label
+                    for="launcher-close-all">
+                    <div class="checkround"></div>
+                </label>Cierra el juego si el iniciador está cerrado.</br>
+                <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open">
+                    <div class="checkround"></div>
+                </label> Mantén el iniciador abierto después de iniciar el juego.
             </div>
-            <div class="settings-elements content-center">
-                <input type="number" class="max-files input-max-files">
-                <p>Fichiers</p>
-                <div class="max-files-reset max-files-btn">Par defaut</div>
+            <div class="title-settings">Configuración de sonido.</div>
+            <div class="java-settings information">
+                Para silenciar el sonido del iniciador:
+                <div style="display: block;position: absolute;top: 12px;left: 272px;" id="button"><button
+                        id="muteButton" class="mutebtn" onclick="muteBtn()"> Mute <img id="muteimg"
+                            style="width: 25px;margin-left: 6px;vertical-align: middle;"
+                            src="assets/images/logo/mute.svg"></button></div>
             </div>
-        </div>
-
-        <div class="titre-tab">Thème clair et sombre</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                Choisissez entre le thème clair et le thème sombre pour personnaliser l'apparence du launcher.<br><br>
-
-                La modification du thème peut influencer la lisibilité et l'expérience visuelle.<br>
-                Sélectionnez celui qui vous convient le mieux en fonction de vos préférences.
-            </div>
-            <div class="settings-elements content-center theme-box">
-                <div class="theme-btn theme-btn-clair">Clair</div>
-                <div class="theme-btn theme-btn-sombre">Sombre</div>
-                <div class="theme-btn theme-btn-auto">Automatique</div>
+            <div class="title-settings">Configuración de conexión automática</div>
+            <div class="java-settings information">
+                Conéctese automáticamente al servidor:
+                <input type="checkbox" class="checkbox-settings" id="auto-connect"><label for="auto-connect">
+                    <div class="checkround"></div>
+                </label>
             </div>
         </div>
-
-        <div class="titre-tab">Comportement du launcher au démarrage</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                Vous pouvez choisir si le launcher se ferme automatiquement ou reste ouvert lorsque vous lancez le jeu.
-            </div>
-
-            <div class="settings-elements content-evenly close-box">
-                <div class="close-launcher close-btn">Fermer le launcher après le démarrage du jeu</div>
-                <div class="close-none close-btn">Garder le launcher ouvert</div>
-                <div class="close-all close-btn">Fermer le jeu si le launcher est fermé</div>
-            </div>
-        </div>
-
-        <!-- <div class="titre-tab">Environnement INTEL</div>
-        <div class="settings-elements-box">
-            <div class="setting-text">
-                pour les jouer avec les proseceurs apple silicon 
-            </div>
-
-            <div class="settings-elements content-evenly close-box">
-                <div class="close-launcher close-btn">Environnement INTEL</div>
-                <div class="close-none close-btn">Environnement SILICON</div>
-            </div>
-        </div> -->
     </div>
 </div>
