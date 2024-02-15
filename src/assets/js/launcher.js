@@ -45,19 +45,18 @@ class Launcher {
             ipcRenderer.send("main-window-minimize");
         });
 
-        let maximized = false;
-        let maximize = document.querySelector("#maximize")
-        maximize.addEventListener("click", () => {
-            if (maximized) ipcRenderer.send("main-window-maximize")
-            else ipcRenderer.send("main-window-maximize");
-            maximized = !maximized
-            maximize.classList.toggle("icon-maximize")
-            maximize.classList.toggle("icon-restore-down")
-        });
+        // Remove the maximize button
+        let maximizeButton = document.querySelector("#maximize");
+        maximizeButton.parentNode.removeChild(maximizeButton);
 
         document.querySelector("#close").addEventListener("click", () => {
             ipcRenderer.send("main-window-close");
         })
+
+        // Set the window to be unresizable
+        ipcRenderer.send("main-window-set-resizable", false); // Add this line
+
+        
     }
 
     createPanels(...panels) {
@@ -71,7 +70,6 @@ class Launcher {
             new panel().init(this.config, this.news);
         }
     }
-
     async getaccounts() {
         let accounts = await this.database.getAll('accounts');
         let selectaccount = (await this.database.get('1234', 'accounts-selected'))?.value?.selected;

@@ -1,8 +1,3 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
- */
-
 'use strict';
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
@@ -190,7 +185,7 @@ class Login {
         let loginBtn = document.querySelector(".login-btn")
         let mojangBtn = document.querySelector('.mojang')
 
-        mojangBtn.innerHTML = "No Premium"
+        mojangBtn.innerHTML = "Version No Premium"
 
         mojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "none";
@@ -207,11 +202,11 @@ class Login {
             loginBtn.disabled = true;
             mailInput.disabled = true;
             passwordInput.disabled = true;
-            infoLogin.innerHTML = "Conexión actual...";
+            infoLogin.innerHTML = "Connexion en cours...";
 
 
             if (mailInput.value == "") {
-                infoLogin.innerHTML = "Ingrese su dirección de correo electrónico / nombre de usuario"
+                infoLogin.innerHTML = "Entrez votre adresse email / Nom d'utilisateur"
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
@@ -220,7 +215,7 @@ class Login {
             }
 
             if (mailInput.value.length < 3) {
-                infoLogin.innerHTML = "Su nombre de usuario debe tener al menos 3 caracteres"
+                infoLogin.innerHTML = "Votre nom d'utilisateur doit avoir au moins 3 caractères"
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
@@ -241,14 +236,14 @@ class Login {
             }
 
             let account = {
-                access_token: account_connect.access_token,
-                client_token: account_connect.client_token,
+                access_token: "null",
+                client_token: "null",
                 uuid: account_connect.uuid,
                 name: account_connect.name,
                 user_properties: account_connect.user_properties,
                 meta: {
                     type: account_connect.meta.type,
-                    online: account_connect.meta.online
+                    offline: true
                 }
             }
 

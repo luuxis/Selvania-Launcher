@@ -1,10 +1,14 @@
+/**
+ * @author Luuxis
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
+ */
+
 'use strict';
 
 import { database, changePanel, accountSelect, Slider } from '../utils.js';
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
 const os = require('os');
-const fs = require('fs');
 
 class Settings {
     static id = "settings";
@@ -15,34 +19,30 @@ class Settings {
         this.initTab();
         this.initAccount();
         this.initRam();
-        this.initJavaPath();
-        this.initJavaArgs();
-        this.initResolution();
         this.initLauncherSettings();
-        muteonload();
     }
-
 
     initAccount() {
         document.querySelector('.accounts').addEventListener('click', async(e) => {
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
-            if (e.path[0].classList.contains('account')) {
+            if (e.target.classList.contains('account')) {
+                console.log(uuid);
                 accountSelect(uuid);
                 this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
             }
 
             if (e.target.classList.contains("account-delete")) {
-                this.database.delete(e.path[1].id, 'accounts');
+                this.database.delete(e.target.parentElement.id, 'accounts');
 
-                document.querySelector('.accounts').removeChild(e.path[1])
+                document.querySelector('.accounts').removeChild(e.target.parentElement)
                 if (!document.querySelector('.accounts').children.length) {
                     changePanel("login");
                     return
                 }
 
-                if (e.path[1].id === selectedaccount.value.selected) {
+                if (uuid === selectedaccount.value.selected) {
                     let uuid = (await this.database.getAll('accounts'))[0].value.uuid
                     this.database.update({
                         uuid: "1234",
@@ -54,7 +54,7 @@ class Settings {
         })
 
         document.querySelector('.add-account').addEventListener('click', () => {
-            document.querySelector(".cancel-login").style.display = "block";
+            document.querySelector(".cancel-login").style.display = "contents";
             changePanel("login");
         })
     }
@@ -70,7 +70,7 @@ class Settings {
         let sliderDiv = document.querySelector(".memory-slider");
         sliderDiv.setAttribute("max", Math.trunc((80 * totalMem) / 100));
 
-        let ram = ramDatabase ? ramDatabase : { ramMin: "1", ramMax: "2" };
+        let ram = ramDatabase ? ramDatabase : { ramMin: "2", ramMax: "4" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
 
         let minSpan = document.querySelector(".slider-touch-left span");
@@ -132,6 +132,7 @@ class Settings {
                     argsInput = argsInput.value.trim().split(/\s+/)
                     for(let arg of argsInput) {
                         if (arg === '') continue;
+                        if (arg === '--server' || arg === '--port') continue;
                         args.push(arg);
                     }
                 }
@@ -143,10 +144,7 @@ class Settings {
 
     async initResolution() {
         let resolutionDatabase = (await this.database.get('1234', 'screen'))?.value?.screen;
-        let resolution = resolutionDatabase ? resolutionDatabase : { width: "1280", height: "720", fullscreen: false };
-
-        let fullscreen = document.getElementById("fullscreen");
-        fullscreen.checked = resolution.fullscreen;
+        let resolution = resolutionDatabase ? resolutionDatabase : { width: "1280", height: "720" };
         
         let width = document.querySelector(".width-size");
         width.value = resolution.width;
@@ -163,44 +161,6 @@ class Settings {
             height.value = resolution[1];
             this.database.update({ uuid: "1234", screen: { width: resolution[0], height: resolution[1] } }, 'screen');
         });
-
-        let widthElement = document.querySelector(".width-size");
-        let heightElement = document.querySelector(".height-size");
-
-        widthElement.addEventListener("change", () => {
-            this.database.update({ uuid: "1234", screen: { width: widthElement.value, height: heightElement.value } }, 'screen');
-        }
-        );
-
-        heightElement.addEventListener("change", () => {
-            this.database.update({ uuid: "1234", screen: { width: widthElement.value, height: heightElement.value } }, 'screen');
-        }
-        );
-
-        fullscreen.addEventListener("change", () => {
-            this.database.update({ uuid: "1234", screen: { width: widthElement.value, height: heightElement.value, fullscreen: fullscreen.checked } }, 'screen');
-            if (fullscreen.checked) {
-                let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
-                options = options.replace(/fullscreen:false/g, 'fullscreen:true');
-                fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
-            } else {
-                let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
-                options = options.replace(/fullscreen:true/g, 'fullscreen:false');
-                fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
-            }
-        }
-        );
-
-        if (resolution.fullscreen) {
-            let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
-            options = options.replace(/fullscreen:false/g, 'fullscreen:true');
-            fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
-        } else {
-            let options = fs.readFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, 'utf-8');
-            options = options.replace(/fullscreen:true/g, 'fullscreen:false');
-            fs.writeFileSync(`${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/options.txt`, options, 'utf-8');
-        }
-
     }
 
     async initLauncherSettings() {
@@ -208,18 +168,9 @@ class Settings {
         let settingsLauncher = {
             uuid: "1234",
             launcher: {
-                close: launcherDatabase?.launcher?.close || 'close-launcher',
-                autoConnect: launcherDatabase?.launcher?.autoConnect || false,
+                close: launcherDatabase?.launcher?.close || 'close-launcher'
             }
         }
-
-        let autoConnect = document.getElementById("auto-connect");
-        autoConnect.checked = settingsLauncher.launcher.autoConnect;
-
-        autoConnect.addEventListener("change", () => {
-            settingsLauncher.launcher.autoConnect = autoConnect.checked;
-            this.database.update(settingsLauncher, 'launcher');
-        })
 
         let closeLauncher = document.getElementById("launcher-close");
         let closeAll = document.getElementById("launcher-close-all");
@@ -275,14 +226,8 @@ class Settings {
                     TabContent[j].classList.remove('active-tab-content');
                     TabBtn[j].classList.remove('active-tab-btn');
                 }
-                //add animation delay
-                TabContent[i].classList.add('transition');
-                setTimeout(() => {
-                    TabContent[i].classList.remove('transition');
-                    TabContent[i].classList.add('active-tab-content');
-                    TabBtn[i].classList.add('active-tab-btn');
-                }, 500);
-
+                TabContent[i].classList.add('active-tab-content');
+                TabBtn[i].classList.add('active-tab-btn');
             });
         }
 
@@ -309,18 +254,17 @@ class Settings {
             this.database.add({
                 uuid: "1234",
                 launcher: {
-                    close: 'close-launcher',
-                    autoConnect: false,
+                    close: 'close-launcher'
                 }
             }, 'launcher')
         }
 
         if (!(await this.database.getAll('ram')).length) {
-            this.database.add({ uuid: "1234", ramMin: "1", ramMax: "2" }, 'ram')
+            this.database.add({ uuid: "1234", ramMin: "2", ramMax: "4" }, 'ram')
         }
 
         if (!(await this.database.getAll('screen')).length) {
-            this.database.add({ uuid: "1234", screen: { width: "1280", height: "720", fullscreen: false } }, 'screen')
+            this.database.add({ uuid: "1234", screen: { width: "1280", height: "720" } }, 'screen')
         }
     }
 }
