@@ -5,7 +5,7 @@
     "description": "Launcher Mincraft pour le serv DraconiumMC",
     "main": "src/app.js",
     "author": "FrozerYTB",
-    "url": "https://www.draconium-mc.fr/launcher",
+    "url": "https://www.draconium-mc.fr/launcher-DraconiumMC",
     "engines": {
         "node": ">18.x.x"
     },
