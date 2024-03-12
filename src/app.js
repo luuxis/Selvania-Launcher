@@ -74,18 +74,31 @@ app.on('window-all-closed', () => app.quit());
 
 autoUpdater.autoDownload = false;
 
+// ipcMain.handle('update-app', async () => {
+//     return await new Promise(async (resolve, reject) => {
+//         autoUpdater.checkForUpdates().then(res => {
+//             resolve(res);
+//         }).catch(error => {
+//             reject({
+//                 error: true,
+//                 message: error
+//             })
+//         })
+//     })
+// })
+
 ipcMain.handle('update-app', async () => {
-    return await new Promise(async (resolve, reject) => {
-        autoUpdater.checkForUpdates().then(res => {
-            resolve(res);
-        }).catch(error => {
-            reject({
-                error: true,
-                message: error
-            })
-        })
-    })
-})
+    try {
+        const res = await autoUpdater.checkForUpdates();
+        return res;
+    } catch (error) {
+        return {
+            error: true,
+            message: error
+        };
+    }
+});
+
 
 autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
