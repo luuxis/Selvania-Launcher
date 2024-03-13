@@ -3,6 +3,7 @@ node_modules
 app
 test
 dist
+AppData
 node-v*
 data
 .DS_Store
