@@ -23,7 +23,7 @@ class Splash {
     async startAnimation() {
         let splashes = [
             { "message": "Nutrias Trabajando", "author": "MDK Game Team" },
-            { "message": "Reporta los bugs!", "author": "Unete a nuestro discord" },
+            { "message": "MDK x Nove Craft Inc.", "author": "Unete a nuestro discord" },
             { "message": "Launcher 4.0v", "author": "Developers MDK" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
