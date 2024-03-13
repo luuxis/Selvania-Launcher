@@ -20,7 +20,7 @@ ___
 
 ### 1.2. Faire un Fork du projet :
 
-Pour commencer vous devez faire un fork du projet pour ce faire rendez vous [ici](https://github.com/luuxis/Selvania-Launcher).
+Pour commencer vous devez faire un fork du projet pour ce faire rendez vous [ici](https://github.com/xtonysanx/Space-Client).
 
 - Ensuite cliquez sur "Fork" :
 

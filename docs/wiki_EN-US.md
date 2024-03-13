@@ -20,7 +20,7 @@ ___
 
 ### 1.2 Fork the project:
 
-To begin you must make a fork of the project to do this go [here](https://github.com/luuxis/Selvania-Launcher).
+To begin you must make a fork of the project to do this go [here](https://github.comu/xtonysanx/Space-Client).
 
 - Then click on "Fork" :
 

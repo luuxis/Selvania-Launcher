@@ -16,7 +16,7 @@ class Config {
         return new Promise((resolve, reject) => {
             nodeFetch(config).then(async config => {
                 if (config.status === 200) return resolve(config.json());
-                else return reject({ error: { code: config.statusText, message: 'server not accessible' } });
+                else return reject({ error: { code: config.statusText, message: 'servidor no accesible' } });
             }).catch(error => {
                 return reject({ error });
             })
@@ -59,14 +59,14 @@ class Config {
                         }
                         return resolve(news);
                     }
-                    else return reject({ error: { code: config.statusText, message: 'server not accessible' } });
+                    else return reject({ error: { code: config.statusText, message: 'servidor no accesible' } });
                 }).catch(error => reject({ error }))
             })
         } else {
             return new Promise((resolve, reject) => {
                 nodeFetch(news).then(async config => {
                     if (config.status === 200) return resolve(config.json());
-                    else return reject({ error: { code: config.statusText, message: 'server not accessible' } });
+                    else return reject({ error: { code: config.statusText, message: 'servidor no accesible' } });
                 }).catch(error => {
                     return reject({ error });
                 })

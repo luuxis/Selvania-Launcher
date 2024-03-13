@@ -2,7 +2,7 @@
     --element-color: #00bd7a;
     --transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
     --dark-color: #292929;
-    --light-color: rgb(245, 245, 245);
+    --light-color: rgb(255, 255, 255);
 }
 
 .dark {

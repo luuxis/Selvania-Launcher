@@ -1,117 +1,95 @@
-<p align="center"><img src="images/icon.png" alt="icon-launcher"></p>
+<p align="center"><img src="../src/assets/images/icon.png" alt="icon-launcher"></p>
 
-<h1 align="center">CraftLaunch</h1>
+<h1 align="center">Space Client</h1>
 
-#### [<p align="center">]() *(A powerful and efficient minecraft launcher based on electron)*
 [<p align="center">]()
-![GitHub all releases](https://img.shields.io/github/downloads/luuxis/Selvania-Launcher/total?style=for-the-badge)
-![Discord](https://img.shields.io/discord/819729377650278420?style=for-the-badge)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/luuxis/Selvania-Launcher?style=for-the-badge)
+![GitHub all releases](https://img.shields.io/github/downloads/xtonysanx/Space-Client/total?style=for-the-badge2)
+![Discord](https://img.shields.io/discord/900807104548450335?style=for-the-badge4)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/xtonysanx/Space-Client?style=for-the-badge2)
 [<p align="center">]()
-![GitHub forks](https://img.shields.io/github/forks/luuxis/Selvania-Launcher?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/luuxis/Selvania-Launcher?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/xtonysanx/Space-Client?style=for-the-badge2)
+![GitHub Repo stars](https://img.shields.io/github/stars/xtonysanx/Space-Client?style=for-the-badge2)
 
-#### *<p align="center">Return to the original documentation by clicking [Here](README.md).</p>*
-
----
-### **<ins><p align="center">Terms of use :</p>**
-- To use the code you must fork the project
-- To use the code your code must always be public
-
----
-
-### **<ins><p align="center">Screenshots :</p>**
-
-<img src="images/3.png" alt="screenshot3"><p align="center"> *Main page*
-
-&nbsp;
-
-<img src="images/4.png" alt="screenshot4"><p align="center"> *Skin management page*
-
-&nbsp;
-<img src="images/5.png" alt="screenshot5"><p align="center"> *Account management page*
-
-&nbsp;
-<img src="images/1.png" alt="screenshot8"><p align="center"> *Login page*
+<p align="center">
+    <a href="https://discord.gg/ehTebhcu5V">
+        <img src="https://invidget.switchblade.xyz/ehTebhcu5V">
+    </a>
+</p>
 
 ---
+### **<ins><p align="center">Condiciones de uso:</p>**
+- Para usar el código, debe hacer una bifurcación de proyecto.
+- Para usar el código, su código debe ser público todo el tiempo.
+- Para usar el código, se debe mantener cualquier mención original de la licencia.
+- Para usar el código, debe mantener la licencia original.
+---
 
-### **<ins><p align="center">Launcher features:</p>**
+### **<ins><p align="center">Funciones del Launcher:</p>**
 
-- ✅ Automatic updates via github.
+- ✅ Actualización automática a través de GitHub.
 
-- 🔴 Option to put the launcher under maintenance.
+- 🔴 Opción para poner el Launcher en mantenimiento.
 
-- 🔒 Microsoft Authentication.
+- 🔒 Autenticación de Microsoft.
 
-- 🏴‍☠️ Crack Authentication.
+- ⛏️ Admite todas las versiones de Minecraft 1.0> Último.
 
-- ⛏️ Supports all versions of Minecraft 1.0 > 1.19.x (Forge, Fabric etc).
+- 📦 Admite Moddées Forge, Neoforge, Legacyfabric, Fabricc y Quilt
 
-- 📦 Supports Forge and Fabric modded versions (Not MCPs)
- 
-- 📰 News feed natively integrated into the launcher.
+- 📰 Línea de noticias integrada de forma nativa en el Launcher.
 
-- 🚹 Skin manager.
+- ⚙️ Gestión intuitiva de parámetros, incluido un panel de configuración de Java.
 
-- ⚙️ Intuitive settings management, including a Java control panel.
+- 🟢 Complete el estado del servidor.
 
-- 🟢 Full server status.
-
-     - Operational or offline.
+    - operativo o fuera de línea.
     
-     - Number of connected players.
+    - desnudos de jugadores conectados.
 
-- ☕ Automatic Java installation.
+- ☕ Instalación automática de Java.
 
-     - If you have installed an incompatible version of Java, we will install the correct one for you.
+    - Si ha instalado una versión incompatible de Java, instalaremos la adecuada para usted.
     
-     - You don't need to have Java installed to run the launcher.
+    - No necesita tener Java instalado para ejecutar el Launcher.
 
-This is not an exhaustive list. Install the launcher to see all it can do!
+Esta no es una lista exhaustiva.¡Instale el Launcher para ver todo lo que pueda hacer!
 
-Do you like the project? Leave a ⭐ star on the repository!
-
----
-
-### **<ins><p align="center">Vdo you need help making your own launcher? :</p>**
-
-- Here is the [Wiki](./wiki_EN-US.md) specially written to guide you step by step in creating your launcher.
+¿Te gusta el proyecto?¡Deja una estrella ⭐ en el repositorio!
 
 ---
-### **<ins><p align="center">Download:</p>**
 
-You can download the launcher from [GitHub Releases](https://github.com/luuxis/Selvania-Launcher/releases).
+### **<ins><p align="center">Descargas:</p>**
 
-Supported platforms:
+Puede descargar el Launcher desde el [Releases GitHub](../../../releases).
+
+Plataformas compatibles :
 
 - Windows 
 - Linux
 - MacOS
 
-If you are downloading from Releases, select the installer for your system.
-
- Platforme | Fichier |
+Si se descarga de los lanzamientos, seleccione el programa de instalación para su sistema.
+ Plataforma | Archivos |
 | -------- | ---- |
-| Windows x64 | `Selvania-Launcher-win-x64.exe ` |
-| macOS x64 | `Selvania-Launcher-mac-x64.dmg` |
-| macOS arm64 | `Selvania-Launcher-mac-arm64.dmg` |
-| Linux x64 | `Selvania-Launcher-linux-x86_64.AppImage` |
+| Windows x64 | `Space-Client-win-x64.exe` |
+| macOS x64 | `Space-Client-mac-x64.dmg` |
+| macOS arm64 | `Space-Client-mac-arm64.dmg` |
+| Linux x64 | `Space-Client-linux-x86_64.AppImage` |
+
+<br>
+
+Si le gusta este proyecto y desea ayudar a desarrollarlo, puede darnos una donación sobre [Paypal](https://www.paypal.me/anthonnysan03).
+
+Si tiene alguna pregunta, un problema o sugerencias no dudan en unirse a nuestro discord:
+
+<br>
+
+[![discord](https://discordapp.com/api/guilds/900807104548450335/embed.png?style=banner2)][discord]
+<br>
+<br>
+
+[<p align="center">]() *Readme creado por [@xToNySaNx](https://github.com/xtonysanx)*  </p>
 
 ---
 
-<br>
-
-If you like this project and want to help develop it, you can donate to us on [Paypal](https://www.paypal.me/luuxiss).
-
-If you have any questions, problems or suggestions, feel free to join our discord:
-
-<br>
-
-[<p align="center"><img src="https://discordapp.com/api/guilds/819729377650278420/embed.png?style=banner2" alt="discord">](https://discord.gg/e9q7Yr2cuQ) 
----
-
-<br>
-<br>
-
-[<p align="center">]() *Readme by [@Fefe_du_973](https://github.com/Fefedu973)*  </p>
+[discord]: https://discord.gg/ehTebhcu5V 'Discord'
