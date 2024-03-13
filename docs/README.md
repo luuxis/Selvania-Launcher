@@ -54,7 +54,7 @@
 
 Esta no es una lista exhaustiva.¡Instale el Launcher para ver todo lo que pueda hacer!
 
-¿Te gusta el proyecto?¡Deja una estrella ⭐ en el repositorio!
+¿Te gusta el proyecto?¡Deja una estrella ⭐ en el repositorio.!
 
 ---
 
