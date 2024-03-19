@@ -5,9 +5,9 @@
     "description": "Launcher officiel Phénix Hosting",
     "main": "src/app.js",
     "author": {
-        "name": "Phénix Hosting",
+        "name": "Phenix Hosting",
         "email": "contact@ptaki.dev",
-        "url": "https://github.com/luuxis"
+        "url": "https://github.com/Xertien"
     },
     "url": "https://launcher.ptaki.dev",
     "scripts": {
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/Xertien/Phenix-Launcher.git"
     }
 }
