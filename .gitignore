@@ -4,4 +4,5 @@ app
 test
 dist
 node-v*
-AppData
+data
+.DS_Store
