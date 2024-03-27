@@ -95,18 +95,11 @@ class Index {
                     identity: null,
                     target: [{
                         target: "dmg",
-                        arch: "x64"
+                        arch: "universal"
                     },
                     {
                         target: "zip",
-                        arch: "x64"
-                    },
-                    {
-                        target: "dmg",
-                        arch: "arm64"
-                    }, {
-                        target: "zip",
-                        arch: "arm64"
+                        arch: "universal"
                     }]
                 },
                 linux: {
