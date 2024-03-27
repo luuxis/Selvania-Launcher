@@ -1,7 +1,7 @@
 {
     "name": "Selvania-Launcher",
     "preductname": "Selvania Launcher",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Launcher Mincraft pour le serveur Selvania",
     "main": "src/app.js",
     "author": {
@@ -13,7 +13,7 @@
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
-        "build": "node build.js --obf=false --build=platform",
+        "build": "node build.js --obf=true --build=platform",
         "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
     },
     "license": "CCANC",
