@@ -30,7 +30,7 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^27.0.4",
+        "electron": "^29.1.6",
         "electron-builder": "^24.6.4",
         "javascript-obfuscator": "^4.1.0",
         "jimp": "^0.22.10",
