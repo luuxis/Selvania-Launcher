@@ -5,8 +5,6 @@ body {
     background-color: var(--background);
     font-family: "Poppins";
     letter-spacing: 0px;
-    -webkit-app-region: drag;
-    user-select: none;
 }
 
 img {
@@ -80,6 +78,24 @@ img {
     font: normal normal bold 18px/27px Poppins;
     color: var(--color);
     opacity: 0;
+}
+
+.download-update {
+    position: absolute;
+    left: 25%;
+    margin-top: 20px;
+    width: 200px;
+    font: normal normal bold 22px / 45px Poppins;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 15px;
+    transition: background-color .2s, color .2s;
+}
+
+.download-update:hover {
+    background-color: var(--color);
+    color: var(--background);
+    cursor: pointer;
 }
 
 .message.opacity {
