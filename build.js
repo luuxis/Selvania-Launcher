@@ -107,15 +107,6 @@ class Index {
                     target: [{
                         target: "AppImage",
                         arch: "x64"
-                    }, {
-                        target: "deb",
-                        arch: "x64"
-                    }, {
-                        target: "tar.gz",
-                        arch: "x64"
-                    }, {
-                        target: "zip",
-                        arch: "x64"
                     }]
                 }
             }
