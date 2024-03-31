@@ -2,9 +2,9 @@
     "name": "DraconiumMC-Launcher",
     "preductname": "DraconiumMC Launcher",
     "version": "0.0.1",
-    "description": "Launcher Mincraft pour le serv DraconiumMC",
+    "description": "Launcher Mincraft pour le serveur DraconiumMC !",
     "main": "src/app.js",
-    "author": "FrozerYTB",
+    "author": "FrozerYTB, luuxis",
     "url": "https://www.draconium-mc.fr/launcher-DraconiumMC",
     "engines": {
         "node": ">18.x.x"
