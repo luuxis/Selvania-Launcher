@@ -22,7 +22,8 @@
     "dependencies": {
         "electron-updater": "^6.1.4",
         "minecraft-java-core": "^3.8.1",
-        "node-fetch": "^2.7.0"
+        "node-fetch": "^2.7.0",
+        "sqlite3": "^5.1.7"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
