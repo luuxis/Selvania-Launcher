@@ -501,6 +501,26 @@
     transition-duration: 0.4s;
 }
 
+.context-btn {
+    border-radius: 8px;
+    border: none;
+    background-color: #2379ee;
+    color: #e4e4e4;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.context-btn:hover {
+    border-radius: 8px;
+    border: none;
+    background-color: #394ec4;
+    color: #e4e4e4;
+    font: normal normal bold 19px/29px Poppins;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
 /* sauvegarde btn */
 
 .save-tabs-btn {

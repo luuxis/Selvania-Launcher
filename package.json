@@ -1,10 +1,10 @@
 {
     "name": "venstone-launcher",
     "preductname": "Venstone Launcher",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "description": "Launcher officiel pour le serveur Venstone",
     "main": "src/app.js",
-    "author": "Limeen",
+    "author": "Luuxis, Limeen",
     "url": "https://launcher-data.alwaysdata.net/launcher-data/",
     "engines": {
         "node": "^18.x.x"
