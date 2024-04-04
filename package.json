@@ -1,7 +1,7 @@
 {
     "name": "venstone-launcher",
     "preductname": "Venstone Launcher",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "Launcher officiel pour le serveur Venstone",
     "main": "src/app.js",
     "author": "Luuxis, Limeen",

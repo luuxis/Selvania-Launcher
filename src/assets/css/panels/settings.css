@@ -120,11 +120,11 @@
 .account {
     display: inline-block;
     background: #2379ee;
-    border: 4px solid #2379ee;
+    border: 3px solid #2379ee;
     font: normal normal bold 30px/40px Poppins;
     width: 500px;
-    height: 100px;
-    margin: 1% 2%;
+    height: 40px;
+    margin: 4px;
     border-radius: 100px;
     text-align: start;
     transition-duration: 0.4s;
@@ -132,22 +132,22 @@
 
 .account:hover {
     background: #0d51ad;
-    border: 4px solid #0d51ad;
+    border: 3px solid #0d51ad;
     transition-duration: 0.4s;
 }
 
 .account-image {
     position: absolute;
     border-radius: 31px;
-    height: 70px;
-    margin: 15px 20px;
+    height: 37px;
+    margin: 1.5px 4px;
     pointer-events: none;
 }
 
 .account-name {
-    margin: 0 100px;
-    margin-top: 15px;
-    font: normal normal bold 24px/35px Poppins;
+    margin: 0 52px;
+    margin-top: 4px;
+    font: normal normal normal 24px/35px Poppins;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -163,34 +163,26 @@
     overflow: hidden;
     max-width: 29ch;
     pointer-events: none;
+    visibility: hidden;
+    position: absolute;
 }
 
 .account-delete {
-    margin: -60px 415px;
-    color: #f73434;
-    font-size: 50px;
-    background: #353535c7;
-    width: 65px;
-    height: 65px;
+    margin: -34px 462px;
+    color: #303030;
+    font-size: 20px;
+    background: #ffffff;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     cursor: pointer;
     text-align: center;
 }
 
 .icon-account-delete-btn {
-    margin: 7px 9px;
+    margin: 6px 6px;
     position: absolute;
     pointer-events: none;
-}
-
-.active-account {
-    background: #006e47;
-    border: 4px solid #ffffff;
-}
-
-.active-account:hover {
-    background: #006e47;
-    border: 4px solid #ffffff;
 }
 
 
@@ -470,7 +462,7 @@
 
 .active-account {
     background: #2379ee;
-    border: 4px solid #ffffff;
+    border: 3px solid #ffffff;
     color: #ffffff;
 }
 

@@ -26,6 +26,7 @@
 .player-head:hover {
     border-radius: 5px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
+    cursor: pointer;
 }
 
 .player-username {

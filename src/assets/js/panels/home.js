@@ -35,12 +35,12 @@ class Home {
                 blockNews.innerHTML = `
                     <div class="news-header">
                         <div class="header-text">
-                            <div class="title">Aucune news n'est actuellement disponible.</div>
+                            <div class="title">Aucune nouveauté à l'affiche</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Vous pourrez suivre ici toutes les news relative au serveur.</p>
+                            <p>Vous pourrez suivre ici toutes les nouvautés</p>
                         </div>
                     </div>`
                 news.appendChild(blockNews);
@@ -74,12 +74,12 @@ class Home {
             blockNews.innerHTML = `
                 <div class="news-header">
                     <div class="header-text">
-                        <div class="title">Error.</div>
+                        <div class="title">Erreur</div>
                     </div>
                 </div>
                 <div class="news-content">
                     <div class="bbWrapper">
-                        <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
+                        <p>Connexion au serveur du launcher impossible.</br>Vérifiez votre connexion internet?</p>
                     </div>
                 </div>`
             // news.appendChild(blockNews);
@@ -178,7 +178,7 @@ class Home {
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
                 ipcRenderer.send('main-window-progress-reset')
                 progressBar.style.display = "none"
-                info.innerHTML = `Demarrage...`
+                info.innerHTML = `Démarrage...`
                 console.log(e);
             })
 
@@ -207,17 +207,21 @@ class Home {
 
         if (!serverPing.error) {
             nameServer.textContent = this.config.status.nameServer;
-            serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
+            //serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
+            serverMs.innerHTML = `<span class="green">En ligne</span>`;
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.playersConnect;
         } else if (serverPing.error) {
-            nameServer.textContent = 'Serveur indisponible';
-            serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
+            nameServer.textContent = 'Venstone';
+            serverMs.innerHTML = `<span class="red">Connexion impossible</span>`;
         }
     }
 
     initBtn() {
         document.querySelector('.settings-btn').addEventListener('click', () => {
+            changePanel('settings');
+        });
+        document.querySelector('.player-head').addEventListener('click', () => {
             changePanel('settings');
         });
     }
