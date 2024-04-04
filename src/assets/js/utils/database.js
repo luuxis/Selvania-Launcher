@@ -13,7 +13,7 @@ class database {
     async creatDatabase(tableName, tableConfig) {
         return await nodedatabase.intilize({
             databaseName: 'Databases',
-            fileType: 'db',
+            fileType: dev ? 'sqlite' : 'db',
             tableName: tableName,
             path: `${await ipcRenderer.invoke('path-user-data')}${dev ? '../..' : '/databases'}`,
             tableColumns: tableConfig,

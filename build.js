@@ -95,33 +95,17 @@ class Index {
                     identity: null,
                     target: [{
                         target: "dmg",
-                        arch: "x64"
+                        arch: "universal"
                     },
                     {
                         target: "zip",
-                        arch: "x64"
-                    },
-                    {
-                        target: "dmg",
-                        arch: "arm64"
-                    }, {
-                        target: "zip",
-                        arch: "arm64"
+                        arch: "universal"
                     }]
                 },
                 linux: {
                     icon: "./app/assets/images/icon.png",
                     target: [{
                         target: "AppImage",
-                        arch: "x64"
-                    }, {
-                        target: "deb",
-                        arch: "x64"
-                    }, {
-                        target: "tar.gz",
-                        arch: "x64"
-                    }, {
-                        target: "zip",
                         arch: "x64"
                     }]
                 }
