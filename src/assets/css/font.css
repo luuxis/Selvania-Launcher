@@ -1,20 +1,38 @@
 /* Poppins */
 
 @font-face {
-    font-family: 'Poppins';
+    font-family: 'Outfit';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-display: swap;
-    src: local('Poppins Regular'), local('Poppins-Regular'), url('../fonts/Poppins-Regular.woff2') format('woff2');
+    src: local('Outfit Light'), local('Outfit-Light'), url('../fonts/Outfit-Light.ttf') format('truetype');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-    font-family: 'Poppins';
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Outfit Medium'), local('Outfit-Medium'), url('../fonts/Outfit-Medium.ttf') format('truetype');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Outfit SemiBold'), local('Outfit-SemiBold'), url('../fonts/Outfit-SemiBold.ttf') format('truetype');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Outfit';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('Poppins Bold'), local('Poppins-Bold'), url('../fonts/Poppins-Bold.woff2') format('woff2');
+    src: local('Outfit Bold'), local('Outfit-Bold'), url('../fonts/Outfit-Bold.ttf') format('truetype');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -54,10 +72,12 @@
 .icon-restore-down:before { font-family: "Icons"; content: "\e90d"; }
 .icon-account-add:before { font-family: "Icons"; content: "\e901"; }
 .icon-account-delete:before { font-family: "Icons"; content: "\e902"; }
-.icon-settings:before { font-family: "Icons"; content: "\e909"; }
+.icon-settings-v1:before { font-family: "Icons"; content: "\e909"; }
 .icon-monitor:before { font-family: "Icons"; content: "\e90a"; }
-.icon-arrow:before { font-family: "Social-icons"; content: "\e002"; }
 
+.logo-shirocraft { background-image: url('../images/svgs/shirocraft.svg'); background-size: contain; }
+.icon-settings { background-image: url('../images/svgs/settings.svg'); background-size: contain; }
+.icon-arrow { background-image: url('../images/svgs/playbtn.svg'); background-size: contain; }
 .icon-discord { background-image: url('../images/svgs/discord.svg'); background-size: contain; }
 .icon-facebook { background-image: url('../images/svgs/facebook.svg'); background-size: contain; }
 .icon-github { background-image: url('../images/svgs/github.svg'); background-size: contain; }
@@ -69,3 +89,12 @@
 .icon-youtube { background-image: url('../images/svgs/youtube.svg'); background-size: contain; } 
 .icon-tiktok { background-image: url('../images/svgs/tiktok.svg'); background-size: contain; }
 .icon-web { background-image: url('../images/svgs/web.svg'); background-size: contain; }
+
+.icon-account { background-image: url('../images/svgs/account.svg'); background-size: contain; }
+.icon-add { background-image: url('../images/svgs/add.svg'); background-size: contain; }
+.icon-back { background-image: url('../images/svgs/back.svg'); background-size: contain; }
+.icon-bin { background-image: url('../images/svgs/bin.svg'); background-size: contain; }
+.icon-edit { background-image: url('../images/svgs/edit.svg'); background-size: contain; }
+.icon-jar { background-image: url('../images/svgs/jar.svg'); background-size: contain; }
+.icon-resolution { background-image: url('../images/svgs/resolution.svg'); background-size: contain; }
+

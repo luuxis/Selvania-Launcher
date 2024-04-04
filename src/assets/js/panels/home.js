@@ -33,7 +33,7 @@ class Home {
                         </div>
                         <div class="date">
                             <div class="day">1</div>
-                            <div class="month">Janvier</div>
+                            <div class="month"> Janvier</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -78,7 +78,7 @@ class Home {
                         </div>
                         <div class="date">
                             <div class="day">1</div>
-                            <div class="month">Janvier</div>
+                            <div class="month">&nbsp;Janvier</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -336,7 +336,7 @@ class Home {
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
-        let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        let allMonth = [' janvier', ' février', ' mars', ' avril', ' mai', ' juin', ' juillet', ' août', ' septembre', ' octobre', ' novembre', ' décembre']
         return { year: year, month: allMonth[month - 1], day: day }
     }
 }

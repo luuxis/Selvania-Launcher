@@ -21,7 +21,7 @@ class Settings {
     }
 
     navBTN() {
-        document.querySelector('.nav-box').addEventListener('click', e => {
+        document.querySelector('.nav-settings').addEventListener('click', e => {
             if (e.target.classList.contains('nav-settings-btn')) {
                 let id = e.target.id
 

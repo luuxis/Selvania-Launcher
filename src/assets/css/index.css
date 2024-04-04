@@ -3,7 +3,7 @@
 
 body {
     background-color: var(--background);
-    font-family: "Poppins";
+    font-family: "Outfit";
     letter-spacing: 0px;
     -webkit-app-region: drag;
     user-select: none;
@@ -38,7 +38,7 @@ img {
     top: 289px;
     left: 0px;
     width: 400px;
-    font: normal normal bold 19px/29px Poppins;
+    font: normal normal bold 19px/29px Outfit;
     text-align: center;
     letter-spacing: 0px;
     transition: opacity 1.5s;
@@ -57,13 +57,13 @@ img {
     width: 400px;
     text-align: center;
     transition: opacity 1.5s;
-    font: normal normal normal 9px/13px Poppins;
+    font: normal normal normal 9px/13px Outfit;
     color: var(--color);
     opacity: 0;
 }
 
 .splash-author .author {
-    font: normal normal bold 9px/13px Poppins;
+    font: normal normal bold 9px/13px Outfit;
 }
 
 .splash-author.opacity {
@@ -77,7 +77,7 @@ img {
     width: 400px;
     text-align: center;
     transition: opacity 1.5s;
-    font: normal normal bold 18px/27px Poppins;
+    font: normal normal bold 18px/27px Outfit;
     color: var(--color);
     opacity: 0;
 }

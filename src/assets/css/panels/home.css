@@ -3,6 +3,22 @@
     height: 100%;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+.header {
+    width: 100%;
+}
+.logo-shirocraft {
+    display: flex;
+    left: 0;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-left: 65;
+    margin-right: auto;
+    margin-top: 40;
+    background-repeat: no-repeat;
 }
 
 /*******************************************************************************
@@ -12,18 +28,24 @@
  ******************************************************************************/
 
 .status-server {
-    position: relative;
     display: flex;
+    position: relative;
+    float: right;
     justify-content: space-between;
     align-items: center;
     background: var(--background);
-    width: 25rem;
-    height: 3rem;
+    width: 350px;
+    height: 40px;
     color: var(--color);
     border-radius: 10px;
-    margin-top: 3rem;
+    margin-top: 30;
     padding: 1rem;
     text-align: center;
+    margin-left: auto; 
+    margin-right: 65;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+
 }
 
 .server-status-icon {
@@ -33,11 +55,14 @@
 .server-status-name {
     font-size: 1.5rem;
     color: var(--color);
+    margin-left: -100;
 }
 
 .server-status-text {
     font-size: 0.6rem;
     color: #1AC707;
+    margin-left: -110;
+    font-weight: 300;
 }
 
 .server-status-infos .red {
@@ -48,7 +73,7 @@
     background: var(--shadow);
     min-width: 3rem;
     height: 3rem;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .player-count {
@@ -64,7 +89,7 @@
     top: 10px;
     right: 10px;
     border-radius: 15px;
-    border: solid 5px var(--background);
+    border: solid 3px rgb(22, 22, 22);
     background: #1AC707;
 }
 
@@ -89,31 +114,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 85%;
+    width: 60%;
     height: 100%;
 }
 
 .titre-tab-new {
     margin-top: 1rem;
     font-size: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    background: var(--background-transparent);
     color: var(--color);
+    margin-left: 65;
+    margin-right: auto;
 }
 
 .news-list {
-    width: 90%;
+    width: 100%;
     height: 100%;
     border-radius: 10px;
     margin: 1rem 0;
+    word-wrap : break-word; 
 }
 
 .news-block {
-    width: 100%;
-    margin: 0 0 1rem 0;
+    width: 80%;
     border-radius: 10px;
-    background: var(--background-transparent);
+    background: var(--background);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-left: 65;
+    margin-right: auto;
+    margin-bottom: 60;
+    backdrop-filter: blur(5px);
 }
 
 .news-header {
@@ -124,27 +153,29 @@
 }
 
 .header-text .title {
-    text-decoration: underline;
-    text-underline-offset: 3px;
     font-size: 1.2rem;
-    text-align: center;
+    text-align: left;
 }
 
 .news-header .date {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    font-weight: 300;
+    margin-top: -20;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .news-content .bbWrapper {
     padding: 0 1.5rem;
     padding-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 16px;
+    font-weight: 500;
 
 }
 
 .news-content .bbWrapper p {
-    font-weight: 100;
+    font-weight: 400;
     margin: 0;
 
 }
@@ -156,7 +187,7 @@
 }
 
 .news-content .bbWrapper .news-author span {
-    font-weight: 700;
+    font-weight: 500;
 }
 
 /*******************************************************************************
@@ -166,41 +197,285 @@
  ******************************************************************************/
 
 .social-tab {
-    position: absolute;
     display: flex;
+    position: relative;
     bottom: 0;
     right: 0;
-    width: 15%;
-    height: calc(80% - 1rem);
-    justify-content: center;
-    margin-bottom: 1rem;
+    width: 240px;
+    height: 94%;
+    justify-content: right;
+    margin-bottom: -10;
+    margin-top: auto;
+    margin-right: 65;
+    margin-left: auto;
 }
 
 .social-list {
     border-radius: 10px;
-    height: 100%;
+    height: auto;
+    width: 240px;
 }
 
-.social-block {
+.social-text-info {
+    margin-left: 30;
+    margin-right: auto;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(250, 250, 250, 1);
+}
+
+
+.subtitle {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(115, 115, 115, 1);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * DISCORD                                                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.social-block-discord {
     display: flex;
+    position: relative;
     background: var(--background-transparent);
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1rem;
+    width: 238px;
+    height: 72px;
+    margin-bottom: 25;
     border-radius: 10px;
     font-size: 2rem;
     cursor: pointer;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
 }
 
-.social-block .icon-social {
+.social-block-discord .icon-discord {
     pointer-events: none;
     background-repeat: no-repeat;
-    height: 55%;
-    width: 55%;
-    filter: var(--svg-color);
+    height: 25%;
+    width: 25%;
+    position: relative;
+    z-index: 1;
+    margin-left: 30;
 }
+
+.circle-d {
+    height: 40px;
+    width: 40px;
+    background-color: rgba(99, 102, 241, 0.30);
+    border-radius: 50%;
+    position: relative;
+    margin-left: -70;
+    margin-right: 10;
+    z-index: 0;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.social-block-discord:hover {
+    border: 1px solid #6366F1;
+}
+
+.social-block-discord:hover .circle-d {
+    height: 72px;
+    width: 238px;
+    justify-content: center;
+    margin-right: -200;
+    margin-left: -90;
+    border-radius: 9px;
+}
+/*******************************************************************************
+ *                                                                             *
+ * TIKTOK                                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+ .social-block-tiktok {
+    display: flex;
+    position: relative;
+    background: var(--background-transparent);
+    width: 238px;
+    height: 72px;
+    margin-bottom: 25;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+}
+
+.social-block-tiktok .icon-tiktok {
+    pointer-events: none;
+    background-repeat: no-repeat;
+    height: 25%;
+    width: 25%;
+    position: relative;
+    z-index: 1;
+    margin-left: 30;
+}
+
+.circle-t {
+    height: 40px;
+    width: 40px;
+    background-color: rgba(64, 217, 255, 0.3);
+    border-radius: 50%;
+    position: relative;
+    margin-left: -70;
+    margin-right: 10;
+    z-index: 0;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.social-block-tiktok:hover {
+    border: 1px solid #40D8FF;
+}
+
+.social-block-tiktok:hover .circle-t {
+    height: 72px;
+    width: 238px;
+    justify-content: center;
+    margin-right: -200;
+    margin-left: -90;
+    border-radius: 9px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * YOUTUBE                                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+ .social-block-youtube {
+    display: flex;
+    position: relative;
+    background: var(--background-transparent);
+    width: 238px;
+    height: 72px;
+    margin-bottom: 25;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+}
+
+.social-block-youtube .icon-youtube {
+    pointer-events: none;
+    background-repeat: no-repeat;
+    height: 25%;
+    width: 25%;
+    position: relative;
+    z-index: 1;
+    margin-left: 30;
+    fill: #DC2626;
+}
+
+.circle-y {
+    height: 40px;
+    width: 40px;
+    background-color: rgba(220, 38, 38, 0.3);
+    border-radius: 50%;
+    position: relative;
+    margin-left: -70;
+    margin-right: 10;
+    z-index: 0;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.social-block-youtube:hover {
+    border: 1px solid #DC2626;
+}
+
+.social-block-youtube:hover .circle-y {
+    height: 72px;
+    width: 238px;
+    justify-content: center;
+    margin-right: -200;
+    margin-left: -90;
+    border-radius: 9px;
+}
+
+ /*******************************************************************************
+ *                                                                             *
+ * X                                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+ .social-block-x {
+    display: flex;
+    position: relative;
+    background: var(--background-transparent);
+    width: 238px;
+    height: 72px;
+    margin-bottom: 25;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+}
+
+.social-block-x .icon-twitter {
+    pointer-events: none;
+    background-repeat: no-repeat;
+    height: 25%;
+    width: 25%;
+    position: relative;
+    z-index: 1;
+    margin-left: 30;
+}
+
+.circle-x {
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: relative;
+    margin-left: -70;
+    margin-right: 10;
+    z-index: 0;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.social-block-x:hover {
+    border: 1px solid #fff;
+}
+
+.social-block-x:hover .circle-x {
+    height: 72px;
+    width: 238px;
+    justify-content: center;
+    margin-right: -200;
+    margin-left: -90;
+    border-radius: 9px;
+}
+
+
+
 
 /*******************************************************************************
  *                                                                             *
@@ -212,9 +487,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    background: var(--background);
+    width: 90%;
     height: 90px;
-    background: var(--background-transparent);
+    margin: 0px 50px 20px 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(5px);
 }
 
 .player-options {
@@ -234,7 +514,7 @@
     height: 3rem;
     width: 3rem;
     pointer-events: none;
-    border-radius: 15px;
+    border-radius: 100px;
 }
 
 .player-menu {
@@ -251,45 +531,56 @@
 
 .play-instance {
     display: flex;
+    cursor: pointer;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    border: solid 3px var(--element-color);
-    border-radius: 15px;
-    height: 3.2rem;
+    height: 50px;
     padding-right: 1.9rem;
+    border-radius: 0.60938rem;
+    background: linear-gradient(90deg, #14DE42 0%, #12AC35 100%);
+    box-shadow: 0px 3.25px 0px 0px #0A400A, 0px 3.25px 0px 0px rgba(255, 255, 255, 0.40) inset;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.play-instance:hover {
+    box-shadow: 0px 3.25px 0px 0px #0A400A, 0px 3.25px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px 0px 0px 10px rgba(209, 247, 218, 0.05);
 }
 
 .play-btn {
     border: none;
     border-radius: 10px;
     background: none;
-    color: var(--color);
-    font-size: 2rem;
+    color: #0A400A;
+    font-size: 20px;
+    font-family: Outfit;
     font-weight: bolder;
     padding: 0 1.5rem;
     pointer-events: none;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .instance-select {
     display: flex;
     align-items: center;
-    position: absolute;
-    right: -3;
-    top: -2;
-    color: var(--element-color);
-    font-size: 1rem;
-    height: calc(100% - 1px);
-    border: solid 3px var(--element-color);
-    text-align: center;
-    border-radius: 15px;
-    padding: 0 0.5rem;
+    color: #0A400A;
+    height: 16px;
+    width: 16px;
     cursor: pointer;
+    justify-content: center;
+    background-repeat: no-repeat;
+    opacity: 0%;
+    margin-left: -50px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
-.instance-select:before {
-    transform: rotate(270deg);
-    pointer-events: none;
+.play-instance:hover .instance-select {
+    opacity: 100%;
+    margin-left: -20px;
+    
 }
 
 .info-starting-game {
@@ -314,12 +605,22 @@
     border-radius: 10px;
 }
 
-.settings-btn {
-    width: 3rem;
-    height: 3rem;
-    font-size: 3rem;
-    color: var(--element-color);
-    margin: 0 1.5rem;
+.settings-btn svg {
+    width: 32px;
+    height: 32px;
+    margin: 0 2rem;
+    cursor: pointer;
+    fill: var(--element-color);
+    fill-opacity: 100;
+    background-repeat: no-repeat;
+    -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+}
+
+
+.settings-btn:hover svg {
+    fill: #14DE42;
+    rotate: 90deg;
 }
 
 .instance-popup {

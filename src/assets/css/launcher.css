@@ -9,7 +9,7 @@ body {
     padding: 0;
     user-select: none;
     color: var(--color);
-    font-family: 'Poppins';
+    font-family: 'Outfit';
     font-weight: bolder;
 }
 
@@ -108,7 +108,9 @@ input::-webkit-inner-spin-button {
     width: 40%;
     padding: 15px;
     background: var(--background);
-    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
     z-index: 10;
 }
 
@@ -127,9 +129,8 @@ input::-webkit-inner-spin-button {
 
 .popup-button {
     background: none;
-    color: var(--color);
-    border: solid 4px var(--element-color);
-    border-radius: 10px;
+    background: #14DE42;
+    border-radius: 5px;
     padding: 0.3rem 4rem;
     font-size: inherit;
     font-weight: bold;

@@ -32,7 +32,7 @@ async function setBackground(theme) {
     } else if (fs.existsSync(`${__dirname}/assets/images/background/${theme ? 'dark' : 'light'}`)) {
         let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/${theme ? 'dark' : 'light'}`);
         let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-        background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/${theme ? 'dark' : 'light'}/${Background})`;
+        background = `linear-gradient(180deg, #000 21.22%, rgba(0, 0, 0, 0.91) 35.64%, rgba(0, 0, 0, 0.81) 52.51%, rgba(0, 0, 0, 0.54) 73.15%, rgba(0, 0, 0, 0.00) 100%), url(./assets/images/background/${theme ? 'dark' : 'light'}/${Background})`;
     }
     body.style.backgroundImage = background ? background : theme ? '#000' : '#fff';
     body.style.backgroundSize = 'cover';
@@ -62,7 +62,7 @@ async function addAccount(data) {
             <div class="profile-uuid">${data.uuid}</div>
         </div>
         <div class="delete-profile" id="${data.ID}">
-            <div class="icon-account-delete delete-profile-icon"></div>
+            <div class="icon-bin"></div>
         </div>
     `
     return document.querySelector('.accounts-list').appendChild(div);

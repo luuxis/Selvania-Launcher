@@ -9,6 +9,8 @@
     position: absolute;
     padding: 15px;
     background: var(--background);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
     border-radius: 15px;
     text-align: center;
     min-width: 40%;
@@ -23,18 +25,32 @@
 
 .login-text {
     font-size: 1.3rem;
+    font-weight: 500;
 }
 
-.connect,
-.cancel {
-    background: none;
+.connect {
     color: var(--color);
-    border: solid 4px var(--element-color);
-    border-radius: 10px;
+    background: var(--element-color);
+    font-weight: 500;
+    border-radius: 5px;
     padding: 0.3rem 4rem;
-    font-size: inherit;
-    font-weight: bold;
+    font-size: 16px;
     margin: 15px 10px;
+    cursor: pointer;
+    font-family: Outfit;
+    border: 0.1px solid rgba(255, 255, 255, 0.15);
+}
+.cancel {
+    color: var(--color);
+    background: var(--background);
+    font-family: Outfit;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 0.3rem 4rem;
+    font-size: 16px;
+    margin: 15px 10px;
+    cursor: pointer;
 }
 
 .input-login .email,
