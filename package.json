@@ -4,36 +4,41 @@
     "version": "0.0.1",
     "description": "Launcher Mincraft pour le serveur DraconiumMC !",
     "main": "src/app.js",
-    "author": "FrozerYTB, luuxis",
-    "url": "https://www.draconium-mc.fr/httpdocs/public/launcher-DraconiumMC",
-    "engines": {
-        "node": ">18.x.x"
+    "author": {
+        "name": "FrozerYTB, luuxis.",
+        "email": "contact@luuxis.fr",
+        "url": "https://github.com/luuxis"
     },
+    "url": "https://www.draconium-mc.fr/httpdocs/public/launcher-DraconiumMC",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
-        "dev": "nodemon --exec npm start"
+        "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
+        "build": "node build.js --obf=true --build=platform",
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
     },
-    "license": "CC0",
+    "license": "CCANC",
     "nodemonConfig": {
-        "ext": "js,html,css"
+        "ext": "js,html,css",
+        "ignore": "**/test"
     },
     "dependencies": {
         "electron-updater": "^6.1.4",
-        "minecraft-java-core": "^3.8.1",
+        "minecraft-java-core": "^3.9.1",
+        "node-bdd": "^2.0.3",
         "node-fetch": "^2.7.0",
-        "sqlite3": "^5.1.7"
+        "xml-js": "^1.6.11"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^27.0.4",
+        "electron": "^29.1.6",
         "electron-builder": "^24.6.4",
+        "javascript-obfuscator": "^4.1.0",
         "jimp": "^0.22.10",
-        "nodemon": "^3.0.1"
+        "nodemon": "^3.0.1",
+        "png2icons": "^2.0.1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ FrozerYTB/DraconiumMC-Launcher.git"
+        "url": "git+https://github.com/FrozerYTB/DraconiumMC-Launcher"
     }
 }
