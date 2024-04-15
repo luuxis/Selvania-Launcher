@@ -139,9 +139,9 @@ class Settings {
         } : { ramMin: "1", ramMax: "2" };
 
         if (totalMem < ram.ramMin) {
-            config.java_config.java_memory = { min: 1, max: 2 };
+            config.java_config.java_memory = { min: 6, max: 2 };
             this.db.updateData('configClient', config);
-            ram = { ramMin: "1", ramMax: "2" }
+            ram = { ramMin: "6", ramMax: "2" }
         };
 
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
