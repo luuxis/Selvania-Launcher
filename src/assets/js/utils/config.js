@@ -9,7 +9,7 @@ const convert = require('xml-js');
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 
 let config = `${url}/launcher/config-launcher/config.json`;
-let news = `${url}/launcher/news-launcher/news.json`;
+let news = `https://mclandsapi.gabzdev.ch/api/news`;
 
 class Config {
     GetConfig() {

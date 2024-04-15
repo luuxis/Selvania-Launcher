@@ -257,18 +257,23 @@
     border: solid 3px var(--element-color);
     border-radius: 15px;
     height: 3.2rem;
-    padding-right: 1.9rem;
+    padding-right: 1rem;
 }
 
 .play-btn {
     border: none;
     border-radius: 10px;
-    background: none;
+    background-color: #ffffff00;
     color: var(--color);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
-    padding: 0 1.5rem;
-    pointer-events: none;
+    padding: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.play-btn:hover {
+    background-color: var(--element-color);
 }
 
 .instance-select {
@@ -320,6 +325,12 @@
     font-size: 3rem;
     color: var(--element-color);
     margin: 0 1.5rem;
+    transition: rotate 200ms;
+    cursor: pointer;
+}
+
+.settings-btn:hover {
+    rotate: 90deg;
 }
 
 .instance-popup {

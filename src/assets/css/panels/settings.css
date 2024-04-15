@@ -40,6 +40,15 @@
     text-align: center;
     margin: 0.5rem 0;
     cursor: pointer;
+    transition: background 200ms;
+}
+
+#account:hover, #java:hover, #resolution:hover, #launcher:hover {
+    background: var(--element-color);
+}
+
+#save:hover {
+    background: var(--background-element);
 }
 
 .active-settings-BTN {
