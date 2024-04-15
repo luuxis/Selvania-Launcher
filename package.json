@@ -1,8 +1,8 @@
 {
-    "name": "Fromagerie-Launcher",
-    "preductname": "Fromagerie Launcher",
-    "version": "2.5.3",
-    "description": "Launcher Mincraft pour le serveur Fromagerie",
+    "name": "minecraft-lands-launcher",
+    "preductname": "Minecraft Lands",
+    "version": "2.6.0",
+    "description": "Launcher Mincraft pour Minecraft Lands",
     "main": "src/app.js",
     "author": {
         "name": "luuxis, xbon_pvp, Inc.",
