@@ -9,12 +9,12 @@
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "https://fromagerieweb.xbon-pvpcompagnies.tk/new",
+    "url": "https://download.mclands.games/new",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=false --build=platform",
-        "icon": "node build.js --icon=https://fromagerieweb.xbon-pvpcompagnies.tk/icon.png"
+        "icon": "node build.js --icon=https://download.mclands.games/icon.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
