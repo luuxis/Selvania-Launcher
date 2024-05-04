@@ -51,7 +51,7 @@ async function appdata() {
 
 async function addAccount(data) {
     let skin = false
-    if (data.meta.type == 'Xbox') skin = await new skin2D().creatHeadTexture(data.profile.skins[0].base64);
+    if (data?.profile?.skins[0]?.base64) skin = await new skin2D().creatHeadTexture(data.profile.skins[0].base64);
     let div = document.createElement("div");
     div.classList.add("account");
     div.id = data.ID;
@@ -74,7 +74,7 @@ async function accountSelect(data) {
 
     if (activeAccount) activeAccount.classList.toggle('account-select');
     account.classList.add('account-select');
-    if (data.meta.type == 'Xbox') headplayer(data.profile.skins[0].base64);
+    if (data?.profile?.skins[0]?.base64) headplayer(data.profile.skins[0].base64);
 }
 
 async function headplayer(skinBase64) {
