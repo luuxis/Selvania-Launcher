@@ -1,8 +1,7 @@
 /**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
+ * @author ruinita
  */
-import { config, database, logger, changePanel, appdata, setStatus, pkg, popup } from '../utils.js'
+import { config, database, logger, changePanel, appdata, setStatus, pkg } from '../utils.js'
 
 const { Launch } = require('minecraft-java-core')
 const { shell, ipcRenderer } = require('electron')
@@ -15,6 +14,11 @@ class Home {
         this.news()
         this.socialLick()
         this.instancesSelect()
+        this.IniciarEstadoDiscord();
+    }
+
+    async IniciarEstadoDiscord() {
+        ipcRenderer.send('new-status-discord');
         document.querySelector('.settings-btn').addEventListener('click', e => changePanel('settings'))
     }
 
@@ -27,13 +31,13 @@ class Home {
                 blockNews.classList.add('news-block');
                 blockNews.innerHTML = `
                     <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/icon.png">
+                        <img class="server-status-icon" src="assets/images/icon.ico">
                         <div class="header-text">
-                            <div class="title">Aucun news n'ai actuellement disponible.</div>
+                            <div class="title">Actualmente no hay noticias disponibles.</div>
                         </div>
                         <div class="date">
                             <div class="day">1</div>
-                            <div class="month">Janvier</div>
+                            <div class="month">Abril</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -49,7 +53,7 @@ class Home {
                     blockNews.classList.add('news-block');
                     blockNews.innerHTML = `
                         <div class="news-header">
-                            <img class="server-status-icon" src="assets/images/icon.png">
+                            <img class="server-status-icon" src="assets/images/icon.ico">
                             <div class="header-text">
                                 <div class="title">${News.title}</div>
                             </div>
@@ -72,18 +76,18 @@ class Home {
             blockNews.classList.add('news-block');
             blockNews.innerHTML = `
                 <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/icon.png">
+                        <img class="server-status-icon" src="assets/images/icon.ico">
                         <div class="header-text">
-                            <div class="title">Error.</div>
+                            <div class="title">Noticia.</div>
                         </div>
                         <div class="date">
-                            <div class="day">1</div>
-                            <div class="month">Janvier</div>
+                            <div class="day">algun</div>
+                            <div class="month">dia</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
+                            <p>Inicio</br>Estas listo??</p>
                         </div>
                     </div>`
             newsElement.appendChild(blockNews);
@@ -137,7 +141,7 @@ class Home {
                         await this.db.updateData('configClient', configClient)
                     }
                 }
-            } else console.log(`Initializing instance ${instance.name}...`)
+            } else console.log(`Iniciando instancia ${instance.name}...`)
             if (instance.name == instanceSelect) setStatus(instance.status)
         }
 
@@ -249,6 +253,7 @@ class Home {
         infoStartingBOX.style.display = "block"
         progressBar.style.display = "";
         ipcRenderer.send('main-window-progress-load')
+        ipcRenderer.send('new-status-discord-jugando',  `Jugando a '${options.name}'`) 
 
         launch.on('extract', extract => {
             ipcRenderer.send('main-window-progress-load')
@@ -256,14 +261,14 @@ class Home {
         });
 
         launch.on('progress', (progress, size) => {
-            infoStarting.innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Descargando ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;
         });
 
         launch.on('check', (progress, size) => {
-            infoStarting.innerHTML = `Vérification ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Verificando Archivos ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;
@@ -283,7 +288,7 @@ class Home {
         launch.on('patch', patch => {
             console.log(patch);
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Patch en cours...`
+            infoStarting.innerHTML = `Extrayendo forge..`
         });
 
         launch.on('data', (e) => {
@@ -293,9 +298,10 @@ class Home {
             };
             new logger('Minecraft', '#36b030');
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Demarrage en cours...`
+            infoStarting.innerHTML = `Playing`
             console.log(e);
-        })
+
+        });
 
         launch.on('close', code => {
             if (configClient.launcher_config.closeLauncher == 'close-launcher') {
@@ -303,30 +309,17 @@ class Home {
             };
             ipcRenderer.send('main-window-progress-reset')
             infoStartingBOX.style.display = "none"
-            playInstanceBTN.style.display = "flex"
-            infoStarting.innerHTML = `Vérification`
+            playInstanceBTN.style.display = "block"
+            infoStarting.innerHTML = `Volviendo al juego..`
             new logger(pkg.name, '#7289da');
             console.log('Close');
+            
+            ipcRenderer.send('delete-and-new-status-discord')
+
         });
 
         launch.on('error', err => {
-            let popupError = new popup()
-
-            popupError.openPopup({
-                title: 'Erreur',
-                content: err.error,
-                color: 'red',
-                options: true
-            })
-
-            if (configClient.launcher_config.closeLauncher == 'close-launcher') {
-                ipcRenderer.send("main-window-show")
-            };
             ipcRenderer.send('main-window-progress-reset')
-            infoStartingBOX.style.display = "none"
-            playInstanceBTN.style.display = "flex"
-            infoStarting.innerHTML = `Vérification`
-            new logger(pkg.name, '#7289da');
             console.log(err);
         });
     }
@@ -336,7 +329,7 @@ class Home {
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
-        let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        let allMonth = ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']
         return { year: year, month: allMonth[month - 1], day: day }
     }
 }

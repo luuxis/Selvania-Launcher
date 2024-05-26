@@ -107,9 +107,18 @@ input::-webkit-inner-spin-button {
 .popup-tab {
     width: 40%;
     padding: 15px;
-    background: var(--background);
-    border-radius: 15px;
+    background: var(--element-color);
+    border-radius: 13px;
     z-index: 10;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    font: 14px 'Poppins';
+    color: #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+
 }
 
 .popup-title {

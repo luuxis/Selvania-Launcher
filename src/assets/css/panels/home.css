@@ -5,6 +5,7 @@
     align-items: center;
 }
 
+
 /*******************************************************************************
  *                                                                             *
  * Status server                                                               *
@@ -16,14 +17,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--background);
+    background: rgba(100, 100, 100, .5);
     width: 25rem;
     height: 3rem;
     color: var(--color);
-    border-radius: 10px;
     margin-top: 3rem;
     padding: 1rem;
     text-align: center;
+    border: solid 2px #bababa;
+    color: #ffffff;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
 }
 
 .server-status-icon {
@@ -166,12 +177,12 @@
  ******************************************************************************/
 
 .social-tab {
-    position: absolute;
+    position: relative;
     display: flex;
     bottom: 0;
     right: 0;
     width: 15%;
-    height: calc(80% - 1rem);
+    height: 100%;
     justify-content: center;
     margin-bottom: 1rem;
 }
@@ -210,20 +221,25 @@
 
 .sidebar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 90px;
-    background: var(--background-transparent);
+    background: transparent;
 }
 
 .player-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 5%;
     height: 3rem;
     margin: 0 1.5rem;
+    transition: transform .1s;
+}
+
+.player-options:hover {
+    transform: scale(1.05);
 }
 
 .player-head {
@@ -251,40 +267,99 @@
 
 .play-instance {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     position: relative;
-    border: solid 3px var(--element-color);
-    border-radius: 15px;
     height: 3.2rem;
     padding-right: 1.9rem;
+    transition: transform .1s;
 }
 
 .play-btn {
-    border: none;
-    border-radius: 10px;
-    background: none;
-    color: var(--color);
-    font-size: 2rem;
-    font-weight: bolder;
-    padding: 0 1.5rem;
-    pointer-events: none;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 44px;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 14px 'Poppins';
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
+.play-btn:hover {
+    padding: 12px 44px;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 14px Poppins;
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    opacity: 0.6;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: alpha(opacity=60);
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    transform: scale(1.05);
+}
+
+
 .instance-select {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: -3;
-    top: -2;
-    color: var(--element-color);
-    font-size: 1rem;
-    height: calc(100% - 1px);
-    border: solid 3px var(--element-color);
+    text-decoration: none;
     text-align: center;
-    border-radius: 15px;
-    padding: 0 0.5rem;
-    cursor: pointer;
+    padding: 14px 12px;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 18px;
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin: 7.5px;
+}
+
+.instance-select:hover {
+    padding: 14px 12px;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 18px;
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    opacity: 0.6;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: alpha(opacity=60);
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    transform: scale(1.05);
 }
 
 .instance-select:before {
@@ -301,25 +376,87 @@
     appearance: none;
     height: 10px;
     margin: 0.5rem 0;
+    border: solid 2px #a8a8a8;
+    color: #ffffff;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    background: transparent;
 }
 
 .progress-bar::-webkit-progress-bar {
-    background-color: var(--background);
+    background-color: transparent;
     border: solid 1px var(--element-color);
     border-radius: 10px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    background: transparent;
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: var(--element-color);
+    background-color: #fff;
     border-radius: 10px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    background: transparent;
 }
 
 .settings-btn {
-    width: 3rem;
-    height: 3rem;
-    font-size: 3rem;
-    color: var(--element-color);
-    margin: 0 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 12px;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 18px;
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin: 7.5px;
+}
+
+.settings-btn:hover {
+    padding: 15px 12px;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 18px;
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    opacity: 0.6;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: alpha(opacity=60);
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    transform: scale(1.05);
 }
 
 .instance-popup {
@@ -327,7 +464,6 @@
     display: none;
     width: 100%;
     height: 100%;
-    background: #000000b3;
     z-index: 10;
     flex-direction: column;
     align-items: center;
@@ -337,9 +473,22 @@
 
 .instances-tab {
     position: relative;
-    background: var(--background);
+    background: var(--background-transparent);
     border-radius: 10px;
     padding: 1rem 3rem;
+    border: solid 2px #a8a8a8;
+    color: #ffffff;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+
+
 }
 
 .close-popup {
@@ -347,12 +496,22 @@
     display: flex;
     top: 10px;
     right: 10px;
-    background: var(--shadow);
+    background: transparent;
     height: 30px;
     width: 30px;
-    border-radius: 10px;
     align-items: center;
     justify-content: center;
+    border: solid 2px #a8a8a8;
+    color: #ffffff;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
 }
 
 .instances-tab p {
@@ -361,18 +520,25 @@
 }
 
 .instance-elements {
-    background: var(--background-element);
+    background: transparent;
     text-align: center;
-    border-radius: 10px;
     margin: 0.5rem 0;
     font-size: 1.5rem;
     cursor: pointer;
+    border: solid 2px #a8a8a8;
+    color: #ffffff;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
 }
 
 .instance-elements:hover {
-    background: var(--element-color);
+    background: var(--background);
 }
 
 .active-instance {
-    background: var(--element-color);
+    background: var(--background-transparent);
 }
