@@ -1,14 +1,12 @@
 .settings .container {
     display: flex;
     height: 100%;
-    background: transparent;
-    align-items: right;
 }
 
 .nav-settings {
     width: 20%;
     height: 100%;
-    background: rgba(135, 135, 135, .5);
+    background: var(--background);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -26,37 +24,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: transparent;
 }
 
 .nav-box #save {
     border: solid 4px var(--background-element);
     margin: 3rem;
-    background: transparent;
 }
 
 .nav-settings-btn {
     font-size: 50%;
-    border: solid 2px var(--element-color);
+    border: solid 4px var(--element-color);
     padding: 5px 10px;
     border-radius: 10px;
     width: 70%;
     text-align: center;
     margin: 0.5rem 0;
     cursor: pointer;
-    background: transparent;
-    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    opacity: 0.6;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-    filter: alpha(opacity=60);
-    text-shadow: 0px 0px 20px #bababa;
-    filter: dropshadow(color=#bababa, offx=0, offy=0);
 }
 
 .active-settings-BTN {
-    background: var(--background-transparent);
+    background: var(--element-color);
 }
 
 .container-settings {
@@ -73,18 +60,11 @@
 }
 
 .settings-elements-box {
+    background: var(--background-element);
     width: 80%;
     border-radius: 10px;
     padding: 1.5rem 2rem;
     margin: 0.5rem;
-    background: rgba(135, 135, 135, .5);
-    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-    filter: alpha(opacity=60);
-    text-shadow: 0px 0px 20px #bababa;
-    filter: dropshadow(color=#bababa, offx=0, offy=0);
 }
 
 .setting-text {
@@ -93,8 +73,8 @@
 
 .active-container-settings {
     opacity: 1;
-    pointer-events: all;
     z-index: 1;
+    pointer-events: all;
 }
 
 .titre-tab {
@@ -104,18 +84,10 @@
     font-size: 2rem;
     margin: 1.5rem 0;
     padding: 0.5rem 2rem;
-    border-radius: 10px;
+    border-radius: 2rem;
     text-align: center;
-    background: rgba(135, 135, 135, .5);
+    background: var(--background-transparent);
     color: var(--color);
-    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-    filter: alpha(opacity=60);
-    text-shadow: 0px 0px 20px #bababa;
-    filter: dropshadow(color=#bababa, offx=0, offy=0);
-    border: solid 2px #bababa;
 }
 
 .settings-elements {
@@ -147,8 +119,8 @@
 }
 
 .account {
-    background: rgba(135, 135, 135, .5);
-    border: solid 2px var(--background-transparent);
+    background: var(--background-element);
+    border: solid 4px var(--background-element);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -156,18 +128,10 @@
     height: calc(100px - 8px);
     margin: 1rem;
     border-radius: 15px;
-    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-    filter: alpha(opacity=60);
-    text-shadow: 0px 0px 20px #bababa;
-    filter: dropshadow(color=#bababa, offx=0, offy=0);
 }
 
 .account-select {
-    border: solid 2px var(--background-transparent);
-    background: rgba(80, 80, 80, .5);
+    border: solid 4px var(--element-color);
 }
 
 .accounts-list #add {
@@ -227,7 +191,7 @@
 .delete-profile {
     width: 70px;
     height: 70px;
-    background: rgba(50, 50, 50, .5);
+    background: var(--background-transparent);
     border-radius: 15px;
     font-size: 3rem;
     display: flex;
@@ -446,37 +410,4 @@
 
 .active-close {
     border: 4px solid var(--element-color);
-}
-
-/** credits tab **/
-.input-size-element {
-    display: flex;
-    align-items: center;
-}
-
-.input-resolution {
-    background: var(--shadow);
-    border: none;
-    color: var(--color);
-    padding: 0.5rem 1rem;
-    border-radius: 15px;
-    text-align: center;
-    width: 6rem;
-}
-
-.size-cross {
-    margin: 0 0.5rem;
-}
-
-.size-cross:before {
-    font: normal normal bold 20px Icons;
-    content: "\e90e";
-}
-
-.size-btn {
-    padding: 0.3rem 1rem;
-    background: var(--element-color);
-    border-radius: 15px;
-    margin: 0 1rem;
-    cursor: pointer;
 }

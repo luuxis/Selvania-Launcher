@@ -1,13 +1,13 @@
 /**
- * @author Luuxis
+ * @author Azukiss
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
-const { ipcRenderer } = require('electron');
+
+const { ipcRenderer, shell } = require('electron');
+const pkg = require('../package.json');
 const os = require('os');
 import { config, database } from './utils.js';
-
-let dev = process.env.NODE_ENV === 'dev';
-
+const nodeFetch = require("node-fetch");
 
 class Splash {
     constructor() {
@@ -29,10 +29,10 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Q riki", "author": "iker34251" },
-            { "message": "By2002", "author": "Azukiss" },
-            { "message": "Me hago una chaqueta", "author": "wedgito" }
-        ];
+            { "message": "Bienvenido/a", "author": "Azukiss" },
+            { "message": "Bienvenido/a", "author": "Azukiss" },
+            { "message": "Bienvenido/a", "author": "Azukiss" }
+        ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
         this.splashAuthor.children[0].textContent = "@" + splash.author;
@@ -51,29 +51,26 @@ class Splash {
 
     async checkUpdate() {
         if (dev) return this.startLauncher();
-        this.setStatus(`Recherche de mise à jour...`);
+        this.setStatus(`Bucando Actualizaciones...`);
 
-        ipcRenderer.invoke('update-app').then().catch(err => {
-            return this.shutdown(`erreur lors de la recherche de mise à jour :<br>${err.message}`);
-        });
+        ipcRenderer.invoke('update-app').then(err => {
+            if (err.error) {
+                let error = err.message;
+                this.shutdown(`Error al buscar actualizaciones :<br>${error}`);
+            }
+        })
 
         ipcRenderer.on('updateAvailable', () => {
-            this.setStatus(`Mise à jour disponible !`);
+            this.setStatus(`¡Actualización disponible!`);
+            this.toggleProgress();
             ipcRenderer.send('start-update');
         })
 
-        ipcRenderer.on('error', (event, err) => {
-            if (err) return this.shutdown(`${err.message}`);
-        })
-
         ipcRenderer.on('download-progress', (event, progress) => {
-            this.toggleProgress();
-            ipcRenderer.send('update-window-progress', { progress: progress.transferred, size: progress.total })
             this.setProgress(progress.transferred, progress.total);
         })
 
         ipcRenderer.on('update-not-available', () => {
-            console.error("Mise à jour non disponible");
             this.maintenanceCheck();
         })
     }
@@ -84,21 +81,21 @@ class Splash {
             this.startLauncher();
         }).catch(e => {
             console.error(e);
-            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+            return this.shutdown("Mala conexion a Internet detectada:<br>Reinicia tu wifi o avisa a un admin");
         })
     }
 
     startLauncher() {
-        this.setStatus(`Démarrage du launcher`);
+        this.setStatus(`Iniciando el Launcher...`);
         ipcRenderer.send('main-window-open');
         ipcRenderer.send('update-window-close');
     }
 
     shutdown(text) {
-        this.setStatus(`${text}<br>Arrêt dans 5s`);
+        this.setStatus(`${text}<br>Cerrando en 5s`);
         let i = 4;
         setInterval(() => {
-            this.setStatus(`${text}<br>Arrêt dans ${i--}s`);
+            this.setStatus(`${text}<br>Cerrando en ${i--}s`);
             if (i < 0) ipcRenderer.send('update-window-close');
         }, 1000);
     }

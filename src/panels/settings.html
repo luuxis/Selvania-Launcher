@@ -1,17 +1,17 @@
 <div class="container">
     <div class="nav-settings">
-        <p>Ajustes</p>
+        <p>configuraciones</p>
         <div class="nav-box">
             <div id="account" class="nav-settings-btn active-settings-BTN">CUENTAS</div>
             <div id="java" class="nav-settings-btn">JAVA</div>
             <div id="resolution" class="nav-settings-btn">RESOLUCIÓN</div>
-            <div id="launcher" class="nav-settings-btn">LAUNCHER</div>
-            <div id="save" class="nav-settings-btn">INICIO</div>
+            <div id="launcher" class="nav-settings-btn">CLIENTE</div>
+            <div id="save" class="nav-settings-btn">GUARAR</div>
         </div>
     </div>
 
     <div id="account-tab" class="container-settings active-container-settings">
-        <div class="titre-tab">Cuentas</div>
+        <div class="titre-tab">Cuentas de jugadores</div>
 
         <div class="accounts-list content-scroll">
             <div class="account" id="add">
@@ -24,53 +24,51 @@
     </div>
 
     <div id="java-tab" class="container-settings content-scroll">
-        <div class="titre-tab">Configuración de tu RAM</div>
+        <div class="titre-tab">Paramètre de votre RAM</div>
         <div class="settings-elements-box">
             <div class="setting-text">
                 Definición de la RAM asignada a tu juego, una cantidad mayor aumentará el rendimiento de
-                tu juego.<br>
-                Tenga en cuenta que debe evitar agregar una cantidad demasiado grande, de lo contrario esto podría
-                causar la pérdida de
-                rendimiento en sus otras aplicaciones.<br><br>
-                <b>-RAM máxima:</b> Indica la cantidad total de RAM asignada a tu juego. Se recomienda no
-                exceder el 50% de la cantidad total de RAM presente en su PC.<br><br>
-                <b>-RAM mínima:</b> Indica la cantidad mínima de RAM asignada al iniciar tu juego.
-                Se recomienda no poner más de 4GB para este valor.
+                 tu juego.<br>
+                 Tenga en cuenta que debe evitar agregar una cantidad demasiado grande, de lo contrario esto podría causar la pérdida de
+                 rendimiento en sus otras aplicaciones.<br><br>
+                 <b>-RAM máxima:</b> Indica la cantidad total de RAM asignada a tu juego. Se recomienda no hacerlo.
+                 exceder el 50% de la cantidad total de RAM presente en su PC.<br><br>
+                 <b>-RAM mínima:</b> Indica la cantidad mínima de RAM asignada al iniciar tu juego.
+                 Se recomienda no poner más de 4GB para este valor.
             </div>
             <div class="settings-elements content-evenly">
                 <div class="memory-slider" min="0.5" max="8" step="0.5">
                     <div class="slider-touch-left">
-                        <span value="0 Gb"></span>
+                        <span value="0 Go"></span>
                     </div>
                     <div class="slider-touch-right">
-                        <span value="0 Gb"></span>
+                        <span value="0 Go"></span>
                     </div>
                     <div class="slider-line">
                         <span></span>
                     </div>
                 </div>
                 <div class="ram-info-block">
-                    <b>Tienes un total de <span id="total-ram">0 Gb</span> RAM.</b><br>
-                    <b>Tienes un total de <span id="free-ram">0 Gb</span> RAM disponible.</b>
+                    <b>Tienes un total de <span id="total-ram">0 GB</span> de RAM.</b><br>
+                     <b>Tienes un total de <span id="free-ram">0 GB</span> de RAM disponible.</b>
                 </div>
             </div>
         </div>
 
-        <div class="titre-tab">Ubicación de Java</div>
+        <div class="titre-tab">Ubicación de java</div>
         <div class="settings-elements-box">
             <div class="setting-text">
                 El iniciador utiliza una versión integrada de Java.<br>
-                Esta versión está disponible en el directorio :<br><span class="java-path-txt"></span><br>
-                Sin embargo, puedes especificar tu propio ejecutable si tu juego requiere una versión superior de
-                Java.
-                reciente.
+                 Esta versión está disponible en el directorio:<br><span class="java-path-txt"></span><br>
+                 Sin embargo, puedes especificar tu propio ejecutable si tu juego requiere una versión superior de Java.
+                 reciente.
             </div>
             <div class="settings-elements content-evenly">
                 <input type="text" class="java-path-input-text" disabled>
                 <input type="file" class="java-path-input-file" accept="application/octet-stream" />
                 <div class="java-path-box">
-                    <div class="java-path-set java-path-btn">Cambiar</div>
-                    <div class="java-path-reset java-path-btn">Por default</div>
+                    <div class="java-path-set java-path-btn">Cambiador</div>
+                    <div class="java-path-reset java-path-btn">Por defecto</div>
                 </div>
             </div>
         </div>
@@ -81,9 +79,8 @@
         <div class="settings-elements-box">
             <div class="setting-text">
                 Establece una resolución personalizada para adaptar un juego a tu pantalla.<br>
-                De forma predeterminada, el juego comienza en 854 x 480,<br>puedes modificar este valor para mayor
-                comodidad al jugar
-                óptimo. La resolución ideal es 1280 x 720.
+                 De forma predeterminada, el juego comienza en 854 x 480,<br>puedes modificar este valor para mayor comodidad al jugar
+                 óptimo. La resolución ideal es 1280 x 720.
             </div>
             <div class="settings-elements content-center">
                 <div class="input-size-element">
@@ -91,39 +88,41 @@
                     <div class="size-cross"></div>
                     <input type="number" class="height-size input-resolution">
                 </div>
-                <div class="size-reset size-btn">Por default</div>
+                <div class="size-reset size-btn">Por defecto</div>
             </div>
         </div>
     </div>
 
     <div id="launcher-tab" class="container-settings content-scroll">
-        <div class="titre-tab">Configuración de descargas</div>
+        <div class="titre-tab">Descargar configuración</div>
         <div class="settings-elements-box">
             <div class="setting-text">
-                Esta configuración determina la cantidad máxima de archivos que se pueden descargar simultáneamente
-                durante la descarga.
-                actualizando o descargando recursos.<br><br>
+                Esta configuración determina la cantidad máxima de archivos que se pueden descargar simultáneamente durante la descarga.
+                 actualizando o descargando recursos.<br><br>
 
-                Tenga en cuenta que cambiar esta configuración puede afectar el rendimiento de
-                descargar.<br>
-                Se recomienda no exceder los límites recomendados predeterminados,<br>
-                a menos que tenga problemas de conectividad específicos.
+                 Tenga en cuenta que cambiar esta configuración puede afectar el rendimiento de
+                 descargar.<br>
+                 Se recomienda no exceder los límites recomendados predeterminados,<br>
+                 a menos que tenga problemas de conectividad específicos.
             </div>
             <div class="settings-elements content-center">
                 <input type="number" class="max-files input-max-files">
-                <p>Archivos</p>
-                <div class="max-files-reset max-files-btn">Por default</div>
+                <p>Fichiers</p>
+                <div class="max-files-reset max-files-btn">Por defecto</div>
             </div>
         </div>
 
-        <div class="titre-tab">Tema</div>
+        <div class="titre-tab">Tema claro y oscuro</div>
         <div class="settings-elements-box">
             <div class="setting-text">
-                Tema que usa el launcher (solo hay un tema por ahora)<br><br>
+                Elija entre tema claro y tema oscuro para personalizar la apariencia del iniciador.<br><br>
+
+                 Cambiar el tema puede influir en la legibilidad y la experiencia visual.<br>
+                 Selecciona el que más te convenga según tus preferencias.
             </div>
             <div class="settings-elements content-center theme-box">
+                <div class="theme-btn theme-btn-clair">Claro</div>
                 <div class="theme-btn theme-btn-sombre">Oscuro</div>
-                <div class="theme-btn theme-btn-auto">Auto</div>
             </div>
         </div>
 
@@ -140,10 +139,10 @@
             </div>
         </div>
 
-        <!-- <div class="titre-tab">entorno INTEL</div>
+        <!-- <div class="titre-tab">Environnement INTEL</div>
         <div class="settings-elements-box">
             <div class="setting-text">
-                para jugarlos con los fiscales de Apple Silicon 
+                pour les jouer avec les proseceurs apple silicon 
             </div>
 
             <div class="settings-elements content-evenly close-box">
