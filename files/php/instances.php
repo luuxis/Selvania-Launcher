@@ -1,11 +1,11 @@
 <?php
-$instance['hypixel'] = array_merge($instance['hypixel'], array(
+$instance['Badlands_V2'] = array_merge($instance['Badlands_V2'], array(
     "loadder" => array(
-        "minecraft_version" => "1.8.9",
-        "loadder_type" => "forge",
+        "minecraft_version" => "1.19.3",
+        "loadder_type" => "fabric",
         "loadder_version" => "latest"
     ),
-    "verify" => true,
+    "verify" => false,
     "ignored" => array(
         'config',
         'essential',
@@ -21,8 +21,8 @@ $instance['hypixel'] = array_merge($instance['hypixel'], array(
     "whitelist" => array(),
     "whitelistActive" => false,
     "status" => array(
-        "nameServer" => "Hypixel",
-        "ip" => "mc.hypixel.net",
+        "nameServer" => "Badlands_V2",
+        "ip" => "mc.Badlands.fr",
         "port" => 25565
     )
 ));
