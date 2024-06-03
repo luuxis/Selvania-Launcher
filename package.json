@@ -1,15 +1,13 @@
 {
     "name": "Ant-Launcher",
     "preductname": "Ant Launcher",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Launcher para eventos",
     "main": "src/app.js",
+    "url": "https://antlauncher.000webhostapp.com/main/",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "https://antlauncher.000webhostapp.com/main/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
