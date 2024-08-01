@@ -1,14 +1,20 @@
 .global {
     --element-color: #00bd7a;
+    --hover-element-color: #008657;
     --transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
     --dark-color: #292929;
+    --hover-dark-color: #1e1e1e;
     --light-color: rgb(245, 245, 245);
+    --hover-light-color: rgb(200, 200, 200);
 }
 
 .dark {
     --color: #F5F5F5;
+    --hover-color: #c8c8c8;
     --background: #292929;
+    --hover-background: #1e1e1e;
     --background-element: #424242;
+    --hover-background-element: #313131;
     --background-transparent: #2c2c2ccc;
     --shadow: rgba(25, 25, 25, 0.7);
     --svg-color: brightness(0) saturate(100%) invert(100%) sepia(55%) saturate(23%) hue-rotate(236deg) brightness(108%) contrast(92%);
@@ -16,8 +22,11 @@
 
 .light {
     --color: #151515;
+    --hover-color: #1e1e1e;
     --background: rgb(245, 245, 245);
+    --hover-background: rgb(200, 200, 200);
     --background-element: #c2c2c2;
+    --hover-background-element: #a5a5a5;
     --background-transparent: rgba(204, 204, 204, 0.8);
     --shadow: rgba(208, 208, 208, 0.7);
     --svg-color: brightness(0) saturate(100%) invert(0%) sepia(5%) saturate(1719%) hue-rotate(357deg) brightness(94%) contrast(84%);

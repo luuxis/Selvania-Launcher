@@ -24,6 +24,12 @@
     margin-top: 3rem;
     padding: 1rem;
     text-align: center;
+    opacity: .7;
+    transition: all .7s ease;
+}
+
+.status-server:hover {
+    opacity: 1;
 }
 
 .server-status-icon {
@@ -187,11 +193,16 @@
     width: 90px;
     height: 90px;
     margin-bottom: 1rem;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 2rem;
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    transition: all .7s ease;
+}
+
+.social-block:hover {
+    border-radius: 80%;
 }
 
 .social-block .icon-social {
@@ -258,6 +269,12 @@
     border-radius: 15px;
     height: 3.2rem;
     padding-right: 1.9rem;
+    transition: all .7s ease;
+    cursor: pointer;
+}
+
+.play-instance:hover {
+    border-color: var(--hover-element-color);
 }
 
 .play-btn {
@@ -282,14 +299,19 @@
     height: calc(100% - 1px);
     border: solid 3px var(--element-color);
     text-align: center;
-    border-radius: 15px;
+    border-radius: 0px 15px 15px 0px;
     padding: 0 0.5rem;
     cursor: pointer;
+    transition: all .7s ease;
 }
 
 .instance-select:before {
     transform: rotate(270deg);
     pointer-events: none;
+}
+
+.instance-select:hover {
+    border-color: var(--hover-element-color);
 }
 
 .info-starting-game {
@@ -320,6 +342,12 @@
     font-size: 3rem;
     color: var(--element-color);
     margin: 0 1.5rem;
+    cursor: pointer;
+    transition: transform 1s ease-in-out;
+}
+
+.settings-btn:hover {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .instance-popup {
@@ -353,6 +381,8 @@
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: all .3s ease;
 }
 
 .instances-tab p {
@@ -367,10 +397,11 @@
     margin: 0.5rem 0;
     font-size: 1.5rem;
     cursor: pointer;
+    transition: all .7s ease;
 }
 
 .instance-elements:hover {
-    background: var(--element-color);
+    background: var(--hover-element-color);
 }
 
 .active-instance {
