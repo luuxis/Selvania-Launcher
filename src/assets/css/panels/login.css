@@ -35,6 +35,12 @@
     font-size: inherit;
     font-weight: bold;
     margin: 15px 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.connect:hover, .cancel:hover {
+    border: solid 4px var(--hover-element-color);
 }
 
 .input-login .email,
