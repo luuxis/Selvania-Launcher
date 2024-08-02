@@ -1,7 +1,7 @@
 {
     "name": "luxeria-client",
     "preductname": "Luxeria Client",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Cliente creado especificamente para los eventos de LuxeriaStudios",
     "main": "src/app.js",
     "author": {
