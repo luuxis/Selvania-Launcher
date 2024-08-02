@@ -15,6 +15,11 @@ class Home {
         this.news()
         this.socialLick()
         this.instancesSelect()
+        this.startDiscordStatus()
+    }
+
+    async startDiscordStatus() {
+        ipcRenderer.send('new-status-discord');
         document.querySelector('.settings-btn').addEventListener('click', e => changePanel('settings'))
     }
 
@@ -29,16 +34,17 @@ class Home {
                     <div class="news-header">
                         <img class="server-status-icon" src="assets/images/icon.png">
                         <div class="header-text">
-                            <div class="title">Aucun news n'ai actuellement disponible.</div>
+                            <div class="title">Aucun news n'a été posté pour le moment.</div>
                         </div>
                         <div class="date">
                             <div class="day">1</div>
                             <div class="month">Janvier</div>
+                            <div class="year">1970</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Vous pourrez suivre ici toutes les news relative au serveur.</p>
+                            <p>Vous pourrez suivre ici toutes les news relative au réseau de SaurFort.</p>
                         </div>
                     </div>`
                 newsElement.appendChild(blockNews);
@@ -56,6 +62,7 @@ class Home {
                             <div class="date">
                                 <div class="day">${date.day}</div>
                                 <div class="month">${date.month}</div>
+                                <div class="year">${date.year}</div>
                             </div>
                         </div>
                         <div class="news-content">
@@ -79,11 +86,12 @@ class Home {
                         <div class="date">
                             <div class="day">1</div>
                             <div class="month">Janvier</div>
+                            <div class="year">1970</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
+                            <p>Impossible de contacter le serveur.</br>Merci de rapporter le problème à SaurFort.</p>
                         </div>
                     </div>`
             newsElement.appendChild(blockNews);
@@ -208,6 +216,8 @@ class Home {
         let infoStartingBOX = document.querySelector('.info-starting-game')
         let infoStarting = document.querySelector(".info-starting-game-text")
         let progressBar = document.querySelector('.progress-bar')
+
+        console.log(options.url);
 
         let opt = {
             url: options.url,

@@ -74,15 +74,27 @@ async function accountSelect(data) {
 
     if (activeAccount) activeAccount.classList.toggle('account-select');
     account.classList.add('account-select');
-    if (data?.profile?.skins[0]?.base64) headplayer(data.profile.skins[0].base64);
+    headplayer(data?.profile?.skins[0]?.base64);
+    playerName(data?.name);
 }
 
 async function headplayer(skinBase64) {
-    let skin = await new skin2D().creatHeadTexture(skinBase64);
-    document.querySelector(".player-head").style.backgroundImage = `url(${skin})`;
+    if(skinBase64 !== undefined) {
+        let skin = await new skin2D().creatHeadTexture(skinBase64);
+        document.querySelector(".player-head").style.backgroundImage = `url(${skin})`;
+    } else {
+        document.querySelector(".player-head").style.backgroundImage = ``;
+    }
+}
+
+async function playerName(playerName) {
+    if(playerName !== undefined) {
+        document.querySelector(".player-name").innerHTML = playerName;
+    }
 }
 
 async function setStatus(opt) {
+    let serverIconElement = document.querySelector('.status-server .server-status-icon')
     let nameServerElement = document.querySelector('.server-status-name')
     let statusServerElement = document.querySelector('.server-status-text')
     let playersOnline = document.querySelector('.status-player-count .player-count')
@@ -95,7 +107,8 @@ async function setStatus(opt) {
         return
     }
 
-    let { ip, port, nameServer } = opt
+    let { ip, port, nameServer, icon } = opt
+    serverIconElement.setAttribute("src", icon)
     nameServerElement.innerHTML = nameServer
     let status = new Status(ip, port);
     let statusServer = await status.getStatus().then(res => res).catch(err => err);
@@ -107,7 +120,7 @@ async function setStatus(opt) {
         playersOnline.innerHTML = statusServer.playersConnect
     } else {
         statusServerElement.classList.add('red')
-        statusServerElement.innerHTML = `Ferme - 0 ms`
+        statusServerElement.innerHTML = `Fermé - 0 ms`
         document.querySelector('.status-player-count').classList.add('red')
         playersOnline.innerHTML = '0'
     }

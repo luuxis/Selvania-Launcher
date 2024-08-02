@@ -3,7 +3,7 @@
     --hover-element-color: #008657;
     --transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
     --dark-color: #292929;
-    --hover-dark-color: #1e1e1e;
+    --hover-dark-color: #2c2c2c;
     --light-color: rgb(245, 245, 245);
     --hover-light-color: rgb(200, 200, 200);
 }
@@ -12,7 +12,7 @@
     --color: #F5F5F5;
     --hover-color: #c8c8c8;
     --background: #292929;
-    --hover-background: #1e1e1e;
+    --hover-background: #2c2c2c;
     --background-element: #424242;
     --hover-background-element: #313131;
     --background-transparent: #2c2c2ccc;
@@ -22,7 +22,7 @@
 
 .light {
     --color: #151515;
-    --hover-color: #1e1e1e;
+    --hover-color: #2c2c2c;
     --background: rgb(245, 245, 245);
     --hover-background: rgb(200, 200, 200);
     --background-element: #c2c2c2;

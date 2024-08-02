@@ -141,16 +141,17 @@
     margin: 1rem;
     border-radius: 15px;
     transition: all .7s ease;
+    cursor: pointer;
 }
 
 .account:hover {
-    background: var(--hover-background-element);
     border-color: var(--hover-background-element);
 }
 
 .account-select {
     background: var(--background-element);
     border: solid 4px var(--element-color);
+    cursor: inherit;
 }
 
 .account-select:hover {

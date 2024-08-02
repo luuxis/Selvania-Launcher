@@ -1,7 +1,7 @@
 {
     "name": "saurfort-launcher",
     "preductname": "SaurFort's Launcher",
-    "version": "2.0.9",
+    "version": "2.1.0",
     "description": "Launcher Mincraft pour les serveurs de SaurFort",
     "main": "src/app.js",
     "author": {
@@ -9,7 +9,7 @@
         "email": "contact@saurfort.fr",
         "url": "https://github.com/saurfort"
     },
-    "url": "http://launcher.saurfort.fr",
+    "url": "http://launcher.saurfort.fr/release",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
@@ -22,6 +22,7 @@
         "ignore": "**/test"
     },
     "dependencies": {
+        "discord-rpc": "^4.0.1",
         "electron-updater": "^6.1.8",
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
