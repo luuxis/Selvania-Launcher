@@ -36,8 +36,8 @@ class Login {
 
         microsoftBtn.addEventListener("click", () => {
             popupLogin.openPopup({
-                title: 'Connexion',
-                content: 'Veuillez patienter...',
+                title: 'Conexión',
+                content: 'Espere por favor...',
                 color: 'var(--color)'
             });
 
@@ -52,7 +52,7 @@ class Login {
 
             }).catch(err => {
                 popupLogin.openPopup({
-                    title: 'Erreur',
+                    title: 'Error',
                     content: err,
                     options: true
                 });
@@ -72,8 +72,8 @@ class Login {
         connectOffline.addEventListener('click', async () => {
             if (emailOffline.value.length < 3) {
                 popupLogin.openPopup({
-                    title: 'Erreur',
-                    content: 'Votre pseudo doit faire au moins 3 caractères.',
+                    title: 'Error',
+                    content: 'Su apodo debe tener al menos 3 caracteres.',
                     options: true
                 });
                 return;
@@ -81,8 +81,8 @@ class Login {
 
             if (emailOffline.value.match(/ /g)) {
                 popupLogin.openPopup({
-                    title: 'Erreur',
-                    content: 'Votre pseudo ne doit pas contenir d\'espaces.',
+                    title: 'Error',
+                    content: 'Tu apodo no debe contener espacios.',
                     options: true
                 });
                 return;
@@ -92,7 +92,7 @@ class Login {
 
             if (MojangConnect.error) {
                 popupLogin.openPopup({
-                    title: 'Erreur',
+                    title: 'Error',
                     content: MojangConnect.message,
                     options: true
                 });
@@ -121,15 +121,15 @@ class Login {
 
         AZauthConnectBTN.addEventListener('click', async () => {
             PopupLogin.openPopup({
-                title: 'Connexion en cours...',
-                content: 'Veuillez patienter...',
+                title: 'Conexión actual...',
+                content: 'Espere por favor...',
                 color: 'var(--color)'
             });
 
             if (AZauthEmail.value == '' || AZauthPassword.value == '') {
                 PopupLogin.openPopup({
-                    title: 'Erreur',
-                    content: 'Veuillez remplir tous les champs.',
+                    title: 'Error',
+                    content: 'Porfavor complete todos los campos.',
                     options: true
                 });
                 return;
@@ -139,7 +139,7 @@ class Login {
 
             if (AZauthConnect.error) {
                 PopupLogin.openPopup({
-                    title: 'Erreur',
+                    title: 'Error',
                     content: AZauthConnect.message,
                     options: true
                 });
@@ -156,15 +156,15 @@ class Login {
 
                 connectAZauthA2F.addEventListener('click', async () => {
                     PopupLogin.openPopup({
-                        title: 'Connexion en cours...',
-                        content: 'Veuillez patienter...',
+                        title: 'Conexión actual...',
+                        content: 'Espere por favor...',
                         color: 'var(--color)'
                     });
 
                     if (AZauthA2F.value == '') {
                         PopupLogin.openPopup({
-                            title: 'Erreur',
-                            content: 'Veuillez entrer le code A2F.',
+                            title: 'Error',
+                            content: 'Por favor ingrese el código A2F.',
                             options: true
                         });
                         return;
@@ -174,7 +174,7 @@ class Login {
 
                     if (AZauthConnect.error) {
                         PopupLogin.openPopup({
-                            title: 'Erreur',
+                            title: 'Error',
                             content: AZauthConnect.message,
                             options: true
                         });
