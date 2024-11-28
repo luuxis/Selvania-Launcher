@@ -1,5 +1,5 @@
 /**
- * @author Luuxis
+ * @author Soy_Pandax
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
@@ -83,15 +83,15 @@ async function headplayer(skinBase64) {
 }
 
 async function setStatus(opt) {
-    let nameServerElement = document.querySelector('.server-status-name')
-    let statusServerElement = document.querySelector('.server-status-text')
-    let playersOnline = document.querySelector('.status-player-count .player-count')
+    let nameServerElement = document.querySelector('.')
+    let statusServerElement = document.querySelector('.')
+    let playersOnline = document.querySelector('. .')
 
     if (!opt) {
         statusServerElement.classList.add('red')
-        statusServerElement.innerHTML = `Ferme - 0 ms`
-        document.querySelector('.status-player-count').classList.add('red')
-        playersOnline.innerHTML = '0'
+        statusServerElement.innerHTML = ``
+        document.querySelector('.').classList.add('red')
+        playersOnline.innerHTML = ''
         return
     }
 
@@ -102,14 +102,14 @@ async function setStatus(opt) {
 
     if (!statusServer.error) {
         statusServerElement.classList.remove('red')
-        document.querySelector('.status-player-count').classList.remove('red')
-        statusServerElement.innerHTML = `En línea - ${statusServer.ms} ms`
+        document.querySelector('.').classList.remove('red')
+        statusServerElement.innerHTML = ` - ${statusServer.ms} `
         playersOnline.innerHTML = statusServer.playersConnect
     } else {
         statusServerElement.classList.add('red')
-        statusServerElement.innerHTML = `Ferme - 0 ms`
-        document.querySelector('.status-player-count').classList.add('red')
-        playersOnline.innerHTML = '0'
+        statusServerElement.innerHTML = ``
+        document.querySelector('.').classList.add('red')
+        playersOnline.innerHTML = ''
     }
 }
 
