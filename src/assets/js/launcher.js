@@ -18,7 +18,7 @@ const fs = require('fs');
 class Launcher {
     async init() {
         this.initLog();
-        console.log('Initializing Launcher...');
+        console.log('Iniciando el lanzador...');
         this.shortcut()
         await setBackground()
         if (process.platform == 'win32') this.initFrame();
@@ -117,7 +117,7 @@ class Launcher {
     createPanels(...panels) {
         let panelsElem = document.querySelector('.panels')
         for (let panel of panels) {
-            console.log(`Initializing ${panel.name} Panel...`);
+            console.log(`Inicializando ${panel.name} Panel...`);
             let div = document.createElement('div');
             div.classList.add('panel', panel.id)
             div.innerHTML = fs.readFileSync(`${__dirname}/panels/${panel.id}.html`, 'utf8');
@@ -142,8 +142,8 @@ class Launcher {
                 if (account.meta.type === 'Xbox') {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
                     popupRefresh.openPopup({
-                        title: 'Connexion',
-                        content: `Refresh account Type: ${account.meta.type} | Username: ${account.name}`,
+                        title: 'Conectando',
+                        content: `Analizando Cuenta: ${account.meta.type} | Username: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -168,7 +168,7 @@ class Launcher {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
                     popupRefresh.openPopup({
                         title: 'Connexion',
-                        content: `Refresh account Type: ${account.meta.type} | Username: ${account.name}`,
+                        content: `Actualizar tipo de cuenta: ${account.meta.type} | Username: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -192,7 +192,7 @@ class Launcher {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
                     popupRefresh.openPopup({
                         title: 'Connexion',
-                        content: `Refresh account Type: ${account.meta.type} | Username: ${account.name}`,
+                        content: `Actualizar tipo de cuenta: ${account.meta.type} | Username: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -223,7 +223,7 @@ class Launcher {
                     await addAccount(refresh_accounts)
                     if (account_ID == account_selected) accountSelect(refresh_accounts)
                 } else {
-                    console.error(`[Account] ${account.name}: Account Type Not Found`);
+                    console.error(`[Account] ${account.name}: Cuenta No Encontrada`);
                     this.db.deleteData('accounts', account_ID)
                     if (account_ID == account_selected) {
                         configClient.account_selected = null
