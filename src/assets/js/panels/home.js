@@ -4,9 +4,37 @@
  */
 import { config, database, logger, changePanel, appdata, setStatus, pkg, popup } from '../utils.js'
 
+function makeSnow() {
+    const snow = document.createElement('div');
+    const size = Math.random() * 4.5 + 3.5;
+    snow.className = 'snow';
+    snow.style.width = size + 'px';
+    snow.style.height = size +'px';
+    snow.style.left = Math.random() * window.
+    innerWidth + 'px';
+    snow.style.opacity = size / 8;
+    if (size < 7) {
+        snow.style.zIndex = -5;
+    }
+    snow.style.animationDuration = Math.random
+    () * 3 + 2 + 's';
+    document.body.appendChild(snow);
+    setTimeout(() => snow.remove(), 5000);
+}
+
+setInterval(makeSnow, 40);
+
 const { Launch } = require('minecraft-java-core')
 const { shell, ipcRenderer } = require('electron')
-
+    // Prevent scrolling
+    window.addEventListener('wheel', function(event) {
+        event.preventDefault();
+    }, { passive: false });
+    
+    // Also prevent scroll via touch on mobile devices
+    window.addEventListener('touchmove', function(event) {
+        event.preventDefault();
+    }, { passive: false });
 class Home {
     static id = "home";
     async init(config) {
@@ -256,14 +284,14 @@ class Home {
         });
 
         launch.on('progress', (progress, size) => {
-            infoStarting.innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Descargando ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;
         });
 
         launch.on('check', (progress, size) => {
-            infoStarting.innerHTML = `Vérification ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Verificación ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;
@@ -283,7 +311,7 @@ class Home {
         launch.on('patch', patch => {
             console.log(patch);
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Patch en cours...`
+            infoStarting.innerHTML = `Parche en progreso...`
         });
 
         launch.on('data', (e) => {
@@ -293,7 +321,7 @@ class Home {
             };
             new logger('Minecraft', '#36b030');
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Demarrage en cours...`
+            infoStarting.innerHTML = `Empezando...`
             console.log(e);
         })
 
@@ -304,7 +332,7 @@ class Home {
             ipcRenderer.send('main-window-progress-reset')
             infoStartingBOX.style.display = "none"
             playInstanceBTN.style.display = "flex"
-            infoStarting.innerHTML = `Vérification`
+            infoStarting.innerHTML = `Verificando`
             new logger(pkg.name, '#7289da');
             console.log('Close');
         });
@@ -313,7 +341,7 @@ class Home {
             let popupError = new popup()
 
             popupError.openPopup({
-                title: 'Erreur',
+                title: 'Error',
                 content: err.error,
                 color: 'red',
                 options: true
@@ -325,12 +353,12 @@ class Home {
             ipcRenderer.send('main-window-progress-reset')
             infoStartingBOX.style.display = "none"
             playInstanceBTN.style.display = "flex"
-            infoStarting.innerHTML = `Vérification`
+            infoStarting.innerHTML = `Verificando`
             new logger(pkg.name, '#7289da');
             console.log(err);
         });
     }
-
+    
     getdate(e) {
         let date = new Date(e)
         let year = date.getFullYear()

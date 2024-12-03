@@ -1,15 +1,15 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.0.7",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "name": "LightZone-Client",
+    "preductname": "LightZone Client",
+    "version": "2.0.0",
+    "description": "Launcher oficial de LightZone Studio",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "https://github.com/luuxis"
+        "name": "SoyPandax",
+        "email": "lightzone@outlook.com",
+        "url": "https://discord.gg/LightZoneStudios"
     },
-    "url": "http://launcher.luuxis.fr",
+    "url": "http://na23.holy.gg:19378/LightZone/main",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/SoyMRPandax/LightZone-Launcher.git"
     }
 }

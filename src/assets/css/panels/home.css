@@ -5,42 +5,110 @@
     align-items: center;
 }
 
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 2; 
+    width: 200px; 
+    height: auto; 
+}
+.header {
+    position: absolute;
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 2; 
+    color: white; 
+    font-size: 1em; 
+    text-align: center; 
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+    filter: blur(12px); 
+}
+
+
+.content {
+    position: relative;
+    z-index: 1; 
+    color: white;
+    text-align: center;
+    padding-top: 20vh;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); 
+    z-index: 0; 
+}
+
 /*******************************************************************************
  *                                                                             *
  * Status server                                                               *
  *                                                                             *
  ******************************************************************************/
 
-.status-server {
-    position: relative;
+ .status-server {
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--background);
-    width: 25rem;
+    background: rgba(0, 0, 0, 0);
+    width: 12rem;
     height: 3rem;
     color: var(--color);
-    border-radius: 10px;
-    margin-top: 3rem;
+    border-radius: 23px;
     padding: 1rem;
+    left: 81%;
+    top: 87%;
     text-align: center;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 999;
+}
+
+.status-info.active {
+    pointer-events: auto; 
+}
+
+.close-info {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 .server-status-icon {
     height: 3.3rem;
+    opacity: 0;
 }
 
 .server-status-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-family: Dosis;
     color: var(--color);
 }
 
 .server-status-text {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: #1AC707;
 }
 
-.server-status-infos .red {
+.server-status-infos2 .red {
     color: #FF0409;
 }
 
@@ -49,11 +117,13 @@
     min-width: 3rem;
     height: 3rem;
     border-radius: 10px;
+    opacity: 0;
 }
 
 .player-count {
     font-size: 1.5rem;
     margin: 0.4rem 0.5rem;
+    opacity: 0;
 }
 
 .status-player-count:after {
@@ -66,61 +136,64 @@
     border-radius: 15px;
     border: solid 5px var(--background);
     background: #1AC707;
+    opacity: 0;
 }
 
 .red:after {
     background: #FF0409;
+    
 }
 
 .home-bottom {
     position: relative;
     width: 100%;
-    height: calc(100% - 80px - 8rem);
+    height: calc(100% - 80px - 0rem);
     display: flex;
 }
 
 /*******************************************************************************
  *                                                                             *
- * news server                                                                 *
+ * Content                                                                     *
  *                                                                             *
  ******************************************************************************/
 
-.new-tab {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85%;
-    height: 100%;
-}
-
-.titre-tab-new {
-    margin-top: 1rem;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    background: var(--background-transparent);
-    color: var(--color);
-}
-
-.news-list {
-    width: 90%;
-    height: 100%;
-    border-radius: 10px;
-    margin: 1rem 0;
-}
-
-.news-block {
+ .background-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0 0 1rem 0;
-    border-radius: 10px;
-    background: var(--background-transparent);
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
-.news-header {
+.titre-tab {
     display: flex;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
+    justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    background: #5f5e69;
+    color: var(--color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.notitre-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    background: #201f2900;
+    color: var(--color);
+    transition: background-color 0.3s, color 0.3s;
+    opacity: 0;
 }
 
 .header-text .title {
@@ -130,33 +203,33 @@
     text-align: center;
 }
 
-.news-header .date {
+
+/*******************************************************************************
+ *                                                                             *
+ * 2K Launcher                                                                 *
+ *                                                                             *
+ ******************************************************************************/
+
+.avisoiz {
+    position: absolute;
+    font: normal normal bold 27px/40px Poppins;
+    letter-spacing: 0px;
+    color: #eaedf0;
     display: flex;
-    flex-direction: column;
+    position: absolute;
+    text-decoration: none;
+    max-width: calc(100% - 158px);
+    font-weight: 600;
+    font-size: 18px;
+    top: 705px;
+    left: 20px;
+    background-color: transparent;   
+    border: none;
+    transform: translate(0, -50%);
+    overflow: hidden;
+    line-height: 25px;
     align-items: center;
-}
-
-.news-content .bbWrapper {
-    padding: 0 1.5rem;
-    padding-bottom: 1rem;
-    font-size: 1.2rem;
-
-}
-
-.news-content .bbWrapper p {
-    font-weight: 100;
-    margin: 0;
-
-}
-
-.news-content .bbWrapper .news-author {
-    margin-top: 1rem;
-    text-align: end;
-    font-size: 0.8rem;
-}
-
-.news-content .bbWrapper .news-author span {
-    font-weight: 700;
+    height: 3em;
 }
 
 /*******************************************************************************
@@ -165,11 +238,11 @@
  *                                                                             *
  ******************************************************************************/
 
-.social-tab {
+ .social-tab {
     position: absolute;
-    display: flex;
     bottom: 0;
-    right: 0;
+    right: -105px;
+    top: 244px;
     width: 15%;
     height: calc(80% - 1rem);
     justify-content: center;
@@ -183,15 +256,25 @@
 
 .social-block {
     display: flex;
-    background: var(--background-transparent);
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 2rem;
     border-radius: 10px;
     font-size: 2rem;
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+.social-block:hover {
+    background: #adadaf8f;
+    transition: 0.2s;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
 }
 
 .social-block .icon-social {
@@ -214,7 +297,6 @@
     align-items: center;
     width: 100%;
     height: 90px;
-    background: var(--background-transparent);
 }
 
 .player-options {
@@ -226,16 +308,29 @@
     margin: 0 1.5rem;
 }
 
+
 .player-head {
-    background: url('../../images/default/setve.png'), no-repeat;
-    background-size: cover;
+    position: relative;
+    right: -9px;
+    width: 26px;
+    top: -1px;
+    height: 25px;
+    border-style: solid;
     image-rendering: pixelated;
-    transition: var(--transition);
-    height: 3rem;
-    width: 3rem;
-    pointer-events: none;
+    color: transparent;
+    background-size: cover;
+    padding: 12px 12px;
+    background-repeat: no-repeat;
     border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
+.player-head:hover {
+    transform: scale(1.1);
+}
+
+
 
 .player-menu {
     color: var(--element-color);
@@ -244,48 +339,81 @@
 }
 
 .play-elements {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .play-instance {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    border: solid 3px var(--element-color);
-    border-radius: 15px;
-    height: 3.2rem;
-    padding-right: 1.9rem;
 }
 
 .play-btn {
-    border: none;
-    border-radius: 10px;
-    background: none;
-    color: var(--color);
-    font-size: 2rem;
-    font-weight: bolder;
-    padding: 0 1.5rem;
-    pointer-events: none;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-style: solid;
+    border-width: 1px;
+    top: -9px;
+    left: 1px;
+    border-color: #00000000;
+    background-color: #adadaf8f;
+    font: normal normal bold 20px/25px Trebuchet MS;
+    text-align: center;
+    color: #ffffff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px;
+    transition: 0.2s;
+    box-shadow: 0px 0px 3px #adadaf8f;
+    backdrop-filter: blur(8px);
 }
+
+.play-btn:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #5f5e69;
+    backdrop-filter: blur(8px);
+}
+
 
 .instance-select {
     display: flex;
     align-items: center;
     position: absolute;
-    right: -3;
-    top: -2;
-    color: var(--element-color);
-    font-size: 1rem;
-    height: calc(100% - 1px);
-    border: solid 3px var(--element-color);
-    text-align: center;
-    border-radius: 15px;
-    padding: 0 0.5rem;
-    cursor: pointer;
+    right: 221px;
+    top: -8;
+    height: 25px;
+    margin: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+    color: transparent;
+    background-image: url(../../images/instancia.png);
+    background-color: #adadaf8f;
+    background-position: center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font: normal normal bold 20px/25px Trebuchet MS;
+    transition: 0.2s;
+    box-shadow: 0px 0px 3px #5f5e69;
+    backdrop-filter: blur(8px);
 }
+
+.instance-select:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #5f5e69;
+    backdrop-filter: blur(8px);
+}
+
 
 .instance-select:before {
     transform: rotate(270deg);
@@ -294,7 +422,11 @@
 
 .info-starting-game {
     display: none;
+    position: fixed;
+    width: 14%;
     text-align: center;
+    top: 89%;
+    left: 552px;
 }
 
 .progress-bar {
@@ -314,12 +446,54 @@
     border-radius: 10px;
 }
 
+
 .settings-btn {
-    width: 3rem;
-    height: 3rem;
-    font-size: 3rem;
-    color: var(--element-color);
-    margin: 0 1.5rem;
+    position: relative;
+    right: 464px;
+    top: -1px;
+    background-image: url(../../images/settins.png);
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+    background-color: #adadaf8f;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+}
+
+.instance-btn {
+    position: relative;
+    right: 464px;
+    top: -1px;
+    background-image: url(../../images/instancia.png);
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+    background-color: #adadaf8f;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+}
+
+.settings-btn:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #5f5e69;
+    backdrop-filter: blur(8px);
 }
 
 .instance-popup {
@@ -327,7 +501,8 @@
     display: none;
     width: 100%;
     height: 100%;
-    background: #000000b3;
+    background: #00000000;
+    opacity: 1;
     z-index: 10;
     flex-direction: column;
     align-items: center;
@@ -337,10 +512,27 @@
 
 .instances-tab {
     position: relative;
-    background: var(--background);
+    background: #201f29b6;
     border-radius: 10px;
     padding: 1rem 3rem;
+    right: 3%;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.5s ease-in-out forwards; 
+    backdrop-filter: blur(5px);
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(0px); 
+    }
+    to {
+        opacity: 2;
+        transform: translateX(20px); 
+    }
+}
+
 
 .close-popup {
     position: absolute;
@@ -353,26 +545,80 @@
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease; 
 }
+
+.close-popup:hover {
+    transform: scale(1.1); 
+}
+
 
 .instances-tab p {
     margin-top: 1.5rem;
     font-size: 2rem;
 }
 
+.instance-elements-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around; 
+}
+
 .instance-elements {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
     background: var(--background-element);
     text-align: center;
     border-radius: 10px;
-    margin: 0.5rem 0;
+    margin: 0.7rem 0px;
     font-size: 1.5rem;
     cursor: pointer;
+    transition: background 0.3s, color 1.3s, transform 1.2s, box-shadow 2.3s;
+    box-shadow: 0 0 0 0 var(--element-color);
 }
 
 .instance-elements:hover {
     background: var(--element-color);
+    color: #a5a1a1;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px 40px #adadaf8f; 
 }
 
+
 .active-instance {
-    background: var(--element-color);
+    background-color: #adadaf8f;
+    border-width: 1px;
+    border-color: #ffffff;
+}
+
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out; 
+  }
+
+  html {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: hidden; /* For Internet Explorer and Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.snow{
+    position: absolute;
+    top: -10px;
+    background: lightblue;
+    border-radius: 50%;
+    z-index: 2;
+    animation: fall linear;
+}
+
+@keyframes fall{
+    to {
+      transform: translateY(105vh);
+    }
 }

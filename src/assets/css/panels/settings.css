@@ -1,6 +1,9 @@
 .settings .container {
     display: flex;
     height: 100%;
+    background-image: url(../../images/background/dark/fondo1.png);
+    background-color: #00000048;
+    backdrop-filter: blur(8px); 
 }
 
 .nav-settings {
@@ -12,6 +15,7 @@
     flex-direction: column;
     justify-content: center;
     font-size: 2.5rem;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-settings p {
@@ -27,8 +31,10 @@
 }
 
 .nav-box #save {
-    border: solid 4px var(--background-element);
+    border: solid 4px var(--background-element2);
     margin: 3rem;
+    transition: border-color 0.3s, transform 0.3s;
+    box-shadow: 0 0 15px rgba(51, 255, 0, 0.5);
 }
 
 .nav-settings-btn {
@@ -40,10 +46,43 @@
     text-align: center;
     margin: 0.5rem 0;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
+
+.nav-settings-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px hsla(197, 100%, 50%, 0.937);
+}
+
+
+
+.nav-settings-elfo {
+    font-size: 50%;
+    border: solid 4px var(--element-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 70%;
+    text-align: center;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    background: radial-gradient(circle, rgb(255, 0, 0) 0%, rgb(189, 19, 19) 100%);
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.nav-settings-elfo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.596); 
+    letter-spacing: 1px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
 
 .active-settings-BTN {
     background: var(--element-color);
+}
+.active-settings-BTN2 {
+    transition: background-color 0.3s;
 }
 
 .container-settings {
@@ -56,19 +95,37 @@
     height: calc(100% - 26px);
     opacity: 0;
     pointer-events: none;
-
+    transition: opacity 0.3s ease-in-out;
 }
 
 .settings-elements-box {
-    background: var(--background-element);
+    background: #251f29c0;
     width: 80%;
     border-radius: 10px;
     padding: 1.5rem 2rem;
     margin: 0.5rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.nosettings-elements-box {
+    background: #251f29c0;
+    width: 80%;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin: 0.5rem;
+    transition: background-color 0.3s;
+    text-align: center;
+    display: none;
 }
 
 .setting-text {
     font-size: 0.8rem;
+}
+
+.nosetting-text {
+    font-size: 0.8rem;
+    display: none;
 }
 
 .active-container-settings {
@@ -77,7 +134,7 @@
     pointer-events: all;
 }
 
-.titre-tab {
+.title-tab {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,6 +145,7 @@
     text-align: center;
     background: var(--background-transparent);
     color: var(--color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .settings-elements {
@@ -97,19 +155,19 @@
     width: 100%;
 }
 
-.content-center {
+.nosettings-elements {
+    margin-top: 1.5rem;
+    display: none;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.content-center,
+.content-evenly {
     justify-content: center;
 }
 
-.content-evenly {
-    justify-content: space-evenly;
-}
-
-/*******************************************************************************
- *                                                                             *
- * account tab                                                                 *
- *                                                                             *
- ******************************************************************************/
 .accounts-list {
     max-height: 90%;
     display: flex;
@@ -128,30 +186,36 @@
     height: calc(100px - 8px);
     margin: 1rem;
     border-radius: 15px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
 }
 
 .account-select {
     border: solid 4px var(--element-color);
+    transition: border-color 0.3s;
 }
 
 .accounts-list #add {
+    display: none;
     justify-content: center;
     cursor: pointer;
 }
 
 .add-profile {
+    display: none;
     width: 70px;
     height: 70px;
     font-size: 3rem;
-    display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    transition: transform 0.3s;
 }
 
 .add-text-profile {
     font-size: 1.5rem;
+    display: none;
     pointer-events: none;
+    transition: opacity 0.3s;
 }
 
 .profile-image {
@@ -162,30 +226,24 @@
     border-radius: 15px;
     pointer-events: none;
     image-rendering: pixelated;
+    transition: transform 0.3s;
 }
 
 .profile-infos {
     text-align: center;
     width: 10rem;
     pointer-events: none;
-
+    transition: transform 0.3s;
 }
 
-.profile-pseudo {
+.profile-pseudo,
+.profile-uuid {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 1.5rem;
     pointer-events: none;
-
-}
-
-.profile-uuid {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    pointer-events: none;
-
+    transition: transform 0.3s;
 }
 
 .delete-profile {
@@ -199,17 +257,12 @@
     align-items: center;
     color: #ff2c2c;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .delete-profile-icon {
     pointer-events: none;
 }
-
-/*******************************************************************************
- *                                                                             *
- * java tab                                                                    *
- *                                                                             *
- ******************************************************************************/
 
 .memory-slider {
     position: relative;
@@ -227,6 +280,7 @@
     height: 18px;
     width: 18px;
     z-index: 2;
+    transition: transform 0.3s;
 }
 
 .slider-touch-left span,
@@ -234,9 +288,9 @@
     display: block;
     width: 20px;
     height: 10px;
-    background: #bbb;
+    background: #302e2e;
     border: 4px solid var(--element-color);
-    transition: background-color .2s, border .2s;
+    transition: background-color 0.2s, border-color 0.2s;
     border-radius: 18px;
     cursor: pointer;
 }
@@ -262,8 +316,8 @@
     top: 7px;
     height: 4px;
     border-radius: 4px;
-    background-color: #f5f5f5;
-    transition: background-color .2s;
+    background-color: #adadaf8f;
+    transition: background-color 0.2s;
     z-index: 0;
     overflow: hidden;
 }
@@ -273,12 +327,13 @@
     height: 100%;
     width: 0%;
     background: var(--element-color);
-    transition: background-color .2s;
+    transition: background-color 0.2s;
 }
 
 .ram-info-block {
     font-size: 0.9rem;
     color: var(--color);
+    transition: color 0.3s;
 }
 
 .java-path-input-text {
@@ -288,6 +343,7 @@
     padding: 0.5rem 1rem;
     border-radius: 15px;
     width: 50%;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .java-path-input-file {
@@ -297,6 +353,7 @@
 .java-path-box {
     display: flex;
     align-items: center;
+    transition: transform 0.3s;
 }
 
 .java-path-btn {
@@ -305,13 +362,9 @@
     border-radius: 15px;
     margin: 0 1rem;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/*******************************************************************************
- *                                                                             *
- * resolution tab                                                              *
- *                                                                             *
- ******************************************************************************/
 .input-size-element {
     display: flex;
     align-items: center;
@@ -320,35 +373,53 @@
 .input-resolution {
     background: var(--shadow);
     border: none;
-    color: var(--color);
+    color: #adadaf8f;
     padding: 0.5rem 1rem;
     border-radius: 15px;
     text-align: center;
     width: 6rem;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .size-cross {
     margin: 0 0.5rem;
+    transition: color 0.3s;
 }
 
 .size-cross:before {
     font: normal normal bold 20px Icons;
     content: "\e90e";
+    transition: color 0.3s;
 }
 
 .size-btn {
     padding: 0.3rem 1rem;
-    background: var(--element-color);
+    background: radial-gradient(circle, rgb(255, 0, 0) 0%, rgb(189, 19, 19) 100%);
     border-radius: 15px;
+    color: #adadaf8f;
     margin: 0 1rem;
     cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/*******************************************************************************
- *                                                                             *
- * Launcher tab                                                                *
- *                                                                             *
- ******************************************************************************/
+.size-btn:hover {
+    box-shadow: 0 0 10px 0 #911a1a inset, 0 0 10px 4px #911a1a;
+}
+
+.size-btn-res {
+    padding: 0.3rem 1rem;
+    background: radial-gradient(circle, rgb(255, 0, 0) 0%, rgb(189, 19, 19) 100%);
+    border-radius: 15px;
+    color: #adadaf8f;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.size-btn-res:hover {
+    box-shadow: 0 0 10px 0 #911a1a inset, 0 0 10px 4px #911a1a;
+}
+
 
 .input-max-files {
     background: var(--shadow);
@@ -359,6 +430,7 @@
     text-align: center;
     width: 4rem;
     margin-right: 1rem;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .max-files-btn {
@@ -367,6 +439,7 @@
     border-radius: 15px;
     margin: 0 1rem;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .theme-btn {
@@ -374,28 +447,34 @@
     padding: calc(0.1rem + 4px) calc(1.5rem + 4px);
     border-radius: 15px;
     cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.theme-btn-clair,
+.theme-btn-sombre,
+.theme-btn-auto {
+    border: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .theme-btn-clair {
     background: var(--light-color);
     color: var(--dark-color);
-    border: 2px solid var(--dark-color);
 }
 
 .theme-btn-sombre {
     background: var(--dark-color);
     color: var(--light-color);
-    border: 2px solid var(--color);
 }
 
 .theme-btn-auto {
     background: var(--background);
     color: var(--color);
-    border: 2px solid var(--color);
 }
 
 .active-theme {
     border: 4px solid var(--element-color);
+    transition: border-color 0.3s;
 }
 
 .close-btn {
@@ -406,8 +485,12 @@
     border-radius: 15px;
     padding: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    margin-right: 20px;
 }
+
 
 .active-close {
     border: 4px solid var(--element-color);
+    transition: border-color 0.3s;
 }

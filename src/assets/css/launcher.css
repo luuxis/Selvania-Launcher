@@ -4,6 +4,10 @@
 @import 'panels/home.css';
 @import 'panels/settings.css';
 
+#maximize {
+    display: none;
+  }
+
 body {
     margin: 0;
     padding: 0;
