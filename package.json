@@ -1,7 +1,7 @@
 {
     "name": "LightZone-Client",
     "preductname": "LightZone Client",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Launcher oficial de LightZone Studio",
     "main": "src/app.js",
     "author": {
