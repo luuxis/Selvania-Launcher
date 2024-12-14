@@ -16,6 +16,28 @@ class Home {
         this.socialLick()
         this.instancesSelect()
         document.querySelector('.settings-btn').addEventListener('click', e => changePanel('settings'))
+
+        const rpc = require("discord-rpc");
+        const client = new rpc.Client({ transport: 'ipc' });
+
+        client.login({ clientId: "1197860815064281088" }).catch(console.error);
+
+        client.on('ready', () => {
+            client.request('SET_ACTIVITY', {
+                pid: process.pid,
+                activity: {
+                    details: "Minecraft",
+                    state: "Town Survie",
+                    timestamps: {
+                        start: Date.now()
+                    },
+                    assets: {
+                        large_image: "logo",
+                        large_text: "Oui",
+                    },
+                }
+            })
+        })
     }
 
     async news() {

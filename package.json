@@ -1,7 +1,7 @@
 {
     "name": "Town-Launcher",
     "preductname": "Town Launcher",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": {
@@ -22,6 +22,8 @@
         "ignore": "**/test"
     },
     "dependencies": {
+        "discord-rich-presence": "^0.0.8",
+        "discord-rpc": "^4.0.1",
         "electron-updater": "^6.1.8",
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
