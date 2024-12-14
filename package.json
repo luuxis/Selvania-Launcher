@@ -1,15 +1,15 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.0.7",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "name": "Town-Launcher",
+    "preductname": "Town Launcher",
+    "version": "1.0.0",
+    "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
+        "name": "luuxis, Yazouv, Inc.",
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "http://launcher.luuxis.fr",
+    "url": "http://launcher.zehosting.fr",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/yazouv/Town-Launcher.git"
     }
 }
