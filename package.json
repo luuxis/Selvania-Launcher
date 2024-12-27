@@ -9,7 +9,7 @@
         "email": "contact@CHATDOO.fr",
         "url": "https://github.com/CHATDOO"
     },
-    "url": "http://localhost:50300/",
+    "url": "http://91.170.238.96:50300/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
