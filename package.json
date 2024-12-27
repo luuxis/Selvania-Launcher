@@ -1,7 +1,7 @@
 {
     "name": "Cobblemon-Launcher",
     "preductname": "Cobblemon Launcher",
-    "version": "1.3",
+    "version": "1.5",
     "description": "Launcher Mincraft pour le serveur Cobblemon",
     "main": "src/app.js",
     "author": {
@@ -14,7 +14,7 @@
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://github.com/CHATDOO/Cobblemon_Launcher/blob/master/src/assets/images/icon.png"
+        "icon": "node build.js --icon=icon=https://raw.githubusercontent.com/CHATDOO/Cobblemon_Launcher/master/src/assets/images/icon.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
