@@ -1,5 +1,5 @@
 {
-    "name": "HyLegacy-Launcher",
+    "name": "hylegacy-launcher",
     "preductname": "HyLegacy Launcher",
     "version": "3.0.0",
     "description": "Launcher Minecraft.",
@@ -9,7 +9,7 @@
         "email": "contact@HyLegacy.com",
         "url": "https://github.com/HyLegacy"
     },
-    "url": "http://54.39.28.139:8088",
+    "url": "http://23.230.3.69:8088",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",

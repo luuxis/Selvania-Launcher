@@ -30,9 +30,9 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Yo... vivo...", "author": "Luuxis" },
-            { "message": "Hola, soy del código.", "author": "Luuxis" },
-            { "message": "Linux no es un sistema operativo, sino un kernel.", "author": "Luuxis" }
+            { "message": "Yo... vivo...", "author": "HyLegacy" },
+            { "message": "Hola, soy del código.", "author": "HyLegacy" },
+            { "message": "Linux no es un sistema operativo, sino un kernel.", "author": "HyLegacy" }
 
         ];
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
@@ -77,7 +77,7 @@ class Splash {
         })
 
         ipcRenderer.on('update-not-available', () => {
-            console.error("Mise à jour non disponible");
+            console.error("Actualización no disponible");
             this.maintenanceCheck();
         })
     }
@@ -109,7 +109,7 @@ class Splash {
         this.setStatus(`Actualización disponible<br><div class="download-update">Descargar</div>`);
         document.querySelector(".download-update").addEventListener("click", () => {
             shell.openExternal(latest.browser_download_url);
-            return this.shutdown("TDescarga en curso...");
+            return this.shutdown("Descarga en curso...");
         });
     }
 
