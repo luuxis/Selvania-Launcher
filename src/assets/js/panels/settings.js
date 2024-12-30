@@ -72,8 +72,8 @@ class Settings {
 
                 if (e.target.classList.contains("delete-profile")) {
                     popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
+                        title: 'Conexión',
+                        content: 'Por favor, espere...',
                         color: 'var(--color)'
                     })
                     await this.db.deleteData('accounts', id);
@@ -166,7 +166,7 @@ class Settings {
         javaPathText.textContent = `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
         let configClient = await this.db.readData('configClient')
-        let javaPath = configClient?.java_config?.java_path || 'Utiliser la version de java livre avec le launcher';
+        let javaPath = configClient?.java_config?.java_path || 'Utilice la versión de java suministrada con el lanzador';
         let javaPathInputTxt = document.querySelector(".java-path-input-text");
         let javaPathInputFile = document.querySelector(".java-path-input-file");
         javaPathInputTxt.value = javaPath;
@@ -187,12 +187,12 @@ class Settings {
                 javaPathInputTxt.value = file;
                 configClient.java_config.java_path = file
                 await this.db.updateData('configClient', configClient);
-            } else alert("Le nom du fichier doit être java ou javaw");
+            } else alert("El nombre del archivo debe ser java o javaw");
         });
 
         document.querySelector(".java-path-reset").addEventListener("click", async () => {
             let configClient = await this.db.readData('configClient')
-            javaPathInputTxt.value = 'Utiliser la version de java livre avec le launcher';
+            javaPathInputTxt.value = 'Utilice la versión de java suministrada con el lanzador';
             configClient.java_config.java_path = null
             await this.db.updateData('configClient', configClient);
         });

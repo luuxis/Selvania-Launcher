@@ -18,7 +18,7 @@ const fs = require('fs');
 class Launcher {
     async init() {
         this.initLog();
-        console.log('Initializing Launcher...');
+        console.log('Inicializando Launcher...');
         this.shortcut()
         await setBackground()
         if (process.platform == 'win32') this.initFrame();

@@ -1,15 +1,15 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "HyLegacy-Launcher",
+    "preductname": "HyLegacy Launcher",
     "version": "2.0.7",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "description": "Launcher Minecraft.",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "https://github.com/luuxis"
+        "name": "HyLegacy, Inc.",
+        "email": "contact@HyLegacy.com",
+        "url": "https://github.com/HyLegacy"
     },
-    "url": "http://launcher.luuxis.fr",
+    "url": "http://54.39.28.139:8088",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
