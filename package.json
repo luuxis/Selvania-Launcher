@@ -1,15 +1,15 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "Inflexion-Launcher",
+    "preductname": "Inflexion Launcher",
     "version": "2.0.7",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "description": "Launcher Mincraft pour le serveur Inflexion",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "https://github.com/luuxis"
+        "name": "Afterchange__, Inc.",
+        "email": "bchange2001@gmail.com",
+        "url": "https://github.com/BeforeChange"
     },
-    "url": "http://launcher.luuxis.fr",
+    "url": "http://yodish.merryhost.fr:25569/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
