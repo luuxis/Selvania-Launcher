@@ -1,7 +1,7 @@
 {
     "name": "Inflexion-Launcher",
     "preductname": "Inflexion Launcher",
-    "version": "A1.0",
+    "version": "2.0.7",
     "description": "Launcher Mincraft pour le serveur Inflexion",
     "main": "src/app.js",
     "author": {
