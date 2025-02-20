@@ -27,7 +27,6 @@
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
-        "Selvania-Launcher": "file:",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
