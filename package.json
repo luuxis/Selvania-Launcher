@@ -1,20 +1,20 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "2.0.7",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "name": "Haiko-Launcher",
+    "preductname": "Haiko Launcher",
+    "version": "1.0.0",
+    "description": "Launcher Mincraft pour le serveur Haiko",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
+        "name": "luuxis, DorianCarriere, Inc.",
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "http://launcher.luuxis.fr",
+    "url": "http://doriancarriere.com/Haiko-Launcher/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
+        "icon": "node build.js --icon=https://i.imgur.com/K7FktbD.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
@@ -23,9 +23,11 @@
     },
     "dependencies": {
         "electron-updater": "^6.1.8",
+        "Haiko-Launcher": "file:",
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
+        "Selvania-Launcher": "file:",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
@@ -39,6 +41,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/FurTorie/Haiko-Launcher.git"
     }
 }
