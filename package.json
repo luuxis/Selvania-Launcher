@@ -1,7 +1,7 @@
 {
-    "name": "Haiko",
+    "name": "Haiko-Launcher",
     "preductname": "Haiko Launcher",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Launcher Mincraft pour le serveur Haiko",
     "main": "src/app.js",
     "author": {
@@ -9,7 +9,7 @@
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "http://doriancarriere.com/Haiko-Launcher/",
+    "url": "http://doriancarriere.com/Haiko-Launcher",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
@@ -23,8 +23,6 @@
     },
     "dependencies": {
         "electron-updater": "^6.1.8",
-        "Haiko": "file:",
-        "Haiko-Launcher": "file:",
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
