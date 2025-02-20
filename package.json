@@ -1,7 +1,7 @@
 {
-    "name": "Haiko Launcher",
+    "name": "Haiko",
     "preductname": "Haiko Launcher",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Launcher Mincraft pour le serveur Haiko",
     "main": "src/app.js",
     "author": {
@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "electron-updater": "^6.1.8",
+        "Haiko": "file:",
         "Haiko-Launcher": "file:",
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
