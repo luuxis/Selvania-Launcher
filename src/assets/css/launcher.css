@@ -38,7 +38,6 @@ input::-webkit-inner-spin-button {
 
 .dragbar {
     position: fixed;
-    /* background: #00000080; */
     top: 0px;
     left: 0px;
     width: 100%;
@@ -48,10 +47,18 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
-.frame {
+.darwin .frame {
     background: transparent;
     position: fixed;
-    display: table;
+    top: 0px;
+    z-index: 11;
+    -webkit-app-region: no-drag;
+    display: none;
+}
+
+.other .frame {
+    background: transparent;
+    position: fixed;
     top: 0px;
     right: 0px;
     z-index: 11;
@@ -59,11 +66,19 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
-.hide {
+.frame.hide {
     display: block;
 }
 
-.button-frame {
+.darwin .button-frame {
+    position: relative;
+    display: table-cell;
+    width: 20px;
+    height: 26px;
+    transition: color .2s, background-color .2s;
+}
+
+.other .button-frame {
     position: relative;
     display: table-cell;
     width: 30px;
@@ -81,6 +96,35 @@ input::-webkit-inner-spin-button {
     height: 14px;
     font-size: 14px;
     color: #f8f9f9;
+}
+
+.darwin-icon-minimize,
+.darwin-icon-maximize,
+.darwin-icon-close {
+    position: relative;
+}
+
+.darwin-icon-minimize:before,
+.darwin-icon-maximize:before,
+.darwin-icon-close:before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.darwin-icon-minimize:before {
+    background: #07d014;
+}
+
+.darwin-icon-maximize:before {
+    background: #ffbd2e;
+}
+
+.darwin-icon-close:before {
+    background: #ff6047;
 }
 
 .icon-close:hover {

@@ -14,6 +14,7 @@ const { AZauth, Microsoft, Mojang } = require('minecraft-java-core');
 // libs
 const { ipcRenderer } = require('electron');
 const fs = require('fs');
+const os = require('os');
 
 class Launcher {
     async init() {
@@ -21,7 +22,7 @@ class Launcher {
         console.log('Initializing Launcher...');
         this.shortcut()
         await setBackground()
-        if (process.platform == 'win32') this.initFrame();
+        this.initFrame();
         this.config = await config.GetConfig().then(res => res).catch(err => err);
         if (await this.config.error) return this.errorConnect()
         this.db = new database();
@@ -61,7 +62,10 @@ class Launcher {
 
     initFrame() {
         console.log('Initializing Frame...')
-        document.querySelector('.frame').classList.toggle('hide')
+        const platform = os.platform() === 'darwin' ? "darwin" : "other";
+
+        console.log('Initializing Frame...');
+        document.querySelector(`.${platform} .frame`).classList.toggle('hide')
         document.querySelector('.dragbar').classList.toggle('hide')
 
         document.querySelector('#minimize').addEventListener('click', () => {

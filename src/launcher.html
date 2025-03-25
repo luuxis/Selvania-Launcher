@@ -4,12 +4,21 @@
         <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
         <link rel="stylesheet" href="assets/css/launcher.css">
     </head>
-    <body class="dfvf">
+    <body>
         <div class="dragbar"></div>
-        <div class="frame">
-            <div id="minimize" class="button-frame icon-minimize"></div>
-            <div id="maximize" class="button-frame icon-maximize"></div>
-            <div id="close" class="button-frame icon-close"></div>
+        <div class="darwin">
+            <div class="frame">
+                <div id="close" class="button-frame darwin-icon-close"></div>
+                <div id="maximize" class="button-frame darwin-icon-maximize"></div>
+                <div id="minimize" class="button-frame darwin-icon-minimize"></div>
+            </div>
+        </div>
+        <div class="other">
+            <div class="frame">
+                <div id="minimize" class="button-frame icon-minimize"></div>
+                <div id="maximize" class="button-frame icon-maximize"></div>
+                <div id="close" class="button-frame icon-close"></div>
+            </div>
         </div>
 
         <div class="popup">
