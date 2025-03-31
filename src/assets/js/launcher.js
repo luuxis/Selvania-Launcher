@@ -64,16 +64,15 @@ class Launcher {
         console.log('Initializing Frame...')
         const platform = os.platform() === 'darwin' ? "darwin" : "other";
 
-        console.log('Initializing Frame...');
         document.querySelector(`.${platform} .frame`).classList.toggle('hide')
         document.querySelector('.dragbar').classList.toggle('hide')
 
-        document.querySelector('#minimize').addEventListener('click', () => {
+        document.querySelector(`.${platform} .frame #minimize`).addEventListener('click', () => {
             ipcRenderer.send('main-window-minimize');
         });
 
         let maximized = false;
-        let maximize = document.querySelector('#maximize')
+        let maximize = document.querySelector(`.${platform} .frame #maximize`);
         maximize.addEventListener('click', () => {
             if (maximized) ipcRenderer.send('main-window-maximize')
             else ipcRenderer.send('main-window-maximize');
@@ -82,7 +81,7 @@ class Launcher {
             maximize.classList.toggle('icon-restore-down')
         });
 
-        document.querySelector('#close').addEventListener('click', () => {
+        document.querySelector(`.${platform} .frame #close`).addEventListener('click', () => {
             ipcRenderer.send('main-window-close');
         })
     }
