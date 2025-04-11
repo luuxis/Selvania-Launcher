@@ -44,7 +44,6 @@ input::-webkit-inner-spin-button {
     height: 26px;
     -webkit-app-region: drag;
     z-index: 11;
-    display: none;
 }
 
 .darwin .frame {
