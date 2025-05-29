@@ -23,15 +23,15 @@
     },
     "dependencies": {
         "electron-updater": "^6.1.8",
-        "minecraft-java-core": "^4.0.2",
+        "minecraft-java-core": "^4.1.1",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^36.2.1",
-        "electron-builder": "^24.13.3",
+        "electron": "^36.3.2",
+        "electron-builder": "^26.0.12",
         "javascript-obfuscator": "^4.1.0",
         "jimp": "^0.22.12",
         "nodemon": "^3.1.2",
