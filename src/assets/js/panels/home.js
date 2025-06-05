@@ -234,8 +234,8 @@ class Home {
                 path: configClient.java_config.java_path,
             },
 
-            JVM_ARGS: options.jvm_args,
-			GAME_ARGS: options.game_args,
+            JVM_ARGS:  options.jvm_args ? options.jvm_args : [],
+            GAME_ARGS: options.game_args ? options.game_args : [],
 
             screen: {
                 width: configClient.game_config.screen_size.width,
