@@ -114,11 +114,11 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.darwin-icon-minimize:before {
+.darwin-icon-maximize:before {
     background: #07d014;
 }
 
-.darwin-icon-maximize:before {
+.darwin-icon-minimize:before {
     background: #ffbd2e;
 }
 
