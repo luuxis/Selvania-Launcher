@@ -1,7 +1,7 @@
 {
     "name": "Acteris-Launcher",
     "preductname": "Acteris Launcher",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "Launcher Minecraft pour le serveur Acteris",
     "main": "src/app.js",
     "author": {
@@ -9,7 +9,7 @@
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "https://acteris-launcher.onrender.com",
+    "url": "https://acteris.strator.gg",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
