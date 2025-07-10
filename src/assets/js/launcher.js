@@ -1,19 +1,3 @@
-window.fetch = new Proxy(window.fetch, {
-    apply(target, thisArg, args) {
-        try {
-            console.log('[FETCH]', args[0]);
-            ipcRenderer.send('log-from-renderer', {
-                level: 'info',
-                name: 'fetch',
-                message: `Appel à ${args[0]}`
-            });
-        } catch (e) {
-            console.error('Erreur dans le proxy fetch:', e);
-        }
-        return Reflect.apply(target, thisArg, args);
-    }
-});
-
 /**
  * @author Luuxis
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
@@ -31,6 +15,22 @@ const { AZauth, Microsoft, Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 const fs = require('fs');
 const os = require('os');
+
+window.fetch = new Proxy(window.fetch, {
+    apply(target, thisArg, args) {
+        try {
+            console.log('[FETCH]', args[0]);
+            ipcRenderer.send('log-from-renderer', {
+                level: 'info',
+                name: 'fetch',
+                message: `Appel à ${args[0]}`
+            });
+        } catch (e) {
+            console.error('Erreur dans le proxy fetch:', e);
+        }
+        return Reflect.apply(target, thisArg, args);
+    }
+});
 
 class Launcher {
     async init() {
