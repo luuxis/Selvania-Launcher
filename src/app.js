@@ -150,7 +150,7 @@ const log = require('electron-log');
 log.info('App démarrée');
 log.error('Une erreur est survenue');
 
-const fmlPath = path.join(app.getPath('userData'), 'instances', 'acteris', 'config', 'fml.toml');
+const fmlPath = path.join(process.env.APPDATA, '.Acteris', 'instances', 'acteris', 'config', 'fml.toml');
 
 function fixFMLConfig() {
     try {
@@ -169,4 +169,5 @@ function fixFMLConfig() {
         loge(`[ERREUR] lors de la vérification de fml.toml: ${err.message}`);
     }
 }
+
 fixFMLConfig();
