@@ -149,3 +149,24 @@ const log = require('electron-log');
 
 log.info('App démarrée');
 log.error('Une erreur est survenue');
+
+const fmlPath = path.join(app.getPath('userData'), 'instances', 'acteris', 'config', 'fml.toml');
+
+function fixFMLConfig() {
+    try {
+        if (fs.existsSync(fmlPath)) {
+            const content = fs.readFileSync(fmlPath, 'utf-8');
+            if (!content.trim() || content.length < 10) {
+                loge(`[PATCH] fml.toml détecté comme corrompu (${fmlPath}), suppression...`);
+                fs.unlinkSync(fmlPath);
+            } else {
+                loge(`[CHECK] fml.toml semble valide (${fmlPath})`);
+            }
+        } else {
+            loge(`[CHECK] Aucun fml.toml trouvé (${fmlPath}), pas besoin de réparer.`);
+        }
+    } catch (err) {
+        loge(`[ERREUR] lors de la vérification de fml.toml: ${err.message}`);
+    }
+}
+fixFMLConfig();
