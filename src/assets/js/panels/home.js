@@ -200,6 +200,30 @@ class Home {
     async startGame() {
         let launch = new Launch()
         let configClient = await this.db.readData('configClient')
+
+        await this.db.updateData('configClient', {
+            instance_selct: "acteris",
+            launcher_config: {
+                closeLauncher: "close-launcher",
+                download_multi: 5,
+                intelEnabledMac: true
+            },
+            java_config: {
+                java_path: "java",
+                java_memory: { min: 2, max: 4 }
+            },
+            game_config: {
+                screen_size: { width: 854, height: 480 }
+            }
+        })
+
+        configClient.launcher_config ??= {};
+        configClient.java_config ??= {};
+        configClient.game_config ??= {};
+        configClient.game_config.screen_size ??= { width: 854, height: 480 };
+        configClient.java_config.java_memory ??= { min: 2, max: 4 };
+
+
         let instance = await config.getInstanceList()
         let authenticator = await this.db.readData('accounts', configClient.account_selected)
         let options = instance.find(i => i.name == configClient.instance_selct);
