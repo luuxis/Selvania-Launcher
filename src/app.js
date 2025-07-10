@@ -125,3 +125,27 @@ autoUpdater.on('error', (err) => {
     const updateWindow = UpdateWindow.getWindow();
     if (updateWindow) updateWindow.webContents.send('error', err);
 });
+
+
+const logPatht = path.join(app.getPath('userData'), 'logs.txt');
+
+function loge(message) {
+    const time = new Date().toISOString();
+    fs.appendFileSync(logPatht, `[${time}] ${message}\n`);
+}
+process.on('uncaughtException', (err) => {
+    loge(`Erreur non capturée: ${err.message}\n${err.stack}`);
+});
+
+const logPath2 = path.join(app.getPath('userData'), 'renderer-logs.txt');
+
+ipcMain.on('log-from-renderer', (event, { level, name, message }) => {
+    const timestamp = new Date().toISOString();
+    const formatted = `[${timestamp}] [${level.toUpperCase()}] [${name}]: ${message}\n`;
+    fs.appendFileSync(logPath2, formatted);
+});
+
+const log = require('electron-log');
+
+log.info('App démarrée');
+log.error('Une erreur est survenue');
