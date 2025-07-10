@@ -199,8 +199,6 @@ class Home {
 
     async startGame() {
         let launch = new Launch()
-        let configClient = await this.db.readData('configClient')
-
         await this.db.updateData('configClient', {
             instance_selct: "acteris",
             launcher_config: {
@@ -216,6 +214,8 @@ class Home {
                 screen_size: { width: 854, height: 480 }
             }
         })
+
+        let configClient = await this.db.readData('configClient')
 
         configClient.launcher_config ??= {};
         configClient.java_config ??= {};
