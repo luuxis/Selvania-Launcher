@@ -216,9 +216,9 @@ class Home {
             path: `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
             instance: options.name,
             version: options.loadder.minecraft_version,
-            detached: configClient.launcher_config.closeLauncher == "close-all" ? false : true,
-            downloadFileMultiple: configClient.launcher_config.download_multi,
-            intelEnabledMac: configClient.launcher_config.intelEnabledMac,
+            detached: configClient?.launcher_config?.closeLauncher === "close-all" ? false : true,
+            downloadFileMultiple: configClient?.launcher_config?.download_multi || 5,
+            intelEnabledMac: configClient?.launcher_config?.intelEnabledMac ?? true,
 
             loader: {
                 type: options.loadder.loadder_type,
@@ -243,8 +243,8 @@ class Home {
             },
 
             memory: {
-                min: `${configClient.java_config.java_memory.min * 1024}M`,
-                max: `${configClient.java_config.java_memory.max * 1024}M`
+                min: `${(configClient?.java_config?.java_memory?.min || 2) * 1024}M`,
+                max: `${(configClient?.java_config?.java_memory?.max || 4) * 1024}M`
             }
         }
 
@@ -293,7 +293,7 @@ class Home {
 
         launch.on('data', (e) => {
             progressBar.style.display = "none"
-            if (configClient.launcher_config.closeLauncher == 'close-launcher') {
+            if (configClient?.launcher_config?.closeLauncher === 'close-launcher') {
                 ipcRenderer.send("main-window-hide")
             };
             new logger('Minecraft', '#36b030');
@@ -303,7 +303,7 @@ class Home {
         })
 
         launch.on('close', code => {
-            if (configClient.launcher_config.closeLauncher == 'close-launcher') {
+            if (configClient?.launcher_config?.closeLauncher === 'close-launcher') {
                 ipcRenderer.send("main-window-show")
             };
             ipcRenderer.send('main-window-progress-reset')
@@ -324,7 +324,7 @@ class Home {
                 options: true
             })
 
-            if (configClient.launcher_config.closeLauncher == 'close-launcher') {
+            if (configClient?.launcher_config?.closeLauncher === 'close-launcher') {
                 ipcRenderer.send("main-window-show")
             };
             ipcRenderer.send('main-window-progress-reset')
