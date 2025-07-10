@@ -10,6 +10,17 @@ const { autoUpdater } = require('electron-updater')
 const path = require('path');
 const fs = require('fs');
 
+const logPath = path.join(app.getPath('userData'), 'console.log');
+const output = fs.createWriteStream(logPath);
+const errorOutput = fs.createWriteStream(logPath);
+
+console.log = (...args) => {
+    output.write(args.join(' ') + '\n');
+};
+console.error = (...args) => {
+    errorOutput.write('[ERROR] ' + args.join(' ') + '\n');
+};
+
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
