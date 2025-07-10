@@ -202,7 +202,19 @@ class Home {
         let configClient = await this.db.readData('configClient')
         let instance = await config.getInstanceList()
         let authenticator = await this.db.readData('accounts', configClient.account_selected)
-        let options = instance.find(i => i.name == configClient.instance_selct)
+        let options = instance.find(i => i.name == configClient.instance_selct);
+
+        if (!options) {
+            console.error("Instance sélectionnée introuvable :", configClient.instance_selct);
+            let popupError = new popup()
+            popupError.openPopup({
+                title: 'Erreur',
+                content: `Impossible de trouver l'instance "${configClient.instance_selct}".`,
+                color: 'red',
+                options: true
+            });
+            return;
+        }
 
         let playInstanceBTN = document.querySelector('.play-instance')
         let infoStartingBOX = document.querySelector('.info-starting-game')
