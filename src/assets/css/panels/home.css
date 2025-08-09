@@ -91,6 +91,8 @@
     align-items: center;
     width: 85%;
     height: 100%;
+    overflow-x: visible;
+    overflow-y: hidden;
 }
 
 .titre-tab-new {
@@ -114,6 +116,32 @@
     margin: 0 0 1rem 0;
     border-radius: 10px;
     background: var(--background-transparent);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.news-list {
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 1rem 0;
+    padding: 10px;
+    /* Garder le scroll mais permettre le débordement visuel des effets */
+    overflow-x: visible;
+    overflow-y: auto;
+}
+
+.news-block.pinned-news {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, var(--background-transparent) 50%);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25);
+    /* Utiliser box-sizing pour inclure la bordure dans la largeur */
+    box-sizing: border-box;
+}
+
+.news-block.pinned-news:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
 }
 
 .news-header {
@@ -121,6 +149,40 @@
     justify-content: space-between;
     padding: 1rem 1.5rem;
     align-items: center;
+    position: relative;
+}
+
+.pin-indicator {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 10;
+}
+
+.pin-icon {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.4);
+    border: 2px solid white;
+    animation: pinPulse 2s infinite;
+    transform: rotate(-20deg);
+}
+
+@keyframes pinPulse {
+    0%, 100% {
+        transform: rotate(-20deg) scale(1);
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        transform: rotate(-20deg) scale(1.05);
+        box-shadow: 0 6px 18px rgba(255, 215, 0, 0.6);
+    }
 }
 
 .header-text .title {
@@ -134,6 +196,54 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--element-color) 0%, #4ade80 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 60px;
+}
+
+.news-header .date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.news-header .date .month {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 2px;
+}
+
+.news-header .date .year {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1px;
+    position: relative;
+}
+
+.news-header .date .year::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.news-header .date:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
 .news-content .bbWrapper {
@@ -269,6 +379,21 @@
     font-weight: bolder;
     padding: 0 1.5rem;
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.play-text {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.instance-name {
+    font-size: 0.8rem;
+    font-weight: normal;
+    opacity: 0.8;
+    margin-top: 0.2rem;
 }
 
 .instance-select {
@@ -375,4 +500,14 @@
 
 .active-instance {
     background: var(--element-color);
+}
+
+.play-instance.welcome-disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+    /* Suppression de la transition pour un changement instantané */
+}
+
+.play-instance.welcome-disabled .play-btn {
+    cursor: not-allowed !important;
 }

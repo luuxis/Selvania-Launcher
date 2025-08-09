@@ -9,6 +9,10 @@ const { shell, ipcRenderer } = require('electron')
 
 class Home {
     static id = "home";
+    constructor() {
+        this.currentInstance = null; // Instance courante pour la session
+        this.instancesList = null; // Liste des instances
+    }
     async init(config) {
         this.config = config;
         this.db = new database();
@@ -20,7 +24,11 @@ class Home {
 
     async news() {
         let newsElement = document.querySelector('.news-list');
-        let news = await config.getNews().then(res => res).catch(err => false);
+        let allNews = await config.getNews().then(res => res).catch(err => false);
+        
+        // Filtrer les news selon l'instance courante
+        let news = this.filterNewsByInstance(allNews);
+        
         if (news) {
             if (!news.length) {
                 let blockNews = document.createElement('div');
@@ -34,6 +42,7 @@ class Home {
                         <div class="date">
                             <div class="day">1</div>
                             <div class="month">Janvier</div>
+                            <div class="year">2025</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -47,8 +56,12 @@ class Home {
                     let date = this.getdate(News.publish_date)
                     let blockNews = document.createElement('div');
                     blockNews.classList.add('news-block');
+                    if (News.pinned) {
+                        blockNews.classList.add('pinned-news');
+                    }
                     blockNews.innerHTML = `
                         <div class="news-header">
+                            ${News.pinned ? '<div class="pin-indicator"><div class="pin-icon">📌</div></div>' : ''}
                             <img class="server-status-icon" src="assets/images/icon.png">
                             <div class="header-text">
                                 <div class="title">${News.title}</div>
@@ -56,6 +69,7 @@ class Home {
                             <div class="date">
                                 <div class="day">${date.day}</div>
                                 <div class="month">${date.month}</div>
+                                <div class="year">${date.year}</div>
                             </div>
                         </div>
                         <div class="news-content">
@@ -79,6 +93,7 @@ class Home {
                         <div class="date">
                             <div class="day">1</div>
                             <div class="month">Janvier</div>
+                            <div class="year">2025</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -103,33 +118,47 @@ class Home {
     async instancesSelect() {
         let configClient = await this.db.readData('configClient')
         let auth = await this.db.readData('accounts', configClient.account_selected)
-        let instancesList = await config.getInstanceList()
-        let instanceSelect = instancesList.find(i => i.name == configClient?.instance_selct) ? configClient?.instance_selct : null
+        this.instancesList = await config.getInstanceList()
+        let instanceSelect = this.instancesList.find(i => i.name == configClient?.instance_selct) ? configClient?.instance_selct : null
 
         let instanceBTN = document.querySelector('.play-instance')
         let instancePopup = document.querySelector('.instance-popup')
         let instancesListPopup = document.querySelector('.instances-List')
         let instanceCloseBTN = document.querySelector('.close-popup')
 
-        if (instancesList.length === 1) {
+        if (this.instancesList.length === 1) {
             document.querySelector('.instance-select').style.display = 'none'
             instanceBTN.style.paddingRight = '0'
         }
 
-        if (!instanceSelect) {
-            let newInstanceSelect = instancesList.find(i => i.whitelistActive == false)
+        // Toujours forcer la sélection sur l'instance "Accueil" au démarrage
+        let welcomeInstance = this.instancesList.find(i => i.isWelcome == true)
+        if (welcomeInstance) {
+            this.currentInstance = welcomeInstance.name
+            instanceSelect = welcomeInstance.name
+            // Sauvegarder temporairement mais sera réinitialisé au prochain démarrage
+            let configClient = await this.db.readData('configClient')
+            configClient.instance_selct = welcomeInstance.name
+            await this.db.updateData('configClient', configClient)
+        } else if (!instanceSelect) {
+            // Fallback si pas d'instance d'accueil
+            let newInstanceSelect = this.instancesList.find(i => i.whitelistActive == false)
             let configClient = await this.db.readData('configClient')
             configClient.instance_selct = newInstanceSelect.name
             instanceSelect = newInstanceSelect.name
+            this.currentInstance = newInstanceSelect.name
             await this.db.updateData('configClient', configClient)
+        } else {
+            // Si une instance est déjà sélectionnée, mettre à jour la variable courante
+            this.currentInstance = instanceSelect
         }
 
-        for (let instance of instancesList) {
+        for (let instance of this.instancesList) {
             if (instance.whitelistActive) {
                 let whitelist = instance.whitelist.find(whitelist => whitelist == auth?.name)
                 if (whitelist !== auth?.name) {
                     if (instance.name == instanceSelect) {
-                        let newInstanceSelect = instancesList.find(i => i.whitelistActive == false)
+                        let newInstanceSelect = this.instancesList.find(i => i.whitelistActive == false)
                         let configClient = await this.db.readData('configClient')
                         configClient.instance_selct = newInstanceSelect.name
                         instanceSelect = newInstanceSelect.name
@@ -140,6 +169,10 @@ class Home {
             } else console.log(`Initializing instance ${instance.name}...`)
             if (instance.name == instanceSelect) setStatus(instance.status)
         }
+        
+        // Mettre à jour l'état du bouton jouer selon l'instance sélectionnée (instantané)
+        this.updatePlayButtonStateInstant(instanceSelect, this.instancesList)
+        this.updateInstanceDisplayInstant(instanceSelect)
 
         instancePopup.addEventListener('click', async e => {
             let configClient = await this.db.readData('configClient')
@@ -151,10 +184,21 @@ class Home {
                 if (activeInstanceSelect) activeInstanceSelect.classList.toggle('active-instance');
                 e.target.classList.add('active-instance');
 
+                // Mise à jour temporaire pour la session ET en base pour le lancement de jeu
                 configClient.instance_selct = newInstanceSelect
+                this.currentInstance = newInstanceSelect
+                instanceSelect = newInstanceSelect
+                // Sauvegarder en base pour que startGame() trouve la bonne instance
                 await this.db.updateData('configClient', configClient)
-                instanceSelect = instancesList.filter(i => i.name == newInstanceSelect)
+                
+                // Mise à jour immédiate de l'affichage AVANT de fermer le popup
+                this.updateInstanceDisplayInstant(newInstanceSelect)
+                this.updatePlayButtonStateInstant(newInstanceSelect, this.instancesList)
+                
                 instancePopup.style.display = 'none'
+                
+                // Mettre à jour les news selon la nouvelle instance
+                await this.refreshNews()
                 let instance = await config.getInstanceList()
                 let options = instance.find(i => i.name == configClient.instance_selct)
                 await setStatus(options.status)
@@ -168,11 +212,14 @@ class Home {
 
             if (e.target.classList.contains('instance-select')) {
                 instancesListPopup.innerHTML = ''
-                for (let instance of instancesList) {
+                // Utiliser l'instance courante au lieu de celle en base
+                let currentInstance = this.currentInstance || configClient.instance_selct
+                
+                for (let instance of this.instancesList) {
                     if (instance.whitelistActive) {
                         instance.whitelist.map(whitelist => {
                             if (whitelist == auth?.name) {
-                                if (instance.name == instanceSelect) {
+                                if (instance.name == currentInstance) {
                                     instancesListPopup.innerHTML += `<div id="${instance.name}" class="instance-elements active-instance">${instance.name}</div>`
                                 } else {
                                     instancesListPopup.innerHTML += `<div id="${instance.name}" class="instance-elements">${instance.name}</div>`
@@ -180,7 +227,7 @@ class Home {
                             }
                         })
                     } else {
-                        if (instance.name == instanceSelect) {
+                        if (instance.name == currentInstance) {
                             instancesListPopup.innerHTML += `<div id="${instance.name}" class="instance-elements active-instance">${instance.name}</div>`
                         } else {
                             instancesListPopup.innerHTML += `<div id="${instance.name}" class="instance-elements">${instance.name}</div>`
@@ -191,7 +238,17 @@ class Home {
                 instancePopup.style.display = 'flex'
             }
 
-            if (!e.target.classList.contains('instance-select')) this.startGame()
+            if (!e.target.classList.contains('instance-select')) {
+                // Vérifier si l'instance sélectionnée est l'instance d'accueil
+                let instance = this.instancesList.find(i => i.name == this.currentInstance)
+                
+                if (instance && instance.isWelcome) {
+                    // Ne pas lancer le jeu si c'est l'instance d'accueil
+                    console.log('Instance d\'accueil sélectionnée - lancement désactivé')
+                    return
+                }
+                this.startGame()
+            }
         })
 
         instanceCloseBTN.addEventListener('click', () => instancePopup.style.display = 'none')
@@ -202,7 +259,14 @@ class Home {
         let configClient = await this.db.readData('configClient')
         let instance = await config.getInstanceList()
         let authenticator = await this.db.readData('accounts', configClient.account_selected)
-        let options = instance.find(i => i.name == configClient.instance_selct)
+        // Utiliser l'instance courante de la session au lieu de celle en base
+        let options = instance.find(i => i.name == this.currentInstance)
+        
+        // Vérifier que l'instance existe et n'est pas l'instance d'accueil
+        if (!options || options.isWelcome) {
+            console.log('Instance invalide ou instance d\'accueil - lancement annulé')
+            return
+        }
 
         let playInstanceBTN = document.querySelector('.play-instance')
         let infoStartingBOX = document.querySelector('.info-starting-game')
@@ -338,6 +402,86 @@ class Home {
         let day = date.getDate()
         let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
         return { year: year, month: allMonth[month - 1], day: day }
+    }
+
+    updatePlayButtonState(instanceSelect, instancesList) {
+        this.updatePlayButtonStateInstant(instanceSelect, instancesList)
+    }
+
+    updateInstanceDisplay(instanceSelect) {
+        this.updateInstanceDisplayInstant(instanceSelect)
+    }
+
+    updatePlayButtonStateInstant(instanceSelect, instancesList) {
+        let playInstanceBTN = document.querySelector('.play-instance')
+        let instance = instancesList.find(i => i.name == (instanceSelect || this.currentInstance))
+        
+        // Mise à jour synchrone immédiate
+        playInstanceBTN.classList.remove('welcome-disabled')
+        
+        if (instance && instance.isWelcome) {
+            playInstanceBTN.classList.add('welcome-disabled')
+            playInstanceBTN.title = 'Sélectionnez une instance pour jouer'
+        } else {
+            playInstanceBTN.title = 'Lancer le jeu'
+        }
+        
+        // Force un redraw immédiat
+        playInstanceBTN.offsetHeight;
+    }
+
+    updateInstanceDisplayInstant(instanceSelect) {
+        let instanceNameElement = document.querySelector('.instance-name')
+        if (instanceNameElement) {
+            instanceNameElement.textContent = instanceSelect || 'Accueil'
+            // Force un redraw immédiat
+            instanceNameElement.offsetHeight;
+        }
+    }
+
+    filterNewsByInstance(allNews) {
+        if (!allNews || !Array.isArray(allNews)) return allNews;
+        
+        let currentInstance = this.currentInstance || 'Accueil';
+        
+        // Filtrer les news selon l'instance
+        let filteredNews = allNews.filter(newsItem => {
+            // Si la news a un champ instance
+            if (newsItem.instance) {
+                // Si c'est global, toujours afficher
+                if (newsItem.instance === 'global') return true;
+                
+                // Si c'est un tableau d'instances
+                if (Array.isArray(newsItem.instance)) {
+                    return newsItem.instance.includes(currentInstance);
+                }
+                
+                // Si c'est une string, vérifier l'égalité
+                return newsItem.instance === currentInstance;
+            }
+            
+            // Si pas de champ instance, c'est pour l'Accueil uniquement
+            return currentInstance === 'Accueil';
+        });
+
+        // Trier les news : épinglées en premier, puis par date
+        return filteredNews.sort((a, b) => {
+            // Les news épinglées en premier
+            if (a.pinned && !b.pinned) return -1;
+            if (!a.pinned && b.pinned) return 1;
+            
+            // Si même statut épinglé, trier par date (plus récent en premier)
+            return new Date(b.publish_date) - new Date(a.publish_date);
+        });
+    }
+
+    async refreshNews() {
+        // Vider les news actuelles
+        let newsElement = document.querySelector('.news-list');
+        newsElement.innerHTML = '';
+        
+        // Recharger les news avec le filtre
+        await this.news();
     }
 }
 export default Home;

@@ -27,6 +27,24 @@ class Config {
         let urlInstance = `${url}/files`
         let instances = await nodeFetch(urlInstance).then(res => res.json()).catch(err => err)
         let instancesList = []
+        
+        // Ajouter l'instance d'accueil par défaut en premier
+        instancesList.push({
+            name: "Accueil",
+            status: { ip: "serveur.haiko.fr", port: 25565, nameServer: "Accueil" },
+            whitelistActive: false,
+            whitelist: [],
+            url: null,
+            loadder: {
+                minecraft_version: "1.21",
+                loadder_type: "none",
+                loadder_version: null
+            },
+            verify: false,
+            ignored: [],
+            isWelcome: true // Flag pour identifier l'instance d'accueil
+        })
+        
         instances = Object.entries(instances)
 
         for (let [name, data] of instances) {
