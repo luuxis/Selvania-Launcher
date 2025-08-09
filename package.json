@@ -23,7 +23,6 @@
     },
     "dependencies": {
         "electron-updater": "^6.1.8",
-        "Haiko-Launcher": "file:",
         "minecraft-java-core": "^3.10.4",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
