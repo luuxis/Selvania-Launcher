@@ -89,8 +89,6 @@ npm run icon
 
 Ce projet est un fork de [Selvania-Launcher](https://github.com/luuxis/Selvania-Launcher) par luuxis.
 
-Développé avec ❤️ pour la communauté Haiko.
-
 ## 📄 Licence
 
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](https://github.com/FurTorie/Haiko-Launcher/blob/master/LICENSE.md) pour plus de détails.
