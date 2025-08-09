@@ -1,4 +1,4 @@
-<p align="center"><img src="./src/assets/images/icon.png" alt="icon-launcher" width="128"></p>
+<p align="center"><img src="../src/assets/images/icon.png" alt="icon-launcher" width="128"></p>
 
 <h1 align="center">Haiko-Launcher</h1>
 
