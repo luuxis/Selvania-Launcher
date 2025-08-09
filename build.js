@@ -120,7 +120,7 @@ class Index {
                         { x: 410, y: 220, type: 'link', path: '/Applications' }
                     ],
                     artifactName: "${productName}-mac-${arch}.${ext}",
-                    format: "APFS"
+                    format: "ULFO"
                 },
                 linux: {
                     icon: "./app/assets/images/icon.png",
