@@ -35,7 +35,7 @@ class Home {
                 blockNews.classList.add('news-block');
                 blockNews.innerHTML = `
                     <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/icon.png">
+                        <img class="server-status-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+">
                         <div class="header-text">
                             <div class="title">Aucun news n'ai actuellement disponible.</div>
                         </div>
@@ -59,10 +59,11 @@ class Home {
                     if (News.pinned) {
                         blockNews.classList.add('pinned-news');
                     }
+                    let newsLogo = this.getNewsLogo(News)
                     blockNews.innerHTML = `
                         <div class="news-header">
                             ${News.pinned ? '<div class="pin-indicator"><div class="pin-icon">📌</div></div>' : ''}
-                            <img class="server-status-icon" src="assets/images/icon.png">
+                            <img class="server-status-icon" src="${newsLogo}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+'">
                             <div class="header-text">
                                 <div class="title">${News.title}</div>
                             </div>
@@ -86,7 +87,7 @@ class Home {
             blockNews.classList.add('news-block');
             blockNews.innerHTML = `
                 <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/icon.png">
+                        <img class="server-status-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+">
                         <div class="header-text">
                             <div class="title">Error.</div>
                         </div>
@@ -437,15 +438,35 @@ class Home {
             // Force un redraw immédiat
             instanceNameElement.offsetHeight;
         }
+        // Mettre à jour l'icône du status serveur
+        this.updateServerStatusIcon(instanceSelect)
+    }
+
+    updateServerStatusIcon(instanceSelect) {
+        let statusIcon = document.querySelector('.server-status-icon')
+        if (statusIcon && this.instancesList) {
+            let instance = this.instancesList.find(i => i.name == instanceSelect)
+            if (instance && instance.logo) {
+                statusIcon.src = instance.logo
+                statusIcon.onerror = function() {
+                    this.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+"
+                }
+            } else {
+                // Fallback vers logo maison moderne
+                statusIcon.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+"
+            }
+        }
     }
 
     filterNewsByInstance(allNews) {
         if (!allNews || !Array.isArray(allNews)) return allNews;
         
         let currentInstance = this.currentInstance || 'Accueil';
+        console.log('Filtering news for instance:', currentInstance);
         
         // Filtrer les news selon l'instance
         let filteredNews = allNews.filter(newsItem => {
+            console.log('News item instance:', newsItem.instance, 'Current:', currentInstance);
             // Si la news a un champ instance
             if (newsItem.instance) {
                 // Si c'est global, toujours afficher
@@ -456,8 +477,8 @@ class Home {
                     return newsItem.instance.includes(currentInstance);
                 }
                 
-                // Si c'est une string, vérifier l'égalité
-                return newsItem.instance === currentInstance;
+                // Si c'est une string, vérifier l'égalité (case-insensitive pour compatibilité)
+                return newsItem.instance.toLowerCase() === currentInstance.toLowerCase();
             }
             
             // Si pas de champ instance, c'est pour l'Accueil uniquement
@@ -473,6 +494,39 @@ class Home {
             // Si même statut épinglé, trier par date (plus récent en premier)
             return new Date(b.publish_date) - new Date(a.publish_date);
         });
+    }
+
+    getNewsLogo(newsItem) {
+        // Logo maison par défaut
+        const houseLogo = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+"
+        
+        // Si pas de champ instance ou si c'est pour l'Accueil → logo maison
+        if (!newsItem.instance || newsItem.instance === 'Accueil') {
+            return houseLogo
+        }
+        
+        // Si c'est global → logo maison
+        if (newsItem.instance === 'global') {
+            return houseLogo
+        }
+        
+        // Si c'est un tableau (multi-instances) → logo maison
+        if (Array.isArray(newsItem.instance)) {
+            return houseLogo
+        }
+        
+        // Si c'est une instance spécifique, chercher son logo
+        if (typeof newsItem.instance === 'string' && this.instancesList) {
+            let instance = this.instancesList.find(i => 
+                i.name.toLowerCase() === newsItem.instance.toLowerCase()
+            )
+            if (instance && instance.logo) {
+                return instance.logo
+            }
+        }
+        
+        // Fallback vers logo maison
+        return houseLogo
     }
 
     async refreshNews() {

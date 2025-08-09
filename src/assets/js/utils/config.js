@@ -42,7 +42,8 @@ class Config {
             },
             verify: false,
             ignored: [],
-            isWelcome: true // Flag pour identifier l'instance d'accueil
+            isWelcome: true, // Flag pour identifier l'instance d'accueil
+            logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+" // Logo maison moderne en base64 SVG
         })
         
         instances = Object.entries(instances)
@@ -50,6 +51,12 @@ class Config {
         for (let [name, data] of instances) {
             let instance = data
             instance.name = name
+            // Récupérer le logo depuis le status, sinon utiliser le logo maison par défaut
+            if (instance.status && instance.status.logo) {
+                instance.logo = instance.status.logo
+            } else if (!instance.logo) {
+                instance.logo = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM0YzZlZjUiIHN0cm9rZT0iIzM3NTNkYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Im0yMCAyOCAxMi04IDEyIDh2MjBIMzZ2LTloLTh2OUgyMFYyOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+"
+            }
             instancesList.push(instance)
         }
         return instancesList

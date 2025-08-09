@@ -492,6 +492,7 @@
     margin: 0.5rem 0;
     font-size: 1.5rem;
     cursor: pointer;
+    padding: 0.8rem 1.2rem;
 }
 
 .instance-elements:hover {
@@ -511,3 +512,4 @@
 .play-instance.welcome-disabled .play-btn {
     cursor: not-allowed !important;
 }
+
