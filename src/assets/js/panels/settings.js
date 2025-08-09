@@ -3,7 +3,7 @@
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
-import { changePanel, accountSelect, database, Slider, config, setStatus, popup, appdata, setBackground } from '../utils.js'
+import { changePanel, accountSelect, database, Slider, config, setStatus, popup, appdata, setBackground, addAccount } from '../utils.js'
 const { ipcRenderer } = require('electron');
 const os = require('os');
 
@@ -46,38 +46,102 @@ class Settings {
         })
     }
 
-    accounts() {
-        document.querySelector('.accounts-list').addEventListener('click', async e => {
+    async accounts() {
+        // Charger et afficher les comptes existants avec leurs types
+        await this.loadExistingAccounts();
+        
+        // Éviter de créer plusieurs gestionnaires d'événements
+        let accountsList = document.querySelector('.accounts-list');
+        if (accountsList.hasAttribute('data-event-attached')) {
+            console.log('Event listener already attached to accounts-list');
+            return;
+        }
+        
+        console.log('Attaching event listener to accounts-list');
+        accountsList.setAttribute('data-event-attached', 'true');
+        accountsList.addEventListener('click', async e => {
+            console.log('Click detected on accounts-list', e.target, e.target.id, e.target.classList);
             let popupAccount = new popup()
             try {
-                let id = e.target.id
-                if (e.target.classList.contains('account')) {
-                    popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
-                        color: 'var(--color)'
-                    })
-
-                    if (id == 'add') {
-                        document.querySelector('.cancel-home').style.display = 'inline'
-                        return changePanel('login')
+                // Trouve l'élément account le plus proche
+                let accountElement = e.target.closest('.account');
+                if (!accountElement) return;
+                
+                let id = accountElement.id;
+                console.log('Account element found:', id);
+                
+                // Gestion spécifique pour le bouton ajouter
+                if (id === 'add') {
+                    console.log('=== ADD BUTTON CLICKED ===');
+                    console.log('STEP 1: Starting add account process');
+                    
+                    // NETTOYER COMPLÈTEMENT et marquer qu'on vient des paramètres
+                    try {
+                        console.log('STEP 2: Reading current config');
+                        let configClient = await this.db.readData('configClient');
+                        console.log('STEP 3: Current configClient before cleaning:', JSON.stringify(configClient, null, 2));
+                        if (!configClient) {
+                            configClient = {};
+                            console.log('STEP 3.1: ConfigClient was null, created empty object');
+                        }
+                        
+                        console.log('STEP 4: Cleaning auth modes');
+                        // FORCER le nettoyage complet de tous les modes d'auth
+                        delete configClient.temp_auth_mode;
+                        if (configClient.launcher_config) {
+                            delete configClient.launcher_config.authMode;
+                            delete configClient.launcher_config.last_auth_mode;
+                        }
+                        
+                        // Marquer qu'on vient des paramètres  
+                        console.log('STEP 5: Setting coming_from_settings flag');
+                        configClient.coming_from_settings = true;
+                        
+                        console.log('STEP 6: Cleaned configClient:', JSON.stringify(configClient, null, 2));
+                        console.log('STEP 7: Updating database with cleaned config');
+                        await this.db.updateData('configClient', configClient);
+                        
+                        console.log('STEP 8: Verifying config was saved');
+                        let verifyConfig = await this.db.readData('configClient');
+                        console.log('STEP 8.1: Verified configClient after save:', JSON.stringify(verifyConfig, null, 2));
+                        
+                        console.log('STEP 9: Calling changePanel(login)');
+                        changePanel('login');
+                        console.log('STEP 10: changePanel(login) completed');
+                        
+                        console.log('STEP 11: Forcing showMethodChoice call');
+                        // FORCER l'appel de showMethodChoice car changePanel n'appelle pas init()
+                        if (window.loginPanelInstance) {
+                            console.log('STEP 11.1: Found global login instance, calling showMethodChoice');
+                            // Petit délai pour laisser le temps au changePanel de s'exécuter
+                            setTimeout(async () => {
+                                await window.loginPanelInstance.showMethodChoice();
+                                console.log('STEP 11.2: showMethodChoice forced call completed');
+                            }, 50);
+                        } else {
+                            console.log('STEP 11.1: No global login instance found');
+                        }
+                    } catch (error) {
+                        console.error('ERROR in add account process:', error);
+                        console.log('FALLBACK: calling changePanel(login) anyway');
+                        changePanel('login');
                     }
-
-                    let account = await this.db.readData('accounts', id);
-                    let configClient = await this.setInstance(account);
-                    await accountSelect(account);
-                    configClient.account_selected = account.ID;
-                    return await this.db.updateData('configClient', configClient);
+                    return;
                 }
-
-                if (e.target.classList.contains("delete-profile")) {
+                
+                // Gestion du bouton supprimer
+                if (e.target.classList.contains("delete-profile") || e.target.classList.contains("delete-profile-icon")) {
+                    // Pour les boutons de suppression, on prend l'ID depuis l'attribut ou depuis l'élément parent
+                    let deleteId = e.target.id || e.target.closest('.delete-profile').id;
+                    console.log('Delete button clicked for account:', deleteId);
+                    
                     popupAccount.openPopup({
                         title: 'Connexion',
                         content: 'Veuillez patienter...',
                         color: 'var(--color)'
                     })
-                    await this.db.deleteData('accounts', id);
-                    let deleteProfile = document.getElementById(`${id}`);
+                    await this.db.deleteData('accounts', deleteId);
+                    let deleteProfile = document.getElementById(`${deleteId}`);
                     let accountListElement = document.querySelector('.accounts-list');
                     accountListElement.removeChild(deleteProfile);
 
@@ -85,7 +149,7 @@ class Settings {
 
                     let configClient = await this.db.readData('configClient');
 
-                    if (configClient.account_selected == id) {
+                    if (configClient.account_selected == deleteId) {
                         let allAccounts = await this.db.readAllData('accounts');
                         configClient.account_selected = allAccounts[0].ID
                         accountSelect(allAccounts[0]);
@@ -93,7 +157,24 @@ class Settings {
                         configClient.instance_selct = newInstanceSelect.instance_selct
                         return await this.db.updateData('configClient', configClient);
                     }
+                    return;
                 }
+                
+                // Gestion de la sélection d'un compte existant
+                if (accountElement.classList.contains('account')) {
+                    popupAccount.openPopup({
+                        title: 'Connexion',
+                        content: 'Veuillez patienter...',
+                        color: 'var(--color)'
+                    });
+
+                    let account = await this.db.readData('accounts', id);
+                    let configClient = await this.setInstance(account);
+                    await accountSelect(account);
+                    configClient.account_selected = account.ID;
+                    return await this.db.updateData('configClient', configClient);
+                }
+                
             } catch (err) {
                 console.error(err)
             } finally {
@@ -323,5 +404,41 @@ class Settings {
             }
         })
     }
+
+    
+    async loadExistingAccounts() {
+        try {
+            let allAccounts = await this.db.readAllData('accounts');
+            if (allAccounts && allAccounts.length > 0) {
+                console.log(`Loading ${allAccounts.length} accounts from database`);
+                
+                // Nettoyer la liste actuelle (sauf le bouton ajouter)
+                let accountsList = document.querySelector('.accounts-list');
+                let addButton = accountsList.querySelector('#add');
+                
+                // Conserver seulement le bouton ajouter
+                accountsList.innerHTML = '';
+                accountsList.appendChild(addButton);
+                
+                // Ajouter chaque compte avec son indicateur
+                for (let account of allAccounts) {
+                    // Mettre à jour le type si nécessaire
+                    if (!account.account_type) {
+                        account.account_type = (account.type === 'offline' || account.meta?.online === false) ? 'crack' : 'premium';
+                        await this.db.updateData('accounts', account, account.ID);
+                    }
+                    console.log(`Adding account to DOM: ${account.name} (${account.ID})`);
+                    await addAccount(account);
+                }
+                
+                console.log(`Successfully loaded ${allAccounts.length} accounts with types`);
+            } else {
+                console.log('No accounts found in database');
+            }
+        } catch (error) {
+            console.error('Error loading existing accounts:', error);
+        }
+    }
+
 }
 export default Settings;

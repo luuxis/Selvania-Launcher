@@ -50,15 +50,95 @@ async function appdata() {
 }
 
 async function addAccount(data) {
+    // Vérifier si le compte existe déjà dans le DOM
+    let existingAccount = document.getElementById(data.ID);
+    if (existingAccount) {
+        console.log('Account already exists in DOM, updating:', data.ID);
+        // Mettre à jour le compte existant au lieu de créer un doublon
+        let skin = false
+        if (data?.profile?.skins[0]?.base64) skin = await new skin2D().creatHeadTexture(data.profile.skins[0].base64);
+        
+        // Même logique de détermination pour les comptes existants
+        let accountType = data.account_type;
+        if (!accountType) {
+            if (data.original_auth_method === 'crack' || data.auth_source === 'offline' || data.type === 'offline') {
+                accountType = 'crack';
+            } else if (data.original_auth_method === 'premium' || data.auth_source === 'microsoft' || data.auth_source === 'azauth') {
+                accountType = 'premium';
+            } else {
+                accountType = data.type === 'offline' ? 'crack' : 'premium';
+            }
+            console.log(`Updated account type for existing ${data.name}: ${accountType}`);
+        }
+        
+        // Afficher seulement l'indicateur de source (plus clair et moins encombrant)
+        let authSourceIndicator = '';
+        if (data.auth_source) {
+            if (data.auth_source === 'offline') {
+                authSourceIndicator = ' (Hors-ligne)';
+            } else if (data.auth_source === 'microsoft') {
+                authSourceIndicator = ' (Microsoft)';
+            } else if (data.auth_source === 'azauth') {
+                authSourceIndicator = ' (AZauth)';
+            }
+        }
+        
+        existingAccount.innerHTML = `
+            <div class="profile-image" ${skin ? 'style="background-image: url(' + skin + ');"' : ''}></div>
+            <div class="profile-infos">
+                <div class="profile-pseudo">
+                    <span>${data.name}${authSourceIndicator}</span>
+                </div>
+                <div class="profile-uuid">${data.uuid}</div>
+            </div>
+            <div class="delete-profile" id="${data.ID}">
+                <div class="icon-account-delete delete-profile-icon"></div>
+            </div>
+        `;
+        return existingAccount;
+    }
+    
+    console.log('Creating new account in DOM:', data.ID);
     let skin = false
     if (data?.profile?.skins[0]?.base64) skin = await new skin2D().creatHeadTexture(data.profile.skins[0].base64);
+    
+    // Déterminer le type de compte pour l'indicateur visuel avec priorité sur les nouveaux tags
+    let accountType = data.account_type;
+    
+    // Si pas de account_type défini, utiliser l'ancien système mais avec les nouveaux tags
+    if (!accountType) {
+        if (data.original_auth_method === 'crack' || data.auth_source === 'offline' || data.type === 'offline') {
+            accountType = 'crack';
+        } else if (data.original_auth_method === 'premium' || data.auth_source === 'microsoft' || data.auth_source === 'azauth') {
+            accountType = 'premium';
+        } else {
+            // Fallback sur l'ancien système
+            accountType = data.type === 'offline' ? 'crack' : 'premium';
+        }
+        console.log(`Determined account type for ${data.name}: ${accountType} (based on auth_source: ${data.auth_source}, original_auth_method: ${data.original_auth_method})`);
+    }
+    
+    // Afficher seulement l'indicateur de source (plus clair et moins encombrant)
+    let authSourceIndicator = '';
+    if (data.auth_source) {
+        if (data.auth_source === 'offline') {
+            authSourceIndicator = ' (Hors-ligne)';
+        } else if (data.auth_source === 'microsoft') {
+            authSourceIndicator = ' (Microsoft)';
+        } else if (data.auth_source === 'azauth') {
+            authSourceIndicator = ' (AZauth)';
+        }
+    }
+    
     let div = document.createElement("div");
     div.classList.add("account");
     div.id = data.ID;
     div.innerHTML = `
         <div class="profile-image" ${skin ? 'style="background-image: url(' + skin + ');"' : ''}></div>
         <div class="profile-infos">
-            <div class="profile-pseudo">${data.name}</div>
+            <div class="profile-pseudo">
+                <span>${data.name}${authSourceIndicator}</span>
+            </div>
             <div class="profile-uuid">${data.uuid}</div>
         </div>
         <div class="delete-profile" id="${data.ID}">

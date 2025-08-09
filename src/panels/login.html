@@ -1,10 +1,28 @@
 <div class="container">
+    <!-- Interface de choix de méthode de connexion -->
+    <div class="login-choice login-tabs">
+        <div class="login-text">Comment souhaitez-vous vous connecter ?</div>
+        <div class="connection-methods">
+            <div class="method-card method-crack" id="choose-crack">
+                <div class="method-icon">💻</div>
+                <div class="method-title">Compte Crack</div>
+                <div class="method-description">Connexion avec pseudo uniquement</div>
+            </div>
+            <div class="method-card method-premium" id="choose-premium">
+                <div class="method-icon">✅</div>
+                <div class="method-title">Compte Premium</div>
+                <div class="method-description">Compte Microsoft/Mojang officiel</div>
+            </div>
+        </div>
+        <button class="cancel cancel-home" id="cancel-choice" style="display: none;">Retour</button>
+    </div>
+
     <div class="login-home login-tabs">
         <div class="login-text">Veuillez vous identifier afin de jouer.</div>
 
         <div class="login-options">
             <button class="connect connect-home">Connexion</button>
-            <button class="cancel cancel-home"  style="display: none;">annuler</button>
+            <button class="cancel cancel-home" id="cancel-microsoft" style="display: none;">annuler</button>
         </div>
     </div>
 
@@ -17,7 +35,7 @@
 
         <div class="login-options">
             <button class="connect connect-offline">Connexion</button>
-            <button class="cancel cancel-offline" style="display: none;">annuler</button>
+            <button class="cancel cancel-offline">Retour</button>
         </div>
     </div>
 

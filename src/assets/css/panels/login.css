@@ -14,6 +14,7 @@
     min-width: 40%;
 }
 
+.login-choice,
 .login-home,
 .login-offline,
 .login-AZauth,
@@ -47,4 +48,66 @@
     width: 50%;
     padding: 0.4rem 1rem;
     margin-top: 10px;
+}
+
+/* Styles pour la page de choix de méthode de connexion */
+.connection-methods {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.method-card {
+    background: var(--background-element);
+    border: 2px solid var(--element-color);
+    border-radius: 15px;
+    padding: 25px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.method-crack {
+    border-color: #e74c3c;
+}
+
+.method-crack:hover {
+    border-color: #c0392b;
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+}
+
+.method-premium {
+    border-color: #27ae60;
+}
+
+.method-premium:hover {
+    border-color: #229954;
+    box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4);
+}
+
+.method-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.method-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color);
+    margin-bottom: 10px;
+}
+
+.method-description {
+    font-size: 0.9rem;
+    color: var(--color);
+    opacity: 0.8;
+    line-height: 1.4;
 }

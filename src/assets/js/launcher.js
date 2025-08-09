@@ -122,7 +122,14 @@ class Launcher {
             div.classList.add('panel', panel.id)
             div.innerHTML = fs.readFileSync(`${__dirname}/panels/${panel.id}.html`, 'utf8');
             panelsElem.appendChild(div);
-            new panel().init(this.config);
+            let instance = new panel();
+            instance.init(this.config);
+            
+            // Stocker l'instance globalement pour y accéder depuis d'autres panels
+            if (panel.id === 'login') {
+                window.loginPanelInstance = instance;
+                console.log('Stored login panel instance globally');
+            }
         }
     }
 
@@ -132,12 +139,49 @@ class Launcher {
         let account_selected = configClient ? configClient.account_selected : null
         let popupRefresh = new popup();
 
+        // NETTOYER SEULEMENT les modes d'auth temporaires (PAS le flag coming_from_settings)
+        if (configClient) {
+            delete configClient.temp_auth_mode;
+            // NE PAS supprimer coming_from_settings ici car il est nécessaire pour la navigation
+            if (configClient.launcher_config) {
+                delete configClient.launcher_config.authMode;
+                delete configClient.launcher_config.last_auth_mode;
+            }
+            await this.db.updateData('configClient', configClient);
+            console.log('Cleaned temp auth modes on launcher startup (preserved coming_from_settings)');
+        }
+
         if (accounts?.length) {
             for (let account of accounts) {
                 let account_ID = account.ID
                 if (account.error) {
                     await this.db.deleteData('accounts', account_ID)
                     continue
+                }
+                
+                // Ajouter le type de compte SEULEMENT s'il n'existe pas ET qu'il n'y a pas de tag permanent
+                if (!account.account_type && !account.original_auth_method) {
+                    // Utiliser la logique améliorée qui respecte les nouveaux tags
+                    if (account.auth_source === 'offline' || account.type === 'offline' || account.meta?.online === false) {
+                        account.account_type = 'crack';
+                        account.auth_source = 'offline';
+                        account.original_auth_method = 'crack';
+                    } else if (account.auth_source === 'microsoft' || account.auth_source === 'azauth' || account.access_token || account.meta?.type === 'Xbox' || account.meta?.type === 'AZauth') {
+                        account.account_type = 'premium';
+                        account.auth_source = account.auth_source || (account.meta?.type === 'Xbox' ? 'microsoft' : 'azauth');
+                        account.original_auth_method = 'premium';
+                    } else {
+                        // Fallback sécurisé
+                        account.account_type = 'crack';
+                        account.auth_source = 'unknown';
+                        account.original_auth_method = 'crack';
+                    }
+                    await this.db.updateData('accounts', account, account_ID);
+                    console.log(`Set permanent tags for account ${account.name}: type=${account.account_type}, source=${account.auth_source}, method=${account.original_auth_method}`);
+                } else if (account.original_auth_method) {
+                    // Si des tags permanents existent, les respecter absolument
+                    account.account_type = account.original_auth_method === 'crack' ? 'crack' : 'premium';
+                    console.log(`Preserved permanent tags for account ${account.name}: type=${account.account_type} (from original_auth_method=${account.original_auth_method})`);
                 }
                 if (account.meta.type === 'Xbox') {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
@@ -160,7 +204,15 @@ class Launcher {
                         continue;
                     }
 
-                    refresh_accounts.ID = account_ID
+                    // PRÉSERVER les tags permanents lors du refresh Microsoft
+                    refresh_accounts.ID = account_ID;
+                    if (account.original_auth_method) {
+                        refresh_accounts.original_auth_method = account.original_auth_method;
+                        refresh_accounts.auth_source = account.auth_source;
+                        refresh_accounts.account_type = account.account_type;
+                        console.log(`Preserved permanent tags during Microsoft refresh: ${account.name} = ${account.account_type}`);
+                    }
+                    
                     await this.db.updateData('accounts', refresh_accounts, account_ID)
                     await addAccount(refresh_accounts)
                     if (account_ID == account_selected) accountSelect(refresh_accounts)
@@ -184,7 +236,15 @@ class Launcher {
                         continue;
                     }
 
-                    refresh_accounts.ID = account_ID
+                    // PRÉSERVER les tags permanents lors du refresh AZauth
+                    refresh_accounts.ID = account_ID;
+                    if (account.original_auth_method) {
+                        refresh_accounts.original_auth_method = account.original_auth_method;
+                        refresh_accounts.auth_source = account.auth_source;
+                        refresh_accounts.account_type = account.account_type;
+                        console.log(`Preserved permanent tags during AZauth refresh: ${account.name} = ${account.account_type}`);
+                    }
+                    
                     this.db.updateData('accounts', refresh_accounts, account_ID)
                     await addAccount(refresh_accounts)
                     if (account_ID == account_selected) accountSelect(refresh_accounts)
@@ -199,7 +259,15 @@ class Launcher {
                     if (account.meta.online == false) {
                         let refresh_accounts = await Mojang.login(account.name);
 
-                        refresh_accounts.ID = account_ID
+                        // PRÉSERVER les tags permanents lors du refresh
+                        refresh_accounts.ID = account_ID;
+                        if (account.original_auth_method) {
+                            refresh_accounts.original_auth_method = account.original_auth_method;
+                            refresh_accounts.auth_source = account.auth_source;
+                            refresh_accounts.account_type = account.account_type;
+                            console.log(`Preserved permanent tags during Mojang offline refresh: ${account.name} = ${account.account_type}`);
+                        }
+                        
                         await addAccount(refresh_accounts)
                         this.db.updateData('accounts', refresh_accounts, account_ID)
                         if (account_ID == account_selected) accountSelect(refresh_accounts)
@@ -218,7 +286,15 @@ class Launcher {
                         continue;
                     }
 
-                    refresh_accounts.ID = account_ID
+                    // PRÉSERVER les tags permanents lors du refresh Mojang
+                    refresh_accounts.ID = account_ID;
+                    if (account.original_auth_method) {
+                        refresh_accounts.original_auth_method = account.original_auth_method;
+                        refresh_accounts.auth_source = account.auth_source;
+                        refresh_accounts.account_type = account.account_type;
+                        console.log(`Preserved permanent tags during Mojang refresh: ${account.name} = ${account.account_type}`);
+                    }
+                    
                     this.db.updateData('accounts', refresh_accounts, account_ID)
                     await addAccount(refresh_accounts)
                     if (account_ID == account_selected) accountSelect(refresh_accounts)

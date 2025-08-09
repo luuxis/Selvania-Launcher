@@ -172,12 +172,15 @@
 }
 
 .profile-pseudo {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     font-size: 1.5rem;
     pointer-events: none;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    line-height: 1.2;
+    min-height: 1.8rem;
 }
 
 .profile-uuid {
@@ -410,4 +413,44 @@
 
 .active-close {
     border: 4px solid var(--element-color);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Auth mode section                                                           *
+ *                                                                             *
+ ******************************************************************************/
+
+.auth-mode-btn {
+    font-size: 0.95rem;
+    width: 150px;
+    text-align: center;
+    border: 4px solid var(--color);
+    border-radius: 15px;
+    padding: 1rem;
+    cursor: pointer;
+    margin: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-mode-btn:hover {
+    background-color: var(--background-transparent);
+}
+
+.auth-mode-crack {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    border-color: #ff6b35;
+}
+
+.auth-mode-online {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border-color: #4CAF50;
+}
+
+.active-auth-mode {
+    border: 4px solid var(--element-color);
+    box-shadow: 0 0 15px rgba(var(--element-color-rgb), 0.5);
+    transform: scale(1.05);
 }
