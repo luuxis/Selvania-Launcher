@@ -408,7 +408,7 @@ class Settings {
 
     async backgroundUrl() {
         let configClient = await this.db.readData('configClient');
-        let backgroundUrl = configClient?.launcher_config?.background_url || '';
+        let backgroundUrl = configClient?.launcher_config?.background_url || 'https://i.imgur.com/6W316YN.mp4';
         
         let backgroundUrlInput = document.querySelector(".background-url-input");
         let backgroundUrlReset = document.querySelector(".background-url-reset");
@@ -419,52 +419,123 @@ class Settings {
         // Fonction pour valider et appliquer l'URL
         const applyBackgroundUrl = async (url) => {
             if (url && url.trim()) {
-                // Valider que l'URL est une image
-                const validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+                // Valider que l'URL est une image ou vidéo
+                const validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4'];
                 const urlLower = url.toLowerCase();
-                const isValidImage = validExtensions.some(ext => urlLower.includes(ext)) || 
+                const isValidMedia = validExtensions.some(ext => urlLower.includes(ext)) || 
                                    urlLower.includes('imgur.com') || 
                                    urlLower.includes('giphy.com') ||
                                    urlLower.includes('tenor.com');
                 
-                if (isValidImage) {
+                if (isValidMedia) {
                     try {
-                        // Tester si l'image peut être chargée
-                        const img = new Image();
-                        img.crossOrigin = 'anonymous';
+                        // Déterminer si c'est une vidéo ou une image
+                        const isVideo = urlLower.includes('.mp4');
                         
-                        return new Promise((resolve, reject) => {
-                            img.onload = async () => {
-                                // Appliquer le fond d'écran
-                                document.body.style.backgroundImage = `url("${url}")`;
-                                document.body.style.backgroundSize = 'cover';
-                                document.body.style.backgroundPosition = 'center';
-                                document.body.style.backgroundRepeat = 'no-repeat';
-                                document.body.style.backgroundAttachment = 'fixed';
+                        if (isVideo) {
+                            // Pour les vidéos MP4
+                            return new Promise((resolve, reject) => {
+                                const testVideo = document.createElement('video');
+                                testVideo.crossOrigin = 'anonymous';
+                                testVideo.preload = 'metadata';
                                 
-                                // Sauvegarder en base
-                                let configClient = await this.db.readData('configClient');
-                                if (!configClient.launcher_config) configClient.launcher_config = {};
-                                configClient.launcher_config.background_url = url;
-                                await this.db.updateData('configClient', configClient);
+                                testVideo.onloadedmetadata = async () => {
+                                    // Supprimer toute vidéo de fond existante
+                                    const existingVideo = document.querySelector('.background-video');
+                                    if (existingVideo) {
+                                        existingVideo.remove();
+                                    }
+                                    
+                                    // Créer l'élément vidéo de fond
+                                    const videoElement = document.createElement('video');
+                                    videoElement.src = url;
+                                    videoElement.loop = true;
+                                    videoElement.muted = true;
+                                    videoElement.autoplay = true;
+                                    videoElement.playsInline = true;
+                                    videoElement.classList.add('background-video');
+                                    
+                                    // Styles pour la vidéo de fond
+                                    videoElement.style.cssText = `
+                                        position: fixed;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        z-index: -1;
+                                        pointer-events: none;
+                                    `;
+                                    
+                                    // Supprimer le fond d'image s'il existe
+                                    document.body.style.backgroundImage = '';
+                                    
+                                    // Ajouter la vidéo au body
+                                    document.body.appendChild(videoElement);
+                                    
+                                    // Sauvegarder en base
+                                    let configClient = await this.db.readData('configClient');
+                                    if (!configClient.launcher_config) configClient.launcher_config = {};
+                                    configClient.launcher_config.background_url = url;
+                                    await this.db.updateData('configClient', configClient);
+                                    
+                                    resolve(true);
+                                };
                                 
-                                resolve(true);
-                            };
+                                testVideo.onerror = () => {
+                                    reject(new Error('Impossible de charger la vidéo'));
+                                };
+                                
+                                testVideo.src = url;
+                            });
+                        } else {
+                            // Pour les images (code existant)
+                            const img = new Image();
+                            img.crossOrigin = 'anonymous';
                             
-                            img.onerror = () => {
-                                reject(new Error('Impossible de charger l\'image'));
-                            };
-                            
-                            img.src = url;
-                        });
+                            return new Promise((resolve, reject) => {
+                                img.onload = async () => {
+                                    // Supprimer toute vidéo de fond existante
+                                    const existingVideo = document.querySelector('.background-video');
+                                    if (existingVideo) {
+                                        existingVideo.remove();
+                                    }
+                                    
+                                    // Appliquer le fond d'écran image
+                                    document.body.style.backgroundImage = `url("${url}")`;
+                                    document.body.style.backgroundSize = 'cover';
+                                    document.body.style.backgroundPosition = 'center';
+                                    document.body.style.backgroundRepeat = 'no-repeat';
+                                    document.body.style.backgroundAttachment = 'fixed';
+                                    
+                                    // Sauvegarder en base
+                                    let configClient = await this.db.readData('configClient');
+                                    if (!configClient.launcher_config) configClient.launcher_config = {};
+                                    configClient.launcher_config.background_url = url;
+                                    await this.db.updateData('configClient', configClient);
+                                    
+                                    resolve(true);
+                                };
+                                
+                                img.onerror = () => {
+                                    reject(new Error('Impossible de charger l\'image'));
+                                };
+                                
+                                img.src = url;
+                            });
+                        }
                     } catch (error) {
-                        throw new Error('URL d\'image invalide');
+                        throw new Error('URL de média invalide');
                     }
                 } else {
-                    throw new Error('Format d\'image non supporté (JPG, PNG, GIF, WEBP uniquement)');
+                    throw new Error('Format non supporté (JPG, PNG, GIF, WEBP, MP4 uniquement)');
                 }
             } else {
                 // Réinitialiser au fond par défaut
+                const existingVideo = document.querySelector('.background-video');
+                if (existingVideo) {
+                    existingVideo.remove();
+                }
                 document.body.style.backgroundImage = '';
                 let configClient = await this.db.readData('configClient');
                 if (!configClient.launcher_config) configClient.launcher_config = {};
@@ -530,9 +601,9 @@ class Settings {
 
         // Bouton réinitialiser
         backgroundUrlReset.addEventListener("click", async () => {
-            backgroundUrlInput.value = '';
-            await applyBackgroundUrl('');
-            backgroundUrl = '';
+            backgroundUrlInput.value = 'https://i.imgur.com/6W316YN.mp4';
+            await applyBackgroundUrl('https://i.imgur.com/6W316YN.mp4');
+            backgroundUrl = 'https://i.imgur.com/6W316YN.mp4';
         });
     }
 

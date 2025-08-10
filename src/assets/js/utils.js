@@ -27,11 +27,51 @@ async function setBackground(theme) {
         if (customBackgroundUrl && customBackgroundUrl.trim()) {
             let body = document.body;
             body.className = theme ? 'dark global' : 'light global';
-            body.style.backgroundImage = `url("${customBackgroundUrl}")`;
-            body.style.backgroundSize = 'cover';
-            body.style.backgroundPosition = 'center';
-            body.style.backgroundRepeat = 'no-repeat';
-            body.style.backgroundAttachment = 'fixed';
+            
+            // Déterminer si c'est une vidéo ou une image
+            const isVideo = customBackgroundUrl.toLowerCase().includes('.mp4');
+            
+            if (isVideo) {
+                // Supprimer toute vidéo de fond existante
+                const existingVideo = document.querySelector('.background-video');
+                if (existingVideo) {
+                    existingVideo.remove();
+                }
+                
+                // Créer l'élément vidéo de fond
+                const videoElement = document.createElement('video');
+                videoElement.src = customBackgroundUrl;
+                videoElement.loop = true;
+                videoElement.muted = true;
+                videoElement.autoplay = true;
+                videoElement.playsInline = true;
+                videoElement.classList.add('background-video');
+                
+                // Styles pour la vidéo de fond
+                videoElement.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: -1;
+                    pointer-events: none;
+                `;
+                
+                // Supprimer le fond d'image s'il existe
+                body.style.backgroundImage = '';
+                
+                // Ajouter la vidéo au body
+                body.appendChild(videoElement);
+            } else {
+                // Pour les images
+                body.style.backgroundImage = `url("${customBackgroundUrl}")`;
+                body.style.backgroundSize = 'cover';
+                body.style.backgroundPosition = 'center';
+                body.style.backgroundRepeat = 'no-repeat';
+                body.style.backgroundAttachment = 'fixed';
+            }
             return;
         }
     }
