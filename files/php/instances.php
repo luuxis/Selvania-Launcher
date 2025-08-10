@@ -1,5 +1,5 @@
 <?php
-$instance['test'] = array_merge($instance['test'], array(
+$instance['zoneatlas'] = array_merge($instance['zoneatlas'], array(
     "loadder" => array(
         "minecraft_version" => "1.12.2",
         "loadder_type" => "forge",
