@@ -22,7 +22,7 @@ $instance['zoneatlas'] = array_merge($instance['zoneatlas'], array(
     "whitelist" => array(),
     "whitelistActive" => false,
     "status" => array(
-        "nameServer" => "Hypixel",
+        "nameServer" => "Zone-Atlas",
         "ip" => "91.197.5.218",
         "port" => 27792
     )
