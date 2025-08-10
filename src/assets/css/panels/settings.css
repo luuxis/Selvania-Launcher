@@ -401,6 +401,32 @@
     border: 4px solid var(--element-color);
 }
 
+.background-url-input {
+    background: var(--shadow);
+    border: none;
+    color: var(--color);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    width: 60%;
+    margin-right: 1rem;
+}
+
+.background-url-btn {
+    padding: 0.5rem 1rem;
+    background: var(--element-color);
+    border-radius: 15px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: white;
+    text-align: center;
+    min-width: 80px;
+}
+
+.background-url-btn:hover {
+    background: var(--background-element);
+}
+
 .close-btn {
     font-size: 0.95rem;
     width: 200px;

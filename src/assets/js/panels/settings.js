@@ -18,6 +18,7 @@ class Settings {
         this.javaPath()
         this.resolution()
         this.launcher()
+        this.backgroundUrl()
     }
 
     navBTN() {
@@ -403,6 +404,136 @@ class Settings {
                 }
             }
         })
+    }
+
+    async backgroundUrl() {
+        let configClient = await this.db.readData('configClient');
+        let backgroundUrl = configClient?.launcher_config?.background_url || '';
+        
+        let backgroundUrlInput = document.querySelector(".background-url-input");
+        let backgroundUrlReset = document.querySelector(".background-url-reset");
+        let backgroundUrlPreview = document.querySelector(".background-url-preview");
+        
+        backgroundUrlInput.value = backgroundUrl;
+
+        // Fonction pour valider et appliquer l'URL
+        const applyBackgroundUrl = async (url) => {
+            if (url && url.trim()) {
+                // Valider que l'URL est une image
+                const validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+                const urlLower = url.toLowerCase();
+                const isValidImage = validExtensions.some(ext => urlLower.includes(ext)) || 
+                                   urlLower.includes('imgur.com') || 
+                                   urlLower.includes('giphy.com') ||
+                                   urlLower.includes('tenor.com');
+                
+                if (isValidImage) {
+                    try {
+                        // Tester si l'image peut être chargée
+                        const img = new Image();
+                        img.crossOrigin = 'anonymous';
+                        
+                        return new Promise((resolve, reject) => {
+                            img.onload = async () => {
+                                // Appliquer le fond d'écran
+                                document.body.style.backgroundImage = `url("${url}")`;
+                                document.body.style.backgroundSize = 'cover';
+                                document.body.style.backgroundPosition = 'center';
+                                document.body.style.backgroundRepeat = 'no-repeat';
+                                document.body.style.backgroundAttachment = 'fixed';
+                                
+                                // Sauvegarder en base
+                                let configClient = await this.db.readData('configClient');
+                                if (!configClient.launcher_config) configClient.launcher_config = {};
+                                configClient.launcher_config.background_url = url;
+                                await this.db.updateData('configClient', configClient);
+                                
+                                resolve(true);
+                            };
+                            
+                            img.onerror = () => {
+                                reject(new Error('Impossible de charger l\'image'));
+                            };
+                            
+                            img.src = url;
+                        });
+                    } catch (error) {
+                        throw new Error('URL d\'image invalide');
+                    }
+                } else {
+                    throw new Error('Format d\'image non supporté (JPG, PNG, GIF, WEBP uniquement)');
+                }
+            } else {
+                // Réinitialiser au fond par défaut
+                document.body.style.backgroundImage = '';
+                let configClient = await this.db.readData('configClient');
+                if (!configClient.launcher_config) configClient.launcher_config = {};
+                configClient.launcher_config.background_url = '';
+                await this.db.updateData('configClient', configClient);
+                
+                // Réappliquer le thème par défaut
+                await setBackground();
+                return true;
+            }
+        };
+
+        // Appliquer l'URL sauvegardée au chargement
+        if (backgroundUrl) {
+            try {
+                await applyBackgroundUrl(backgroundUrl);
+            } catch (error) {
+                console.log('Erreur lors du chargement du fond personnalisé:', error.message);
+            }
+        }
+
+        // Événement sur changement d'URL
+        backgroundUrlInput.addEventListener("blur", async () => {
+            const url = backgroundUrlInput.value.trim();
+            try {
+                await applyBackgroundUrl(url);
+            } catch (error) {
+                alert(error.message);
+                // Revenir à la valeur précédente
+                backgroundUrlInput.value = backgroundUrl;
+            }
+        });
+
+        // Événement sur Entrée
+        backgroundUrlInput.addEventListener("keypress", async (e) => {
+            if (e.key === 'Enter') {
+                const url = backgroundUrlInput.value.trim();
+                try {
+                    await applyBackgroundUrl(url);
+                    backgroundUrl = url; // Mettre à jour la valeur de référence
+                } catch (error) {
+                    alert(error.message);
+                    backgroundUrlInput.value = backgroundUrl;
+                }
+            }
+        });
+
+        // Bouton aperçu
+        backgroundUrlPreview.addEventListener("click", async () => {
+            const url = backgroundUrlInput.value.trim();
+            if (!url) {
+                alert('Veuillez entrer une URL d\'abord');
+                return;
+            }
+            
+            try {
+                await applyBackgroundUrl(url);
+                backgroundUrl = url; // Mettre à jour la valeur de référence
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Bouton réinitialiser
+        backgroundUrlReset.addEventListener("click", async () => {
+            backgroundUrlInput.value = '';
+            await applyBackgroundUrl('');
+            backgroundUrl = '';
+        });
     }
 
     

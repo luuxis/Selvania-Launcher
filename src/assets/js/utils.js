@@ -21,6 +21,19 @@ async function setBackground(theme) {
         let configClient = await databaseLauncher.readData('configClient');
         theme = configClient?.launcher_config?.theme || "auto"
         theme = await ipcRenderer.invoke('is-dark-theme', theme).then(res => res)
+        
+        // Vérifier s'il y a un fond d'écran personnalisé
+        let customBackgroundUrl = configClient?.launcher_config?.background_url;
+        if (customBackgroundUrl && customBackgroundUrl.trim()) {
+            let body = document.body;
+            body.className = theme ? 'dark global' : 'light global';
+            body.style.backgroundImage = `url("${customBackgroundUrl}")`;
+            body.style.backgroundSize = 'cover';
+            body.style.backgroundPosition = 'center';
+            body.style.backgroundRepeat = 'no-repeat';
+            body.style.backgroundAttachment = 'fixed';
+            return;
+        }
     }
     let background
     let body = document.body;
