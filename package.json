@@ -1,11 +1,11 @@
 {
-    "name": "Haiko-Launcher",
-    "preductname": "Haiko Launcher",
+    "name": "TheCity-Launcher",
+    "preductname": "TheCity Launcher",
     "version": "1.0.0",
-    "description": "Launcher Mincraft pour le serveur Haiko",
+    "description": "Launcher Mincraft pour le serveur TheCity",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, DorianCarriere, Inc.",
+        "name": "luuxis, DorianCarriere, Timeo37382 Inc.",
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
