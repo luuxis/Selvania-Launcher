@@ -1,7 +1,7 @@
 {
     "name": "Veloz-Launcher",
     "productname": "Veloz Launcher",
-    "version": "2.2.2",
+    "version": "1.0.1",
     "description": "Launcher Veloz",
     "main": "src/app.js",
     "author": {
